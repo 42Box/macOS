@@ -65,9 +65,19 @@
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="0Eg-2v-1FM"/>
                                         <menuItem title="macOS" id="tXI-mr-wws">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="macOS" systemMenu="recentDocuments" id="Esd-G5-c8t"/>
+                                            <menu key="submenu" title="macOS" systemMenu="recentDocuments" id="Esd-G5-c8t">
+                                                <items>
+                                                    <menuItem title="joonyoo" keyEquivalent="" id="hwt-x6-rkZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="performClose:" target="Ady-hI-5gd" id="Ley-Kc-OXk"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
                                         </menuItem>
                                         <menuItem title="chanheki" keyEquivalent="" id="Cuy-Nl-BcP" userLabel="chanheki">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -75,16 +85,16 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="1Tt-5s-XrR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="joonyoo" keyEquivalent="" id="hwt-x6-rkZ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="Ley-Kc-OXk"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="mPZ-Ur-4ou"/>
                                         <menuItem title="FrontEnd" id="hsX-Vi-S5Z">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="FrontEnd" systemMenu="recentDocuments" id="gtu-ph-jWu"/>
+                                        </menuItem>
+                                        <menuItem title="jisookim" keyEquivalent="" id="JlG-Kg-Yhp" userLabel="jisookim">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="4TL-VS-9HZ"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="siyang" keyEquivalent="" id="LhU-fy-Ps3" userLabel="siyang">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -92,16 +102,15 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="dl6-Ri-clo"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="joowpark" keyEquivalent="" id="OJl-mJ-i2d" userLabel="joowpark">
+                                        <menuItem isSeparatorItem="YES" id="nzp-H5-7bm"/>
+                                        <menuItem title="BackEnd" id="f87-XG-xBH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="BackEnd" systemMenu="recentDocuments" id="uuO-Tx-UHG"/>
+                                        </menuItem>
+                                        <menuItem title="joowpark" keyEquivalent="" id="OJl-mJ-i2d">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="BiS-n0-NEM"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="jisookim" keyEquivalent="" id="JlG-Kg-Yhp" userLabel="jisookim">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="4TL-VS-9HZ"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CFj-dI-A76"/>
@@ -124,84 +133,19 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="yeonhkim" keyEquivalent="" id="mcP-xP-VZQ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="Ysw-6Y-dsE"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="jisookim" keyEquivalent="" id="AXu-mO-oHK" userLabel="jisookim">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="hr3-7Q-hxx"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="yeonhkim" keyEquivalent="" id="mcP-xP-VZQ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="Ysw-6Y-dsE"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="View" id="H8h-7b-M4v">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="View" id="HyV-fh-RgO">
-                                    <items>
-                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="BXY-wc-z0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
-                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Window" id="aUF-d1-5bR">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
-                                    <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
-                                            <connections>
-                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
-                                            </connections>
-                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
