@@ -21,6 +21,7 @@
 		6450C9D329C33105001D429E /* MenubarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6450C9D229C33105001D429E /* MenubarView.swift */; };
 		64DF818A29C3B88B000B32F4 /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF818929C3B88B000B32F4 /* BoxView.swift */; };
 		64DF818C29C4AA85000B32F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DF818B29C4AA85000B32F4 /* Main.storyboard */; };
+		64DF818F29C61033000B32F4 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF818E29C61033000B32F4 /* WebViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		6450C9D229C33105001D429E /* MenubarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarView.swift; sourceTree = "<group>"; };
 		64DF818929C3B88B000B32F4 /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		64DF818B29C4AA85000B32F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		64DF818E29C61033000B32F4 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				6450C9C329C32A90001D429E /* WebViewController.swift */,
+				64DF818E29C61033000B32F4 /* WebViewModel.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DF818F29C61033000B32F4 /* WebViewModel.swift in Sources */,
 				6450C9D129C330C3001D429E /* MenubarController.swift in Sources */,
 				6450C9D329C33105001D429E /* MenubarView.swift in Sources */,
 				6450C9CF29C32E34001D429E /* BoxModel.swift in Sources */,
