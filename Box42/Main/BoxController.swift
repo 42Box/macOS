@@ -10,8 +10,9 @@ import AppKit
 import WebKit
 
 class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
-	let url = URLModel()
 	var ad = NSApplication.shared.delegate as? AppDelegate
+	let url = URLModel()
+	var wvc = WebViewController()
 	var topAnchorDistance: CGFloat = 0
 	
 	@IBOutlet var divider: NSBox!
@@ -28,8 +29,8 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 		buttonBoxGroupInit()
 		boxViewSizeInit()
 		webViewInit()
+		wvc.loadWebViewInit()
 		configureButton()
-		webViewLoad(url.URLdict["Box 42"]!)
 	}
 	
 	func createButton(_ title :String) {
@@ -118,8 +119,9 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 	
 	@objc
 	func clickBtn(sender: NSButton) {
-		webViewLoad(url.URLdict[sender.title]!)
-		print(url.URLdict[sender.title] ?? "not found url")
+		webView.removeFromSuperview()
+		hostingViewGroup.addSubview(WebViewList.shared.list[sender.title]!)
+		setAutoLayout(from: WebViewList.shared.list[sender.title]!, to: hostingViewGroup)
 	}
 	
 	@objc
@@ -149,27 +151,10 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 	}
 	
 	func webViewInit() {
-		let preferences = WKPreferences()
-		preferences.javaScriptEnabled = true
-		preferences.javaScriptCanOpenWindowsAutomatically = true
-		
-		let contentController = WKUserContentController()
-		contentController.add(self, name: "Boxing")
-		
-		let configuration = WKWebViewConfiguration()
-		configuration.preferences = preferences
-		configuration.userContentController = contentController
-		
-		webView = WKWebView(frame: hostingViewGroup.frame, configuration: configuration)
-		
-		webView.uiDelegate = self
-		webView.navigationDelegate = self
+		webView = wvc.addWebView()
 		hostingViewGroup.addSubview(webView)
 		setAutoLayout(from: webView, to: hostingViewGroup)
-	}
-	
-	func webViewLoad(_ rqurl: URL) {
-		let request = URLRequest(url: rqurl)
+		let request = URLRequest(url: url.URLdict["home"]!)
 		DispatchQueue.main.async {
 			self.webView.load(request)
 		}
@@ -201,3 +186,4 @@ extension BoxController {
 		return viewcontroller
 	}
 }
+
