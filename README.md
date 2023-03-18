@@ -1,6 +1,10 @@
 # macOS
 
-![opening_box](https://user-images.githubusercontent.com/85754295/226090362-d7be0df0-39dd-48e3-9d31-1f9fb9c033b0.png)
+<img src="https://user-images.githubusercontent.com/85754295/226090362-d7be0df0-39dd-48e3-9d31-1f9fb9c033b0.png" width="390" height="450"/>
+
+---
+
+## Directory
 
 ```
 DIR TREE
