@@ -10,7 +10,7 @@ import Foundation
 struct URLModel {
 	let URLdict: [String: URL] = [
 		"home": URL(string: "http://localhost:4242/")!,
-		"Box 42": URL(string: "http://localhost:4242/")!,
+		"Box 42": URL(string: "http://localhost:4242/box")!,
 		"Intra 42": URL(string: "https://intra.42.fr")!,
 		"Jiphyeonjeon" : URL(string:"https://42library.kr")!,
 		"24Hane": URL(string:"https://24hoursarenotenough.42seoul.kr")!,
@@ -22,7 +22,7 @@ struct URLModel {
 	
 	let URLstring: [(String, String)] = [
 		("home", "http://localhost:4242/"),
-		("Box 42", "http://localhost:4242/"),
+		("Box 42", "http://localhost:4242/box"),
 		("Intra 42", "https://intra.42.fr"),
 		("Jiphyeonjeon", "https://42library.kr"),
 		("24Hane", "https://24hoursarenotenough.42seoul.kr"),
