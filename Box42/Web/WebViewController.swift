@@ -6,14 +6,48 @@
 //
 
 import Cocoa
+import WebKit
 
-class WebViewController: NSViewController {
+class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
 	
-	@IBOutlet weak var webView: NSView!
+	func loadWebViewInit() {
+		for i in 0..<URLModel().URLstring.count {
+			let wkWebView = addWebView()
+			WebViewList.shared.list[URLModel().URLstring[i].0] = wkWebView
+			let rqURL = URLRequest(url: URLModel().URLdict[URLModel().URLstring[i].0]!)
+			DispatchQueue.main.async {
+				wkWebView.load(rqURL)
+			}
+		}
+	}
+	
+	func addWebView() -> WKWebView {
+		let preferences = WKPreferences()
+		preferences.javaScriptEnabled = true
+		preferences.javaScriptCanOpenWindowsAutomatically = true
+
+		let contentController = WKUserContentController()
+		contentController.add(self, name: "box")
+
+		let configuration = WKWebViewConfiguration()
+		configuration.preferences = preferences
+		configuration.userContentController = contentController
+
+		let webView = WKWebView(frame: .zero, configuration: configuration)
+
+		webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+		webView.configuration.preferences.javaScriptEnabled = true
+
+		webView.uiDelegate = self
+		webView.navigationDelegate = self
+		return webView
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 	}
 	
+	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+		print(message.name)
+	}
 }
