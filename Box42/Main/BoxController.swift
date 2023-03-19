@@ -35,11 +35,13 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 	
 	func createButton(_ title :String) {
 		let button = NSButton()
+		
 		button.title = title
 		button.setButtonType(.momentaryLight)
 		
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.action =  #selector(self.clickBtn(sender:))
+		
 		button.isBordered = true
 		button.bezelStyle = .roundRect
 		button.showsBorderOnlyWhileMouseInside = true
@@ -116,12 +118,28 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 		createQuitButton()
 		createPinButton()
 	}
+
+
+	@objc
+	func doubleClickBtn(sender: NSButton) {
+		WebViewList.shared.list[sender.title]!.reload()
+	}
 	
 	@objc
 	func clickBtn(sender: NSButton) {
-		webView.removeFromSuperview()
-		hostingViewGroup.addSubview(WebViewList.shared.list[sender.title]!)
-		setAutoLayout(from: WebViewList.shared.list[sender.title]!, to: hostingViewGroup)
+		guard let clickCount = NSApp.currentEvent?.clickCount else { return }
+		if clickCount == 2 {
+			WebViewList.shared.list[sender.title]!.reload()
+			print("Dobule Click")
+		} else if clickCount > 2{
+			let rqURL = URLRequest(url: URLModel().URLdict[sender.title]!)
+			WebViewList.shared.list[sender.title]!.load(rqURL)
+			print("Triple Click")
+		} else {
+			webView.removeFromSuperview()
+			hostingViewGroup.addSubview(WebViewList.shared.list[sender.title]!)
+			setAutoLayout(from: WebViewList.shared.list[sender.title]!, to: hostingViewGroup)
+		}
 	}
 	
 	@objc
