@@ -5,13 +5,18 @@
 ---
 
 ## Commit Convention (shorthand)
-feat: Add new or modify feature
-fix: Bug fix
-docs: Working with documents
-style: Formatting changes without code modifications
-refactor: Refactoring code
-test: Test code
-wip: Working in progress
+
+    type: subject
+
+### Commit type
+
+- feat: Add new or modify feature
+- fix: Bug fix
+- docs: Working with documents
+- style: Formatting changes without code modifications
+- refactor: Refactoring code
+- test: Test code
+- wip: Working in progress
 
 ---
 
