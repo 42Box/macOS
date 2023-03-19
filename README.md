@@ -15,6 +15,8 @@
 - docs: Working with documents
 - style: Formatting changes without code modifications
 - refactor: Refactoring code
+- dependency: Non-code related dependency files
+- assets: Add, modify and delete assets
 - test: Test code
 - wip: Working in progress
 
