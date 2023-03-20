@@ -4,6 +4,14 @@
 
 ---
 
+<img width="254" alt="image" src="https://user-images.githubusercontent.com/85754295/226240577-598ad79b-482f-432e-b18a-39e7a5aca3a8.png">
+
+<img width="372" alt="image" src="https://user-images.githubusercontent.com/85754295/226241053-ecdf4565-5302-4cef-94db-3124ae5d512a.png">
+
+<img width="372" alt="image" src="https://user-images.githubusercontent.com/85754295/226240890-687ef4b0-c8b3-4916-84fc-d969487c1e94.png">
+
+---
+
 ## Commit Convention (shorthand)
 
     type: subject
