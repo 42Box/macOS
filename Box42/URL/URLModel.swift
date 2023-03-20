@@ -9,8 +9,8 @@ import Foundation
 
 struct URLModel {
 	let URLdict: [String: URL] = [
-		"home": URL(string: "http://localhost:4242/")!,
-		"Box 42": URL(string: "http://localhost:4242/box")!,
+		"home": URL(string: "https://42box.github.io/front-end/")!,
+		"Box 42": URL(string: "https://42box.github.io/front-end/#/box")!,
 		"Intra 42": URL(string: "https://intra.42.fr")!,
 		"Jiphyeonjeon" : URL(string:"https://42library.kr")!,
 		"E-Library": URL(string:"https://42seoul.dkyobobook.co.kr/main.ink")!,
@@ -22,8 +22,8 @@ struct URLModel {
 	]
 	
 	let URLstring: [(String, String)] = [
-		("home", "http://localhost:4242/"),
-		("Box 42", "http://localhost:4242/box"),
+		("home", "https://42box.github.io/front-end/"),
+		("Box 42", "https://42box.github.io/front-end/#/box"),
 		("Intra 42", "https://intra.42.fr"),
 		("Jiphyeonjeon", "https://42library.kr"),
 		("E-Library", "https://42seoul.dkyobobook.co.kr/main.ink"),
