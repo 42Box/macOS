@@ -119,7 +119,6 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 		createPinButton()
 	}
 
-
 	@objc
 	func doubleClickBtn(sender: NSButton) {
 		WebViewList.shared.list[sender.title]!.reload()
@@ -135,7 +134,7 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
 			let rqURL = URLRequest(url: URLModel().URLdict[sender.title]!)
 			WebViewList.shared.list[sender.title]!.load(rqURL)
 			print("Triple Click")
-		} else {
+		} else if clickCount < 2{
 			webView.removeFromSuperview()
 			hostingViewGroup.addSubview(WebViewList.shared.list[sender.title]!)
 			setAutoLayout(from: WebViewList.shared.list[sender.title]!, to: hostingViewGroup)
@@ -204,4 +203,3 @@ extension BoxController {
 		return viewcontroller
 	}
 }
-

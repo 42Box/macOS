@@ -13,10 +13,11 @@ struct URLModel {
 		"Box 42": URL(string: "http://localhost:4242/box")!,
 		"Intra 42": URL(string: "https://intra.42.fr")!,
 		"Jiphyeonjeon" : URL(string:"https://42library.kr")!,
+		"E-Library": URL(string:"https://42seoul.dkyobobook.co.kr/main.ink")!,
 		"24Hane": URL(string:"https://24hoursarenotenough.42seoul.kr")!,
 		"80000Coding": URL(string:"https://80000coding.oopy.io")!,
 		"where42": URL(string:"https://www.where42.kr")!,
-		"E-Library": URL(string:"https://42seoul.dkyobobook.co.kr/main.ink")!,
+		"cabi": URL(string:"https://cabi.42seoul.io/")!,
 		"42gg": URL(string:"https://42gg.kr/")!,
 	]
 	
@@ -25,10 +26,11 @@ struct URLModel {
 		("Box 42", "http://localhost:4242/box"),
 		("Intra 42", "https://intra.42.fr"),
 		("Jiphyeonjeon", "https://42library.kr"),
+		("E-Library", "https://42seoul.dkyobobook.co.kr/main.ink"),
 		("24Hane", "https://24hoursarenotenough.42seoul.kr"),
 		("80000Coding", "https://80000coding.oopy.io"),
 		("where42", "https://www.where42.kr"),
-		("E-Library", "https://42seoul.dkyobobook.co.kr/main.ink"),
-		("42gg", "https://42gg.kr/")
+		("cabi", "https://cabi.42seoul.io/"),
+		("42gg", "https://42gg.kr/"),
 		]
 }
