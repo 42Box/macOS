@@ -1,6 +1,6 @@
 # macOS
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F42Box%2FmacOS%2Freleases%2Ftag%2Fv1.0.0&count_bg=%23E7D166&title_bg=%23EB7F40&icon=dropbox.svg&icon_color=%23E7E7E7&title=Download+Count&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F42Box%2FmacOS%2Freleases&count_bg=%23E7D166&title_bg=%23EB7F40&icon=dropbox.svg&icon_color=%23E7E7E7&title=Download+Count&edge_flat=false)](https://hits.seeyoufarm.com)
 
 [v1.0.1 Beta Release Note](https://github.com/42Box/macOS/releases/tag/v1.0.1)
 
