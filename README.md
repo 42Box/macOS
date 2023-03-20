@@ -3,6 +3,9 @@
 <img src="https://user-images.githubusercontent.com/85754295/226090362-d7be0df0-39dd-48e3-9d31-1f9fb9c033b0.png" width="390" height="450"/>
 
 ---
+## How to execute ?
+
+<img width="463" alt="image" src="https://user-images.githubusercontent.com/85754295/226241209-a273d94c-937c-4321-89c6-457647f94627.png">
 
 <img width="254" alt="image" src="https://user-images.githubusercontent.com/85754295/226240577-598ad79b-482f-432e-b18a-39e7a5aca3a8.png">
 
