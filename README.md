@@ -15,13 +15,19 @@
 
 [~v1.0.0 Beta Version Download Link~](https://github.com/42Box/macOS/releases/download/v1.0.0/Box42.app.zip)
 
+## 1. Click the version you want, and Keep download
+
 <img width="463" alt="image" src="https://user-images.githubusercontent.com/85754295/226241209-a273d94c-937c-4321-89c6-457647f94627.png">
 
- - mouse right click or option + click
+## 2. Mouse right click or option + click
 
 <img width="254" alt="image" src="https://user-images.githubusercontent.com/85754295/226240577-598ad79b-482f-432e-b18a-39e7a5aca3a8.png">
 
+## 3. OK
+
 <img width="372" alt="image" src="https://user-images.githubusercontent.com/85754295/226241053-ecdf4565-5302-4cef-94db-3124ae5d512a.png">
+
+## 4. Open
 
 <img width="372" alt="image" src="https://user-images.githubusercontent.com/85754295/226240890-687ef4b0-c8b3-4916-84fc-d969487c1e94.png">
 
