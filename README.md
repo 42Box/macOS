@@ -1,5 +1,9 @@
 # macOS
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F42Box%2FmacOS%2Freleases%2Ftag%2Fv1.0.0&count_bg=%23E7D166&title_bg=%23EB7F40&icon=dropbox.svg&icon_color=%23E7E7E7&title=Download+Count&edge_flat=false)](https://hits.seeyoufarm.com)
+
+[v1.0.1 Beta Release Note](https://github.com/42Box/macOS/releases/tag/v1.0.1)
+
 [v1.0.0 Beta Release Note](https://github.com/42Box/macOS/releases/tag/v1.0.0)
 
 <img src="https://user-images.githubusercontent.com/85754295/226090362-d7be0df0-39dd-48e3-9d31-1f9fb9c033b0.png" width="390" height="450"/>
@@ -7,7 +11,9 @@
 ---
 ## How to execute ?
 
-[v1.0.0 Beta Version Download Link](https://github.com/42Box/macOS/releases/download/v1.0.0/Box42.app.zip)
+# [v1.0.1 Beta Version Download Link](https://github.com/42Box/macOS/releases/download/v1.0.1/Box42.app.zip)
+
+[~v1.0.0 Beta Version Download Link~](https://github.com/42Box/macOS/releases/download/v1.0.0/Box42.app.zip)
 
 <img width="463" alt="image" src="https://user-images.githubusercontent.com/85754295/226241209-a273d94c-937c-4321-89c6-457647f94627.png">
 
@@ -84,3 +90,4 @@ DIR TREE
 ├── Box42.xcodeproj
 └── README.md
 ```
+
