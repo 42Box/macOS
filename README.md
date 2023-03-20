@@ -5,7 +5,11 @@
 ---
 ## How to execute ?
 
+[v1.0.0 Beta Version Download Link](https://github.com/42Box/macOS/releases/download/v1.0.0/Box42.app.zip)
+
 <img width="463" alt="image" src="https://user-images.githubusercontent.com/85754295/226241209-a273d94c-937c-4321-89c6-457647f94627.png">
+
+ - mouse right click or option + click
 
 <img width="254" alt="image" src="https://user-images.githubusercontent.com/85754295/226240577-598ad79b-482f-432e-b18a-39e7a5aca3a8.png">
 
