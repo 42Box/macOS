@@ -16,17 +16,19 @@ public class EventMonitor {
 		self.mask = mask
 		self.handler = handler
 	}
-	
+
 	deinit {
 		stop()
 	}
 	
 	public func start() {
+        print("EventMonitor: Starting")
 		monitor = NSEvent.addGlobalMonitorForEvents(matching: mask, handler: handler)
 	}
 	
 	public func stop() {
 		if monitor != nil {
+            print("EventMonitor: Stoping")
 			NSEvent.removeMonitor(monitor!)
 			monitor = nil
 		}
