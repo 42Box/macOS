@@ -20,7 +20,7 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
 			}
 		}
 	}
-	
+    
 	func addWebView() -> WKWebView {
 		let preferences = WKPreferences()
 		preferences.javaScriptEnabled = true
@@ -38,11 +38,16 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
 		webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
 		webView.configuration.preferences.javaScriptEnabled = true
 
+		webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+		if #available(macOS 11.0, *) {
+				webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+		}
+		
 		webView.uiDelegate = self
 		webView.navigationDelegate = self
 		return webView
 	}
-	
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -51,3 +56,4 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
 		print(message.name)
 	}
 }
+

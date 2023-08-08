@@ -16,5 +16,4 @@ class WebViewList {
 	private init() {
 		list = [:]
 	}
-	
 }
