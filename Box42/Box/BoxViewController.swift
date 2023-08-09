@@ -9,7 +9,7 @@ import Cocoa
 import AppKit
 import WebKit
 
-class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
+class BoxViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
     var ad = NSApplication.shared.delegate as? AppDelegate
     let url = URLModel()
     var wvc = WebViewController()
@@ -262,12 +262,12 @@ class BoxController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKN
     }
 }
 
-extension BoxController {
-    static func freshController() -> BoxController {
+extension BoxViewController {
+    static func freshController() -> BoxViewController {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("BoxController")
         
-        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? BoxController else {
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? BoxViewController else {
             fatalError("Story Board Not Found")
         }
         return viewcontroller

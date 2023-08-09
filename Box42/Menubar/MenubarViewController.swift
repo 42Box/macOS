@@ -14,9 +14,7 @@ class MenubarViewController: NSWorkspace {
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var statusBarVM: StatusBarViewModel? // 옵셔널로 선언
     let menuBarView = MenuBarView()
-    lazy var keyboardEventMonitor = EventMonitor(mask: [.keyDown]) { [weak self] event in
-        print("keydown")
-    }
+    
     // 초기화 함수나 다른 적절한 시점에 호출
     func initializeStatusBarVM() {
         statusBarVM = StatusBarViewModel(eventMonitor: eventMonitor)
@@ -56,7 +54,7 @@ class MenubarViewController: NSWorkspace {
     }
     
     func popoverHandler() {
-        popover.contentViewController = BoxController.freshController()
+        popover.contentViewController = BoxViewController.freshController()
     }
 
     func setupEventMonitor() -> EventMonitor {

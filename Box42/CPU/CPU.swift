@@ -54,7 +54,7 @@ public class CPU {
         return true
     }
     
-    public func processCPU(_ statusBar: StatusBar) -> Bool {
+    func processCPU(_ statusBar: StatusBar) -> Bool {
         cpuTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { _ in
             self.usageCPU()
             statusBar.interval = 0.02 * (100 - max(0.0, min(99.0, self.usage.value))) / 6
