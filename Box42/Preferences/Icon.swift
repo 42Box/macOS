@@ -5,4 +5,15 @@
 //  Created by Chanhee Kim on 7/8/23.
 //
 
-import Foundation
+struct iconModel {
+    var icon: [String] = [
+        "Cat",
+        "gam",
+        "gon",
+        "gun",
+        "lee",
+        "Box",
+        "box_oc",
+        "42"
+    ]
+}

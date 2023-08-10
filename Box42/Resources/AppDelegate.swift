@@ -10,7 +10,7 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 	var menubarController = MenubarViewController()
-	
+
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		menubarController.menubarViewControllerInit()
 	}
