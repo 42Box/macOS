@@ -11,19 +11,13 @@ import AppKit
 
 class MenubarViewController: NSWorkspace {
     var popover = NSPopover()
-    lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
-    var statusBarVM: StatusBarViewModel? // 옵셔널로 선언
+    var statusBarVM = StatusBarViewModel()
     let menuBarView = MenuBarView()
-    lazy var keyboardEventMonitor = EventMonitor(mask: [.keyDown]) { [weak self] event in
-        print("keydown")
-    }
-    // 초기화 함수나 다른 적절한 시점에 호출
-    func initializeStatusBarVM() {
-        statusBarVM = StatusBarViewModel(eventMonitor: eventMonitor)
-    }
-    
+    lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
+    var boxWindowController: BoxWindowController?
+
+
     func menubarViewControllerInit() {
-        self.initializeStatusBarVM()
         self.buttonInit()
     }
     
@@ -31,38 +25,43 @@ class MenubarViewController: NSWorkspace {
         self.menubarStartRunning()
         self.buttonActionInit()
         self.popoverHandler()
+        self.startEventMonitoring()
+    }
+    
+    func startEventMonitoring() {
+        eventMonitor.start()
+    }
+    
+    func stopEventMonitoring() {
+        eventMonitor.stop()
     }
     
     func menubarStartRunning() {
-        statusBarVM?.startRunning()
+        statusBarVM.startRunning()
     }
     
     func menubarStopRunning() {
-        statusBarVM?.stopRunning()
+        statusBarVM.stopRunning()
     }
     
 	func buttonInit() {
-        buttonImageChange("box")
-        statusBarVM?.statusButtonAppear()
+        buttonImageChange("Cat")
+        statusBarVM.statusButtonAppear()
 	}
 	
     func buttonImageChange(_ img: String) {
-        statusBarVM?.changeStatusBarIcon(img)
+        statusBarVM.changeStatusBarIcon(img)
     }
     
     func buttonActionInit() {
-        statusBarVM?.statusBar.statusItem.button?.action = #selector(togglePopover(_:))
-        statusBarVM?.statusBar.statusItem.button?.target = self
-    }
-    
-    func popoverHandler() {
-        popover.contentViewController = BoxController.freshController()
+        statusBarVM.statusBar.statusItem.button?.action = #selector(togglePopover(_:))
+        statusBarVM.statusBar.statusItem.button?.target = self
     }
 
     func setupEventMonitor() -> EventMonitor {
         return EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {
-                if StateManager.shared.isPin == false && event?.buttonNumber != 2 {
+                if StateManager.shared.getIsPin() == false && event?.buttonNumber != 2 {
                     strongSelf.closePopover(sender: event)
                 }
             } else if let strongSelf = self, !strongSelf.popover.isShown {
@@ -81,15 +80,47 @@ class MenubarViewController: NSWorkspace {
         }
     }
     
+    func popoverHandler() {
+        popover.contentViewController = BoxViewController.freshController()
+    }
+    
     func showPopover(sender: Any?) {
-        if let button = statusBarVM?.statusBar.statusItem.button {
+        if let event = sender as? NSEvent {
+            if event.type == .otherMouseDown {
+                self.showWindow(sender: sender)
+            }
+        } else if let button = statusBarVM.statusBar.statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
-        eventMonitor.start()
     }
+    
+    func showWindow(sender: Any?) {
+        boxWindowController?.close()
+
+        boxWindowController = BoxWindowController(windowNibName: NSNib.Name("BoxWindowController"))
+
+        // status bar 버튼의 위치를 얻어옵니다.
+        if let button = statusBarVM.statusBar.statusItem.button,
+           let screenFrame = NSScreen.main?.frame,
+           let window = boxWindowController?.window {
+
+            let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
+
+            // 버튼 위치 아래에 윈도우를 표시하려면
+            let desiredPosition = NSPoint(x: buttonFrame.origin.x, y: buttonFrame.origin.y - window.frame.height)
+
+            // 혹은, 버튼 위치의 중앙에 윈도우를 표시하려면
+//             let desiredPosition = NSPoint(x: buttonFrame.midX - window.frame.width / 2, y: buttonFrame.origin.y - window.frame.height)
+
+            // 윈도우의 위치를 설정
+            window.setFrameOrigin(desiredPosition)
+        }
+        boxWindowController?.contentViewController = BoxViewController.freshController()
+        boxWindowController?.showWindow(sender)
+    }
+
 
     func closePopover(sender: Any?) {
         popover.performClose(sender)
-//        eventMonitor.stop()
     }
 }

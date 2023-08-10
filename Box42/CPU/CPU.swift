@@ -10,7 +10,6 @@ import Foundation
 
 public class CPU {
     var cpuTimer: Timer? = nil
-    var isShow: Bool = false
     var usage: (value: Double, description: String) = (0.0, "")
     
     private let loadInfoCount: mach_msg_type_number_t!
@@ -49,22 +48,17 @@ public class CPU {
         self.usage = (value, description)
     }
     
-    public func isShowUsage() -> Bool {
-        if isShow == false { return false }
-        return true
-    }
-    
-    public func processCPU(_ statusBar: StatusBar) -> Bool {
+    func processCPU(_ statusBar: StatusBar) -> Bool {
         cpuTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { _ in
             self.usageCPU()
             statusBar.interval = 0.02 * (100 - max(0.0, min(99.0, self.usage.value))) / 6
-            statusBar.statusItem.button?.title = self.isShowUsage() ? self.usage.description : ""
+            statusBar.statusItem.button?.title = StateManager.shared.getIsShowCPUUsage() ? self.usage.description : ""
         })
         self.cpuTimer?.fire()
         return true
     }
     
-    public func StopCPU() -> Bool {
+    func StopCPU() -> Bool {
         self.cpuTimer?.invalidate()
         return false
     }

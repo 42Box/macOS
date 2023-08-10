@@ -8,9 +8,37 @@
 class StateManager {
     static let shared = StateManager()
 
-    var isPin: Bool!
+    private var isPin: Bool!
+    private var isShowCPUUsage: Bool!
+    private var isShowWindow: Bool!
     
     private init() {
         isPin = false
+        isShowCPUUsage = false
+        isShowWindow = false
+    }
+    
+    func getIsPin() -> Bool {
+        return isPin
+    }
+
+    func setToggleIsPin() {
+        isPin.toggle()
+    }
+    
+    func getIsShowCPUUsage() -> Bool {
+        return isShowCPUUsage
+    }
+    
+    func setToggleIsShowCPUUsage() {
+        isShowCPUUsage.toggle()
+    }
+    
+    func getToggleIsShowWindow() -> Bool {
+        return isShowWindow
+    }
+    
+    func setToggleIsShowWindow() {
+        isShowWindow.toggle()
     }
 }
