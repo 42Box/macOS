@@ -8,6 +8,8 @@
 import AppKit
 
 class StatusBar {
+    static let shared = StatusBar()
+    
     var statusItem: NSStatusItem
     var frames: [NSImage]
 	var cnt: Int
