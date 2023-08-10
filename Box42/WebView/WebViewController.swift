@@ -9,12 +9,13 @@ import Cocoa
 import WebKit
 
 class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
-	
+	var URLVM = BoxViewModel()
+    
 	func loadWebViewInit() {
-		for i in 0..<URLModel().URLstring.count {
+        for (key, value) in URLVM.URLdict {
 			let wkWebView = addWebView()
-			WebViewList.shared.list[URLModel().URLstring[i].0] = wkWebView
-			let rqURL = URLRequest(url: URLModel().URLdict[URLModel().URLstring[i].0]!)
+			WebViewList.shared.list[key] = wkWebView
+			let rqURL = URLRequest(url:value)
 			DispatchQueue.main.async {
 				wkWebView.load(rqURL)
 			}
