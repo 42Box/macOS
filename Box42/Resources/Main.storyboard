@@ -173,67 +173,17 @@
             </objects>
             <point key="canvasLocation" x="74" y="-203"/>
         </scene>
-        <!--_Box Controller-->
-        <scene sceneID="FDO-e1-3rp">
-            <objects>
-                <viewController storyboardIdentifier="_BoxController" id="gIi-Fb-I3o" userLabel="_Box Controller" customClass="BoxController" customModule="Box42" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" verifyAmbiguity="off" id="TiL-dt-mkO">
-                        <rect key="frame" x="0.0" y="0.0" width="900" height="700"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <customView id="INZ-EX-kDJ">
-                                <rect key="frame" x="0.0" y="0.0" width="132" height="700"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="mRA-Vv-3gU">
-                                        <rect key="frame" x="12" y="18" width="108" height="5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </box>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="VeD-fm-G75"/>
-                                </constraints>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="wSX-Lf-Y7g">
-                                <rect key="frame" x="132" y="0.0" width="768" height="700"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="768" id="P3a-KZ-K2x"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wSX-Lf-Y7g" secondAttribute="trailing" id="4aT-cG-d52"/>
-                            <constraint firstAttribute="bottom" secondItem="INZ-EX-kDJ" secondAttribute="bottom" id="5Oe-oJ-6Ep"/>
-                            <constraint firstItem="wSX-Lf-Y7g" firstAttribute="leading" secondItem="INZ-EX-kDJ" secondAttribute="trailing" id="85h-Jg-ZxM"/>
-                            <constraint firstItem="INZ-EX-kDJ" firstAttribute="leading" secondItem="TiL-dt-mkO" secondAttribute="leading" id="JJl-NI-kKY"/>
-                            <constraint firstItem="wSX-Lf-Y7g" firstAttribute="leading" secondItem="INZ-EX-kDJ" secondAttribute="trailing" id="KQI-4y-kbU"/>
-                            <constraint firstItem="INZ-EX-kDJ" firstAttribute="top" secondItem="TiL-dt-mkO" secondAttribute="top" id="Msu-h5-kx7"/>
-                            <constraint firstItem="wSX-Lf-Y7g" firstAttribute="top" secondItem="TiL-dt-mkO" secondAttribute="top" id="OaQ-LB-N8c"/>
-                            <constraint firstItem="wSX-Lf-Y7g" firstAttribute="leading" secondItem="INZ-EX-kDJ" secondAttribute="trailing" id="QSq-OR-7zS"/>
-                            <constraint firstAttribute="bottom" secondItem="wSX-Lf-Y7g" secondAttribute="bottom" id="gMz-h7-ml5"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="boxView" destination="TiL-dt-mkO" id="LTJ-21-eyx"/>
-                        <outlet property="buttonViewGroup" destination="INZ-EX-kDJ" id="dZB-tM-Jhh"/>
-                        <outlet property="divider" destination="mRA-Vv-3gU" id="Meb-TJ-dtY"/>
-                        <outlet property="hostingViewGroup" destination="wSX-Lf-Y7g" id="ZgT-tU-ZGf"/>
-                    </connections>
-                </viewController>
-                <customObject id="aK9-Xf-jfI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="74" y="1056"/>
-        </scene>
-        <!--Box Controller-->
+        <!--Box View Controller-->
         <scene sceneID="2YF-NG-qgR">
             <objects>
-                <viewController storyboardIdentifier="BoxController" id="vnM-6c-Kef" customClass="BoxController" customModule="Box42" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" verifyAmbiguity="off" id="G4d-7M-cg0">
-                        <rect key="frame" x="0.0" y="0.0" width="900" height="700"/>
+                <customObject id="xrs-eX-5QB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Main" id="vnM-6c-Kef" customClass="BoxViewController" customModule="Box42" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" verifyAmbiguity="off" id="G4d-7M-cg0">
+                        <rect key="frame" x="0.0" y="0.0" width="900" height="806"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView id="ulN-bz-DqK">
-                                <rect key="frame" x="0.0" y="0.0" width="132" height="700"/>
+                                <rect key="frame" x="0.0" y="106" width="132" height="700"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="QtO-vD-ZQX">
@@ -266,14 +216,10 @@
                     </view>
                     <connections>
                         <outlet property="boxView" destination="G4d-7M-cg0" id="lRF-TY-gNh"/>
-                        <outlet property="buttonViewGroup" destination="ulN-bz-DqK" id="OlQ-fm-tRr"/>
-                        <outlet property="divider" destination="QtO-vD-ZQX" id="UfE-2c-FbH"/>
-                        <outlet property="hostingViewGroup" destination="ru4-50-bBK" id="Rig-Pv-QaA"/>
                     </connections>
                 </viewController>
-                <customObject id="xrs-eX-5QB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="270"/>
+            <point key="canvasLocation" x="74" y="323"/>
         </scene>
     </scenes>
 </document>
