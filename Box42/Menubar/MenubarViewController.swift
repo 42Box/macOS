@@ -24,7 +24,7 @@ class MenubarViewController: NSWorkspace {
     func menubarViewControllerStart() {
         self.menubarStartRunning()
         self.buttonActionInit()
-        self.popoverHandler()
+        self.popoverCoentViewInit()
         self.startEventMonitoring()
     }
     
@@ -57,6 +57,11 @@ class MenubarViewController: NSWorkspace {
         statusBarVM.statusBar.statusItem.button?.action = #selector(togglePopover(_:))
         statusBarVM.statusBar.statusItem.button?.target = self
     }
+    
+    func popoverCoentViewInit() {
+        let boxViewController = BoxViewController(nibName: nil, bundle: nil)
+        popover.contentViewController = boxViewController
+    }
 
     func setupEventMonitor() -> EventMonitor {
         return EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
@@ -66,7 +71,7 @@ class MenubarViewController: NSWorkspace {
                 }
             } else if let strongSelf = self, !strongSelf.popover.isShown {
                 if event?.buttonNumber == 2 {
-                    strongSelf.showPopover(sender: event)
+                    strongSelf.popoverHandler(sender: event)
                 }
             }
         }
@@ -76,32 +81,37 @@ class MenubarViewController: NSWorkspace {
         if popover.isShown {
             closePopover(sender: sender)
         } else {
-            showPopover(sender: sender)
+            popoverHandler(sender: sender)
         }
     }
     
-    func popoverHandler() {
-        popover.contentViewController = BoxViewController.freshController()
-    }
-    
-    func showPopover(sender: Any?) {
+    func popoverHandler(sender: Any?) {
         if let event = sender as? NSEvent {
             if event.type == .otherMouseDown {
-                self.showWindow(sender: sender)
+                self.toggleWindow(sender: sender)
             }
         } else if let button = statusBarVM.statusBar.statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
     }
-    
-    func showWindow(sender: Any?) {
-        boxWindowController?.close()
 
-        boxWindowController = BoxWindowController(windowNibName: NSNib.Name("BoxWindowController"))
+    func closePopover(sender: Any?) {
+        popover.performClose(sender)
+    }
+}
+
+extension MenubarViewController: MenubarViewControllerDelegate {
+    func toggleWindow(sender: Any?) {
+        StateManager.shared.setToggleIsShowWindow();
+        if StateManager.shared.getToggleIsShowWindow() == false {
+            boxWindowController?.close()
+            print("close")
+            return
+        }
+        boxWindowController = BoxWindowController(window: nil)
 
         // status bar 버튼의 위치를 얻어옵니다.
         if let button = statusBarVM.statusBar.statusItem.button,
-           let screenFrame = NSScreen.main?.frame,
            let window = boxWindowController?.window {
 
             let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
@@ -114,13 +124,13 @@ class MenubarViewController: NSWorkspace {
 
             // 윈도우의 위치를 설정
             window.setFrameOrigin(desiredPosition)
+            window.level = .floating
         }
-        boxWindowController?.contentViewController = BoxViewController.freshController()
+        
         boxWindowController?.showWindow(sender)
     }
+}
 
-
-    func closePopover(sender: Any?) {
-        popover.performClose(sender)
-    }
+protocol MenubarViewControllerDelegate: AnyObject {
+    func toggleWindow(sender: Any?)
 }
