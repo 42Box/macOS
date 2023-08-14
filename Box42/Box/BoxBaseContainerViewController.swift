@@ -18,7 +18,7 @@ class BoxBaseContainerViewController: NSViewController {
         panGestureInit()
         viewInit()
     }
-        
+
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
         let buttonGroup = BoxButtonViewGroup { sender in
                     // 버튼을 클릭할 때 실행할 코드
@@ -27,7 +27,7 @@ class BoxBaseContainerViewController: NSViewController {
         view.addSubview(buttonGroup)
         return buttonGroup
     }
-    
+
     func clickBtn(sender: NSButton) {
         guard let clickCount = NSApp.currentEvent?.clickCount else { return }
         if sender.title == "Preferences" {
@@ -51,7 +51,7 @@ class BoxBaseContainerViewController: NSViewController {
             WebViewList.shared.list[sender.title]?.viewDidMoveToSuperview()
         }
     }
-    
+
     private func panGestureInit() {
         let panRecognizer = NSPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.view.addGestureRecognizer(panRecognizer) // 뷰 컨트롤러의 뷰에 제스처 추가

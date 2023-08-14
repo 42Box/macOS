@@ -18,8 +18,6 @@ class BoxWindowController: NSWindowController {
 
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
-        
-        windowInstance.setContentSize(BoxSizeManager.shared.boxViewSizeNSSize)
 
         super.init(window: windowInstance)
     }
