@@ -1,5 +1,6 @@
 .DS_Store
 Box42/.DS_Store
+Box42.xcodeproj/xcuserdata/
 
 .prettierrc
 .swift-format
