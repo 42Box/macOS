@@ -31,10 +31,6 @@ class BoxButtonViewGroup: NSView {
         // 뷰의 커스텀 렌더링에 사용됨.
     }
     
-    override func layout() {
-        //        layout(): 뷰의 서브뷰들이 리사이징될 때 호출됩니다. 레이아웃을 조정하는 데 사용됩니다.
-    }
-    
     private func setupButtons() {
         createHomeButton()
         for (name, _) in boxVM.webViewURL.URLstring {

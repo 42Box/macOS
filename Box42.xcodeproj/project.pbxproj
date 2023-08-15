@@ -18,27 +18,30 @@
 		DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BEF2A509B2F00FF0AA3 /* MenubarViewController.swift */; };
 		DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BF22A509B3300FF0AA3 /* MenubarModel.swift */; };
 		DE018BF62A509B3600FF0AA3 /* MenubarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BF52A509B3600FF0AA3 /* MenubarView.swift */; };
-		DE018BF92A509B3B00FF0AA3 /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BF82A509B3B00FF0AA3 /* BoxViewController.swift */; };
-		DE018BFC2A509B3E00FF0AA3 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BFB2A509B3E00FF0AA3 /* BoxModel.swift */; };
-		DE018BFF2A509B4200FF0AA3 /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BFE2A509B4200FF0AA3 /* BoxView.swift */; };
 		DE018C032A509B5D00FF0AA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE018C022A509B5D00FF0AA3 /* Main.storyboard */; };
+		DE1F1A142A8B506600A88DD8 /* importMacOSInfo.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */; };
+		DE1F1A152A8B506600A88DD8 /* exportMacOSInfo.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */; };
+		DE1F1A162A8B506600A88DD8 /* keyMapping.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A132A8B506600A88DD8 /* keyMapping.sh */; };
+		DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */; };
+		DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */; };
+		DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */; };
+		DE1F1A242A8B50D500A88DD8 /* BoxButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A212A8B50D500A88DD8 /* BoxButtonHandler.swift */; };
+		DE1F1A252A8B50D500A88DD8 /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A222A8B50D500A88DD8 /* BoxViewModel.swift */; };
+		DE1F1A262A8B50D500A88DD8 /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */; };
+		DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */; };
 		DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD3282A824EEB00002D51 /* Accessibility.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
-		DE7A257A2A6D8CA20043225A /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesController.swift */; };
+		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* StringExtension.swift */; };
-		DE9BCA0D2A8360460031CA7B /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BCA0C2A8360460031CA7B /* BoxViewModel.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
-		DEB862EC2A853F7F00278FCD /* BoxWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEB862EA2A853F7F00278FCD /* BoxWindowController.xib */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
-		DEF749372A8565C400D987C8 /* BoxButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749362A8565C400D987C8 /* BoxButtonView.swift */; };
-		DEF7493B2A85683F00D987C8 /* BoxButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7493A2A85683F00D987C8 /* BoxButtonHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,29 +58,32 @@
 		DE018BEF2A509B2F00FF0AA3 /* MenubarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarViewController.swift; sourceTree = "<group>"; };
 		DE018BF22A509B3300FF0AA3 /* MenubarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarModel.swift; sourceTree = "<group>"; };
 		DE018BF52A509B3600FF0AA3 /* MenubarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarView.swift; sourceTree = "<group>"; };
-		DE018BF82A509B3B00FF0AA3 /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxViewController.swift; sourceTree = "<group>"; };
-		DE018BFB2A509B3E00FF0AA3 /* BoxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
-		DE018BFE2A509B4200FF0AA3 /* BoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		DE018C022A509B5D00FF0AA3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE018C192A509DBA00FF0AA3 /* Box42.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Box42.entitlements; sourceTree = "<group>"; };
+		DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = importMacOSInfo.sh; sourceTree = "<group>"; };
+		DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = exportMacOSInfo.sh; sourceTree = "<group>"; };
+		DE1F1A132A8B506600A88DD8 /* keyMapping.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = keyMapping.sh; sourceTree = "<group>"; };
+		DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxBaseContainerViewController.swift; path = Box/BoxBaseContainerViewController.swift; sourceTree = "<group>"; };
+		DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxContentsViewGroup.swift; path = Box/BoxContentsViewGroup.swift; sourceTree = "<group>"; };
+		DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxButtonViewGroup.swift; path = Box/BoxButtonViewGroup.swift; sourceTree = "<group>"; };
+		DE1F1A212A8B50D500A88DD8 /* BoxButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxButtonHandler.swift; path = Main/BoxButtonHandler.swift; sourceTree = "<group>"; };
+		DE1F1A222A8B50D500A88DD8 /* BoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewModel.swift; path = Main/BoxViewModel.swift; sourceTree = "<group>"; };
+		DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewController.swift; path = Main/BoxViewController.swift; sourceTree = "<group>"; };
+		DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxSizeManager.swift; sourceTree = "<group>"; };
 		DE2AD3282A824EEB00002D51 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
-		DE7A25792A6D8CA20043225A /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesController.swift; sourceTree = "<group>"; };
+		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		DE9BCA0C2A8360460031CA7B /* BoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxViewModel.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
-		DEB862EA2A853F7F00278FCD /* BoxWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxWindowController.xib; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
-		DEF749362A8565C400D987C8 /* BoxButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonView.swift; sourceTree = "<group>"; };
-		DEF7493A2A85683F00D987C8 /* BoxButtonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,8 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
+				DE1F1A202A8B50CA00A88DD8 /* Main */,
+				DE1F1A182A8B50BB00A88DD8 /* Box */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DEB862E82A853F6800278FCD /* Window */,
 				DEB862D22A8511D600278FCD /* Scripts */,
@@ -119,9 +127,7 @@
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
 				DE018C062A509B9000FF0AA3 /* CPU */,
 				DE018C082A509BB500FF0AA3 /* WebView */,
-				DE018C0B2A509BC100FF0AA3 /* URL */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
-				DE018C102A509C1A00FF0AA3 /* Box */,
 			);
 			path = Box42;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 		DE018C082A509BB500FF0AA3 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				DE018C0B2A509BC100FF0AA3 /* URL */,
 				DE018BE92A509B2100FF0AA3 /* WebViewModel.swift */,
 				DE018BE62A509B1E00FF0AA3 /* WebViewController.swift */,
 			);
@@ -176,18 +183,6 @@
 			path = Menubar;
 			sourceTree = "<group>";
 		};
-		DE018C102A509C1A00FF0AA3 /* Box */ = {
-			isa = PBXGroup;
-			children = (
-				DEF749352A8565B000D987C8 /* View */,
-				DE9BCA0C2A8360460031CA7B /* BoxViewModel.swift */,
-				DE018BF82A509B3B00FF0AA3 /* BoxViewController.swift */,
-				DE018BFB2A509B3E00FF0AA3 /* BoxModel.swift */,
-				DEF7493A2A85683F00D987C8 /* BoxButtonHandler.swift */,
-			);
-			path = Box;
-			sourceTree = "<group>";
-		};
 		DE17AF722A834A1600325BF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,9 +190,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE1F1A182A8B50BB00A88DD8 /* Box */ = {
+			isa = PBXGroup;
+			children = (
+				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
+				DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */,
+				DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */,
+			);
+			name = Box;
+			sourceTree = "<group>";
+		};
+		DE1F1A202A8B50CA00A88DD8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE1F1A212A8B50D500A88DD8 /* BoxButtonHandler.swift */,
+				DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */,
+				DE1F1A222A8B50D500A88DD8 /* BoxViewModel.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		DE77BA542A82636500713683 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */,
 				DE77BA552A82637900713683 /* StateManager.swift */,
 			);
 			path = Shared;
@@ -206,7 +222,7 @@
 		DE874F512A591EC600FC3B77 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				DE7A25792A6D8CA20043225A /* PreferencesController.swift */,
+				DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */,
 				DE874F532A591F1400FC3B77 /* PreferencesView.swift */,
 				DE874F562A591F2500FC3B77 /* Icon.swift */,
 				DE2AD3282A824EEB00002D51 /* Accessibility.swift */,
@@ -227,6 +243,9 @@
 		DEB862DE2A85348600278FCD /* sh */ = {
 			isa = PBXGroup;
 			children = (
+				DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */,
+				DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */,
+				DE1F1A132A8B506600A88DD8 /* keyMapping.sh */,
 				DEB862D32A85124500278FCD /* cleanCache.sh */,
 				DEB862D82A852C4500278FCD /* brewInGoinfre.sh */,
 				DEF7492E2A85603700D987C8 /* nodeInstall.sh */,
@@ -238,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
-				DEB862EA2A853F7F00278FCD /* BoxWindowController.xib */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -250,15 +268,6 @@
 				DEF749312A85657600D987C8 /* NSScreen.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DEF749352A8565B000D987C8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DE018BFE2A509B4200FF0AA3 /* BoxView.swift */,
-				DEF749362A8565C400D987C8 /* BoxButtonView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,9 +327,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1F1A142A8B506600A88DD8 /* importMacOSInfo.sh in Resources */,
 				DE018C032A509B5D00FF0AA3 /* Main.storyboard in Resources */,
+				DE1F1A152A8B506600A88DD8 /* exportMacOSInfo.sh in Resources */,
+				DE1F1A162A8B506600A88DD8 /* keyMapping.sh in Resources */,
 				DEB862D42A85124500278FCD /* cleanCache.sh in Resources */,
-				DEB862EC2A853F7F00278FCD /* BoxWindowController.xib in Resources */,
 				DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */,
 				DE018BE02A509B0600FF0AA3 /* Assets.xcassets in Resources */,
 			);
@@ -333,30 +344,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE018BFF2A509B4200FF0AA3 /* BoxView.swift in Sources */,
+				DE1F1A262A8B50D500A88DD8 /* BoxViewController.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
-				DE9BCA0D2A8360460031CA7B /* BoxViewModel.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
+				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
 				DE018BF62A509B3600FF0AA3 /* MenubarView.swift in Sources */,
-				DEF749372A8565C400D987C8 /* BoxButtonView.swift in Sources */,
-				DEF7493B2A85683F00D987C8 /* BoxButtonHandler.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
-				DE018BF92A509B3B00FF0AA3 /* BoxViewController.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* StringExtension.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
+				DE1F1A252A8B50D500A88DD8 /* BoxViewModel.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
-				DE7A257A2A6D8CA20043225A /* PreferencesController.swift in Sources */,
+				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
+				DE1F1A242A8B50D500A88DD8 /* BoxButtonHandler.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
+				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
 				DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */,
-				DE018BFC2A509B3E00FF0AA3 /* BoxModel.swift in Sources */,
 				DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */,
+				DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */,
 				DEB862DC2A85347400278FCD /* Scripts.swift in Sources */,
+				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE018BEA2A509B2100FF0AA3 /* WebViewModel.swift in Sources */,
