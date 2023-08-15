@@ -10,6 +10,8 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 	var menubarController = MenubarViewController()
+    lazy var storage = Storage()
+
 
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		menubarController.menubarViewControllerInit()
@@ -19,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		menubarController.menubarViewControllerStart()
 //        alertAccessibility()
 //        hotkey()
+        storage.storageTimerEvent()
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
