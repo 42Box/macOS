@@ -38,7 +38,6 @@ class StatusBarViewModel {
     
     func startRunning() {
         statusBar.isRunning = cpu.processCPU(statusBar)
-//        self.animate()
         scheduleAnimation()
     }
     

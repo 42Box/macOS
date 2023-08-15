@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CPU {
+class CPU {
     var cpuTimer: Timer? = nil
     var usage: (value: Double, description: String) = (0.0, "")
     

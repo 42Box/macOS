@@ -29,6 +29,9 @@
 		DE1F1A252A8B50D500A88DD8 /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A222A8B50D500A88DD8 /* BoxViewModel.swift */; };
 		DE1F1A262A8B50D500A88DD8 /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */; };
 		DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */; };
+		DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A2D2A8BCC9800A88DD8 /* Storage.swift */; };
+		DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A302A8BD68F00A88DD8 /* Double.swift */; };
+		DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A352A8BDDDF00A88DD8 /* StorageConfig.swift */; };
 		DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD3282A824EEB00002D51 /* Accessibility.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
@@ -36,7 +39,7 @@
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
-		DE874F5F2A5935CC00FC3B77 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* StringExtension.swift */; };
+		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
@@ -70,6 +73,9 @@
 		DE1F1A222A8B50D500A88DD8 /* BoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewModel.swift; path = Main/BoxViewModel.swift; sourceTree = "<group>"; };
 		DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewController.swift; path = Main/BoxViewController.swift; sourceTree = "<group>"; };
 		DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxSizeManager.swift; sourceTree = "<group>"; };
+		DE1F1A2D2A8BCC9800A88DD8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		DE1F1A302A8BD68F00A88DD8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		DE1F1A352A8BDDDF00A88DD8 /* StorageConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConfig.swift; sourceTree = "<group>"; };
 		DE2AD3282A824EEB00002D51 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
@@ -77,7 +83,7 @@
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		DE874F5E2A5935CC00FC3B77 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
@@ -125,19 +131,22 @@
 				DE77BA542A82636500713683 /* Shared */,
 				DE874F512A591EC600FC3B77 /* Preferences */,
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
-				DE018C062A509B9000FF0AA3 /* CPU */,
+				DE018C062A509B9000FF0AA3 /* System */,
 				DE018C082A509BB500FF0AA3 /* WebView */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 			);
 			path = Box42;
 			sourceTree = "<group>";
 		};
-		DE018C062A509B9000FF0AA3 /* CPU */ = {
+		DE018C062A509B9000FF0AA3 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */,
 				DE018BE32A509B1700FF0AA3 /* CPU.swift */,
+				DE1F1A2D2A8BCC9800A88DD8 /* Storage.swift */,
+				DE1F1A352A8BDDDF00A88DD8 /* StorageConfig.swift */,
 			);
-			path = CPU;
+			path = System;
 			sourceTree = "<group>";
 		};
 		DE018C082A509BB500FF0AA3 /* WebView */ = {
@@ -166,7 +175,6 @@
 				DE018BDF2A509B0600FF0AA3 /* Assets.xcassets */,
 				DE018BBE2A5099FA00FF0AA3 /* Info.plist */,
 				DE018C022A509B5D00FF0AA3 /* Main.storyboard */,
-				DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */,
 				DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */,
 			);
 			path = Resources;
@@ -264,8 +272,9 @@
 		DEF749302A85655E00D987C8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DE874F5E2A5935CC00FC3B77 /* StringExtension.swift */,
+				DE874F5E2A5935CC00FC3B77 /* String.swift */,
 				DEF749312A85657600D987C8 /* NSScreen.swift */,
+				DE1F1A302A8BD68F00A88DD8 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,7 +364,7 @@
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
-				DE874F5F2A5935CC00FC3B77 /* StringExtension.swift in Sources */,
+				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE1F1A252A8B50D500A88DD8 /* BoxViewModel.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
@@ -369,8 +378,11 @@
 				DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */,
 				DEB862DC2A85347400278FCD /* Scripts.swift in Sources */,
 				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
+				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
+				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
+				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
 				DE018BEA2A509B2100FF0AA3 /* WebViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
