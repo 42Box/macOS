@@ -20,13 +20,13 @@ let project = Project(
 		   deploymentTarget: .macOS(targetVersion: targetVersion),
 		   infoPlist: .file(path: "\(projectName)/Resources/Info.plist"),
 		   sources: ["\(projectName)/**"],
-		   resources: ["\(projectName)/Resources/Assets.xcassets"],
+		   resources: ["\(projectName)/Resources/Assets.xcassets",
+					   "\(projectName)/Resources/Main.storyboard",],
 		   entitlements: "\(projectName)/Resources/Box42.entitlements",
 		   dependencies: [] // tuist generate할 경우 pod install이 자동으로 실행
 		  )
   ],
-  schemes: [
-  ],
+  schemes: [],
   fileHeaderTemplate: nil,
   additionalFiles: [],
   resourceSynthesizers: []
