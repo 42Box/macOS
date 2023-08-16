@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import AppKit
 
 class MenubarViewController: NSWorkspace {
@@ -15,7 +14,6 @@ class MenubarViewController: NSWorkspace {
     let menuBarView = MenuBarView()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var boxWindowController: BoxWindowController?
-
 
     func menubarViewControllerInit() {
         self.buttonInit()
