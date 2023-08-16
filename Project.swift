@@ -1,3 +1,10 @@
+//
+//  Project.swift
+//  Config
+//
+//  Created by Chan on 2023/08/16.
+//
+
 import ProjectDescription
 
 // MARK: Constants
@@ -5,7 +12,9 @@ let projectName = "Box42"
 let organizationName = "Box42"
 let bundleID = "com.box42"
 let targetVersion = "10.15"
-
+let dependencies: [TargetDependency] = [
+    .external(name: "SnapKit"),
+]
 // MARK: Struct
 let project = Project(
   name: projectName,
@@ -15,15 +24,16 @@ let project = Project(
   targets: [
 	Target(name: projectName,
 		   platform: .macOS,
-		   product: .app, // unitTests, .appExtension, .framework, dynamicLibrary, staticFramework
+		   product: .app,
 		   bundleId: bundleID,
 		   deploymentTarget: .macOS(targetVersion: targetVersion),
 		   infoPlist: .file(path: "\(projectName)/Resources/Info.plist"),
 		   sources: ["\(projectName)/**"],
 		   resources: ["\(projectName)/Resources/Assets.xcassets",
-					   "\(projectName)/Resources/Main.storyboard",],
+					   "\(projectName)/Resources/Main.storyboard",
+             "\(projectName)/Resources/sh/*.sh",],
 		   entitlements: "\(projectName)/Resources/Box42.entitlements",
-		   dependencies: [] // tuist generate할 경우 pod install이 자동으로 실행
+		   dependencies: dependencies
 		  )
   ],
   schemes: [],
