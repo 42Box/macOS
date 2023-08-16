@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -172,54 +171,6 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="-203"/>
-        </scene>
-        <!--Box View Controller-->
-        <scene sceneID="2YF-NG-qgR">
-            <objects>
-                <customObject id="xrs-eX-5QB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Main" id="vnM-6c-Kef" customClass="BoxViewController" customModule="Box42" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" verifyAmbiguity="off" id="G4d-7M-cg0">
-                        <rect key="frame" x="0.0" y="0.0" width="900" height="806"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <customView id="ulN-bz-DqK">
-                                <rect key="frame" x="0.0" y="106" width="132" height="700"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="QtO-vD-ZQX">
-                                        <rect key="frame" x="12" y="18" width="108" height="5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </box>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="J1P-Oe-EPc"/>
-                                </constraints>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ru4-50-bBK">
-                                <rect key="frame" x="132" y="0.0" width="768" height="700"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="768" id="dJf-8V-0oq"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ru4-50-bBK" secondAttribute="trailing" id="54D-DP-09D"/>
-                            <constraint firstItem="ulN-bz-DqK" firstAttribute="top" secondItem="G4d-7M-cg0" secondAttribute="top" id="5kR-6R-keB"/>
-                            <constraint firstAttribute="bottom" secondItem="ulN-bz-DqK" secondAttribute="bottom" id="6Os-Kk-Gx4"/>
-                            <constraint firstItem="ulN-bz-DqK" firstAttribute="leading" secondItem="G4d-7M-cg0" secondAttribute="leading" id="8VH-l3-xuI"/>
-                            <constraint firstItem="ru4-50-bBK" firstAttribute="leading" secondItem="ulN-bz-DqK" secondAttribute="trailing" id="CJe-dJ-rLu"/>
-                            <constraint firstItem="ru4-50-bBK" firstAttribute="leading" secondItem="ulN-bz-DqK" secondAttribute="trailing" id="FOT-aI-NWc"/>
-                            <constraint firstAttribute="bottom" secondItem="ru4-50-bBK" secondAttribute="bottom" id="HLm-6B-ijw"/>
-                            <constraint firstItem="ru4-50-bBK" firstAttribute="leading" secondItem="ulN-bz-DqK" secondAttribute="trailing" id="UPx-zD-1UI"/>
-                            <constraint firstItem="ru4-50-bBK" firstAttribute="top" secondItem="G4d-7M-cg0" secondAttribute="top" id="zR2-3O-jUe"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="boxView" destination="G4d-7M-cg0" id="lRF-TY-gNh"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="74" y="323"/>
         </scene>
     </scenes>
 </document>

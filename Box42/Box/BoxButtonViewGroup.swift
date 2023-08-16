@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SnapKit
 
 class BoxButtonViewGroup: NSView {
     var boxVM: WebViewModel! = WebViewModel()
@@ -92,6 +93,31 @@ class BoxButtonViewGroup: NSView {
 //
 //        lastAddedButton = button
 //    }
+//
+//    func createHomeButton() {
+//        let button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
+//        super.addSubview(button)
+//
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.isBordered = false
+//        button.imagePosition = .imageOnly
+//
+//
+////        NSLayoutConstraint.activate([
+////            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+////            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+////            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+//////            button.heightAnchor.constraint(equalToConstant: 30)
+////        ])
+//
+//        NSLayoutConstraint.activate([
+////            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20), // 좌측 간격을 100에서 20으로 변경
+////            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20), // 우측 간격을 80에서 20으로 변경
+////            button.heightAnchor.constraint(equalToConstant: 30)
+//        ])
+//
+//        lastAddedButton = nil // home 버튼 이후의 버튼들이 상단에 연결되지 않도록 설정
+//    }
     
     func createHomeButton() {
         let button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
@@ -100,23 +126,22 @@ class BoxButtonViewGroup: NSView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isBordered = false
         button.imagePosition = .imageOnly
-
-    
-//        NSLayoutConstraint.activate([
-//            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-//            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-////            button.heightAnchor.constraint(equalToConstant: 30)
-//        ])
         
-        NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20), // 좌측 간격을 100에서 20으로 변경
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20), // 우측 간격을 80에서 20으로 변경
-            button.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        button.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(30)
+            
+            if let lastButton = lastAddedButton {
+                make.top.equalTo(lastButton.snp.bottom).offset(10)
+            } else {
+                make.top.equalToSuperview()
+            }
+        }
 
-        lastAddedButton = nil // home 버튼 이후의 버튼들이 상단에 연결되지 않도록 설정
+        lastAddedButton = button
     }
+
 
 
     

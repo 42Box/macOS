@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D676A64A2A8C5CEA00B5C319 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D676A6492A8C5CEA00B5C319 /* SnapKit */; };
 		DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */; };
 		DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */; };
 		DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */; };
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D676A64A2A8C5CEA00B5C319 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +297,9 @@
 			dependencies = (
 			);
 			name = Box42;
+			packageProductDependencies = (
+				D676A6492A8C5CEA00B5C319 /* SnapKit */,
+			);
 			productName = Box42;
 			productReference = DE018BAF2A5099F900FF0AA3 /* Box42.app */;
 			productType = "com.apple.product-type.application";
@@ -322,6 +327,9 @@
 				Base,
 			);
 			mainGroup = DE018BA62A5099F900FF0AA3;
+			packageReferences = (
+				D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DE018BB02A5099F900FF0AA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -567,6 +575,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D676A6492A8C5CEA00B5C319 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */ = {

@@ -8,13 +8,13 @@
 import Cocoa
 
 class BoxWindowController: NSWindowController {
-    
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
         let styleMask: NSWindow.StyleMask = [.titled, .closable, .resizable, .miniaturizable]
         let windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         windowInstance.title = "Box"
         windowInstance.styleMask.insert(.resizable)
+        windowInstance.backgroundColor = NSColor.red
 
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
