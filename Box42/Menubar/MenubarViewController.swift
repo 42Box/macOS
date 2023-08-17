@@ -15,8 +15,7 @@ class MenubarViewController: NSWorkspace {
     let menuBarView = MenuBarView()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var boxWindowController: BoxWindowController?
-
-
+    
     func menubarViewControllerInit() {
         self.buttonInit()
     }
@@ -44,11 +43,11 @@ class MenubarViewController: NSWorkspace {
         statusBarVM.stopRunning()
     }
     
-	func buttonInit() {
+    func buttonInit() {
         buttonImageChange("Cat")
         statusBarVM.statusButtonAppear()
-	}
-	
+    }
+    
     func buttonImageChange(_ img: String) {
         statusBarVM.changeStatusBarIcon(img)
     }
@@ -62,7 +61,7 @@ class MenubarViewController: NSWorkspace {
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         popover.contentViewController = boxViewController
     }
-
+    
     func setupEventMonitor() -> EventMonitor {
         return EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {
@@ -94,7 +93,7 @@ class MenubarViewController: NSWorkspace {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
     }
-
+    
     func closePopover(sender: Any?) {
         popover.performClose(sender)
     }
@@ -102,33 +101,33 @@ class MenubarViewController: NSWorkspace {
 
 extension MenubarViewController: MenubarViewControllerDelegate {
     func toggleWindow(sender: Any?) {
-        StateManager.shared.setToggleIsShowWindow();
-        if StateManager.shared.getToggleIsShowWindow() == false {
-            boxWindowController?.close()
-            print("close")
-            return
+        StateManager.shared.setToggleIsShowWindow()
+        if StateManager.shared.getIsShowWindow() == false {
+            if let window = boxWindowController?.window {
+                if window.isVisible {
+                    window.orderOut(sender)
+                    print("hide")
+                }
+            }
+        } else {
+            if boxWindowController == nil {
+                boxWindowController = BoxWindowController(window: nil)
+            }
+            if let button = statusBarVM.statusBar.statusItem.button,
+               let window = boxWindowController?.window {
+                if StateManager.shared.getIsShowFirstWindow() == false {
+                    let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
+                    let desiredPosition = NSPoint(x: buttonFrame.origin.x, y: buttonFrame.origin.y - window.frame.height)
+                    
+                    window.setFrameOrigin(desiredPosition)
+                    StateManager.shared.setToggleIsShowFirstWindow()
+                }
+                window.level = .floating
+            }
+            boxWindowController?.showWindow(sender)
         }
-        boxWindowController = BoxWindowController(window: nil)
-
-        // status bar 버튼의 위치를 얻어옵니다.
-        if let button = statusBarVM.statusBar.statusItem.button,
-           let window = boxWindowController?.window {
-
-            let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
-
-            // 버튼 위치 아래에 윈도우를 표시하려면
-            let desiredPosition = NSPoint(x: buttonFrame.origin.x, y: buttonFrame.origin.y - window.frame.height)
-
-            // 혹은, 버튼 위치의 중앙에 윈도우를 표시하려면
-//             let desiredPosition = NSPoint(x: buttonFrame.midX - window.frame.width / 2, y: buttonFrame.origin.y - window.frame.height)
-
-            // 윈도우의 위치를 설정
-            window.setFrameOrigin(desiredPosition)
-            window.level = .floating
-        }
-        
-        boxWindowController?.showWindow(sender)
     }
+    
 }
 
 protocol MenubarViewControllerDelegate: AnyObject {
