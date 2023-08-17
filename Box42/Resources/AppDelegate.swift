@@ -12,7 +12,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var menubarController = MenubarViewController()
     lazy var storage = Storage()
 
-
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		menubarController.menubarViewControllerInit()
 	}
