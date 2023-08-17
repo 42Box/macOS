@@ -14,12 +14,11 @@ class BoxButtonViewGroup: NSView {
     var pinSwitch : NSSwitch = NSSwitch()
     var clickAction: ((NSButton) -> Void)?
     var lastAddedButton: NSView?
+    var loginInfo: NSView?
     
     init(clickAction: @escaping (NSButton) -> Void) {
         self.clickAction = clickAction
         super.init(frame: BoxSizeManager.shared.buttonGroupSizeNSRect)
-
-//        self.wantsLayer = true
         setupButtons()
         divide()
     }
@@ -33,136 +32,76 @@ class BoxButtonViewGroup: NSView {
     }
     
     private func setupButtons() {
-        createHomeButton()
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+
         for (name, _) in boxVM.webViewURL.URLstring {
             self.createButton(name)
         }
+        createLoginInfo()
         preferencesButton()
         createQuitButton()
         createPinButton()
     }
     
+    func createLoginInfo() {
+        
+    }
+    
     @objc private func clickBtn(sender: NSButton) {
-        clickAction?(sender) // 클로저 실행
+        clickAction?(sender)
     }
     
     private func createButton(_ title: String) {
-        let button = NSButton()
+        let button: NSButton
         
-        button.title = title
-        button.setButtonType(.momentaryLight)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
+        if title == "home" {
+            button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
+            button.imagePosition = .imageOnly
+            button.isBordered = false
+        } else {
+            button = HoverButton()
+            button.title = title
+            
+            button.wantsLayer = true
+            button.contentTintColor = NSColor.black
+            button.layer?.borderColor = NSColor.black.cgColor
+            button.layer?.borderWidth = 1.0
+            button.layer?.cornerRadius = 5.0
+            button.layer?.opacity = 0.7
+        }
+        super.addSubview(button)
         
         button.target = self
         button.action = #selector(clickBtn(sender:))
         
-        button.isBordered = true
-        button.bezelStyle = .roundRect
-        button.showsBorderOnlyWhileMouseInside = true
-        
-        super.addSubview(button)
-        
-        NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            // 이전 버튼의 bottom anchor와 연결
-            button.topAnchor.constraint(equalTo: lastAddedButton?.bottomAnchor ?? self.topAnchor, constant: 10),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            button.heightAnchor.constraint(equalToConstant: 30)
-        ])
-        
-        lastAddedButton = button
-    }
-    
-//    func createHomeButton() {
-//        let button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
-//
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.isBordered = false
-//        button.imagePosition = .imageOnly
-//
-//        super.addSubview(button)
-//
-//        NSLayoutConstraint.activate([
-//            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            // 이전 버튼의 bottom anchor와 연결
-//            button.topAnchor.constraint(equalTo: lastAddedButton?.bottomAnchor ?? self.topAnchor, constant: 10),
-//            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            button.heightAnchor.constraint(equalToConstant: 30)
-//        ])
-//
-//        lastAddedButton = button
-//    }
-//
-//    func createHomeButton() {
-//        let button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
-//        super.addSubview(button)
-//
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.isBordered = false
-//        button.imagePosition = .imageOnly
-//
-//
-////        NSLayoutConstraint.activate([
-////            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-////            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-////            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//////            button.heightAnchor.constraint(equalToConstant: 30)
-////        ])
-//
-//        NSLayoutConstraint.activate([
-////            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20), // 좌측 간격을 100에서 20으로 변경
-////            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20), // 우측 간격을 80에서 20으로 변경
-////            button.heightAnchor.constraint(equalToConstant: 30)
-//        ])
-//
-//        lastAddedButton = nil // home 버튼 이후의 버튼들이 상단에 연결되지 않도록 설정
-//    }
-    
-    func createHomeButton() {
-        let button = NSButton(title: "home", image: NSImage(imageLiteralResourceName: "42box_logo"), target: self, action: #selector(clickBtn(sender:)))
-        super.addSubview(button)
-        
+        let fontSize: CGFloat = 16.0
+        button.font = NSFont.systemFont(ofSize: fontSize)
+        button.setButtonType(.momentaryLight)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.isBordered = false
-        button.imagePosition = .imageOnly
-        
+
         button.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(30)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+            
+            if title == "home" {
+                make.height.equalTo(50)
+            } else {
+                make.height.equalTo(50)
+            }
             
             if let lastButton = lastAddedButton {
                 make.top.equalTo(lastButton.snp.bottom).offset(10)
             } else {
-                make.top.equalToSuperview()
+                make.top.equalToSuperview().offset(10)
             }
         }
 
         lastAddedButton = button
     }
 
-
-
-    
-//    func createQuitButton() {
-//        let button = NSButton()
-//        button.title = "Quit Box"
-//        button.setButtonType(.momentaryLight)
-//
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.action =  #selector(NSApplication.terminate(_:))
-//        button.isBordered = true
-//        button.bezelStyle = .roundRect
-//        button.showsBorderOnlyWhileMouseInside = true
-//
-//        self.addSubview(button)
-//
-//        button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-//        button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
-//        button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-//    }
-    
     func createQuitButton() {
         let button = NSButton()
         button.title = "Quit Box"
@@ -176,16 +115,14 @@ class BoxButtonViewGroup: NSView {
 
         self.addSubview(button)
 
-        NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            button.topAnchor.constraint(equalTo: lastAddedButton?.bottomAnchor ?? self.topAnchor, constant: 10), // 이 부분 수정
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            button.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        button.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview()
+        }
 
         lastAddedButton = button // 이 부분 추가
     }
-
     
     func createPinButton() {
         let button = NSButton()

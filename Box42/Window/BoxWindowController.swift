@@ -8,18 +8,26 @@
 import Cocoa
 
 class BoxWindowController: NSWindowController {
+    var windowInstance: NSWindow!
+    var gradientView: NSView!
+
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
         let styleMask: NSWindow.StyleMask = [.titled, .closable, .resizable, .miniaturizable]
-        let windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
+        windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         windowInstance.title = "Box"
         windowInstance.styleMask.insert(.resizable)
-        windowInstance.backgroundColor = NSColor.red
-
+        windowInstance.isReleasedWhenClosed = false
+        windowInstance.isOpaque = false
+        
+        super.init(window: windowInstance)
+        gradientView = GradientView(frame: contentRect)
+      
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
-
-        super.init(window: windowInstance)
+        windowInstance.contentView?.addSubview(gradientView, positioned: .below, relativeTo: nil)
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
+        gradientViewAutoLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -28,6 +36,16 @@ class BoxWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    }
+    
+    func gradientViewAutoLayout() {
+        if let contentView = windowInstance.contentView {
+            NSLayoutConstraint.activate([
+                gradientView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                gradientView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                gradientView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                gradientView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            ])
+        }
     }
 }
