@@ -10,7 +10,7 @@ import Cocoa
 class BoxWindowController: NSWindowController {
     var windowInstance: NSWindow!
     var gradientView: NSView!
-    
+
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
         let styleMask: NSWindow.StyleMask = [.titled, .closable, .resizable, .miniaturizable]
@@ -22,7 +22,7 @@ class BoxWindowController: NSWindowController {
         
         super.init(window: windowInstance)
         gradientView = GradientView(frame: contentRect)
-
+      
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
         windowInstance.contentView?.addSubview(gradientView, positioned: .below, relativeTo: nil)

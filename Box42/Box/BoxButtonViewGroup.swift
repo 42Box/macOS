@@ -78,10 +78,9 @@ class BoxButtonViewGroup: NSView {
         
         let fontSize: CGFloat = 16.0
         button.font = NSFont.systemFont(ofSize: fontSize)
-        
         button.setButtonType(.momentaryLight)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+
         button.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(10)
@@ -99,9 +98,9 @@ class BoxButtonViewGroup: NSView {
                 make.top.equalToSuperview().offset(10)
             }
         }
+
         lastAddedButton = button
     }
-
 
     func createQuitButton() {
         let button = NSButton()

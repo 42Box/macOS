@@ -9,8 +9,7 @@ import Cocoa
 import AppKit
 import WebKit
 
-class BoxViewController: NSViewController {
-    
+class BoxViewController: NSViewController {  
     var boxView: BoxBaseContainerViewController! = BoxBaseContainerViewController()
     
     let preferencesVC = PreferencesViewController()
@@ -24,6 +23,7 @@ class BoxViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         menubarVCDelegate = (NSApplication.shared.delegate as? AppDelegate)?.menubarController
     }
     
