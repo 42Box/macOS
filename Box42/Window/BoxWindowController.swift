@@ -13,15 +13,20 @@ class BoxWindowController: NSWindowController {
 
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
-        let styleMask: NSWindow.StyleMask = [.titled, .closable, .resizable, .miniaturizable]
+        let styleMask: NSWindow.StyleMask = [.resizable] // [.titled, .closable, .miniaturizable]
         windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         windowInstance.title = "Box"
         windowInstance.styleMask.insert(.resizable)
         windowInstance.isReleasedWhenClosed = false
         windowInstance.isOpaque = false
-        
+        windowInstance.isMovableByWindowBackground = true
+
         super.init(window: windowInstance)
-        gradientView = GradientView(frame: contentRect)
+        
+        windowInstance.isOpaque = false
+        windowInstance.backgroundColor = .clear
+        
+        gradientView = BackGroundView(frame: contentRect)
       
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
