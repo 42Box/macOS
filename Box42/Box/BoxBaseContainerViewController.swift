@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SnapKit
 
 class BoxBaseContainerViewController: NSViewController {
     var buttonGroup : BoxButtonViewGroup!
@@ -62,22 +63,20 @@ class BoxBaseContainerViewController: NSViewController {
         view.addSubview(contentGroup)
 
         // buttonGroup 오토레이아웃 설정
-        buttonGroup.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonGroup.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            buttonGroup.topAnchor.constraint(equalTo: self.view.topAnchor),
-            buttonGroup.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            buttonGroup.widthAnchor.constraint(equalToConstant: BoxSizeManager.shared.buttonGroupSize.width)
-        ])
+        buttonGroup.snp.makeConstraints { make in
+            make.leading.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
+            make.top.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
+            make.bottom.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
+            make.width.equalTo(BoxSizeManager.shared.buttonGroupSize.width)
+        }
 
         // contentGroup 오토레이아웃 설정
-        contentGroup.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentGroup.leadingAnchor.constraint(equalTo: buttonGroup.trailingAnchor),
-            contentGroup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            contentGroup.topAnchor.constraint(equalTo: self.view.topAnchor),
-            contentGroup.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
+        contentGroup.snp.makeConstraints { make in
+            make.leading.equalTo(buttonGroup.snp.trailing)
+            make.trailing.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
+            make.top.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
+            make.bottom.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
+        }
     }
 
     func boxViewSizeInit() {

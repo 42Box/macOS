@@ -7,6 +7,7 @@
 
 import Cocoa
 import WebKit
+import SnapKit
 
 class BoxContentsViewGroup: NSView {
     var webVC: WebViewController?
@@ -19,9 +20,14 @@ class BoxContentsViewGroup: NSView {
         super.init(frame: NSRect(x: 0, y: 0, width: BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width, height: BoxSizeManager.shared.buttonGroupSize.height))
         
         self.wantsLayer = true
-        webVC.view.frame = self.bounds
         self.addSubview(webVC.view)
+        
+        webVC.view.translatesAutoresizingMaskIntoConstraints = false
+        webVC.view.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -48,9 +54,14 @@ class BoxContentsViewGroup: NSView {
             print("No WebView found for title: \(sender.title)")
             return
         }
-        
-        currentWebview.frame = self.bounds // WebView의 크기 및 위치 설정
+
+        currentWebview.translatesAutoresizingMaskIntoConstraints = false
+
         self.addSubview(currentWebview)
+        
+        currentWebview.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
         
         // WebView 설정
         currentWebview.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
