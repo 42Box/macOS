@@ -12,6 +12,9 @@ typealias WebViewMapping = [String : WKWebView]
 class WebViewList {
     static let shared = WebViewList()
 
+    var hostingname: String?
+    var hostingWebView: WKWebView?
+
     var list: WebViewMapping!
     
     private init() {

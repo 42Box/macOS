@@ -44,6 +44,7 @@ class WebViewController: NSViewController {
     }
     
     func webViewInit() {
+        WebViewList.shared.hostingWebView = self.webView
         DispatchQueue.main.async {
             self.webView.load(self.URLVM.requestURL(self.URLVM.safeURL()))
         }
@@ -59,8 +60,12 @@ class WebViewController: NSViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        if let scrollView = webView.enclosingScrollView {
+            scrollView.verticalScroller = CustomScroller()
+            scrollView.horizontalScroller = CustomScroller()
+        }
 	}
-	
+    
 	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 		print(message.name)
 	}
@@ -70,32 +75,10 @@ extension WebViewController {
     override func keyDown(with event: NSEvent) {
         print(event.keyCode)
         
-        if (event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "c") ||
-            (event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "ㅊ") {
-            // 복사 동작 처리
-            webView.evaluateJavaScript("document.execCommand('copy')") { (_, error) in
-                if let error = error {
-                    print("Copy error: \(error)")
-                } else {
-                    print("Copy success")
-                }
-            }
-        } else if (event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "v") ||
-                    (event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "ㅍ") {
-            // 붙여넣기 동작 처리
-            let pasteboard = NSPasteboard.general
-            if let pasteString = pasteboard.string(forType: .string) {
-                let escapedPasteString = pasteString.escapedForJavaScript
-                webView.evaluateJavaScript("document.execCommand('insertText', false, '\(escapedPasteString)')") { (_, error) in
-                    if let error = error {
-                        print("Paste error: \(error)")
-                    } else {
-                        print("Paste success")
-                    }
-                }
-            }
-        } else {
-            super.keyDown(with: event) // 기본 키 이벤트 처리
-        }
+        // 키보드 이벤트 처리
+        // if (event) {
+        // } else {
+            // super.keyDown(with: event) // 기본 키 이벤트 처리
+        // }
     }
 }
