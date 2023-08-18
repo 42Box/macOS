@@ -12,12 +12,14 @@ class StateManager {
     private var isShowCPUUsage: Bool!
     private var isShowWindow: Bool!
     private var isShowFirstWindow: Bool!
+    private var isAutoStorage: Bool!
     
     private init() {
         isPin = false
         isShowCPUUsage = false
         isShowWindow = false
         isShowFirstWindow = false
+        isAutoStorage = true
     }
     
     func getIsPin() -> Bool {
@@ -50,5 +52,17 @@ class StateManager {
     
     func setToggleIsShowFirstWindow() {
         isShowFirstWindow.toggle()
+    }
+    
+    func getIsAutoStorage() -> Bool {
+        return isAutoStorage
+    }
+    
+    func setOffIsAutoStorage() {
+        isAutoStorage = false
+    }
+    
+    func setOnIsAutoStorage() {
+        isAutoStorage = true
     }
 }

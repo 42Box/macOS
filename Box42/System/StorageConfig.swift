@@ -27,7 +27,7 @@ class StorageConfig: ObservableObject {
     @Published var threshold: StorageThreshold
     @Published var period: StoragePeriod
     
-    init(_ threshold: StorageThreshold = .percentage05, _ period: StoragePeriod = .period3s) {
+    init(_ threshold: StorageThreshold = .percentage10, _ period: StoragePeriod = .period3s) {
         self.threshold = threshold
         self.period = period
     }
