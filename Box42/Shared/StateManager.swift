@@ -11,11 +11,13 @@ class StateManager {
     private var isPin: Bool!
     private var isShowCPUUsage: Bool!
     private var isShowWindow: Bool!
+    private var isShowFirstWindow: Bool!
     
     private init() {
         isPin = false
         isShowCPUUsage = false
         isShowWindow = false
+        isShowFirstWindow = false
     }
     
     func getIsPin() -> Bool {
@@ -34,11 +36,19 @@ class StateManager {
         isShowCPUUsage.toggle()
     }
     
-    func getToggleIsShowWindow() -> Bool {
+    func getIsShowWindow() -> Bool {
         return isShowWindow
     }
     
     func setToggleIsShowWindow() {
         isShowWindow.toggle()
+    }
+    
+    func getIsShowFirstWindow() -> Bool {
+        return isShowFirstWindow
+    }
+    
+    func setToggleIsShowFirstWindow() {
+        isShowFirstWindow.toggle()
     }
 }

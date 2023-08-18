@@ -20,6 +20,11 @@
 		DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BF22A509B3300FF0AA3 /* MenubarModel.swift */; };
 		DE018BF62A509B3600FF0AA3 /* MenubarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BF52A509B3600FF0AA3 /* MenubarView.swift */; };
 		DE018C032A509B5D00FF0AA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE018C022A509B5D00FF0AA3 /* Main.storyboard */; };
+		DE0A915D2A8E348D00D1D6F1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE0A915C2A8E348D00D1D6F1 /* SnapKit */; };
+		DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91622A8E6A5400D1D6F1 /* Constants.swift */; };
+		DE0A91672A8E6CA700D1D6F1 /* WebViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91662A8E6CA700D1D6F1 /* WebViewList.swift */; };
+		DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A916C2A8E7DD700D1D6F1 /* HoverButton.swift */; };
+		DE0A91702A8E8BDE00D1D6F1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A916F2A8E8BDE00D1D6F1 /* GradientView.swift */; };
 		DE1F1A142A8B506600A88DD8 /* importMacOSInfo.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */; };
 		DE1F1A152A8B506600A88DD8 /* exportMacOSInfo.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */; };
 		DE1F1A162A8B506600A88DD8 /* keyMapping.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE1F1A132A8B506600A88DD8 /* keyMapping.sh */; };
@@ -64,6 +69,10 @@
 		DE018BF52A509B3600FF0AA3 /* MenubarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarView.swift; sourceTree = "<group>"; };
 		DE018C022A509B5D00FF0AA3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE018C192A509DBA00FF0AA3 /* Box42.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Box42.entitlements; sourceTree = "<group>"; };
+		DE0A91622A8E6A5400D1D6F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DE0A91662A8E6CA700D1D6F1 /* WebViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewList.swift; sourceTree = "<group>"; };
+		DE0A916C2A8E7DD700D1D6F1 /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
+		DE0A916F2A8E8BDE00D1D6F1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = importMacOSInfo.sh; sourceTree = "<group>"; };
 		DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = exportMacOSInfo.sh; sourceTree = "<group>"; };
 		DE1F1A132A8B506600A88DD8 /* keyMapping.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = keyMapping.sh; sourceTree = "<group>"; };
@@ -98,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D676A64A2A8C5CEA00B5C319 /* SnapKit in Frameworks */,
+				DE0A915D2A8E348D00D1D6F1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +134,8 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A916B2A8E7DC700D1D6F1 /* UI */,
 				DE1F1A202A8B50CA00A88DD8 /* Main */,
-				DE1F1A182A8B50BB00A88DD8 /* Box */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DEB862E82A853F6800278FCD /* Window */,
 				DEB862D22A8511D600278FCD /* Scripts */,
@@ -135,6 +144,7 @@
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
 				DE018C062A509B9000FF0AA3 /* System */,
 				DE018C082A509BB500FF0AA3 /* WebView */,
+				DE1F1A182A8B50BB00A88DD8 /* Box */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 			);
 			path = Box42;
@@ -157,6 +167,7 @@
 				DE018C0B2A509BC100FF0AA3 /* URL */,
 				DE018BE92A509B2100FF0AA3 /* WebViewModel.swift */,
 				DE018BE62A509B1E00FF0AA3 /* WebViewController.swift */,
+				DE0A91662A8E6CA700D1D6F1 /* WebViewList.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -193,6 +204,15 @@
 			path = Menubar;
 			sourceTree = "<group>";
 		};
+		DE0A916B2A8E7DC700D1D6F1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A916C2A8E7DD700D1D6F1 /* HoverButton.swift */,
+				DE0A916F2A8E8BDE00D1D6F1 /* GradientView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		DE17AF722A834A1600325BF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +245,7 @@
 			children = (
 				DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */,
 				DE77BA552A82637900713683 /* StateManager.swift */,
+				DE0A91622A8E6A5400D1D6F1 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -298,7 +319,7 @@
 			);
 			name = Box42;
 			packageProductDependencies = (
-				D676A6492A8C5CEA00B5C319 /* SnapKit */,
+				DE0A915C2A8E348D00D1D6F1 /* SnapKit */,
 			);
 			productName = Box42;
 			productReference = DE018BAF2A5099F900FF0AA3 /* Box42.app */;
@@ -328,7 +349,7 @@
 			);
 			mainGroup = DE018BA62A5099F900FF0AA3;
 			packageReferences = (
-				D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DE0A915B2A8E348D00D1D6F1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DE018BB02A5099F900FF0AA3 /* Products */;
 			projectDirPath = "";
@@ -376,9 +397,12 @@
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE1F1A252A8B50D500A88DD8 /* BoxViewModel.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
+				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
+				DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */,
 				DE1F1A242A8B50D500A88DD8 /* BoxButtonHandler.swift in Sources */,
+				DE0A91672A8E6CA700D1D6F1 /* WebViewList.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
 				DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */,
@@ -390,6 +414,7 @@
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
+				DE0A91702A8E8BDE00D1D6F1 /* GradientView.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
 				DE018BEA2A509B2100FF0AA3 /* WebViewModel.swift in Sources */,
 			);
@@ -449,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -504,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -577,7 +602,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		DE0A915B2A8E348D00D1D6F1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -588,9 +613,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D676A6492A8C5CEA00B5C319 /* SnapKit */ = {
+		DE0A915C2A8E348D00D1D6F1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D676A6482A8C5CEA00B5C319 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = DE0A915B2A8E348D00D1D6F1 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

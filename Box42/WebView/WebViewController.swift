@@ -7,16 +7,21 @@
 
 import Cocoa
 import WebKit
+import Combine
 
 class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
 	var URLVM = WebViewModel()
     var webView: WKWebView!
+    
+    // Cancellables array to manage the bindings
+    var cancellables: Set<AnyCancellable> = []
     
     override func loadView() {
         self.webView = addWebView()
         self.view = webView
         loadWebViewInit()
         webViewInit()
+//        bindViewModel()
     }
     
 	func loadWebViewInit() {
@@ -24,19 +29,25 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
         for (key, value) in URLVM.URLdict {
 			let wkWebView = addWebView()
 			WebViewList.shared.list[key] = wkWebView
-			let rqURL = URLRequest(url:value)
 			DispatchQueue.main.async {
-				wkWebView.load(rqURL)
+				wkWebView.load(self.URLVM.requestURL(value))
 			}
 		}
 	}
     
     func webViewInit() {
-        let request = URLRequest(url: URLVM.URLdict["home"]!)
-//        let request = URLRequest(url: URL(fileURLWithPath: "https://github.com/CHANhihi"))
         DispatchQueue.main.async {
-            self.webView.load(request)
+            self.webView.load(self.URLVM.requestURL(self.URLVM.safeURL()))
         }
+    }
+    
+    func bindViewModel() {
+        // Whenever URLdict changes, it will call loadWebViewInit
+        URLVM.$URLdict
+            .sink { [weak self] _ in
+                self?.loadWebViewInit()
+            }
+            .store(in: &cancellables)
     }
     
 	func addWebView() -> WKWebView {

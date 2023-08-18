@@ -21,7 +21,6 @@ class BoxBaseContainerViewController: NSViewController {
 
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
         let buttonGroup = BoxButtonViewGroup { sender in
-                    // 버튼을 클릭할 때 실행할 코드
             self.clickBtn(sender: sender)
         }
         view.addSubview(buttonGroup)
@@ -31,9 +30,8 @@ class BoxBaseContainerViewController: NSViewController {
     func clickBtn(sender: NSButton) {
         guard let clickCount = NSApp.currentEvent?.clickCount else { return }
         if sender.title == "Preferences" {
-//            boxView.contentGroup.subviews.removeAll()
-//            boxView.contentGroup.addSubview(preferencesVC.view)
-//            preferencesVC.viewDidAppear()
+            contentGroup.removeAllSubviews()
+            contentGroup.showPreferences()
             return
         }
         if clickCount == 2 {
@@ -44,11 +42,8 @@ class BoxBaseContainerViewController: NSViewController {
 //            WebViewList.shared.list[sender.title]!.load(rqURL)
             print("Triple Click")
         } else if clickCount < 2 {
-//            boxView.contentGroup.subviews.removeAll()
-//            boxView.contentGroup.addSubview(WebViewList.shared.list[sender.title]!)
-            WebViewList.shared.list[sender.title]!.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-            WebViewList.shared.list[sender.title]!.configuration.preferences.javaScriptEnabled = true
-            WebViewList.shared.list[sender.title]?.viewDidMoveToSuperview()
+            contentGroup.removeAllSubviews()
+            contentGroup.showWebviews(sender)
         }
     }
 
