@@ -5,7 +5,6 @@
 //  Created by Chanhee Kim on 8/13/23.
 //
 
-import Cocoa
 import WebKit
 import SnapKit
 
@@ -14,15 +13,18 @@ class BoxContentsViewGroup: NSView {
     var preferencesVC = PreferencesViewController()
     
     init() {
-        let webVC = WebViewController(nibName: nil, bundle: nil)
+        webVC = WebViewController(nibName: nil, bundle: nil)
         
         super.init(frame: NSRect(x: 0, y: 0, width: BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width, height: BoxSizeManager.shared.buttonGroupSize.height))
         
-        self.wantsLayer = true
-        self.addSubview(webVC.view)
+        self.frame.size.width = BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width
+        self.frame.size.height = BoxSizeManager.shared.size.height
         
-        webVC.view.translatesAutoresizingMaskIntoConstraints = false
-        webVC.view.snp.makeConstraints { make in
+        self.wantsLayer = true
+        self.addSubview(webVC!.view)
+        
+        webVC?.view.translatesAutoresizingMaskIntoConstraints = false
+        webVC?.view.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
     }
@@ -54,25 +56,21 @@ class BoxContentsViewGroup: NSView {
             return
         }
 
-        currentWebview.translatesAutoresizingMaskIntoConstraints = false
-
+        WebViewList.shared.hostingname = sender.title
+        WebViewList.shared.hostingWebView = currentWebview
+        
         self.addSubview(currentWebview)
         
         currentWebview.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
         
-        // WebView 설정
-        currentWebview.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        currentWebview.configuration.preferences.javaScriptEnabled = true
-        
-        // WebView 내용 로드 확인 (옵셔널)
         if currentWebview.url == nil {
             print("WebView for \(sender.title) has no content loaded.")
         }
         
         currentWebview.viewDidMoveToSuperview()
+        currentWebview.becomeFirstResponder()
     }
     
 }
-
