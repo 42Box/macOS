@@ -9,7 +9,7 @@ import Cocoa
 import WebKit
 import Combine
 
-class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
+class WebViewController: NSViewController {
 	var URLVM = WebViewModel()
     var webView: WKWebView!
     
@@ -17,23 +17,31 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
     var cancellables: Set<AnyCancellable> = []
     
     override func loadView() {
-        self.webView = addWebView()
+        self.webView = WebView()
         self.view = webView
-        loadWebViewInit()
         webViewInit()
+        loadWebviewInit()
 //        bindViewModel()
     }
     
-	func loadWebViewInit() {
+    func loadWebviewInit() {
         URLVM.setUpURLdict()
-        for (key, value) in URLVM.URLdict {
-			let wkWebView = addWebView()
-			WebViewList.shared.list[key] = wkWebView
-			DispatchQueue.main.async {
-				wkWebView.load(self.URLVM.requestURL(value))
-			}
-		}
+        loadAllWebview()
+    }
+    
+    func loadWebView(_ name: String, _ url: URL) {
+        let wkWebView = WebView()
+        WebViewList.shared.list[name] = wkWebView
+        DispatchQueue.main.async {
+            wkWebView.load(self.URLVM.requestURL(url))
+        }
 	}
+    
+    func loadAllWebview() {
+        for (name, URL) in URLVM.URLdict {
+            loadWebView(name, URL)
+        }
+    }
     
     func webViewInit() {
         DispatchQueue.main.async {
@@ -42,40 +50,12 @@ class WebViewController: NSViewController, WKScriptMessageHandler, WKUIDelegate,
     }
     
     func bindViewModel() {
-        // Whenever URLdict changes, it will call loadWebViewInit
         URLVM.$URLdict
             .sink { [weak self] _ in
-                self?.loadWebViewInit()
+                self?.loadAllWebview()
             }
             .store(in: &cancellables)
     }
-    
-	func addWebView() -> WKWebView {
-		let preferences = WKPreferences()
-		preferences.javaScriptEnabled = true
-		preferences.javaScriptCanOpenWindowsAutomatically = true
-
-		let contentController = WKUserContentController()
-		contentController.add(self, name: "box")
-
-		let configuration = WKWebViewConfiguration()
-		configuration.preferences = preferences
-		configuration.userContentController = contentController
-
-		let webView = WKWebView(frame: .zero, configuration: configuration)
-
-		webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-		webView.configuration.preferences.javaScriptEnabled = true
-
-		webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-		if #available(macOS 11.0, *) {
-				webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
-		}
-		
-		webView.uiDelegate = self
-		webView.navigationDelegate = self
-		return webView
-	}
     
 	override func viewDidLoad() {
 		super.viewDidLoad()

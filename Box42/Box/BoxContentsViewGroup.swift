@@ -11,7 +11,6 @@ import SnapKit
 
 class BoxContentsViewGroup: NSView {
     var webVC: WebViewController?
-    var webView: WKWebView!
     var preferencesVC = PreferencesViewController()
     
     init() {
