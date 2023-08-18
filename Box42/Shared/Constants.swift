@@ -12,6 +12,6 @@ struct Constants {
     }
     
     struct UI {
-        static let GroupAutolayout = 10
+        static let GroupAutolayout = 12
     }
 }
