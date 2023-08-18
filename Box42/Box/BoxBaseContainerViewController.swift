@@ -16,7 +16,7 @@ class BoxBaseContainerViewController: NSViewController {
         self.view = NSView() // 뷰 컨트롤러의 뷰 설정
         buttonGroup = BoxButtonViewGroupInit()
         contentGroup = BoxContentsViewGroup()
-        panGestureInit()
+//        panGestureInit()
         viewInit()
     }
 
