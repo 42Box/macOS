@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: setup-actions/setup-swift@v1
+    - uses: setup-actions/setup-swift@v3
       with:
         swift-version: ${{ matrix.swift }}
     - name: Build
