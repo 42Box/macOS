@@ -5,9 +5,9 @@ name: Swift Build and Test
 
 on:
   push:
-    branches: [ "feat/" ]
+    branches: [ "feat/*", "fix/*" ]
   pull_request:
-    branches: [ "cluster_develop" ]
+    branches: [ "cluster_develop", "cluster_main", "main" ]
 
 
 jobs:
