@@ -26,7 +26,8 @@ struct URLModels {
     
     // Network logic api call 날려서 받아올 것.
     let URLstring: [nameUrl] = [
-        ("home", "https://42box.github.io/front-end/"),
+        ("home", "http://42box.kr/"),
+        ("23Coaltheme", "https://42box.github.io/front-end/"),
         //        ("home", "http://127.0.0.1:3000/"),
         ("Box 42", "https://42box.github.io/front-end/#/box"),
         ("Intra 42", "https://intra.42.fr"),
