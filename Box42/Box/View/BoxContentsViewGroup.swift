@@ -5,22 +5,28 @@
 //  Created by Chanhee Kim on 8/13/23.
 //
 
-import Cocoa
 import WebKit
+import SnapKit
 
 class BoxContentsViewGroup: NSView {
     var webVC: WebViewController?
-    var webView: WKWebView!
     var preferencesVC = PreferencesViewController()
     
     init() {
-        let webVC = WebViewController(nibName: nil, bundle: nil)
+        webVC = WebViewController(nibName: nil, bundle: nil)
         
         super.init(frame: NSRect(x: 0, y: 0, width: BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width, height: BoxSizeManager.shared.buttonGroupSize.height))
         
+        self.frame.size.width = BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width
+        self.frame.size.height = BoxSizeManager.shared.size.height
+        
         self.wantsLayer = true
-        webVC.view.frame = self.bounds
-        self.addSubview(webVC.view)
+        self.addSubview(webVC!.view)
+        
+        webVC?.view.translatesAutoresizingMaskIntoConstraints = false
+        webVC?.view.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -44,25 +50,26 @@ class BoxContentsViewGroup: NSView {
     }
     
     func showWebviews(_ sender: NSButton) {
-        guard let currentWebview = WebViewList.shared.list[sender.title] else {
+        guard let currentWebview = WebViewManager.shared.list[sender.title] else {
             print("No WebView found for title: \(sender.title)")
             return
         }
+
+        WebViewManager.shared.hostingname = sender.title
+        WebViewManager.shared.hostingWebView = currentWebview
         
-        currentWebview.frame = self.bounds // WebView의 크기 및 위치 설정
         self.addSubview(currentWebview)
         
-        // WebView 설정
-        currentWebview.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
-        currentWebview.configuration.preferences.javaScriptEnabled = true
+        currentWebview.snp.makeConstraints { make in
+            make.edges.equalTo(self)
+        }
         
-        // WebView 내용 로드 확인 (옵셔널)
         if currentWebview.url == nil {
             print("WebView for \(sender.title) has no content loaded.")
         }
         
         currentWebview.viewDidMoveToSuperview()
+        currentWebview.becomeFirstResponder()
     }
     
 }
-

@@ -9,8 +9,11 @@ import WebKit
 
 typealias WebViewMapping = [String : WKWebView]
 
-class WebViewList {
-    static let shared = WebViewList()
+class WebViewManager {
+    static let shared = WebViewManager()
+
+    var hostingname: String?
+    var hostingWebView: WKWebView?
 
     var list: WebViewMapping!
     

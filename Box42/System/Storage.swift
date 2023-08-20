@@ -54,6 +54,11 @@ class Storage {
     
     func storageTimerEvent(){
         storageTimer?.invalidate()
+        
+        if StateManager.shared.getIsAutoStorage() == false {
+            return
+        }
+        
         storageTimer = Timer.scheduledTimer(withTimeInterval: config.period.rawValue, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             
@@ -63,11 +68,33 @@ class Storage {
             }
             
             if let usedUsage = self.usedUsage, let totalUsage = self.totalUsage, totalUsage != 0 {
-                let usagePercentage = usedUsage / totalUsage
+                let usagePercentage = (totalUsage - usedUsage) / totalUsage
                 if usagePercentage < self.config.threshold.rawValue {
                     self.cleanSh()
                     self.count += 1
-                    print(self.count > 5 ? "캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요." : "\(usedUsage.roundedToTwoDecimalPlaces) GB", "Storage used is less than 30%")
+                    if self.count > 2 {
+//                        showMessageWithAppleScript("캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요.", "재시작") { button in
+//                            print("timer")
+//                            dump(button)
+//                            if let button = button {
+//                                switch button {
+//                                case "재시작":
+//                                    StateManager.shared.setOnIsAutoStorage()
+//                                    print("재시작 버튼을 클릭했습니다.")
+//                                case "취소":
+//                                    // 취소 관련 로직 실행
+//                                    print("취소 버튼을 클릭했습니다.")
+//                                default:
+//                                    break
+//                                }
+//                            }
+//                        }
+                        StateManager.shared.setOffIsAutoStorage()
+                        // 여기서도 타이머를 중지시켜야 합니다.
+                        self.storageTimer?.invalidate()
+                    } else {
+                        print("\(usedUsage.roundedToTwoDecimalPlaces) GB", "Storage used is less than 30%")
+                    }
                 } else {
                     self.count = 0
                 }
@@ -75,8 +102,10 @@ class Storage {
                 print("Failed to get storage usage details")
             }
         })
+        
         storageTimer?.fire()
     }
+
     
     func cleanSh() {
         if let scriptPath = Bundle.main.path(forResource: "cleanCache", ofType: "sh") {

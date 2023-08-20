@@ -10,4 +10,8 @@ struct Constants {
         static let InitialName = "home"
         static let InitialPage = "https://42box.github.io/front-end/"
     }
+    
+    struct UI {
+        static let GroupAutolayout = 12
+    }
 }

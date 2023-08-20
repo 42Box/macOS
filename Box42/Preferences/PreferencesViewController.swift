@@ -104,21 +104,21 @@ class PreferencesViewController: NSViewController {
                 
                 task.standardError = outputPipe
                 
-                outputPipe.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
-                    if #available(OSX 10.15.4, *) {
-                        if let data = try? fileHandle.readToEnd(), let output = String(data: data, encoding: .utf8) {
-                            DispatchQueue.main.async {
-                                if let outputView = self?.outputView {
-                                    outputView.string += "\(output)"
-                                } else {
-                                    print("outputView is nil")
-                                }
-                            }
-                        }
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                }
+//                outputPipe.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
+//                    if #available(OSX 10.15.4, *) {
+//                        if let data = try? fileHandle.readToEnd(), let output = String(data: data, encoding: .utf8) {
+//                            DispatchQueue.main.async {
+//                                if let outputView = self?.outputView {
+//                                    outputView.string += "\(output)"
+//                                } else {
+//                                    print("outputView is nil")
+//                                }
+//                            }
+//                        }
+//                    } else {
+//                        // Fallback on earlier versions
+//                    }
+//                }
                         
                         
                 task.launch()
