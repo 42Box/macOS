@@ -11,7 +11,6 @@ import AppKit
 class MenubarViewController: NSWorkspace {
     var popover = NSPopover()
     var statusBarVM = StatusBarViewModel()
-    let menuBarView = MenuBarView()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var boxWindowController: BoxWindowController?
   

@@ -31,7 +31,7 @@ class WebViewController: NSViewController {
     
     func loadWebView(_ name: String, _ url: URL) {
         let wkWebView = WebView()
-        WebViewList.shared.list[name] = wkWebView
+        WebViewManager.shared.list[name] = wkWebView
         DispatchQueue.main.async {
             wkWebView.load(self.URLVM.requestURL(url))
         }
@@ -44,7 +44,7 @@ class WebViewController: NSViewController {
     }
     
     func webViewInit() {
-        WebViewList.shared.hostingWebView = self.webView
+        WebViewManager.shared.hostingWebView = self.webView
         DispatchQueue.main.async {
             self.webView.load(self.URLVM.requestURL(self.URLVM.safeURL()))
         }
@@ -60,25 +60,16 @@ class WebViewController: NSViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        if let scrollView = webView.enclosingScrollView {
-            scrollView.verticalScroller = CustomScroller()
-            scrollView.horizontalScroller = CustomScroller()
-        }
 	}
     
 	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
 		print(message.name)
 	}
-}
-
-extension WebViewController {
-    override func keyDown(with event: NSEvent) {
-        print(event.keyCode)
-        
-        // 키보드 이벤트 처리
-        // if (event) {
-        // } else {
-            // super.keyDown(with: event) // 기본 키 이벤트 처리
-        // }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if let url = navigationAction.request.url {
+            webView.load(URLRequest(url: url))
+        }
+        return nil
     }
 }

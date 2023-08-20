@@ -73,23 +73,22 @@ class Storage {
                     self.cleanSh()
                     self.count += 1
                     if self.count > 2 {
-                        showMessageWithAppleScript("캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요.", "재시작") { button in
-                            print("timer")
-                            dump(button)
-                            if let button = button {
-                                switch button {
-                                case "재시작":
-                                    StateManager.shared.setOnIsAutoStorage()
-                                    print("재시작 버튼을 클릭했습니다.")
-                                case "취소":
-                                    // 취소 관련 로직 실행
-                                    print("취소 버튼을 클릭했습니다.")
-                                default:
-                                    break
-                                }
-                            }
-                        }
-
+//                        showMessageWithAppleScript("캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요.", "재시작") { button in
+//                            print("timer")
+//                            dump(button)
+//                            if let button = button {
+//                                switch button {
+//                                case "재시작":
+//                                    StateManager.shared.setOnIsAutoStorage()
+//                                    print("재시작 버튼을 클릭했습니다.")
+//                                case "취소":
+//                                    // 취소 관련 로직 실행
+//                                    print("취소 버튼을 클릭했습니다.")
+//                                default:
+//                                    break
+//                                }
+//                            }
+//                        }
                         StateManager.shared.setOffIsAutoStorage()
                         // 여기서도 타이머를 중지시켜야 합니다.
                         self.storageTimer?.invalidate()
