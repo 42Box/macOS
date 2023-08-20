@@ -10,10 +10,8 @@ import AppKit
 class BoxBaseSplitView: NSSplitView {
     init() {
         super.init(frame: .zero)
-
         self.isVertical = true
-        self.dividerStyle = .thin
-        
+        self.dividerStyle = .thick
     }
     
     required init?(coder: NSCoder) {

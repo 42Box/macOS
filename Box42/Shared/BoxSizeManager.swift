@@ -18,6 +18,7 @@ struct BoxSizeManager {
     var boxViewSizeNSRect: NSRect
     var boxViewSizeNSSize: NSSize
     var buttonGroupSizeNSRect: NSRect
+    var windowButtonGroupSize: (width: CGFloat, height: CGFloat)!
     
     init() {
         halfSize = (NSScreen.halfOfScreen.x, NSScreen.halfOfScreen.y)
@@ -28,5 +29,6 @@ struct BoxSizeManager {
         boxViewSizeNSRect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         boxViewSizeNSSize = NSSize(width: size.width, height: size.height)
         buttonGroupSizeNSRect = NSRect(x: 0, y: 0, width: buttonGroupSize.width, height: buttonGroupSize.height)
+        windowButtonGroupSize = (CGFloat(200), NSScreen.customScreenSize.y)
     }
 }

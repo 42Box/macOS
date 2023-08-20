@@ -12,9 +12,10 @@ class BoxBaseContainerViewController: NSViewController {
     var splitView: BoxBaseSplitView! = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup! = BoxContentsViewGroup()
     var toolbarGroup: BoxToolbarViewGroup! = BoxToolbarViewGroup()
+    var functionGroupVC: BoxFunctionViewController! = BoxFunctionViewController()
     var buttonGroup: BoxButtonViewGroup!
     var leftContainer: MovableContainerView!
-    
+
     override func loadView() {
         self.view = NSView()
         self.view.addSubview(splitView)
@@ -35,17 +36,13 @@ class BoxBaseContainerViewController: NSViewController {
     
     func clickBtn(sender: NSButton) {
         guard let clickCount = NSApp.currentEvent?.clickCount else { return }
-        if sender.title == "Preferences" {
-            contentGroup.removeAllSubviews()
-            contentGroup.showPreferences()
-            return
-        }
         if clickCount == 2 {
-            WebViewList.shared.list[sender.title]!.reload()
+            WebViewManager.shared.list[sender.title]!.reload()
             print("Dobule Click")
         } else if clickCount > 2 {
-            //            let rqURL = URLRequest(url: boxVM.URLdict[sender.title]!)
-            //            WebViewList.shared.list[sender.title]!.load(rqURL)
+            if let currentURL = WebViewManager.shared.hostingWebView?.url {
+                NSWorkspace.shared.open(currentURL)
+            }
             print("Triple Click")
         } else if clickCount < 2 {
             contentGroup.removeAllSubviews()
@@ -57,6 +54,29 @@ class BoxBaseContainerViewController: NSViewController {
         leftContainer = MovableContainerView()
         leftContainer.addSubview(buttonGroup)
         leftContainer.addSubview(toolbarGroup)
+        leftContainer.addSubview(functionGroupVC.view)
+        leftContainerAutolayout()
+        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
+    }
+
+    private func leftContainerAutolayout() {
+        toolbarGroup.snp.makeConstraints { make in
+            make.top.equalTo(leftContainer).offset(Constants.UI.GroupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+            make.left.equalTo(leftContainer)
+        }
+        
+        buttonGroup.snp.makeConstraints { make in
+            make.top.equalTo(toolbarGroup.snp.bottom).offset(Constants.UI.GroupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+            make.left.equalTo(leftContainer)
+        }
+        
+        functionGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(buttonGroup.snp.bottom).offset(Constants.UI.GroupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+            make.left.bottom.equalTo(leftContainer)
+        }
     }
     
     func viewInit() {
@@ -68,19 +88,9 @@ class BoxBaseContainerViewController: NSViewController {
         
         splitView.snp.makeConstraints { make in
             make.top.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
-            make.bottom.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
             make.left.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
             make.right.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
-        }
-        
-        toolbarGroup.snp.makeConstraints { make in
-            make.top.equalTo(leftContainer).offset(Constants.UI.GroupAutolayout)
-            make.left.right.equalTo(leftContainer)
-        }
-        
-        buttonGroup.snp.makeConstraints { make in
-            make.top.equalTo(toolbarGroup.snp.bottom).offset(Constants.UI.GroupAutolayout)
-            make.left.right.bottom.equalTo(leftContainer)
+            make.bottom.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
         }
     }
     
@@ -92,6 +102,7 @@ class BoxBaseContainerViewController: NSViewController {
 
 extension BoxBaseContainerViewController: NSSplitViewDelegate {
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        
         if dividerIndex == 0 {
             return 132
         }
@@ -103,5 +114,16 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
             return 200
         }
         return proposedMaximumPosition
+    }
+    
+    func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize) {
+        let dividerThickness = splitView.dividerThickness
+        let newWidth = splitView.frame.width - dividerThickness
+
+        let leftWidth = leftContainer.frame.width
+        let contentWidth = newWidth - leftWidth
+
+        leftContainer.frame = NSRect(x: 0, y: 0, width: leftWidth, height: splitView.bounds.height)
+        contentGroup.frame = NSRect(x: leftWidth + dividerThickness, y: 0, width: contentWidth, height: splitView.bounds.height)
     }
 }
