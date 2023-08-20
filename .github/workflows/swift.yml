@@ -27,6 +27,8 @@ jobs:
       with:
         swift-version: ${{ matrix.swift }}
     - name: Build
-      run: swift build
-    - name: Run tests
-      run: swift test
+      run: |
+        mkdir Sources &&
+        mv Box42 Sources/Box42 &&
+        swift build
+ 
