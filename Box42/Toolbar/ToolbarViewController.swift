@@ -38,20 +38,20 @@ class ToolbarViewController: NSViewController {
     }
     
     func goBack() {
-        WebViewList.shared.hostingWebView?.goBack()
+        WebViewManager.shared.hostingWebView?.goBack()
     }
     
     func goFoward() {
-        WebViewList.shared.hostingWebView?.goForward()
+        WebViewManager.shared.hostingWebView?.goForward()
     }
     
     func reloadPage() {
-        WebViewList.shared.hostingWebView?.reload()
+        WebViewManager.shared.hostingWebView?.reload()
     }
     
     func goToHome() {
-        if let item = WebViewList.shared.hostingWebView?.backForwardList.backList.first {
-            WebViewList.shared.hostingWebView?.go(to: item)
+        if let item = WebViewManager.shared.hostingWebView?.backForwardList.backList.first {
+            WebViewManager.shared.hostingWebView?.go(to: item)
         }
     }
 }

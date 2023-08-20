@@ -7,14 +7,14 @@
 
 import Cocoa
 
-class BoxWindowController: NSWindowController, NSToolbarDelegate {
+class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelegate {
     
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
         let styleMask: NSWindow.StyleMask = [.resizable, .closable, .miniaturizable, .fullSizeContentView, .titled]
         
         let windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
-        
+
         windowInstance.titlebarAppearsTransparent = true
         windowInstance.titleVisibility = .hidden
         windowInstance.title = "Box"
@@ -22,11 +22,13 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate {
         windowInstance.isOpaque = false
         windowInstance.backgroundColor = .clear
         windowInstance.isMovableByWindowBackground = true
-        
+
         let boxViewController = BoxViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
-        
+
         super.init(window: windowInstance)
+        
+        windowInstance.delegate = self
         
         setupToolbar()
     }
@@ -34,9 +36,18 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Toolbar
-    
+}
+
+extension BoxWindowController {
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+//        NSApplication.shared.terminate(self)
+        StateManager.shared.setToggleIsShowWindow()
+        return true
+    }
+}
+
+// MARK: - Toolbar
+extension BoxWindowController {
     func setupToolbar() {
         let toolbar = NSToolbar(identifier: "MainToolbar")
         toolbar.delegate = self
@@ -99,20 +110,20 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate {
     }
     
     @objc func goBackAction() {
-        WebViewList.shared.hostingWebView?.goBack()
+        WebViewManager.shared.hostingWebView?.goBack()
     }
     
     @objc func goFowardAction() {
-        WebViewList.shared.hostingWebView?.goForward()
+        WebViewManager.shared.hostingWebView?.goForward()
     }
     
     @objc func reloadPageAction() {
-        WebViewList.shared.hostingWebView?.reload()
+        WebViewManager.shared.hostingWebView?.reload()
     }
     
     @objc func goToHomeAction() {
-        if let item = WebViewList.shared.hostingWebView?.backForwardList.backList.first {
-            WebViewList.shared.hostingWebView?.go(to: item)
+        if let item = WebViewManager.shared.hostingWebView?.backForwardList.backList.first {
+            WebViewManager.shared.hostingWebView?.go(to: item)
         }
     }
 }

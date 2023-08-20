@@ -16,7 +16,7 @@ class DisplayURLInToolbar: NSTextField {
         self.isBordered = false // 테두리를 제거합니다.
         self.backgroundColor = NSColor.clear // 배경색을 투명하게 만듭니다.
         
-        if let url = WebViewList.shared.hostingWebView?.url {
+        if let url = WebViewManager.shared.hostingWebView?.url {
             self.stringValue = url.absoluteString
         }
     }
@@ -26,7 +26,7 @@ class DisplayURLInToolbar: NSTextField {
     }
 
     func updateURL() {
-        if let url = WebViewList.shared.hostingWebView?.url {
+        if let url = WebViewManager.shared.hostingWebView?.url {
             self.stringValue = url.absoluteString
         }
     }
