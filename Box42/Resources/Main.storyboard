@@ -78,24 +78,36 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="chanheki" keyEquivalent="" id="Cuy-Nl-BcP" userLabel="chanheki">
+                                        <menuItem title="Chanheki" keyEquivalent="" id="Cuy-Nl-BcP" userLabel="chanheki">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="1Tt-5s-XrR"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Daskim" keyEquivalent="" id="UBE-Vz-BQd">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="mPZ-Ur-4ou"/>
                                         <menuItem title="FrontEnd" id="hsX-Vi-S5Z">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="FrontEnd" systemMenu="recentDocuments" id="gtu-ph-jWu"/>
+                                            <menu key="submenu" title="FrontEnd" systemMenu="recentDocuments" id="gtu-ph-jWu">
+                                                <items>
+                                                    <menuItem title="Jisookim" id="UmJ-GD-tnc">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Siyang" id="PUP-ID-PU8">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
                                         </menuItem>
-                                        <menuItem title="jisookim" keyEquivalent="" id="JlG-Kg-Yhp" userLabel="jisookim">
+                                        <menuItem title="Jincpark" keyEquivalent="" id="JlG-Kg-Yhp" userLabel="jisookim">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="4TL-VS-9HZ"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="siyang" keyEquivalent="" id="LhU-fy-Ps3" userLabel="siyang">
+                                        <menuItem title="Jiyun" keyEquivalent="" id="LhU-fy-Ps3" userLabel="siyang">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="dl6-Ri-clo"/>
@@ -106,7 +118,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="BackEnd" systemMenu="recentDocuments" id="uuO-Tx-UHG"/>
                                         </menuItem>
-                                        <menuItem title="joowpark" keyEquivalent="" id="OJl-mJ-i2d">
+                                        <menuItem title="Sechung" keyEquivalent="" id="OJl-mJ-i2d">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="BiS-n0-NEM"/>
@@ -132,57 +144,7 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="jisookim" keyEquivalent="" id="AXu-mO-oHK" userLabel="jisookim">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="hr3-7Q-hxx"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="yeonhkim" keyEquivalent="" id="mcP-xP-VZQ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="Ysw-6Y-dsE"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Find" id="LNC-rS-THN">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Find" id="aKJ-M3-xxI">
-                                    <items>
-                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="qgU-US-IeK">
-                                            <connections>
-                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="0D1-7K-GwZ"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="adt-Ag-5ag">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="performTextFinderAction:" target="Ady-hI-5gd" id="ktT-kY-tCF"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="zpp-0H-O0k">
-                                            <connections>
-                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="0oB-q8-ng7"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="ve2-wV-cbn">
-                                            <connections>
-                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="UYe-iW-LwG"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="AkP-fH-UhZ">
-                                            <connections>
-                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="SYA-4O-jqU"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="kQj-2P-1gU">
-                                            <connections>
-                                                <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="SJl-KO-6Mn"/>
-                                            </connections>
-                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -243,6 +205,44 @@
                                         <menuItem title="Print…" keyEquivalent="p" id="5wf-S6-GJf">
                                             <connections>
                                                 <action selector="print:" target="Ady-hI-5gd" id="kTq-nl-ZTT"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Find" id="LNC-rS-THN">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Find" id="aKJ-M3-xxI">
+                                    <items>
+                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="qgU-US-IeK">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="0D1-7K-GwZ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="adt-Ag-5ag">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="performTextFinderAction:" target="Ady-hI-5gd" id="ktT-kY-tCF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="zpp-0H-O0k">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="0oB-q8-ng7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="ve2-wV-cbn">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="UYe-iW-LwG"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="AkP-fH-UhZ">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="SYA-4O-jqU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="kQj-2P-1gU">
+                                            <connections>
+                                                <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="SJl-KO-6Mn"/>
                                             </connections>
                                         </menuItem>
                                     </items>
