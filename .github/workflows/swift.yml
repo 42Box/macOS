@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Swift 5.3 on macOS 10.15
-    runs-on: macos-lastest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
