@@ -11,18 +11,15 @@ on:
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-10.15]
-        swift: ["5.3"]
-
-    runs-on: ${{ matrix.os }}
+    name: Swift 5.3 on macOS 10.15
+    runs-on: macos-10.15
 
     steps:
+    - uses: actions/checkout@v2
+
     - uses: swift-actions/setup-swift@v1
       with:
-        swift-version: ${{ matrix.swift }}
+        swift-version: 5.3
 
     - name: Build
       run: |
