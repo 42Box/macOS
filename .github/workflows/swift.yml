@@ -1,0 +1,40 @@
+# Author by chanhihi
+# Date 2023.08.09
+
+name: Swift Build
+
+on:
+  push:
+    branches: [ "feat/*", "fix/*", "refactor/*", "cluster_main", "main" ]
+  pull_request:
+    branches: [ "cluster_develop" ]
+
+jobs:
+  build:
+    name: Swift 5.3 on macOS 11
+    runs-on: macos-11
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set Xcode version
+        run:
+          sudo xcode-select -s '/Applications/Xcode_12.4.0.app/Contents/Developer'
+
+      - name: Set SDK version
+        run:
+          echo 'SDKROOT=/Applications/Xcode_12.4.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk' >> $GITHUB_ENV
+
+      - name: setup-swift
+        uses: swift-actions/setup-swift@v1
+        with:
+            swift-version: 5.3
+
+      - name: Build
+        run: |
+          mkdir Sources &&
+          mv Box42 Sources/Box42 &&
+          swift build
+
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
