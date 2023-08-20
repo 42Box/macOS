@@ -28,7 +28,6 @@ class BoxContentsViewGroup: NSView {
             make.edges.equalTo(self)
         }
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -51,13 +50,13 @@ class BoxContentsViewGroup: NSView {
     }
     
     func showWebviews(_ sender: NSButton) {
-        guard let currentWebview = WebViewList.shared.list[sender.title] else {
+        guard let currentWebview = WebViewManager.shared.list[sender.title] else {
             print("No WebView found for title: \(sender.title)")
             return
         }
 
-        WebViewList.shared.hostingname = sender.title
-        WebViewList.shared.hostingWebView = currentWebview
+        WebViewManager.shared.hostingname = sender.title
+        WebViewManager.shared.hostingWebView = currentWebview
         
         self.addSubview(currentWebview)
         
