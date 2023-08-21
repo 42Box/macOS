@@ -9,10 +9,6 @@ on:
       - feat/*
       - fix/*
       - refactor/*
-      - cluster_main
-      - main
-    tags:
-      - "v*"
 
   pull_request:
     branches:
@@ -25,10 +21,6 @@ jobs:
     env:
       XCODE_VERSION: "12.4.0"
       SWIFT_VERSION: "5.3"
-      XCODE_PROJECT: "Box42.xcodeproj"
-      XCODE_SCHEME: "Box42"
-      XCODE_ARCHIVE_PATH: "Box42.xcarchive"
-      XCODE_EXPORT_PATH: "./artifacts"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,29 +34,10 @@ jobs:
       - name: setup-swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: 5.3
+          swift-version: ${{ env.SWIFT_VERSION }}
 
       - name: Build
         run: |
           mkdir Sources &&
           mv Box42 Sources/Box42 &&
           swift build
-
-      - name: Archive
-        if: github.ref == 'refs/heads/cluster_main'
-        run: |
-          mv Sources/Box42/Resources/ExportOptions.plist . &&
-          xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath $XCODE_ARCHIVE_PATH
-
-      - name: Distribute
-        if: github.ref == 'refs/heads/cluster_main'
-        run: |
-          mkdir -p artifacts &&
-          xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
-
-      - name: Upload Box42-Artifacts
-        if: github.ref == 'refs/heads/cluster_main'
-        uses: actions/upload-artifact@v2
-        with:
-          name: Box42-${{ github.ref_name }}
-          path: $XCODE_EXPORT_PATH
