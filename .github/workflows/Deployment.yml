@@ -35,7 +35,7 @@ jobs:
       - name: setup-swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: $SWIFT_VERSION
+          swift-version: 5.3
 
       - name: Build
         run: |
