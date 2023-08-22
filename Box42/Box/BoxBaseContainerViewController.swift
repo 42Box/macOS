@@ -12,6 +12,7 @@ class BoxBaseContainerViewController: NSViewController {
     var splitView: BoxBaseSplitView! = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup! = BoxContentsViewGroup()
     var toolbarGroup: BoxToolbarViewGroup! = BoxToolbarViewGroup()
+    var toolbarGroupVC: ToolbarViewController! = ToolbarViewController()
     var functionGroupVC: BoxFunctionViewController! = BoxFunctionViewController()
     var buttonGroup: BoxButtonViewGroup!
     var leftContainer: MovableContainerView!
