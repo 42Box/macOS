@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Deploy on macOS 11
+    name: Deploy on macOS 11 - Archive / Release
     runs-on: macos-11
     env:
       XCODE_VERSION: "12.4.0"
@@ -37,21 +37,15 @@ jobs:
         with:
           swift-version: 5.3
 
-      - name: Build
-        run: |
-          mkdir Sources &&
-          cp -r Box42 Sources/Box42 &&
-          swift build
-
       - name: Archive
         run: |
-          mv Sources/Box42/Resources/ExportOptions.plist . &&
+          mv Box42/Resources/ExportOptions.plist . &&
           xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath $XCODE_ARCHIVE_PATH
 
-      - name: Distribute
-        run: |
-          mkdir -p artifacts &&
-          xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
+      # - name: Distribute
+      #   run: |
+      #     mkdir -p artifacts &&
+      #     xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
 
       - name: Tagging
         id: tag_version
@@ -67,8 +61,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANHIHI }}
 
-      - name: Upload Box42-Artifacts
+      # Archive 기능으로 사용할 부분
+      - name: Upload Box42-Archive
         uses: actions/upload-artifact@v2
         with:
           name: Box42-${{ steps.tag_version.outputs.new_tag }}
-          path: $XCODE_EXPORT_PATH
+          path: $XCODE_ARCHIVE_PATH
+
+      # Distribute 기능 활성화시 사용할 부분
+      # - name: Upload Box42-Artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Box42-${{ steps.tag_version.outputs.new_tag }}
+      #     path: $XCODE_EXPORT_PATH
