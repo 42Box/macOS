@@ -4,9 +4,12 @@
 name: Deployment
 
 on:
-  push:
+  pull_request:
     branches:
-      - release-test
+      - cluster_main
+      - main
+    types:
+      - closed
 
 jobs:
   build:
@@ -50,8 +53,22 @@ jobs:
           mkdir -p artifacts &&
           xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
 
+      - name: Tagging
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.CHANHIHI }}
+
+      - name: Draft Release
+        id: draft_release
+        uses: release-drafter/release-drafter@v5
+        with:
+          config-name: Release-note.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANHIHI }}
+
       - name: Upload Box42-Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Box42-${{ github.ref_name }}
+          name: Box42-${{ steps.tag_version.outputs.new_tag }}
           path: $XCODE_EXPORT_PATH
