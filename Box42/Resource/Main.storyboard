@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="Box42" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Box42" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About Box42" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide Box42" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit Box42" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Developer" id="dMs-cI-mzQ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Developer" id="bib-Uj-vzu">
+                                    <items>
+                                        <menuItem title="Box42" keyEquivalent="n" id="Was-JA-tGl">
+                                            <connections>
+                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="0Eg-2v-1FM"/>
+                                        <menuItem title="macOS" id="tXI-mr-wws">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="macOS" systemMenu="recentDocuments" id="Esd-G5-c8t">
+                                                <items>
+                                                    <menuItem title="joonyoo" keyEquivalent="" id="hwt-x6-rkZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="performClose:" target="Ady-hI-5gd" id="Ley-Kc-OXk"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="chanheki" keyEquivalent="" id="Cuy-Nl-BcP" userLabel="chanheki">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="1Tt-5s-XrR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="mPZ-Ur-4ou"/>
+                                        <menuItem title="FrontEnd" id="hsX-Vi-S5Z">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="FrontEnd" systemMenu="recentDocuments" id="gtu-ph-jWu"/>
+                                        </menuItem>
+                                        <menuItem title="jisookim" keyEquivalent="" id="JlG-Kg-Yhp" userLabel="jisookim">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="4TL-VS-9HZ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="siyang" keyEquivalent="" id="LhU-fy-Ps3" userLabel="siyang">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="dl6-Ri-clo"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="nzp-H5-7bm"/>
+                                        <menuItem title="BackEnd" id="f87-XG-xBH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="BackEnd" systemMenu="recentDocuments" id="uuO-Tx-UHG"/>
+                                        </menuItem>
+                                        <menuItem title="joowpark" keyEquivalent="" id="OJl-mJ-i2d">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="BiS-n0-NEM"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="CFj-dI-A76"/>
+                                        <menuItem title="Designer" id="Vdt-TF-qwt">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Designer" systemMenu="recentDocuments" id="yth-EW-8wj">
+                                                <items>
+                                                    <menuItem title="yeonhkim" keyEquivalent="" id="M74-6L-NV6">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="performClose:" target="Ady-hI-5gd" id="rJ3-Oo-wBt"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="jisookim" keyEquivalent="" id="dJE-eg-RfL" userLabel="jisookim">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="performClose:" target="Ady-hI-5gd" id="Qh6-6M-GmU"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="jisookim" keyEquivalent="" id="AXu-mO-oHK" userLabel="jisookim">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="hr3-7Q-hxx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="yeonhkim" keyEquivalent="" id="mcP-xP-VZQ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="Ysw-6Y-dsE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="wpr-3q-Mcd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
+                                    <items>
+                                        <menuItem title="Box42 Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                            <connections>
+                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Box42" customModuleProvider="target"/>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-203"/>
+        </scene>
+        <!--Box Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <viewController storyboardIdentifier="BoxController" id="XfG-lQ-9wD" customClass="BoxController" customModule="Box42" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" verifyAmbiguity="off" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="900" height="700"/>
+                        <subviews>
+                            <customView id="aad-ZH-bmy">
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="700"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <subviews>
+                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jap-S0-sVs">
+                                        <rect key="frame" x="12" y="18" width="108" height="5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </box>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="ajH-mI-Lmb"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="NKy-04-yet">
+                                <rect key="frame" x="132" y="0.0" width="768" height="700"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="768" id="fTp-UO-gtk"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NKy-04-yet" firstAttribute="leading" secondItem="aad-ZH-bmy" secondAttribute="trailing" id="0pu-Gi-Xak"/>
+                            <constraint firstItem="NKy-04-yet" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="7Uw-HS-xZJ"/>
+                            <constraint firstItem="aad-ZH-bmy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="8Fu-l0-Ih2"/>
+                            <constraint firstItem="NKy-04-yet" firstAttribute="leading" secondItem="aad-ZH-bmy" secondAttribute="trailing" id="QmD-dc-xCc"/>
+                            <constraint firstItem="NKy-04-yet" firstAttribute="leading" secondItem="aad-ZH-bmy" secondAttribute="trailing" id="RO7-uI-G17"/>
+                            <constraint firstAttribute="trailing" secondItem="NKy-04-yet" secondAttribute="trailing" id="ZeJ-5u-1cu"/>
+                            <constraint firstAttribute="bottom" secondItem="NKy-04-yet" secondAttribute="bottom" id="aNn-3R-ch1"/>
+                            <constraint firstItem="aad-ZH-bmy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="b8a-4O-wSp"/>
+                            <constraint firstAttribute="bottom" secondItem="aad-ZH-bmy" secondAttribute="bottom" id="ePw-Ry-Zpg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boxView" destination="m2S-Jp-Qdl" id="BBt-br-HnW"/>
+                        <outlet property="buttonViewGroup" destination="aad-ZH-bmy" id="gGC-G1-9Dh"/>
+                        <outlet property="divider" destination="jap-S0-sVs" id="JGV-hX-Rct"/>
+                        <outlet property="hostingViewGroup" destination="NKy-04-yet" id="E4t-Xs-p35"/>
+                    </connections>
+                </viewController>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="236"/>
+        </scene>
+    </scenes>
+</document>
