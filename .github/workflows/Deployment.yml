@@ -21,6 +21,7 @@ jobs:
       XCODE_PROJECT: "Box42.xcodeproj"
       XCODE_SCHEME: "Box42"
       XCODE_ARCHIVE_PATH: "Box42.xcarchive"
+      XCODE_ARCHIVE_EXPORT_PATH: "./archive"
       XCODE_EXPORT_PATH: "./artifacts"
     steps:
       - name: Checkout
@@ -40,7 +41,7 @@ jobs:
       - name: Archive
         run: |
           mv Box42/Resources/ExportOptions.plist . &&
-          xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath $XCODE_ARCHIVE_PATH
+          xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath "$XCODE_ARCHIVE_EXPORT_PATH"/"$XCODE_ARCHIVE_PATH"
 
       # - name: Distribute
       #   run: |
@@ -61,14 +62,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANHIHI }}
 
-      # Archive 기능으로 사용할 부분
+      # Artifact가 Archive 기능으로 사용할 부분
       - name: Upload Box42-Archive
         uses: actions/upload-artifact@v2
         with:
           name: Box42-${{ steps.tag_version.outputs.new_tag }}
-          path: $XCODE_ARCHIVE_PATH
+          path: $XCODE_ARCHIVE_EXPORT_PATH
 
-      # Distribute 기능 활성화시 사용할 부분
+      # Distribute 기능 활성화시 Artifact에서 사용할 부분
       # - name: Upload Box42-Artifacts
       #   uses: actions/upload-artifact@v2
       #   with:
