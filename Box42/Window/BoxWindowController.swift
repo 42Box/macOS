@@ -8,11 +8,9 @@
 import Cocoa
 
 class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelegate {
-    
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
-        let styleMask: NSWindow.StyleMask = [.resizable, .closable, .miniaturizable, .fullSizeContentView, .titled]
-        
+        let styleMask: NSWindow.StyleMask = [.resizable, .closable, .miniaturizable, .fullSizeContentView]
         let windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
 
         windowInstance.titlebarAppearsTransparent = true
@@ -30,7 +28,7 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelega
         
         windowInstance.delegate = self
         
-        setupToolbar()
+//        setupToolbar()
     }
     
     required init?(coder: NSCoder) {
