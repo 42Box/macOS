@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Box42-${{ steps.tag_version.outputs.new_tag }}
-          path: $XCODE_ARCHIVE_EXPORT_PATH
+          path: ${{ env.XCODE_ARCHIVE_EXPORT_PATH }}
 
       # Distribute 기능 활성화시 Artifact에서 사용할 부분
       # - name: Upload Box42-Artifacts
