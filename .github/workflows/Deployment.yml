@@ -6,7 +6,7 @@ name: Deployment
 on:
   pull_request:
     branches:
-      - cluster_main
+      - cluster-main
       - main
     types:
       - closed
