@@ -6,10 +6,8 @@ name: Deployment
 on:
   push:
     branches:
-      - cluster_main
-      - main
-    tags:
-      - "v*"
+      - main-ci-cd-test
+      # - main
 
 jobs:
   build:
