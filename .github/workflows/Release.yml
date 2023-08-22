@@ -14,12 +14,11 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - name: Tag
-        if: success()
+      - name: Tagging
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.CHANHIHI }}
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
@@ -32,4 +31,4 @@ jobs:
         with:
           config-name: release-drafter-config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANHIHI }}
