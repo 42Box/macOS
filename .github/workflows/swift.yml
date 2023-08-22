@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: Swift 5.3 on macOS 11
+    name: Swift 5.3 on macOS 11 - Swift Build Test
     runs-on: macos-11
     env:
       XCODE_VERSION: "12.4.0"
@@ -34,7 +34,7 @@ jobs:
       - name: setup-swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: ${{ env.SWIFT_VERSION }}
+          swift-version: 5.3
 
       - name: Build
         run: |

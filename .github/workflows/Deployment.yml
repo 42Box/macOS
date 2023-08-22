@@ -4,13 +4,16 @@
 name: Deployment
 
 on:
-  push:
+  pull_request:
     branches:
-      - release-test
+      - cluster-main
+      - main
+    types:
+      - closed
 
 jobs:
   build:
-    name: Deploy on macOS 11
+    name: Deploy on macOS 11 - Archive / Release
     runs-on: macos-11
     env:
       XCODE_VERSION: "12.4.0"
@@ -33,23 +36,31 @@ jobs:
       - name: setup-swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: $SWIFT_VERSION
-
-      - name: Build
-        run: |
-          mkdir Sources &&
-          mv Box42 Sources/Box42 &&
-          swift build
+          swift-version: 5.3
 
       - name: Archive
         run: |
           mv Box42/Resources/ExportOptions.plist . &&
           xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath "$XCODE_ARCHIVE_EXPORT_PATH"/"$XCODE_ARCHIVE_PATH"
 
-      - name: Distribute
-        run: |
-          mkdir -p artifacts &&
-          xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
+      # - name: Distribute
+      #   run: |
+      #     mkdir -p artifacts &&
+      #     xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
+
+      - name: Tagging
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.CHANHIHI }}
+
+      - name: Draft Release
+        id: draft_release
+        uses: release-drafter/release-drafter@v5
+        with:
+          config-name: Release-note.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANHIHI }}
 
       # Artifact가 Archive 기능으로 사용할 부분
       - name: Upload Box42-Archive
