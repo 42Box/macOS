@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: |
           mkdir Sources &&
-          mv Box42 Sources/Box42 &&
+          cp -r Box42 Sources/Box42 &&
           swift build
 
       - name: Archive
