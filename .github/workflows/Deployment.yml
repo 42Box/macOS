@@ -6,7 +6,7 @@ name: Deployment
 on:
   push:
     branches:
-      - main-ci-cd-test
+      - main-cicd-test
       # - main
 
 jobs:
