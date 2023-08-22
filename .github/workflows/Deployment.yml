@@ -18,6 +18,7 @@ jobs:
       XCODE_PROJECT: "Box42.xcodeproj"
       XCODE_SCHEME: "Box42"
       XCODE_ARCHIVE_PATH: "Box42.xcarchive"
+      XCODE_ARCHIVE_EXPORT_PATH: "./archive"
       XCODE_EXPORT_PATH: "./artifacts"
     steps:
       - name: Checkout
@@ -42,16 +43,24 @@ jobs:
 
       - name: Archive
         run: |
-          mv Sources/Box42/Resources/ExportOptions.plist . &&
-          xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath $XCODE_ARCHIVE_PATH
+          mv Box42/Resources/ExportOptions.plist . &&
+          xcodebuild archive -project $XCODE_PROJECT -scheme $XCODE_SCHEME -archivePath "$XCODE_ARCHIVE_EXPORT_PATH"/"$XCODE_ARCHIVE_PATH"
 
       - name: Distribute
         run: |
           mkdir -p artifacts &&
           xcodebuild -exportArchive -archivePath "$XCODE_ARCHIVE_PATH" -exportOptionsPlist ExportOptions.plist -exportPath "$XCODE_EXPORT_PATH"
 
-      - name: Upload Box42-Artifacts
+      # Artifact가 Archive 기능으로 사용할 부분
+      - name: Upload Box42-Archive
         uses: actions/upload-artifact@v2
         with:
-          name: Box42-${{ github.ref_name }}
-          path: $XCODE_EXPORT_PATH
+          name: Box42-${{ steps.tag_version.outputs.new_tag }}
+          path: $XCODE_ARCHIVE_EXPORT_PATH
+
+      # Distribute 기능 활성화시 Artifact에서 사용할 부분
+      # - name: Upload Box42-Artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Box42-${{ steps.tag_version.outputs.new_tag }}
+      #     path: $XCODE_EXPORT_PATH
