@@ -9,7 +9,7 @@ import Cocoa
 import SnapKit
 
 class BoxButtonViewGroup: NSView {
-    var boxVM: WebViewModel! = WebViewModel()
+    var boxVM: WebViewModel = WebViewModel()
     var pinSwitch : NSSwitch = NSSwitch()
     var clickAction: ((NSButton) -> Void)?
     var lastAddedButton: NSView?
