@@ -22,7 +22,7 @@ class BoxContentsViewGroup: NSView {
         
         self.wantsLayer = true
         self.addSubview(webVC!.view)
-        
+
         webVC?.view.translatesAutoresizingMaskIntoConstraints = false
         webVC?.view.snp.makeConstraints { make in
             make.edges.equalTo(self)

@@ -18,19 +18,24 @@ class BoxBaseContainerViewController: NSViewController {
 
     override func loadView() {
         self.view = NSView()
+//        self.view.wantsLayer = true
+//        self.view.layer?.backgroundColor = NSColor.red.cgColor
         self.view.addSubview(splitView)
         splitView.delegate = self
         
         buttonGroup = BoxButtonViewGroupInit()
+        
         
         leftContainerInit()
         viewInit()
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
+        
         let buttonGroup = BoxButtonViewGroup { sender in
             self.clickBtn(sender: sender)
         }
+
         return buttonGroup
     }
     

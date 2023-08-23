@@ -8,7 +8,6 @@
 import Cocoa
 
 class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelegate {
-    
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
         let styleMask: NSWindow.StyleMask = [.resizable, .closable, .miniaturizable, .fullSizeContentView, .titled]
