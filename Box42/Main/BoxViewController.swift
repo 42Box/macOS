@@ -9,11 +9,10 @@ import AppKit
 import WebKit
 
 class BoxViewController: NSViewController {  
-    var boxView: BoxBaseContainerViewController! = BoxBaseContainerViewController()
+    var boxView: BoxBaseContainerViewController = BoxBaseContainerViewController()
     var gradientLayer: CAGradientLayer!
     let preferencesVC = PreferencesViewController()
     weak var menubarVCDelegate: MenubarViewControllerDelegate?
-    
     
     override func loadView() {
         self.view = boxView.view

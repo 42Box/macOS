@@ -9,10 +9,11 @@ import Cocoa
 import SnapKit
 
 class BoxBaseContainerViewController: NSViewController {
-    var splitView: BoxBaseSplitView! = BoxBaseSplitView()
-    var contentGroup: BoxContentsViewGroup! = BoxContentsViewGroup()
-    var toolbarGroup: BoxToolbarViewGroup! = BoxToolbarViewGroup()
-    var functionGroupVC: BoxFunctionViewController! = BoxFunctionViewController()
+    var splitView: BoxBaseSplitView = BoxBaseSplitView()
+    var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
+    var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
+    var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
+    let windowViewGroup: WindowButtonViewController = WindowButtonViewController()
     var buttonGroup: BoxButtonViewGroup!
     var leftContainer: MovableContainerView!
 
@@ -58,21 +59,28 @@ class BoxBaseContainerViewController: NSViewController {
     private func leftContainerInit() {
         leftContainer = MovableContainerView()
         leftContainer.addSubview(buttonGroup)
-        leftContainer.addSubview(toolbarGroup)
+        leftContainer.addSubview(windowViewGroup.view)
+        leftContainer.addSubview(toolbarGroupVC.view)
         leftContainer.addSubview(functionGroupVC.view)
         leftContainerAutolayout()
         leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
     }
 
     private func leftContainerAutolayout() {
-        toolbarGroup.snp.makeConstraints { make in
+        windowViewGroup.view.snp.makeConstraints { make in
             make.top.equalTo(leftContainer).offset(Constants.UI.GroupAutolayout)
             make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
             make.left.equalTo(leftContainer)
         }
         
+        toolbarGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(windowViewGroup.view.snp.bottom).offset(Constants.UI.GroupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+            make.left.equalTo(leftContainer)
+        }
+        
         buttonGroup.snp.makeConstraints { make in
-            make.top.equalTo(toolbarGroup.snp.bottom).offset(Constants.UI.GroupAutolayout)
+            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.GroupAutolayout)
             make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
             make.left.equalTo(leftContainer)
         }

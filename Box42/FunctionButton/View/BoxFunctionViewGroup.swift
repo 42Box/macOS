@@ -9,11 +9,11 @@ import AppKit
 import SnapKit
 
 class BoxFunctionViewGroup: NSView {
-    lazy var preferenceButton: PreferenceButtonView! = PreferenceButtonView(image: NSImage(imageLiteralResourceName: "plus"), completion: { self.preferenceAction?() })
-    lazy var pinButton: PinButtonView! = PinButtonView(image: NSImage(imageLiteralResourceName: "pin"), completion: { self.pinAction?() })
-    lazy var quitButton: QuitButtonView! = QuitButtonView(image: NSImage(imageLiteralResourceName: "figure.snowboarding"), completion: { self.quitAction?() })
-    lazy var boxButton: BoxFunctionButtonView! = BoxFunctionButtonView(image: NSImage(imageLiteralResourceName: "shippingbox"), completion: { self.boxAction?() })
-    lazy var divider: NSBox! = TopDivider(completion: { self.dividerAction?() })
+    lazy var preferenceButton: PreferenceButtonView = PreferenceButtonView(image: NSImage(imageLiteralResourceName: "plus"), completion: { self.preferenceAction?() })
+    lazy var pinButton: PinButtonView = PinButtonView(image: NSImage(imageLiteralResourceName: "pin"), completion: { self.pinAction?() })
+    lazy var quitButton: QuitButtonView = QuitButtonView(image: NSImage(imageLiteralResourceName: "figure.snowboarding"), completion: { self.quitAction?() })
+    lazy var boxButton: BoxFunctionButtonView = BoxFunctionButtonView(image: NSImage(imageLiteralResourceName: "shippingbox"), completion: { self.boxAction?() })
+    lazy var divider: NSBox = TopDivider(completion: { self.dividerAction?() })
     
     var preferenceAction: (() -> Void)?
     var pinAction: (() -> Void)?

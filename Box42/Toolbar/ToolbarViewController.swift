@@ -8,24 +8,16 @@
 import Cocoa
 
 class ToolbarViewController: NSViewController {
-    var displayURL = DisplayURLInToolbar()
-    var goBackButton: GoBackInToolbar?
-    var goForwardButton: GoForwardInToolbar?
-    var reloadPageButton: ReloadPageViaToolbar?
-    var goHomePageViaButton: GoHomePageViaToolbar?
-    var sidebarLeading: SideBarLeading?
-    
     override func loadView() {
-        displayURL = DisplayURLInToolbar()
-        sidebarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "sidebar.leading"), completion: sidebar)
-        goBackButton = GoBackInToolbar(image: NSImage(imageLiteralResourceName: "arrow.left"), completion: goBack)
-        goForwardButton = GoForwardInToolbar(image: NSImage(imageLiteralResourceName: "arrow.right"), completion: goFoward)
-        reloadPageButton = ReloadPageViaToolbar(image: NSImage(imageLiteralResourceName: "arrow.clockwise"), completion: reloadPage)
-        goHomePageViaButton = GoHomePageViaToolbar(image: NSImage(imageLiteralResourceName: "figure.skating"), completion: goToHome)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        let toolbarViewGroup = BoxToolbarViewGroup()
+        
+        toolbarViewGroup.sidebar = sidebar
+        toolbarViewGroup.goBack = goBack
+        toolbarViewGroup.goFoward = goFoward
+        toolbarViewGroup.reloadPage = reloadPage
+        toolbarViewGroup.goToHome = goToHome
+        
+        self.view = toolbarViewGroup
     }
     
     override func viewDidLoad() {
