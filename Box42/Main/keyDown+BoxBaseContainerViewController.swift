@@ -7,7 +7,7 @@
 
 import AppKit
 
-extension BoxViewController {
+extension BoxBaseContainerViewController {
     override func keyDown(with event: NSEvent) {
         print(event.keyCode)
         if event.keyCode == 1 {

@@ -21,14 +21,14 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelega
         windowInstance.backgroundColor = .clear
         windowInstance.isMovableByWindowBackground = true
 
-        let boxViewController = BoxViewController(nibName: nil, bundle: nil)
+        let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
 
         super.init(window: windowInstance)
         
         windowInstance.delegate = self
         
-//        setupToolbar()
+        setupToolbar()
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +39,7 @@ class BoxWindowController: NSWindowController, NSToolbarDelegate, NSWindowDelega
 extension BoxWindowController {
     func windowShouldClose(_ sender: NSWindow) -> Bool {
 //        NSApplication.shared.terminate(self)
-        StateManager.shared.setToggleIsShowWindow()
+        StateManager.shared.toggleShowWindow()
         return true
     }
 }

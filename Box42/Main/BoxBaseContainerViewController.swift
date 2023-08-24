@@ -16,19 +16,22 @@ class BoxBaseContainerViewController: NSViewController {
     let windowViewGroup: WindowButtonViewController = WindowButtonViewController()
     var buttonGroup: BoxButtonViewGroup!
     var leftContainer: MovableContainerView!
-
+    weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
+    
     override func loadView() {
         self.view = NSView()
-//        self.view.wantsLayer = true
-//        self.view.layer?.backgroundColor = NSColor.red.cgColor
         self.view.addSubview(splitView)
         splitView.delegate = self
         
         buttonGroup = BoxButtonViewGroupInit()
         
-        
         leftContainerInit()
         viewInit()
+    }
+    
+    override func viewDidLoad() {
+        self.view.wantsLayer = true
+        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -40,19 +43,28 @@ class BoxBaseContainerViewController: NSViewController {
         return buttonGroup
     }
     
-    func clickBtn(sender: NSButton) {
-        guard let clickCount = NSApp.currentEvent?.clickCount else { return }
-        if clickCount == 2 {
-            WebViewManager.shared.list[sender.title]!.reload()
-            print("Dobule Click")
-        } else if clickCount > 2 {
-            if let currentURL = WebViewManager.shared.hostingWebView?.url {
-                NSWorkspace.shared.open(currentURL)
+    func clickBtn(sender: Any?) {
+        if let button = sender as? NSButton {
+            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
+            if clickCount == 2 {
+                WebViewManager.shared.list[button.title]!.reload()
+                print("Dobule Click")
+            } else if clickCount > 2 {
+                if let currentURL = WebViewManager.shared.hostingWebView?.url {
+                    NSWorkspace.shared.open(currentURL)
+                }
+                print("Triple Click")
+            } else if clickCount < 2 {
+                contentGroup.removeAllSubviews()
+                contentGroup.showWebviews(button)
             }
-            print("Triple Click")
-        } else if clickCount < 2 {
-            contentGroup.removeAllSubviews()
-            contentGroup.showWebviews(sender)
+        } else {
+            if let str = sender as? String {
+                if str == "box" {
+                    contentGroup.removeAllSubviews()
+                    print("box inside")
+                }
+            }
         }
     }
     
@@ -138,5 +150,11 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
 
         leftContainer.frame = NSRect(x: 0, y: 0, width: leftWidth, height: splitView.bounds.height)
         contentGroup.frame = NSRect(x: leftWidth + dividerThickness, y: 0, width: contentWidth, height: splitView.bounds.height)
+    }
+}
+
+extension BoxBaseContainerViewController: BoxFunctionViewControllerDelegate {
+    func didTapBoxButton() {
+        clickBtn(sender: "box") // 여기에 적절한 sender (NSButton) 전달)
     }
 }
