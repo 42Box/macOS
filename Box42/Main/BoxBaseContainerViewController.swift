@@ -13,9 +13,9 @@ class BoxBaseContainerViewController: NSViewController {
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
-    let windowViewGroup: WindowButtonViewController = WindowButtonViewController()
-    var buttonGroup: BoxButtonViewGroup!
-    var leftContainer: MovableContainerView!
+    let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
+    var leftContainer: MovableContainerView = MovableContainerView()
+    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
     override func loadView() {
@@ -23,7 +23,7 @@ class BoxBaseContainerViewController: NSViewController {
         self.view.addSubview(splitView)
         splitView.delegate = self
         
-        buttonGroup = BoxButtonViewGroupInit()
+//        buttonGroup = BoxButtonViewGroupInit()
         
         leftContainerInit()
         viewInit()
@@ -69,38 +69,43 @@ class BoxBaseContainerViewController: NSViewController {
     }
     
     private func leftContainerInit() {
-        leftContainer = MovableContainerView()
-        leftContainer.addSubview(buttonGroup)
-        leftContainer.addSubview(windowViewGroup.view)
+        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
+        leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
+//        leftContainer.addSubview(windowViewGroupVC.view)
+        leftContainer.addSubview(buttonGroupVC.view)
         leftContainer.addSubview(toolbarGroupVC.view)
         leftContainer.addSubview(functionGroupVC.view)
+
         leftContainerAutolayout()
-        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
     }
 
     private func leftContainerAutolayout() {
-        windowViewGroup.view.snp.makeConstraints { make in
-            make.top.equalTo(leftContainer).offset(Constants.UI.GroupAutolayout)
-            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
-            make.left.equalTo(leftContainer)
-        }
+//        windowViewGroupVC.view.snp.makeConstraints { make in
+//            make.top.equalTo(leftContainer)
+//            make.left.equalTo(leftContainer).offset(3)
+//            make.width.equalTo(77)
+//            make.height.equalTo(21)
+//        }
         
         toolbarGroupVC.view.snp.makeConstraints { make in
-            make.top.equalTo(windowViewGroup.view.snp.bottom).offset(Constants.UI.GroupAutolayout)
-            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+//            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
+            make.top.equalTo(leftContainer).offset(31) // wVGVC 없으면
+            make.right.equalTo(leftContainer)
             make.left.equalTo(leftContainer)
-        }
-        
-        buttonGroup.snp.makeConstraints { make in
-            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.GroupAutolayout)
-            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
-            make.left.equalTo(leftContainer)
+            make.height.equalTo(44 + 14 + 24)
         }
         
         functionGroupVC.view.snp.makeConstraints { make in
-            make.top.equalTo(buttonGroup.snp.bottom).offset(Constants.UI.GroupAutolayout)
-            make.right.equalTo(leftContainer).offset(-Constants.UI.GroupAutolayout)
+//            make.top.equalTo(buttonGroup.snp.bottom).offset(Constants.UI.groupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
             make.left.bottom.equalTo(leftContainer)
+        }
+        
+        buttonGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
+            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+            make.left.equalTo(leftContainer)
+            make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
     }
     
@@ -112,10 +117,10 @@ class BoxBaseContainerViewController: NSViewController {
         self.view.addSubview(splitView)
         
         splitView.snp.makeConstraints { make in
-            make.top.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
-            make.left.equalTo(self.view).offset(Constants.UI.GroupAutolayout)
-            make.right.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
-            make.bottom.equalTo(self.view).offset(-Constants.UI.GroupAutolayout)
+            make.top.equalToSuperview().offset(Constants.UI.groupAutolayout)
+            make.left.equalToSuperview().offset(Constants.UI.groupAutolayout)
+            make.right.equalToSuperview().offset(-Constants.UI.groupAutolayout)
+            make.bottom.equalToSuperview().offset(-Constants.UI.groupAutolayout)
         }
     }
     
@@ -155,6 +160,6 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
 
 extension BoxBaseContainerViewController: BoxFunctionViewControllerDelegate {
     func didTapBoxButton() {
-        clickBtn(sender: "box") // 여기에 적절한 sender (NSButton) 전달)
+        clickBtn(sender: "box")
     }
 }
