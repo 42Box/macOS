@@ -55,7 +55,7 @@ class Storage {
     func storageTimerEvent(){
         storageTimer?.invalidate()
         
-        if StateManager.shared.getIsAutoStorage() == false {
+        if StateManager.shared.autoStorage == false {
             return
         }
         
@@ -72,7 +72,7 @@ class Storage {
                 if usagePercentage < self.config.threshold.rawValue {
                     self.cleanSh()
                     self.count += 1
-                    if self.count > 2 {
+                    if self.count > 1 {
 //                        showMessageWithAppleScript("캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요.", "재시작") { button in
 //                            print("timer")
 //                            dump(button)
@@ -89,8 +89,7 @@ class Storage {
 //                                }
 //                            }
 //                        }
-                        StateManager.shared.setOffIsAutoStorage()
-                        // 여기서도 타이머를 중지시켜야 합니다.
+                        StateManager.shared.setOffAutoStorage()
                         self.storageTimer?.invalidate()
                     } else {
                         print("\(usedUsage.roundedToTwoDecimalPlaces) GB", "Storage used is less than 30%")
