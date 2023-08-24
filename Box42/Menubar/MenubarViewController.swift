@@ -21,7 +21,7 @@ class MenubarViewController: NSViewController {
     func menubarViewControllerStart() {
         self.menubarStartRunning()
         self.buttonActionInit()
-        self.popoverCoentViewInit()
+        self.popoverContentViewInit()
         self.startEventMonitoring()
     }
     
@@ -42,7 +42,7 @@ class MenubarViewController: NSViewController {
     }
     
     func buttonInit() {
-        buttonImageChange("Cat")
+        buttonImageChange("Fox")
         statusBarVM.statusButtonAppear()
     }
     
@@ -55,7 +55,7 @@ class MenubarViewController: NSViewController {
         statusBarVM.statusBar.statusItem.button?.target = self
     }
     
-    func popoverCoentViewInit() {
+    func popoverContentViewInit() {
         let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         popover.contentViewController = boxViewController
     }
@@ -125,7 +125,6 @@ extension MenubarViewController: MenubarViewControllerDelegate {
             boxWindowController?.showWindow(sender)
         }
     }
-    
 }
 
 protocol MenubarViewControllerDelegate: AnyObject {

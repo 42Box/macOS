@@ -7,11 +7,13 @@
 
 struct Constants {
     struct url {
-        static let InitialName = "home"
-        static let InitialPage = "https://42box.github.io/front-end/"
+        static let initialName = "home"
+        static let initialPage = "https://42box.github.io/front-end/"
     }
     
     struct UI {
-        static let GroupAutolayout = 12
+        static let groupAutolayout = 16
+        static let topWindow = 64 - 16
+        static let leadingWindow = 14
     }
 }

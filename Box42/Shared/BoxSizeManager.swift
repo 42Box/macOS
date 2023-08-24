@@ -22,13 +22,13 @@ struct BoxSizeManager {
     
     init() {
         halfSize = (NSScreen.halfOfScreen.x, NSScreen.halfOfScreen.y)
-        size = (NSScreen.customScreenSize.x, NSScreen.customScreenSize.y)
-        buttonGroupSize = (CGFloat(132), NSScreen.customScreenSize.y)
-        toolbarGroupSize = (CGFloat(132), CGFloat(100))
+        size = (NSScreen.customScreenSize.width, NSScreen.customScreenSize.height)
+        buttonGroupSize = (NSScreen.buttonGroupSize.width, NSScreen.buttonGroupSize.height)
+        toolbarGroupSize = (NSScreen.buttonGroupSize.width, CGFloat(100))
         viewStack = [NSView()]
         boxViewSizeNSRect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         boxViewSizeNSSize = NSSize(width: size.width, height: size.height)
         buttonGroupSizeNSRect = NSRect(x: 0, y: 0, width: buttonGroupSize.width, height: buttonGroupSize.height)
-        windowButtonGroupSize = (CGFloat(200), NSScreen.customScreenSize.y)
+        windowButtonGroupSize = (NSScreen.buttonGroupSize.width, NSScreen.customScreenSize.height)
     }
 }
