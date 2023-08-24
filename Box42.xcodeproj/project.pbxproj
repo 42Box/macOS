@@ -52,6 +52,7 @@
 		DE3FF3752A978AB8009C88EF /* WindowViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */; };
 		DE3FF3762A978AB8009C88EF /* WindowCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */; };
 		DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */; };
+		DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */; };
 		DE4407FA2A923E860091937A /* BoxFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4407F92A923E860091937A /* BoxFunctionViewController.swift */; };
 		DE4407FE2A923EA90091937A /* PreferenceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4407FD2A923EA90091937A /* PreferenceButtonView.swift */; };
 		DE4408022A923EB60091937A /* PinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408012A923EB60091937A /* PinButtonView.swift */; };
@@ -67,6 +68,7 @@
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
+		DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
@@ -122,6 +124,7 @@
 		DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowViewGroup.swift; sourceTree = "<group>"; };
 		DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowCloseButton.swift; sourceTree = "<group>"; };
 		DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMinimizeButton.swift; sourceTree = "<group>"; };
+		DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayURLTextfield.swift; sourceTree = "<group>"; };
 		DE4407F92A923E860091937A /* BoxFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionViewController.swift; sourceTree = "<group>"; };
 		DE4407FD2A923EA90091937A /* PreferenceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButtonView.swift; sourceTree = "<group>"; };
 		DE4408012A923EB60091937A /* PinButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinButtonView.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGroupViewController.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
@@ -179,16 +183,17 @@
 			children = (
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
+				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
+				DE9DA8122A97F1E2001C0D3B /* ButtonGroup */,
 				DE1F1A202A8B50CA00A88DD8 /* Main */,
-				DEB862E82A853F6800278FCD /* Window */,
 				DEB862D22A8511D600278FCD /* Scripts */,
 				DE874F512A591EC600FC3B77 /* Preferences */,
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
 				DE018C062A509B9000FF0AA3 /* System */,
 				DE018C082A509BB500FF0AA3 /* WebView */,
+				DEB862E82A853F6800278FCD /* WindowButton */,
 				DE0A917D2A8F864300D1D6F1 /* Toolbar */,
 				DE4407F82A923E5B0091937A /* FunctionButton */,
-				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 			);
 			path = Box42;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			children = (
 				DE0A91A62A8FC66600D1D6F1 /* SideBarLeading.swift */,
 				DE0A91822A8F889000D1D6F1 /* GoHomePageViaToolbar().swift */,
+				DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */,
 				DE0A918F2A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift */,
 				DE0A918C2A8F88BC00D1D6F1 /* GoBackInToolbar.swift */,
 				DE0A91892A8F88A900D1D6F1 /* GoForwardInToolbar.swift */,
@@ -294,6 +300,7 @@
 				DE4408202A9297EE0091937A /* View */,
 				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
 				DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */,
+				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -302,8 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */,
-				DE3FF3702A978AB8009C88EF /* WindowMaximizeButton.swift */,
 				DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */,
+				DE3FF3702A978AB8009C88EF /* WindowMaximizeButton.swift */,
 				DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */,
 			);
 			path = View;
@@ -334,7 +341,6 @@
 		DE4408202A9297EE0091937A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */,
 				DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */,
 				DE24E6372A8FE10300E29F5D /* BoxBaseSplitView.swift */,
 			);
@@ -363,6 +369,15 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		DE9DA8122A97F1E2001C0D3B /* ButtonGroup */ = {
+			isa = PBXGroup;
+			children = (
+				DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */,
+				DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */,
+			);
+			path = ButtonGroup;
+			sourceTree = "<group>";
+		};
 		DEB862D22A8511D600278FCD /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,14 +400,13 @@
 			path = sh;
 			sourceTree = "<group>";
 		};
-		DEB862E82A853F6800278FCD /* Window */ = {
+		DEB862E82A853F6800278FCD /* WindowButton */ = {
 			isa = PBXGroup;
 			children = (
 				DE3FF36F2A978A6E009C88EF /* View */,
 				DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */,
-				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
 			);
-			path = Window;
+			path = WindowButton;
 			sourceTree = "<group>";
 		};
 		DEF749302A85655E00D987C8 /* Extensions */ = {
@@ -493,8 +507,10 @@
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
+				DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */,
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
 				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
+				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
