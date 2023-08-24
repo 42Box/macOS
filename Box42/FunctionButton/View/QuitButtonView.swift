@@ -15,7 +15,9 @@ class QuitButtonView: NSButton {
         super.init(frame: .zero)
         
         self.image = image
-        self.bezelStyle = .texturedRounded
+        self.isBordered = false  // 버튼의 테두리를 제거
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor.clear.cgColor
         self.target = self
         self.action = #selector(QuitButton)
         self.callback = completion

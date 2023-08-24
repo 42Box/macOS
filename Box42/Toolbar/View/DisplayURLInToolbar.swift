@@ -6,28 +6,94 @@
 //
 
 import AppKit
+import WebKit
+import SnapKit
 
-class DisplayURLInToolbar: NSTextField {
+class DisplayURLInToolbar: NSView {
+    var URLTextfield: DisplayURLTextfield = DisplayURLTextfield()
+    var originalString: String = ""
     
     override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
+        super.init(frame: .zero)
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor(hex: "#7FFFFFFF").cgColor
+        self.layer?.cornerRadius = 13
         
-        self.isEditable = true
-        self.isBordered = false // 테두리를 제거합니다.
-        self.backgroundColor = NSColor.clear // 배경색을 투명하게 만듭니다.
+        WebViewManager.shared.hostingWebView?.navigationDelegate = self
         
-        if let url = WebViewManager.shared.hostingWebView?.url {
-            self.stringValue = url.absoluteString
+        self.addSubview(URLTextfield)
+        textfieldInit()
+        textfieldConstraints()
+        
+        updateURL()
+    }
+    
+    func textfieldInit() {
+        URLTextfield.font = NSFont.systemFont(ofSize: 15)
+        URLTextfield.maximumNumberOfLines = 1
+        URLTextfield.lineBreakMode = .byTruncatingTail
+        URLTextfield.isEditable = true
+        URLTextfield.isBordered = false
+        URLTextfield.backgroundColor = NSColor.clear
+        URLTextfield.focusRingType = .none
+        URLTextfield.isAutomaticTextCompletionEnabled = false
+        URLTextfield.delegate = self
+        URLTextfield.onTextFieldRestore = {
+            self.URLTextfield.stringValue = self.originalString
         }
     }
-
+    
+    func textfieldConstraints() {
+        URLTextfield.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(17)
+            make.trailing.equalToSuperview().offset(-17)
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+extension DisplayURLInToolbar: NSTextFieldDelegate {
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(insertNewline(_:)) {
+            var urlString = URLTextfield.stringValue
+            let validateURL = urlString.split(separator: "/").map({String($0)})
+            if validateURL.count < 1 {
+                return false
+            } else if validateURL[0] != "https:" && validateURL[0] != "http:" {
+                urlString = "https://" + urlString
+            }
+            
+            if let url = URL(string: urlString) {
+                DispatchQueue.main.async {
+                    print(url)
+                    WebViewManager.shared.hostingWebView?.load(URLRequest(url: url))
+                }
+            }
+            return true
+        }
+        return false
+    }
+}
+
+extension DisplayURLInToolbar: WKNavigationDelegate {
     func updateURL() {
         if let url = WebViewManager.shared.hostingWebView?.url {
-            self.stringValue = url.absoluteString
+            originalString = url.absoluteString
+            let showURLString: [String?] = originalString.split(separator: "/").map{String($0)}
+            if showURLString.count > 1 {
+                URLTextfield.stringValue = (showURLString[1] ?? "")
+            }
         }
+    }
+}
+
+extension DisplayURLInToolbar {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Navigation finished")
+        updateURL()
     }
 }

@@ -17,7 +17,7 @@ class WebViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.webViewURL = URLModels(info: [URLModel(name: Constants.url.InitialName, url: Constants.url.InitialPage)])
+        self.webViewURL = URLModels(info: [URLModel(name: Constants.url.initialName, url: Constants.url.initialPage)])
         self.URLdict = URLMapping()
 
         $webViewURL.sink { (WVURL) in
@@ -43,11 +43,11 @@ class WebViewModel: ObservableObject {
     }
     
     func readURL(_ index: Int) -> URL {
-        return URL(string: webViewURL.info[index].url) ?? URL(string: Constants.url.InitialPage)!
+        return URL(string: webViewURL.info[index].url) ?? URL(string: Constants.url.initialPage)!
     }
     
     func safeURL() -> URL {
-        return URL(string: webViewURL.info.first?.url ?? Constants.url.InitialPage)!
+        return URL(string: webViewURL.info.first?.url ?? Constants.url.initialPage)!
     }
     
     func requestURL(_ url: URL) -> URLRequest {

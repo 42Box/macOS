@@ -36,7 +36,14 @@ class BoxFunctionViewController: NSViewController {
         NSApplication.shared.terminate(self)
     }
     
+    weak var delegate: BoxFunctionViewControllerDelegate?
+
     func box() {
         print("box")
+        delegate?.didTapBoxButton()
     }
+}
+
+protocol BoxFunctionViewControllerDelegate: AnyObject {
+    func didTapBoxButton()
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 struct Scripts {
-    var info: [(name: String, description: String)] = [("cleanCache", "cleaning cache"), ("brewInGoinfre",
-                                                                                             "brew download in goinfre")]
+    var info: [(name: String, description: String)] = [("cleanCache", "cleaning cache"),
+                                                       ("brewInGoinfre", "brew download in goinfre")]
 }
 
 struct Script {

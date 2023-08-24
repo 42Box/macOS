@@ -9,9 +9,9 @@ import AppKit
 import SnapKit
 
 class WindowViewGroup: NSView {
-    lazy var windowClose: WindowCloseButton = WindowCloseButton(image: NSImage(imageLiteralResourceName: "sidebar.leading"), completion: { self.close?() })
-    lazy var windowMinimize: WindowMinimizeButton = WindowMinimizeButton(image: NSImage(imageLiteralResourceName: "arrow.left"), completion: { self.minimize?()} )
-    lazy var windowMaximize: WindowMaximizeButton = WindowMaximizeButton(image: NSImage(imageLiteralResourceName: "arrow.right"), completion: { self.maximize?() })
+    lazy var windowClose = WindowCloseButton(completion: { self.close?() })
+    lazy var windowMinimize = WindowMinimizeButton(completion: { self.minimize?() })
+    lazy var windowMaximize = WindowMaximizeButton(completion: { self.maximize?() })
 
     var close: (() -> Void)?
     var minimize: (() -> Void)?
@@ -38,19 +38,24 @@ class WindowViewGroup: NSView {
     private func setupConstraints() {
         
         windowClose.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
-            make.width.equalTo(windowMinimize)
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.width.equalTo(21)
+            make.height.equalTo(21)
         }
 
         windowMinimize.snp.makeConstraints { make in
             make.top.bottom.equalTo(windowClose)
-            make.left.equalTo(windowClose.snp.right).offset(10)
-            make.width.equalTo(windowMaximize)
+            make.left.equalTo(windowClose.snp.right).offset(7)
+            make.width.equalTo(21)
+            make.height.equalTo(21)
         }
 
         windowMaximize.snp.makeConstraints { make in
-            make.top.right.bottom.equalToSuperview()
-            make.left.equalTo(windowMinimize.snp.right).offset(10)
+            make.top.bottom.equalTo(windowClose)
+            make.left.equalTo(windowMinimize.snp.right).offset(7)
+            make.width.equalTo(21)
+            make.height.equalTo(21)
         }
     }
 }

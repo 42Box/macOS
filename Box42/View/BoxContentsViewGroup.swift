@@ -69,7 +69,6 @@ class BoxContentsViewGroup: NSView {
         }
         
         currentWebview.viewDidMoveToSuperview()
-        currentWebview.becomeFirstResponder()
     }
     
 }

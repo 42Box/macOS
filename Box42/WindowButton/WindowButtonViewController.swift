@@ -23,14 +23,16 @@ class WindowButtonViewController: NSViewController {
     }
     
     func windowClose() {
-        print("close")
+        StateManager.shared.showWindow = false
+        self.view.window?.close()
     }
     
     func windowMin() {
-        print("min")
+        StateManager.shared.showWindow = false
+        self.view.window?.miniaturize(nil)
     }
     
     func windowMax() {
-        print("max")
+        self.view.window?.toggleFullScreen(nil)
     }
 }

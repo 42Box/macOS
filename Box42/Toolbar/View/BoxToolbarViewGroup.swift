@@ -9,12 +9,12 @@ import AppKit
 import SnapKit
 
 class BoxToolbarViewGroup: NSView {
-    var displayURL  = DisplayURLInToolbar()
-    lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "sidebar.leading"), completion: { self.goBack?() })
-    lazy var goBackButton: GoBackInToolbar = GoBackInToolbar(image: NSImage(imageLiteralResourceName: "arrow.left"), completion: { self.goFoward?()} )
-    lazy var goForwardButton: GoForwardInToolbar = GoForwardInToolbar(image: NSImage(imageLiteralResourceName: "arrow.right"), completion: { self.reloadPage?() })
-    lazy var reloadPageButton: ReloadPageViaToolbar = ReloadPageViaToolbar(image: NSImage(imageLiteralResourceName: "arrow.clockwise"), completion: { self.goToHome?() })
-    lazy var goHomePageViaButton: GoHomePageViaToolbar = GoHomePageViaToolbar(image: NSImage(imageLiteralResourceName: "figure.skating"), completion: { self.sidebar?() })
+    var displayURL: DisplayURLInToolbar = DisplayURLInToolbar()
+    lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "toggle-off"), completion: { [weak self] in self?.sidebar?() })
+    lazy var goBackButton: GoBackInToolbar = GoBackInToolbar(image: NSImage(imageLiteralResourceName: "arrow-left"), completion: { [weak self] in self?.goBack?() })
+    lazy var goForwardButton: GoForwardInToolbar = GoForwardInToolbar(image: NSImage(imageLiteralResourceName: "arrow-right"), completion: { [weak self] in self?.goFoward?()} )
+    lazy var reloadPageButton: ReloadPageViaToolbar = ReloadPageViaToolbar(image: NSImage(imageLiteralResourceName: "rotate-right"), completion: { [weak self] in self?.reloadPage?() })
+    lazy var goHomePageViaButton: GoHomePageViaToolbar = GoHomePageViaToolbar(image: NSImage(imageLiteralResourceName: "figure.skating"), completion: { [weak self] in self?.goToHome?() })
     
     var goBack: (() -> Void)?
     var goFoward: (() -> Void)?
@@ -35,50 +35,47 @@ class BoxToolbarViewGroup: NSView {
     }
     
     private func setupViews() {
-        self.addSubview(displayURL)
-        self.addSubview(sidebarLeading)
         self.addSubview(goBackButton)
         self.addSubview(goForwardButton)
         self.addSubview(reloadPageButton)
-        self.addSubview(goHomePageViaButton)
+        self.addSubview(sidebarLeading)
+        self.addSubview(displayURL)
+//        self.addSubview(goHomePageViaButton)
     }
 
     private func setupConstraints() {
-        displayURL.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-        }
-        
-        sidebarLeading.snp.makeConstraints { make in
-            make.top.equalTo(displayURL).offset(10)
-            make.bottom.equalToSuperview()
-            make.left.equalToSuperview()
-            make.width.equalTo(goBackButton)
-        }
-
         goBackButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(sidebarLeading)
-            make.left.equalTo(sidebarLeading.snp.right).offset(10)
-            make.width.equalTo(goForwardButton)
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(2)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
 
         goForwardButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(sidebarLeading)
-            make.left.equalTo(goBackButton.snp.right).offset(10)
-            make.width.equalTo(reloadPageButton)
+            make.top.bottom.equalTo(goBackButton)
+            make.left.equalTo(goBackButton.snp.right).offset(14)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
 
         reloadPageButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(sidebarLeading)
-            make.left.equalTo(goForwardButton.snp.right).offset(10)
-            make.width.equalTo(goHomePageViaButton)
+            make.top.bottom.equalTo(goBackButton)
+            make.left.equalTo(goForwardButton.snp.right).offset(14)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
         
-        goHomePageViaButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(sidebarLeading)
-            make.left.equalTo(reloadPageButton.snp.right).offset(10)
+        sidebarLeading.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.right.equalToSuperview()
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
         
+        displayURL.snp.makeConstraints { make in
+            make.top.equalTo(goBackButton.snp.bottom).offset(14)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(44)
+        }
     }
 }
