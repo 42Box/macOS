@@ -10,11 +10,11 @@ import SnapKit
 
 class BoxToolbarViewGroup: NSView {
     var displayURL  = DisplayURLInToolbar()
-    lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "sidebar.leading"), completion: { self.goBack?() })
-    lazy var goBackButton: GoBackInToolbar = GoBackInToolbar(image: NSImage(imageLiteralResourceName: "arrow.left"), completion: { self.goFoward?()} )
-    lazy var goForwardButton: GoForwardInToolbar = GoForwardInToolbar(image: NSImage(imageLiteralResourceName: "arrow.right"), completion: { self.reloadPage?() })
-    lazy var reloadPageButton: ReloadPageViaToolbar = ReloadPageViaToolbar(image: NSImage(imageLiteralResourceName: "arrow.clockwise"), completion: { self.goToHome?() })
-    lazy var goHomePageViaButton: GoHomePageViaToolbar = GoHomePageViaToolbar(image: NSImage(imageLiteralResourceName: "figure.skating"), completion: { self.sidebar?() })
+    lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "sidebar.leading"), completion: { self.sidebar?() })
+    lazy var goBackButton: GoBackInToolbar = GoBackInToolbar(image: NSImage(imageLiteralResourceName: "arrow.left"), completion: { self.goBack?() })
+    lazy var goForwardButton: GoForwardInToolbar = GoForwardInToolbar(image: NSImage(imageLiteralResourceName: "arrow.right"), completion: { self.goFoward?()} )
+    lazy var reloadPageButton: ReloadPageViaToolbar = ReloadPageViaToolbar(image: NSImage(imageLiteralResourceName: "arrow.clockwise"), completion: { self.reloadPage?() })
+    lazy var goHomePageViaButton: GoHomePageViaToolbar = GoHomePageViaToolbar(image: NSImage(imageLiteralResourceName: "figure.skating"), completion: { self.goToHome?() })
     
     var goBack: (() -> Void)?
     var goFoward: (() -> Void)?
@@ -50,7 +50,7 @@ class BoxToolbarViewGroup: NSView {
         }
         
         sidebarLeading.snp.makeConstraints { make in
-            make.top.equalTo(displayURL).offset(10)
+            make.top.equalTo(displayURL.snp.bottom).offset(10)
             make.bottom.equalToSuperview()
             make.left.equalToSuperview()
             make.width.equalTo(goBackButton)
@@ -79,6 +79,5 @@ class BoxToolbarViewGroup: NSView {
             make.left.equalTo(reloadPageButton.snp.right).offset(10)
             make.right.equalToSuperview()
         }
-        
     }
 }
