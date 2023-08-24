@@ -24,19 +24,7 @@ class BoxViewController: NSViewController {
         menubarVCDelegate = (NSApplication.shared.delegate as? AppDelegate)?.menubarController
         
         self.view.wantsLayer = true
-        setupGradientLayer()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(boundsDidChange), name: NSWindow.didResizeNotification, object: self.view.window)
-    }
-    
-    func setupGradientLayer() {
-        gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        let startingColor = NSColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 0.9).cgColor
-        let endingColor = NSColor(red: 1.0, green: 0.447, blue: 0.0, alpha: 0.7).cgColor
-        gradientLayer.colors = [startingColor, endingColor]
-
-        self.view.layer?.addSublayer(gradientLayer)
+        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
     }
     
     @objc func boundsDidChange(notification: NSNotification) {
@@ -52,7 +40,7 @@ class BoxViewController: NSViewController {
     
     @objc
     func pin(_ sender: NSSwitch) {
-        StateManager.shared.setToggleIsPin()
+        StateManager.shared.togglePin()
         print(sender.state)
     }
     
