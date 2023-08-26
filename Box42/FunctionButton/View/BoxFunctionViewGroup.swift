@@ -51,7 +51,8 @@ class BoxFunctionViewGroup: NSView {
             make.top.equalTo(divider).offset(10)
             make.bottom.equalToSuperview()
             make.left.equalToSuperview()
-            make.width.equalTo(pinButton)
+            make.width.equalTo(FunctionButtonUI.size.pinWidth)
+            make.height.equalTo(FunctionButtonUI.size.pinHeight)
         }
 
 //        preferenceButton.snp.makeConstraints { make in

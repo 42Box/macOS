@@ -6,37 +6,43 @@
 //
 
 import AppKit
+import SnapKit
 
-class PinButtonView: NSButton {
+class PinButtonView: NSView {
     
     private var callback: (() -> Void)?
+    private var pinBoxButton: NSButton!
     private var pinBoxLabel: NSTextField!
     
     init(image: NSImage, completion: @escaping () -> Void) {
         super.init(frame: .zero)
         
-        self.image = image
-        self.isBordered = false
-        self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.clear.cgColor
-        self.target = self
-        self.action = #selector(pin)
-        self.callback = completion
+        pinBoxButton = NSButton(image: image, target: self, action: #selector(pin))
+        pinBoxButton.isBordered = false
+        pinBoxButton.wantsLayer = true
+        pinBoxButton.layer?.backgroundColor = NSColor.clear.cgColor
+        
+        self.addSubview(pinBoxButton)
         
         pinBoxLabel = NSTextField(labelWithString: "Pin Box")
-        pinBoxLabel.font = NSFont(name: "Inter", size: FunctionButtonUI.size.font)
-        pinBoxLabel.textColor = FunctionButtonUI.color.pinText
+        pinBoxLabel.font = NSFont(name: "Inter", size: 14)
+        pinBoxLabel.textColor = NSColor(hex: "#696969")
         pinBoxLabel.backgroundColor = NSColor.clear
         pinBoxLabel.isBordered = false
         
-        self.addSubview(pinBoxLabel)  // 라벨을 버튼에 추가
+        self.addSubview(pinBoxLabel)
         
-        // 레이아웃을 설정 (예: AutoLayout)
-        pinBoxLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pinBoxLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            pinBoxLabel.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8)
-        ])
+        pinBoxButton.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        pinBoxLabel.snp.makeConstraints { make in
+            make.left.equalTo(pinBoxButton.snp.right).offset(2)
+            make.centerY.equalToSuperview()
+        }
+        
+        self.callback = completion
     }
     
     required init?(coder: NSCoder) {

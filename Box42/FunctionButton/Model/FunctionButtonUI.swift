@@ -10,6 +10,8 @@ import AppKit
 struct FunctionButtonUI {
     struct size {
         static let font: CGFloat = 14
+        static let pinWidth: CGFloat = 89
+        static let pinHeight: CGFloat = 27
     }
     
     struct animation {

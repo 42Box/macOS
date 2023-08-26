@@ -73,6 +73,7 @@
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
+		DEE0FA9D2A9A56CB00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,7 @@
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
+		DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +321,7 @@
 		DE4407F82A923E5B0091937A /* FunctionButton */ = {
 			isa = PBXGroup;
 			children = (
+				DEE0FA9B2A9A56BD00085A65 /* Model */,
 				DE4407FC2A923E920091937A /* View */,
 				DE4407F92A923E860091937A /* BoxFunctionViewController.swift */,
 			);
@@ -407,6 +410,14 @@
 				DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */,
 			);
 			path = WindowButton;
+			sourceTree = "<group>";
+		};
+		DEE0FA9B2A9A56BD00085A65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DEF749302A85655E00D987C8 /* Extensions */ = {
@@ -550,6 +561,7 @@
 				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
 				DE24E6352A8FE02A00E29F5D /* MovableContainerView.swift in Sources */,
 				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
+				DEE0FA9D2A9A56CB00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* TopDivider.swift in Sources */,
