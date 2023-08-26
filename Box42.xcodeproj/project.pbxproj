@@ -74,6 +74,7 @@
 		DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */; };
 		DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */; };
 		DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */; };
+		DE97CA8A2A9A792F001073DE /* QuickSlotButtonGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */; };
 		DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */; };
 		DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */; };
 		DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */; };
@@ -156,6 +157,7 @@
 		DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotHeaderView.swift; sourceTree = "<group>"; };
 		DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotGroupView.swift; sourceTree = "<group>"; };
 		DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotUI.swift; sourceTree = "<group>"; };
+		DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonGridView.swift; sourceTree = "<group>"; };
 		DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RotateImage+NSImage.swift"; sourceTree = "<group>"; };
 		DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewController.swift; sourceTree = "<group>"; };
 		DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonUI.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			children = (
 				DE44081C2A928F760091937A /* TopDivider.swift */,
 				DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */,
+				DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */,
 				DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */,
 			);
 			path = View;
@@ -619,6 +622,7 @@
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
+				DE97CA8A2A9A792F001073DE /* QuickSlotButtonGridView.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
