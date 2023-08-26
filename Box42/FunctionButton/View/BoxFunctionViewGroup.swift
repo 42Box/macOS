@@ -10,7 +10,7 @@ import SnapKit
 
 class BoxFunctionViewGroup: NSView {
     lazy var preferenceButton: PreferenceButtonView = PreferenceButtonView(image: NSImage(imageLiteralResourceName: "plus"), completion: { self.preferenceAction?() })
-    lazy var pinButton: PinButtonView = PinButtonView(image: NSImage(imageLiteralResourceName: "pin"), completion: { self.pinAction?() })
+    lazy var pinButton: PinButtonView = PinButtonView(image: NSImage(imageLiteralResourceName: "Pin icon"), completion: { self.pinAction?() })
     lazy var quitButton: QuitButtonView = QuitButtonView(image: NSImage(imageLiteralResourceName: "figure.snowboarding"), completion: { self.quitAction?() })
     lazy var boxButton: BoxFunctionButtonView = BoxFunctionButtonView(image: NSImage(imageLiteralResourceName: "shippingbox"), completion: { self.boxAction?() })
     lazy var divider: NSBox = TopDivider(completion: { self.dividerAction?() })
@@ -47,29 +47,29 @@ class BoxFunctionViewGroup: NSView {
             make.left.right.equalToSuperview()
         }
         
-        preferenceButton.snp.makeConstraints { make in
+        pinButton.snp.makeConstraints { make in
             make.top.equalTo(divider).offset(10)
             make.bottom.equalToSuperview()
             make.left.equalToSuperview()
             make.width.equalTo(pinButton)
         }
 
-        pinButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(preferenceButton)
-            make.left.equalTo(preferenceButton.snp.right).offset(10)
-            make.width.equalTo(quitButton)
-        }
-
-        quitButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(preferenceButton)
-            make.left.equalTo(pinButton.snp.right).offset(10)
-            make.width.equalTo(boxButton)
-        }
-
-        boxButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(preferenceButton)
-            make.left.equalTo(quitButton.snp.right).offset(10)
-            make.right.equalToSuperview()
-        }
+//        preferenceButton.snp.makeConstraints { make in
+//            make.top.bottom.equalTo(pinButton)
+//            make.left.equalTo(pinButton.snp.right).offset(10)
+//            make.width.equalTo(quitButton)
+//        }
+//
+//        quitButton.snp.makeConstraints { make in
+//            make.top.bottom.equalTo(pinButton)
+//            make.left.equalTo(preferenceButton.snp.right).offset(10)
+//            make.width.equalTo(boxButton)
+//        }
+//
+//        boxButton.snp.makeConstraints { make in
+//            make.top.bottom.equalTo(pinButton)
+//            make.left.equalTo(quitButton.snp.right).offset(10)
+//            make.right.equalToSuperview()
+//        }
     }
 }

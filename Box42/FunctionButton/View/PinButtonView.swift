@@ -15,7 +15,7 @@ class PinButtonView: NSButton {
         super.init(frame: .zero)
         
         self.image = image
-        self.isBordered = false  // 버튼의 테두리를 제거
+        self.isBordered = false
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor.clear.cgColor
         self.target = self
