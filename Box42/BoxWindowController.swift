@@ -10,7 +10,7 @@ import Cocoa
 class BoxWindowController: NSWindowController, NSWindowDelegate {
     override init(window: NSWindow?) {
         let contentRect = BoxSizeManager.shared.boxViewSizeNSRect
-        let styleMask: NSWindow.StyleMask = [.resizable, .titled, .fullSizeContentView, .closable, .miniaturizable]
+        let styleMask: NSWindow.StyleMask = [.resizable, .titled, .fullSizeContentView]
         let windowInstance = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         super.init(window: windowInstance)
         windowInstance.delegate = self
@@ -20,6 +20,13 @@ class BoxWindowController: NSWindowController, NSWindowDelegate {
         windowInstance.titleVisibility = .hidden
         windowInstance.isReleasedWhenClosed = false
         windowInstance.isMovableByWindowBackground = true
+        windowInstance.standardWindowButton(.closeButton)?.isHidden = true
+        windowInstance.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        windowInstance.standardWindowButton(.zoomButton)?.isHidden = true
+
+        if let zoomButton = windowInstance.standardWindowButton(.zoomButton) {
+            zoomButton.isHidden = true
+        }
 
         let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController

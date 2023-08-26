@@ -12,6 +12,7 @@ class BoxBaseContainerViewController: NSViewController {
     var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
+    // var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
     var leftContainer: MovableContainerView = MovableContainerView()
@@ -31,7 +32,8 @@ class BoxBaseContainerViewController: NSViewController {
     
     override func viewDidLoad() {
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
+//        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
+        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -71,34 +73,28 @@ class BoxBaseContainerViewController: NSViewController {
     private func leftContainerInit() {
         leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
         leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
-//        leftContainer.addSubview(windowViewGroupVC.view)
+        leftContainer.addSubview(windowViewGroupVC.view)
         leftContainer.addSubview(buttonGroupVC.view)
         leftContainer.addSubview(toolbarGroupVC.view)
+//        leftContainer.addSubview(quickSlotGroupVC.view)
         leftContainer.addSubview(functionGroupVC.view)
 
         leftContainerAutolayout()
     }
 
     private func leftContainerAutolayout() {
-//        windowViewGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(leftContainer)
-//            make.left.equalTo(leftContainer).offset(3)
-//            make.width.equalTo(77)
-//            make.height.equalTo(21)
-//        }
+        windowViewGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(leftContainer)
+            make.left.equalTo(leftContainer).offset(3)
+            make.width.equalTo(77)
+            make.height.equalTo(21)
+        }
         
         toolbarGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
-            make.top.equalTo(leftContainer).offset(31) // wVGVC 없으면
+            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
             make.right.equalTo(leftContainer)
             make.left.equalTo(leftContainer)
             make.height.equalTo(44 + 14 + 24)
-        }
-        
-        functionGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(buttonGroup.snp.bottom).offset(Constants.UI.groupAutolayout)
-            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-            make.left.bottom.equalTo(leftContainer)
         }
         
         buttonGroupVC.view.snp.makeConstraints { make in
@@ -106,6 +102,18 @@ class BoxBaseContainerViewController: NSViewController {
             make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
             make.left.equalTo(leftContainer)
             make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
+        }
+        
+//        quickSlotGroupVC.view.snp.makeConstraints { make in
+//            make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
+//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+//            make.left.equalTo(leftContainer)
+//            make.height.equalTo(178)
+//        }
+        
+        functionGroupVC.view.snp.makeConstraints { make in
+            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+            make.left.bottom.equalTo(leftContainer)
         }
     }
     
@@ -134,14 +142,14 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         
         if dividerIndex == 0 {
-            return 132
+            return CGFloat(132).pointsToPixels()
         }
         return proposedMinimumPosition
     }
 
     func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         if dividerIndex == 0 {
-            return 200
+            return CGFloat(312).pointsToPixels()
         }
         return proposedMaximumPosition
     }

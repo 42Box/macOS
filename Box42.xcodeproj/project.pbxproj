@@ -68,12 +68,21 @@
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
+		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
+		DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */; };
+		DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */; };
+		DE98E8472A98DE6D00F8744A /* QuickSlotHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8462A98DE6D00F8744A /* QuickSlotHorizontalStackView.swift */; };
+		DE98E84B2A98E03800F8744A /* QuickSlotItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E84A2A98E03800F8744A /* QuickSlotItem.swift */; };
+		DE98E8502A98E06300F8744A /* QuickSlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E84F2A98E06300F8744A /* QuickSlotViewModel.swift */; };
+		DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */; };
 		DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
-		DEE0FA9D2A9A56CB00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */; };
+		DEE0FA822A99FC1000085A65 /* QuickSlotCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA812A99FC1000085A65 /* QuickSlotCollectionView.swift */; };
+		DEE0FA8B2A9A0BD500085A65 /* QuickSlotCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA842A99FD1100085A65 /* QuickSlotCollectionViewItem.swift */; };
+		DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,12 +150,21 @@
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
+		DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RotateImage+NSImage.swift"; sourceTree = "<group>"; };
+		DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewController.swift; sourceTree = "<group>"; };
+		DE98E8462A98DE6D00F8744A /* QuickSlotHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotHorizontalStackView.swift; sourceTree = "<group>"; };
+		DE98E84A2A98E03800F8744A /* QuickSlotItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotItem.swift; sourceTree = "<group>"; };
+		DE98E84F2A98E06300F8744A /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
+		DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonUI.swift; sourceTree = "<group>"; };
 		DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGroupViewController.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
-		DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
+		DEE0FA812A99FC1000085A65 /* QuickSlotCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotCollectionView.swift; sourceTree = "<group>"; };
+		DEE0FA842A99FD1100085A65 /* QuickSlotCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotCollectionViewItem.swift; sourceTree = "<group>"; };
+		DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +213,7 @@
 				DE018C082A509BB500FF0AA3 /* WebView */,
 				DEB862E82A853F6800278FCD /* WindowButton */,
 				DE0A917D2A8F864300D1D6F1 /* Toolbar */,
+				DE98E8382A98D48700F8744A /* QuickSlot */,
 				DE4407F82A923E5B0091937A /* FunctionButton */,
 			);
 			path = Box42;
@@ -321,7 +340,7 @@
 		DE4407F82A923E5B0091937A /* FunctionButton */ = {
 			isa = PBXGroup;
 			children = (
-				DEE0FA9B2A9A56BD00085A65 /* Model */,
+				DEE0FA942A9A553A00085A65 /* Model */,
 				DE4407FC2A923E920091937A /* View */,
 				DE4407F92A923E860091937A /* BoxFunctionViewController.swift */,
 			);
@@ -372,6 +391,51 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		DE98E8382A98D48700F8744A /* QuickSlot */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E84E2A98E04F00F8744A /* ViewModel */,
+				DE98E8492A98E02400F8744A /* Model */,
+				DE98E8412A98DDEB00F8744A /* View */,
+				DEE0FA872A9A022100085A65 /* Controller */,
+			);
+			path = QuickSlot;
+			sourceTree = "<group>";
+		};
+		DE98E8412A98DDEB00F8744A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E8462A98DE6D00F8744A /* QuickSlotHorizontalStackView.swift */,
+				DEE0FA812A99FC1000085A65 /* QuickSlotCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE98E8492A98E02400F8744A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE0FA842A99FD1100085A65 /* QuickSlotCollectionViewItem.swift */,
+				DE98E84A2A98E03800F8744A /* QuickSlotItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE98E84E2A98E04F00F8744A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E84F2A98E06300F8744A /* QuickSlotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE98E8532A98EA4F00F8744A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DE9DA8122A97F1E2001C0D3B /* ButtonGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,16 +470,25 @@
 		DEB862E82A853F6800278FCD /* WindowButton */ = {
 			isa = PBXGroup;
 			children = (
+				DE98E8532A98EA4F00F8744A /* Model */,
 				DE3FF36F2A978A6E009C88EF /* View */,
 				DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */,
 			);
 			path = WindowButton;
 			sourceTree = "<group>";
 		};
-		DEE0FA9B2A9A56BD00085A65 /* Model */ = {
+		DEE0FA872A9A022100085A65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DEE0FA9C2A9A56CB00085A65 /* FunctionButtonUI.swift */,
+				DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DEE0FA942A9A553A00085A65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +501,8 @@
 				DEF749312A85657600D987C8 /* NSScreen.swift */,
 				DE1F1A302A8BD68F00A88DD8 /* Double.swift */,
 				DE24E63A2A8FE93900E29F5D /* NSImage.swift */,
+				DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */,
+				DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +592,7 @@
 				DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
+				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
 				DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */,
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
@@ -524,8 +600,11 @@
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
+				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
+				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
 				DE4407FA2A923E860091937A /* BoxFunctionViewController.swift in Sources */,
+				DE98E8472A98DE6D00F8744A /* QuickSlotHorizontalStackView.swift in Sources */,
 				DE4407FE2A923EA90091937A /* PreferenceButtonView.swift in Sources */,
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
@@ -533,13 +612,16 @@
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
+				DEE0FA822A99FC1000085A65 /* QuickSlotCollectionView.swift in Sources */,
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
+				DEE0FA8B2A9A0BD500085A65 /* QuickSlotCollectionViewItem.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
+				DE98E8502A98E06300F8744A /* QuickSlotViewModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
 				DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */,
@@ -549,6 +631,7 @@
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
 				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
+				DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */,
 				DE4408052A923EC00091937A /* QuitButtonView.swift in Sources */,
 				DE0A918A2A8F88A900D1D6F1 /* GoForwardInToolbar.swift in Sources */,
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
@@ -561,10 +644,11 @@
 				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
 				DE24E6352A8FE02A00E29F5D /* MovableContainerView.swift in Sources */,
 				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
-				DEE0FA9D2A9A56CB00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* TopDivider.swift in Sources */,
+				DE98E84B2A98E03800F8744A /* QuickSlotItem.swift in Sources */,
+				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */,

@@ -40,22 +40,22 @@ class WindowViewGroup: NSView {
         windowClose.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
-            make.width.equalTo(21)
-            make.height.equalTo(21)
+            make.width.equalTo(WindowButtonUI.size.diameter)
+            make.height.equalTo(WindowButtonUI.size.diameter)
         }
 
         windowMinimize.snp.makeConstraints { make in
             make.top.bottom.equalTo(windowClose)
-            make.left.equalTo(windowClose.snp.right).offset(7)
-            make.width.equalTo(21)
-            make.height.equalTo(21)
+            make.left.equalTo(windowClose.snp.right).offset(WindowButtonUI.size.offset)
+            make.width.equalTo(WindowButtonUI.size.diameter)
+            make.height.equalTo(WindowButtonUI.size.diameter)
         }
 
         windowMaximize.snp.makeConstraints { make in
             make.top.bottom.equalTo(windowClose)
-            make.left.equalTo(windowMinimize.snp.right).offset(7)
-            make.width.equalTo(21)
-            make.height.equalTo(21)
+            make.left.equalTo(windowMinimize.snp.right).offset(WindowButtonUI.size.offset)
+            make.width.equalTo(WindowButtonUI.size.diameter)
+            make.height.equalTo(WindowButtonUI.size.diameter)
         }
     }
 }
