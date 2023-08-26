@@ -20,8 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		menubarController.menubarViewControllerStart()
 //        alertAccessibility()
 //        hotkey()
-        storage.storageTimerEvent()
-	}
+
+//        storage.storageTimerEvent()
+    }
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application

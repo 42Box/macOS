@@ -8,7 +8,8 @@
 struct Constants {
     struct url {
         static let initialName = "home"
-        static let initialPage = "https://42box.github.io/front-end/"
+//        static let initialPage = "https://42box.kr"
+        static let initialPage = "https://profile.intra.42.fr/"
     }
     
     struct UI {

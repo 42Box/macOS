@@ -42,7 +42,7 @@ class MenubarViewController: NSViewController {
     }
     
     func buttonInit() {
-        buttonImageChange("Fox")
+        buttonImageChange("fox")
         statusBarVM.statusButtonAppear()
     }
     
