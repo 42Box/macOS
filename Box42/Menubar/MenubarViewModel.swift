@@ -32,6 +32,7 @@ class StatusBarViewModel {
         case "lee": for i in (1...5) {statusBar.frames.append(NSImage(imageLiteralResourceName: "lee_\(i)"))}
         case "box": for i in (1...4) {statusBar.frames.append(NSImage(imageLiteralResourceName: "42box_\(i)"))}
         case "fox": for i in (1...4) {statusBar.frames.append(NSImage(imageLiteralResourceName: "fox_page\(i)"))}
+        case "sitting_fox": for i in (0...3) {statusBar.frames.append(NSImage(imageLiteralResourceName: "sitting_fox\(i)"))}
         case "box_oc": for i in (1...2) {statusBar.frames.append(NSImage(imageLiteralResourceName: "42box_oc\(i)"))}
         default : for i in (1...11) {statusBar.frames.append(NSImage(imageLiteralResourceName: "42flip_0\(i)"))}
         }
