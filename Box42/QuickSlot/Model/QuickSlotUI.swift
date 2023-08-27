@@ -7,16 +7,18 @@
 
 import AppKit
 
-struct QuickSlotUI {
-    struct size {
+enum QuickSlotUI {
+    enum size {
         static let font: CGFloat = CGFloat(16).pointsToPixels()
-        static let headerHeight: CGFloat = 22 + 13
+        static let headerHeight: CGFloat = 35
+        static let button: CGFloat = 59
+        static let lineSpacing: CGFloat = 12
     }
     
-    struct animation {
+    enum animation {
     }
     
-    struct color {
-        static let pinText = NSColor(hex: "#696969")
+    enum color {
+//        static let pinText = NSColor(hex: "#696969")
     }
 }

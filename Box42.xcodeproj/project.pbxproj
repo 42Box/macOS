@@ -60,10 +60,16 @@
 		DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408072A9240300091937A /* BoxFunctionButtonView.swift */; };
 		DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */; };
 		DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */; };
-		DE44081D2A928F760091937A /* TopDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44081C2A928F760091937A /* TopDivider.swift */; };
+		DE44081D2A928F760091937A /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44081C2A928F760091937A /* Divider.swift */; };
+		DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */; };
+		DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */; };
+		DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */; };
+		DE6332E82A9BBEF800DCFAF6 /* NotifConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */; };
+		DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
 		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
+		DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
@@ -74,7 +80,6 @@
 		DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */; };
 		DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */; };
 		DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */; };
-		DE97CA8A2A9A792F001073DE /* QuickSlotButtonGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */; };
 		DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */; };
 		DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */; };
 		DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */; };
@@ -143,10 +148,16 @@
 		DE4408072A9240300091937A /* BoxFunctionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionButtonView.swift; sourceTree = "<group>"; };
 		DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionViewGroup.swift; sourceTree = "<group>"; };
 		DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "keyDown+BoxBaseContainerViewController.swift"; path = "Main/keyDown+BoxBaseContainerViewController.swift"; sourceTree = "<group>"; };
-		DE44081C2A928F760091937A /* TopDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDivider.swift; sourceTree = "<group>"; };
+		DE44081C2A928F760091937A /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonCollectionViewController.swift; sourceTree = "<group>"; };
+		DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonCollectionViewController.xib; sourceTree = "<group>"; };
+		DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifConst.swift; sourceTree = "<group>"; };
+		DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotScriptsLogicController.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonViewItem.swift; sourceTree = "<group>"; };
+		DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonViewItem.xib; sourceTree = "<group>"; };
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -157,7 +168,6 @@
 		DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotHeaderView.swift; sourceTree = "<group>"; };
 		DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotGroupView.swift; sourceTree = "<group>"; };
 		DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotUI.swift; sourceTree = "<group>"; };
-		DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonGridView.swift; sourceTree = "<group>"; };
 		DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RotateImage+NSImage.swift"; sourceTree = "<group>"; };
 		DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewController.swift; sourceTree = "<group>"; };
 		DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonUI.swift; sourceTree = "<group>"; };
@@ -370,14 +380,34 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DE62BE632A9BA8CC00D97E06 /* ButtonCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */,
+				DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */,
+				DE7F9D482A9B7A4E00F8ACAE /* Vertical Item */,
+			);
+			path = ButtonCollectionView;
+			sourceTree = "<group>";
+		};
 		DE77BA542A82636500713683 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */,
 				DE77BA552A82637900713683 /* StateManager.swift */,
 				DE0A91622A8E6A5400D1D6F1 /* Constants.swift */,
+				DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DE7F9D482A9B7A4E00F8ACAE /* Vertical Item */ = {
+			isa = PBXGroup;
+			children = (
+				DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */,
+				DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */,
+			);
+			path = "Vertical Item";
 			sourceTree = "<group>";
 		};
 		DE874F512A591EC600FC3B77 /* Preferences */ = {
@@ -406,10 +436,10 @@
 		DE98E8412A98DDEB00F8744A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE44081C2A928F760091937A /* TopDivider.swift */,
+				DE44081C2A928F760091937A /* Divider.swift */,
 				DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */,
-				DE97CA892A9A792F001073DE /* QuickSlotButtonGridView.swift */,
 				DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */,
+				DE62BE632A9BA8CC00D97E06 /* ButtonCollectionView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */,
+				DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,7 +609,9 @@
 				DE1F1A152A8B506600A88DD8 /* exportMacOSInfo.sh in Resources */,
 				DE1F1A162A8B506600A88DD8 /* keyMapping.sh in Resources */,
 				DEB862D42A85124500278FCD /* cleanCache.sh in Resources */,
+				DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */,
 				DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */,
+				DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */,
 				DE018BE02A509B0600FF0AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +627,7 @@
 				DE0A91A72A8FC66600D1D6F1 /* SideBarLeading.swift in Sources */,
 				DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
+				DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
@@ -609,8 +643,10 @@
 				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
 				DE4407FA2A923E860091937A /* BoxFunctionViewController.swift in Sources */,
 				DE4407FE2A923EA90091937A /* PreferenceButtonView.swift in Sources */,
+				DE6332E82A9BBEF800DCFAF6 /* NotifConst.swift in Sources */,
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
+				DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
@@ -619,10 +655,10 @@
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
+				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
-				DE97CA8A2A9A792F001073DE /* QuickSlotButtonGridView.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
@@ -651,7 +687,7 @@
 				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
-				DE44081D2A928F760091937A /* TopDivider.swift in Sources */,
+				DE44081D2A928F760091937A /* Divider.swift in Sources */,
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,

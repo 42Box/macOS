@@ -7,17 +7,17 @@
 
 import AppKit
 
-struct FunctionButtonUI {
-    struct size {
+enum FunctionButtonUI {
+    enum size {
         static let font: CGFloat = 14
         static let pinWidth: CGFloat = 89
         static let pinHeight: CGFloat = 27
     }
     
-    struct animation {
+    enum animation {
     }
     
-    struct color {
+    enum color {
         static let pinText = NSColor(hex: "#696969")
     }
 }
