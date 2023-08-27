@@ -12,7 +12,7 @@ class BoxBaseContainerViewController: NSViewController {
     var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
-    // var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
+    var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
     var leftContainer: MovableContainerView = MovableContainerView()
@@ -76,7 +76,7 @@ class BoxBaseContainerViewController: NSViewController {
         leftContainer.addSubview(windowViewGroupVC.view)
         leftContainer.addSubview(buttonGroupVC.view)
         leftContainer.addSubview(toolbarGroupVC.view)
-//        leftContainer.addSubview(quickSlotGroupVC.view)
+        leftContainer.addSubview(quickSlotGroupVC.view)
         leftContainer.addSubview(functionGroupVC.view)
 
         leftContainerAutolayout()
@@ -101,15 +101,15 @@ class BoxBaseContainerViewController: NSViewController {
             make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
             make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
             make.left.equalTo(leftContainer)
-            make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
+            make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
         
-//        quickSlotGroupVC.view.snp.makeConstraints { make in
-//            make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
-//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//            make.left.equalTo(leftContainer)
-//            make.height.equalTo(178)
-//        }
+       quickSlotGroupVC.view.snp.makeConstraints { make in
+           make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
+           make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+           make.left.equalTo(leftContainer)
+           make.height.equalTo(178)
+       }
         
         functionGroupVC.view.snp.makeConstraints { make in
             make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)

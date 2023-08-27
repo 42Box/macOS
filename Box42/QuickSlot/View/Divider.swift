@@ -1,5 +1,5 @@
 //
-//  TopDivider.swift
+//  Divider.swift
 //  Box42
 //
 //  Created by Chanhee Kim on 8/21/23.
@@ -7,7 +7,7 @@
 
 import AppKit
 
-class TopDivider: NSBox {
+class Divider: NSBox {
     
     private var callback: (() -> Void)?
     

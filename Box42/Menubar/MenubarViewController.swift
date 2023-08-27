@@ -122,7 +122,7 @@ extension MenubarViewController: MenubarViewControllerDelegate {
                 }
                 window.level = .floating
             }
-            boxWindowController?.showWindow(sender)
+                boxWindowController?.showWindow(sender)
         }
     }
 }

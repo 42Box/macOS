@@ -18,15 +18,11 @@ class BoxWindowController: NSWindowController, NSWindowDelegate {
         windowInstance.title = "Box"
         windowInstance.titlebarAppearsTransparent = true
         windowInstance.titleVisibility = .hidden
-        windowInstance.isReleasedWhenClosed = false
         windowInstance.isMovableByWindowBackground = true
+        windowInstance.isReleasedWhenClosed = false
         windowInstance.standardWindowButton(.closeButton)?.isHidden = true
         windowInstance.standardWindowButton(.miniaturizeButton)?.isHidden = true
         windowInstance.standardWindowButton(.zoomButton)?.isHidden = true
-
-        if let zoomButton = windowInstance.standardWindowButton(.zoomButton) {
-            zoomButton.isHidden = true
-        }
 
         let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController
