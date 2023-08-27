@@ -6,13 +6,19 @@
 //
 
 import AppKit
+import Combine
 
-// ViewModel
 class QuickSlotViewModel {
-    var buttons: [QuickSlotButtonModel] = [
-        // 초기 버튼 데이터
-    ]
+    @Published var buttons: [QuickSlotButtonModel] = []
     
+    init() {
+        let button1 = QuickSlotButtonModel(title: "clean")
+        let button2 = QuickSlotButtonModel(title: "icons")
+        let button3 = QuickSlotButtonModel(title: "scripts")
+        
+        buttons = [button1, button2, button3]
+    }
+
     func addButton(_ button: QuickSlotButtonModel) {
         buttons.append(button)
     }
