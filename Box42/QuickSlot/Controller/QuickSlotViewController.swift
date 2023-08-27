@@ -9,32 +9,24 @@ import AppKit
 
 class QuickSlotViewController: NSViewController {
     var viewModel: QuickSlotViewModel!
+    var buttonCollectionView: QuickSlotButtonCollectionViewController!
     
     override func loadView() {
-        super.viewDidLoad()
         let quickSlotViewGroup = QuickSlotGroupView()
-        quickSlotViewGroup.quickslotAction = quickslotAction
+        quickSlotViewGroup.headerAction = headerAction
 
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
+        
         self.view = quickSlotViewGroup
     }
     
-    func setupHeader() {
-        // headerLabel을 뷰에 추가하고 레이아웃을 설정합니다.
+    func headerAction() {
+        print("quick slot header")
     }
-    
-    func setupGroupView() {
-        // groupView를 뷰에 추가하고 레이아웃을 설정합니다.
-    }
-    
-    func setupButtons() {
-        // 4x2 버튼을 groupView에 추가하고 레이아웃을 설정합니다.
-    }
-    
-    @objc func buttonTapped(sender: NSButton) {
-        // 버튼이 눌렸을 때의 처리
-    }
-    
-    func quickslotAction() {
-        print("quick slot")
+
+    @objc func handleButtonTapped(notification: NSNotification) {
+        if let button = notification.object as? NSButton {
+            print("Button with title \(button.title) was tapped")
+        }
     }
 }
