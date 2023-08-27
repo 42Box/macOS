@@ -7,7 +7,7 @@
 
 import WebKit
 
-class WebView: WKWebView, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
+class WebView: WKWebView, WKScriptMessageHandler, WKUIDelegate {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("userContentController")
     }
@@ -25,14 +25,13 @@ class WebView: WKWebView, WKScriptMessageHandler, WKUIDelegate, WKNavigationDele
 
         super.init(frame: .zero, configuration: configuration)
 
-        contentController.add(self, name: "box") // Moved after super.init
+        contentController.add(self, name: "box")
 
         self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         self.configuration.preferences.javaScriptEnabled = true
         self.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         
         self.uiDelegate = self
-        self.navigationDelegate = self
         self.becomeFirstResponder()
     }
     

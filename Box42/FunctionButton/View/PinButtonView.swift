@@ -6,18 +6,42 @@
 //
 
 import AppKit
+import SnapKit
 
-class PinButtonView: NSButton {
+class PinButtonView: NSView {
     
     private var callback: (() -> Void)?
+    private var pinBoxButton: NSButton!
+    private var pinBoxLabel: NSTextField!
     
     init(image: NSImage, completion: @escaping () -> Void) {
         super.init(frame: .zero)
         
-        self.image = image
-        self.bezelStyle = .texturedRounded
-        self.target = self
-        self.action = #selector(pin)
+        pinBoxButton = NSButton(image: image, target: self, action: #selector(pin))
+        pinBoxButton.isBordered = false
+        pinBoxButton.wantsLayer = true
+        pinBoxButton.layer?.backgroundColor = NSColor.clear.cgColor
+        
+        self.addSubview(pinBoxButton)
+        
+        pinBoxLabel = NSTextField(labelWithString: "Pin Box")
+        pinBoxLabel.font = NSFont(name: "Inter", size: 14)
+        pinBoxLabel.textColor = NSColor(hex: "#696969")
+        pinBoxLabel.backgroundColor = NSColor.clear
+        pinBoxLabel.isBordered = false
+        
+        self.addSubview(pinBoxLabel)
+        
+        pinBoxButton.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        pinBoxLabel.snp.makeConstraints { make in
+            make.left.equalTo(pinBoxButton.snp.right).offset(2)
+            make.centerY.equalToSuperview()
+        }
+        
         self.callback = completion
     }
     

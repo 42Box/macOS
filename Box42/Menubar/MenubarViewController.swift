@@ -8,7 +8,7 @@
 import Foundation
 import AppKit
 
-class MenubarViewController: NSWorkspace {
+class MenubarViewController: NSViewController {
     var popover = NSPopover()
     var statusBarVM = StatusBarViewModel()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
@@ -21,7 +21,7 @@ class MenubarViewController: NSWorkspace {
     func menubarViewControllerStart() {
         self.menubarStartRunning()
         self.buttonActionInit()
-        self.popoverCoentViewInit()
+        self.popoverContentViewInit()
         self.startEventMonitoring()
     }
     
@@ -42,7 +42,7 @@ class MenubarViewController: NSWorkspace {
     }
     
     func buttonInit() {
-        buttonImageChange("Cat")
+        buttonImageChange("fox")
         statusBarVM.statusButtonAppear()
     }
     
@@ -55,15 +55,15 @@ class MenubarViewController: NSWorkspace {
         statusBarVM.statusBar.statusItem.button?.target = self
     }
     
-    func popoverCoentViewInit() {
-        let boxViewController = BoxViewController(nibName: nil, bundle: nil)
+    func popoverContentViewInit() {
+        let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         popover.contentViewController = boxViewController
     }
     
     func setupEventMonitor() -> EventMonitor {
         return EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {
-                if StateManager.shared.getIsPin() == false && event?.buttonNumber != 2 {
+                if StateManager.shared.pin == false && event?.buttonNumber != 2 {
                     strongSelf.closePopover(sender: event)
                 }
             } else if let strongSelf = self, !strongSelf.popover.isShown {
@@ -99,8 +99,8 @@ class MenubarViewController: NSWorkspace {
 
 extension MenubarViewController: MenubarViewControllerDelegate {
     func toggleWindow(sender: Any?) {
-        StateManager.shared.setToggleIsShowWindow()
-        if StateManager.shared.getIsShowWindow() == false {
+        StateManager.shared.toggleShowWindow()
+        if StateManager.shared.showWindow == false {
             if let window = boxWindowController?.window {
                 if window.isVisible {
                     window.orderOut(sender)
@@ -113,19 +113,18 @@ extension MenubarViewController: MenubarViewControllerDelegate {
             }
             if let button = statusBarVM.statusBar.statusItem.button,
                let window = boxWindowController?.window {
-                if StateManager.shared.getIsShowFirstWindow() == false {
+                if StateManager.shared.showFirstWindow == false {
                     let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
                     let desiredPosition = NSPoint(x: buttonFrame.origin.x - (BoxSizeManager.shared.size.width / 2) - 10, y: buttonFrame.origin.y - window.frame.height)
                     
                     window.setFrameOrigin(desiredPosition)
-                    StateManager.shared.setToggleIsShowFirstWindow()
+                    StateManager.shared.toggleShowFirstWindow()
                 }
                 window.level = .floating
             }
-            boxWindowController?.showWindow(sender)
+                boxWindowController?.showWindow(sender)
         }
     }
-    
 }
 
 protocol MenubarViewControllerDelegate: AnyObject {

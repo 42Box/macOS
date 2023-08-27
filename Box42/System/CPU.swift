@@ -52,7 +52,7 @@ class CPU {
         cpuTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { _ in
             self.usageCPU()
             statusBar.interval = 0.02 * (100 - max(0.0, min(99.0, self.usage.value))) / 6
-            statusBar.statusItem.button?.title = StateManager.shared.getIsShowCPUUsage() ? self.usage.description : ""
+            statusBar.statusItem.button?.title = StateManager.shared.showCPUUsage ? self.usage.description : ""
         })
         self.cpuTimer?.fire()
         return true

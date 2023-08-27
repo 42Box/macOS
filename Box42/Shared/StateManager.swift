@@ -7,62 +7,59 @@
 
 class StateManager {
     static let shared = StateManager()
-
-    private var isPin: Bool!
-    private var isShowCPUUsage: Bool!
-    private var isShowWindow: Bool!
-    private var isShowFirstWindow: Bool!
-    private var isAutoStorage: Bool!
     
-    private init() {
-        isPin = false
-        isShowCPUUsage = false
-        isShowWindow = false
-        isShowFirstWindow = false
-        isAutoStorage = true
-    }
+    private var _pin: Bool = false
+    private var _showCPUUsage: Bool = false
+    private var _showWindow: Bool = false
+    private var _showFirstWindow: Bool = false
+    private var _autoStorage: Bool = true
     
-    func getIsPin() -> Bool {
-        return isPin
+    var pin: Bool {
+        get { return _pin }
+        set { _pin = newValue }
     }
 
-    func setToggleIsPin() {
-        isPin.toggle()
+    func togglePin() {
+        _pin.toggle()
     }
     
-    func getIsShowCPUUsage() -> Bool {
-        return isShowCPUUsage
+    var showCPUUsage: Bool {
+        get { return _showCPUUsage }
+        set { _showCPUUsage = newValue }
+    }
+
+    func toggleShowCPUUsage() {
+        _showCPUUsage.toggle()
     }
     
-    func setToggleIsShowCPUUsage() {
-        isShowCPUUsage.toggle()
+    var showWindow: Bool {
+        get { return _showWindow }
+        set { _showWindow = newValue }
     }
     
-    func getIsShowWindow() -> Bool {
-        return isShowWindow
+    func toggleShowWindow() {
+        _showWindow.toggle()
     }
     
-    func setToggleIsShowWindow() {
-        isShowWindow.toggle()
+    var showFirstWindow: Bool {
+        get { return _showFirstWindow }
+        set { _showFirstWindow = newValue }
+    }
+
+    func toggleShowFirstWindow() {
+        _showFirstWindow.toggle()
     }
     
-    func getIsShowFirstWindow() -> Bool {
-        return isShowFirstWindow
+    var autoStorage: Bool {
+        get { return _autoStorage }
+        set { _autoStorage = newValue }
     }
     
-    func setToggleIsShowFirstWindow() {
-        isShowFirstWindow.toggle()
+    func setOffAutoStorage() {
+        _autoStorage = false
     }
     
-    func getIsAutoStorage() -> Bool {
-        return isAutoStorage
-    }
-    
-    func setOffIsAutoStorage() {
-        isAutoStorage = false
-    }
-    
-    func setOnIsAutoStorage() {
-        isAutoStorage = true
+    func setOnAutoStorage() {
+        _autoStorage = true
     }
 }

@@ -38,7 +38,6 @@
 		DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */; };
 		DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */; };
 		DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */; };
-		DE1F1A262A8B50D500A88DD8 /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */; };
 		DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */; };
 		DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A2D2A8BCC9800A88DD8 /* Storage.swift */; };
 		DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F1A302A8BD68F00A88DD8 /* Double.swift */; };
@@ -47,25 +46,49 @@
 		DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24E6372A8FE10300E29F5D /* BoxBaseSplitView.swift */; };
 		DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24E63A2A8FE93900E29F5D /* NSImage.swift */; };
 		DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AD3282A824EEB00002D51 /* Accessibility.swift */; };
+		DE3FF3672A978A37009C88EF /* HexValue+NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3662A978A37009C88EF /* HexValue+NSColor.swift */; };
+		DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */; };
+		DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3702A978AB8009C88EF /* WindowMaximizeButton.swift */; };
+		DE3FF3752A978AB8009C88EF /* WindowViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */; };
+		DE3FF3762A978AB8009C88EF /* WindowCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */; };
+		DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */; };
+		DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */; };
 		DE4407FA2A923E860091937A /* BoxFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4407F92A923E860091937A /* BoxFunctionViewController.swift */; };
 		DE4407FE2A923EA90091937A /* PreferenceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4407FD2A923EA90091937A /* PreferenceButtonView.swift */; };
 		DE4408022A923EB60091937A /* PinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408012A923EB60091937A /* PinButtonView.swift */; };
 		DE4408052A923EC00091937A /* QuitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408042A923EC00091937A /* QuitButtonView.swift */; };
 		DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408072A9240300091937A /* BoxFunctionButtonView.swift */; };
 		DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */; };
-		DE4408152A92750D0091937A /* keyDown+BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408142A92750D0091937A /* keyDown+BoxViewController.swift */; };
-		DE44081D2A928F760091937A /* TopDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44081C2A928F760091937A /* TopDivider.swift */; };
+		DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */; };
+		DE44081D2A928F760091937A /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44081C2A928F760091937A /* Divider.swift */; };
+		DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */; };
+		DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */; };
+		DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */; };
+		DE6332E82A9BBEF800DCFAF6 /* NotifConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */; };
+		DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
 		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
+		DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
+		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
+		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
+		DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */; };
+		DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */; };
+		DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */; };
+		DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */; };
+		DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */; };
+		DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */; };
+		DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */; };
+		DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862DC2A85347400278FCD /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862DB2A85347400278FCD /* Scripts.swift */; };
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
+		DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,10 +123,9 @@
 		DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = importMacOSInfo.sh; sourceTree = "<group>"; };
 		DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = exportMacOSInfo.sh; sourceTree = "<group>"; };
 		DE1F1A132A8B506600A88DD8 /* keyMapping.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = keyMapping.sh; sourceTree = "<group>"; };
-		DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxBaseContainerViewController.swift; path = Box/BoxBaseContainerViewController.swift; sourceTree = "<group>"; };
+		DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxBaseContainerViewController.swift; path = Main/BoxBaseContainerViewController.swift; sourceTree = "<group>"; };
 		DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxContentsViewGroup.swift; sourceTree = "<group>"; };
 		DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxButtonViewGroup.swift; sourceTree = "<group>"; };
-		DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewController.swift; path = Main/BoxViewController.swift; sourceTree = "<group>"; };
 		DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxSizeManager.swift; sourceTree = "<group>"; };
 		DE1F1A2D2A8BCC9800A88DD8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DE1F1A302A8BD68F00A88DD8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -112,25 +134,49 @@
 		DE24E6372A8FE10300E29F5D /* BoxBaseSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxBaseSplitView.swift; sourceTree = "<group>"; };
 		DE24E63A2A8FE93900E29F5D /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		DE2AD3282A824EEB00002D51 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		DE3FF3662A978A37009C88EF /* HexValue+NSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HexValue+NSColor.swift"; sourceTree = "<group>"; };
+		DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowButtonViewController.swift; sourceTree = "<group>"; };
+		DE3FF3702A978AB8009C88EF /* WindowMaximizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMaximizeButton.swift; sourceTree = "<group>"; };
+		DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowViewGroup.swift; sourceTree = "<group>"; };
+		DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowCloseButton.swift; sourceTree = "<group>"; };
+		DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMinimizeButton.swift; sourceTree = "<group>"; };
+		DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayURLTextfield.swift; sourceTree = "<group>"; };
 		DE4407F92A923E860091937A /* BoxFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionViewController.swift; sourceTree = "<group>"; };
 		DE4407FD2A923EA90091937A /* PreferenceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButtonView.swift; sourceTree = "<group>"; };
 		DE4408012A923EB60091937A /* PinButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinButtonView.swift; sourceTree = "<group>"; };
 		DE4408042A923EC00091937A /* QuitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonView.swift; sourceTree = "<group>"; };
 		DE4408072A9240300091937A /* BoxFunctionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionButtonView.swift; sourceTree = "<group>"; };
 		DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionViewGroup.swift; sourceTree = "<group>"; };
-		DE4408142A92750D0091937A /* keyDown+BoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "keyDown+BoxViewController.swift"; path = "Main/keyDown+BoxViewController.swift"; sourceTree = "<group>"; };
-		DE44081C2A928F760091937A /* TopDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDivider.swift; sourceTree = "<group>"; };
+		DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "keyDown+BoxBaseContainerViewController.swift"; path = "Main/keyDown+BoxBaseContainerViewController.swift"; sourceTree = "<group>"; };
+		DE44081C2A928F760091937A /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonCollectionViewController.swift; sourceTree = "<group>"; };
+		DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonCollectionViewController.xib; sourceTree = "<group>"; };
+		DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifConst.swift; sourceTree = "<group>"; };
+		DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotScriptsLogicController.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonViewItem.swift; sourceTree = "<group>"; };
+		DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonViewItem.xib; sourceTree = "<group>"; };
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
+		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
+		DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonModel.swift; sourceTree = "<group>"; };
+		DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotHeaderView.swift; sourceTree = "<group>"; };
+		DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotGroupView.swift; sourceTree = "<group>"; };
+		DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotUI.swift; sourceTree = "<group>"; };
+		DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RotateImage+NSImage.swift"; sourceTree = "<group>"; };
+		DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewController.swift; sourceTree = "<group>"; };
+		DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonUI.swift; sourceTree = "<group>"; };
+		DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGroupViewController.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862DB2A85347400278FCD /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Scripts.swift; path = Box42/Scripts/Scripts.swift; sourceTree = SOURCE_ROOT; };
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
+		DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,20 +213,20 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A916B2A8E7DC700D1D6F1 /* UI */,
-				DE1F1A202A8B50CA00A88DD8 /* Main */,
-				DEF749302A85655E00D987C8 /* Extensions */,
-				DEB862E82A853F6800278FCD /* Window */,
-				DEB862D22A8511D600278FCD /* Scripts */,
 				DE77BA542A82636500713683 /* Shared */,
+				DEF749302A85655E00D987C8 /* Extensions */,
+				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
+				DE9DA8122A97F1E2001C0D3B /* ButtonGroup */,
+				DE1F1A202A8B50CA00A88DD8 /* Main */,
+				DEB862D22A8511D600278FCD /* Scripts */,
 				DE874F512A591EC600FC3B77 /* Preferences */,
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
 				DE018C062A509B9000FF0AA3 /* System */,
 				DE018C082A509BB500FF0AA3 /* WebView */,
+				DEB862E82A853F6800278FCD /* WindowButton */,
 				DE0A917D2A8F864300D1D6F1 /* Toolbar */,
+				DE98E8382A98D48700F8744A /* QuickSlot */,
 				DE4407F82A923E5B0091937A /* FunctionButton */,
-				DE1F1A182A8B50BB00A88DD8 /* Box */,
-				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 			);
 			path = Box42;
 			sourceTree = "<group>";
@@ -263,6 +309,7 @@
 			children = (
 				DE0A91A62A8FC66600D1D6F1 /* SideBarLeading.swift */,
 				DE0A91822A8F889000D1D6F1 /* GoHomePageViaToolbar().swift */,
+				DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */,
 				DE0A918F2A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift */,
 				DE0A918C2A8F88BC00D1D6F1 /* GoBackInToolbar.swift */,
 				DE0A91892A8F88A900D1D6F1 /* GoForwardInToolbar.swift */,
@@ -279,27 +326,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DE1F1A182A8B50BB00A88DD8 /* Box */ = {
-			isa = PBXGroup;
-			children = (
-				DE4408202A9297EE0091937A /* View */,
-				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
-			);
-			name = Box;
-			sourceTree = "<group>";
-		};
 		DE1F1A202A8B50CA00A88DD8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DE1F1A232A8B50D500A88DD8 /* BoxViewController.swift */,
-				DE4408142A92750D0091937A /* keyDown+BoxViewController.swift */,
+				DE0A916B2A8E7DC700D1D6F1 /* UI */,
+				DE4408202A9297EE0091937A /* View */,
+				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
+				DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */,
+				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		DE3FF36F2A978A6E009C88EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE3FF3722A978AB8009C88EF /* WindowCloseButton.swift */,
+				DE3FF3732A978AB8009C88EF /* WindowMinimizeButton.swift */,
+				DE3FF3702A978AB8009C88EF /* WindowMaximizeButton.swift */,
+				DE3FF3712A978AB8009C88EF /* WindowViewGroup.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE4407F82A923E5B0091937A /* FunctionButton */ = {
 			isa = PBXGroup;
 			children = (
+				DEE0FA942A9A553A00085A65 /* Model */,
 				DE4407FC2A923E920091937A /* View */,
 				DE4407F92A923E860091937A /* BoxFunctionViewController.swift */,
 			);
@@ -309,7 +362,6 @@
 		DE4407FC2A923E920091937A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE44081C2A928F760091937A /* TopDivider.swift */,
 				DE4407FD2A923EA90091937A /* PreferenceButtonView.swift */,
 				DE4408012A923EB60091937A /* PinButtonView.swift */,
 				DE4408042A923EC00091937A /* QuitButtonView.swift */,
@@ -322,12 +374,20 @@
 		DE4408202A9297EE0091937A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */,
 				DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */,
 				DE24E6372A8FE10300E29F5D /* BoxBaseSplitView.swift */,
 			);
-			name = View;
-			path = Box/View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE62BE632A9BA8CC00D97E06 /* ButtonCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */,
+				DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */,
+				DE7F9D482A9B7A4E00F8ACAE /* Vertical Item */,
+			);
+			path = ButtonCollectionView;
 			sourceTree = "<group>";
 		};
 		DE77BA542A82636500713683 /* Shared */ = {
@@ -336,8 +396,18 @@
 				DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */,
 				DE77BA552A82637900713683 /* StateManager.swift */,
 				DE0A91622A8E6A5400D1D6F1 /* Constants.swift */,
+				DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DE7F9D482A9B7A4E00F8ACAE /* Vertical Item */ = {
+			isa = PBXGroup;
+			children = (
+				DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */,
+				DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */,
+			);
+			path = "Vertical Item";
 			sourceTree = "<group>";
 		};
 		DE874F512A591EC600FC3B77 /* Preferences */ = {
@@ -350,6 +420,62 @@
 				DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		DE98E8382A98D48700F8744A /* QuickSlot */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E84E2A98E04F00F8744A /* ViewModel */,
+				DE98E8492A98E02400F8744A /* Model */,
+				DE98E8412A98DDEB00F8744A /* View */,
+				DEE0FA872A9A022100085A65 /* Controller */,
+			);
+			path = QuickSlot;
+			sourceTree = "<group>";
+		};
+		DE98E8412A98DDEB00F8744A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE44081C2A928F760091937A /* Divider.swift */,
+				DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */,
+				DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */,
+				DE62BE632A9BA8CC00D97E06 /* ButtonCollectionView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE98E8492A98E02400F8744A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */,
+				DE97CA7E2A9A73A9001073DE /* QuickSlotUI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE98E84E2A98E04F00F8744A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE98E8532A98EA4F00F8744A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE9DA8122A97F1E2001C0D3B /* ButtonGroup */ = {
+			isa = PBXGroup;
+			children = (
+				DE1F1A1B2A8B50C500A88DD8 /* BoxButtonViewGroup.swift */,
+				DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */,
+			);
+			path = ButtonGroup;
 			sourceTree = "<group>";
 		};
 		DEB862D22A8511D600278FCD /* Scripts */ = {
@@ -374,21 +500,43 @@
 			path = sh;
 			sourceTree = "<group>";
 		};
-		DEB862E82A853F6800278FCD /* Window */ = {
+		DEB862E82A853F6800278FCD /* WindowButton */ = {
 			isa = PBXGroup;
 			children = (
-				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
+				DE98E8532A98EA4F00F8744A /* Model */,
+				DE3FF36F2A978A6E009C88EF /* View */,
+				DE3FF3692A978A57009C88EF /* WindowButtonViewController.swift */,
 			);
-			path = Window;
+			path = WindowButton;
+			sourceTree = "<group>";
+		};
+		DEE0FA872A9A022100085A65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */,
+				DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DEE0FA942A9A553A00085A65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DEF749302A85655E00D987C8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DE3FF3662A978A37009C88EF /* HexValue+NSColor.swift */,
 				DE874F5E2A5935CC00FC3B77 /* String.swift */,
 				DEF749312A85657600D987C8 /* NSScreen.swift */,
 				DE1F1A302A8BD68F00A88DD8 /* Double.swift */,
 				DE24E63A2A8FE93900E29F5D /* NSImage.swift */,
+				DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */,
+				DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -461,7 +609,9 @@
 				DE1F1A152A8B506600A88DD8 /* exportMacOSInfo.sh in Resources */,
 				DE1F1A162A8B506600A88DD8 /* keyMapping.sh in Resources */,
 				DEB862D42A85124500278FCD /* cleanCache.sh in Resources */,
+				DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */,
 				DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */,
+				DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */,
 				DE018BE02A509B0600FF0AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,44 +623,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3FF3752A978AB8009C88EF /* WindowViewGroup.swift in Sources */,
 				DE0A91A72A8FC66600D1D6F1 /* SideBarLeading.swift in Sources */,
 				DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */,
-				DE1F1A262A8B50D500A88DD8 /* BoxViewController.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
+				DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
+				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
+				DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */,
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
+				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
+				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
+				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
+				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
+				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
 				DE4407FA2A923E860091937A /* BoxFunctionViewController.swift in Sources */,
 				DE4407FE2A923EA90091937A /* PreferenceButtonView.swift in Sources */,
+				DE6332E82A9BBEF800DCFAF6 /* NotifConst.swift in Sources */,
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
+				DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
+				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
+				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
+				DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */,
 				DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */,
+				DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */,
+				DE3FF3762A978AB8009C88EF /* WindowCloseButton.swift in Sources */,
+				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
-				DE4408152A92750D0091937A /* keyDown+BoxViewController.swift in Sources */,
+				DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */,
+				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
+				DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */,
 				DE4408052A923EC00091937A /* QuitButtonView.swift in Sources */,
 				DE0A918A2A8F88A900D1D6F1 /* GoForwardInToolbar.swift in Sources */,
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
 				DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */,
 				DE0A918D2A8F88BC00D1D6F1 /* GoBackInToolbar.swift in Sources */,
 				DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */,
+				DE3FF3672A978A37009C88EF /* HexValue+NSColor.swift in Sources */,
 				DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */,
 				DEB862DC2A85347400278FCD /* Scripts.swift in Sources */,
 				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
@@ -518,10 +687,12 @@
 				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
-				DE44081D2A928F760091937A /* TopDivider.swift in Sources */,
+				DE44081D2A928F760091937A /* Divider.swift in Sources */,
+				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
 				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */,
+				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
 				DE0A917F2A8F865400D1D6F1 /* BoxToolbarViewGroup.swift in Sources */,
 				DE018BEA2A509B2100FF0AA3 /* WebViewModel.swift in Sources */,

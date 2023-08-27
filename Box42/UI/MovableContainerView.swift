@@ -9,7 +9,7 @@ import AppKit
 
 class MovableContainerView: NSView {
     init() {
-        super.init(frame: NSRect(x: 0, y: 0, width: 300, height: BoxSizeManager.shared.size.height))
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {

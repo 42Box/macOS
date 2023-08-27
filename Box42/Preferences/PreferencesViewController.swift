@@ -141,7 +141,6 @@ class PreferencesViewController: NSViewController {
                     print("Error: \(error)")
                 }
             }
-
         }
     }
     
