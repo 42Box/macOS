@@ -73,12 +73,11 @@
 		DE78860C2A9C770300FE21DD /* IconsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860B2A9C770300FE21DD /* IconsViewModel.swift */; };
 		DE7886102A9C773300FE21DD /* IconsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860F2A9C773300FE21DD /* IconsModel.swift */; };
 		DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886162A9CCB3B00FE21DD /* UserProfile.swift */; };
-		DE78861C2A9CE7D700FE21DD /* IconChangedByWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78861B2A9CE7D700FE21DD /* IconChangedByWebView.swift */; };
+		DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */; };
 		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
 		DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
-		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
@@ -166,13 +165,12 @@
 		DE78860B2A9C770300FE21DD /* IconsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewModel.swift; sourceTree = "<group>"; };
 		DE78860F2A9C773300FE21DD /* IconsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsModel.swift; sourceTree = "<group>"; };
 		DE7886162A9CCB3B00FE21DD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		DE78861B2A9CE7D700FE21DD /* IconChangedByWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangedByWebView.swift; sourceTree = "<group>"; };
+		DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconChanged+WebView.swift"; sourceTree = "<group>"; };
 		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonViewItem.swift; sourceTree = "<group>"; };
 		DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonViewItem.xib; sourceTree = "<group>"; };
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
@@ -225,7 +223,7 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
-				DE7885FF2A9C717E00FE21DD /* Icons */,
+				DE7885FF2A9C717E00FE21DD /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
@@ -413,29 +411,18 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		DE7885FF2A9C717E00FE21DD /* Icons */ = {
+		DE7885FF2A9C717E00FE21DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				DE78860E2A9C771A00FE21DD /* Model */,
-				DE78860A2A9C76F600FE21DD /* ViewModel */,
-				DE7886062A9C740F00FE21DD /* Controller */,
-				DE7886082A9C741700FE21DD /* View */,
+				DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */,
 			);
-			path = Icons;
-			sourceTree = "<group>";
-		};
-		DE7886062A9C740F00FE21DD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DE7886002A9C71BE00FE21DD /* IconsViewController.swift */,
-				DE78861B2A9CE7D700FE21DD /* IconChangedByWebView.swift */,
-			);
-			path = Controller;
+			path = Icon;
 			sourceTree = "<group>";
 		};
 		DE7886082A9C741700FE21DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE7886002A9C71BE00FE21DD /* IconsViewController.swift */,
 				DE7886032A9C71CB00FE21DD /* IconsView.swift */,
 			);
 			path = View;
@@ -489,7 +476,6 @@
 			children = (
 				DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */,
 				DE874F532A591F1400FC3B77 /* PreferencesView.swift */,
-				DE874F562A591F2500FC3B77 /* Icon.swift */,
 				DE2AD3282A824EEB00002D51 /* Accessibility.swift */,
 				DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */,
 			);
@@ -555,6 +541,9 @@
 		DEB862D22A8511D600278FCD /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				DE78860E2A9C771A00FE21DD /* Model */,
+				DE78860A2A9C76F600FE21DD /* ViewModel */,
+				DE7886082A9C741700FE21DD /* View */,
 				DEB862DB2A85347400278FCD /* Scripts.swift */,
 				DE0A917A2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift */,
 			);
@@ -713,7 +702,7 @@
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
-				DE78861C2A9CE7D700FE21DD /* IconChangedByWebView.swift in Sources */,
+				DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */,
 				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
 				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
@@ -768,7 +757,6 @@
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* Divider.swift in Sources */,
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
-				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
 				DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */,
