@@ -12,6 +12,7 @@ import SnapKit
 class DisplayURLInToolbar: NSView {
     var URLTextfield: DisplayURLTextfield = DisplayURLTextfield()
     var originalString: String = ""
+    var icon = MenubarViewController()
     
     override init(frame frameRect: NSRect) {
         super.init(frame: .zero)
@@ -87,6 +88,7 @@ extension DisplayURLInToolbar: WKNavigationDelegate {
             if showURLString.count > 1 {
                 URLTextfield.stringValue = (showURLString[1] ?? "")
             }
+            print(originalString)
         }
     }
 }
@@ -95,5 +97,10 @@ extension DisplayURLInToolbar {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("Navigation finished")
         updateURL()
+        if originalString == "https://42box.kr/auth" || originalString == "https://42box.kr/" {
+            WebViewManager.shared.getCookie()
+        }
+        
+        IconChangedByWebView(webView)
     }
 }

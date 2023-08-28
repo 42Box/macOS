@@ -11,6 +11,7 @@ class StatusBarViewModel {
     let cpu: CPU
     let statusBar: StatusBar
     private var currentAnimationWorkItem: DispatchWorkItem?
+    private let scheduleQueue = DispatchQueue(label: "animation.scheduleQueue")
     
     init () {
         self.statusBar = StatusBar.shared
@@ -23,7 +24,13 @@ class StatusBarViewModel {
     
     func changeStatusBarIcon(_ imgName: String) {
         statusBar.frames.removeAll()
-        
+        currentAnimationWorkItem?.cancel()
+        if statusBar.version == Int.max {
+            statusBar.version = 0
+        } else {
+            statusBar.version += 1
+        }
+
         switch imgName {
         case "cat": for i in (0...4) {statusBar.frames.append(NSImage(imageLiteralResourceName: "cat_page\(i)"))}
         case "gon": for i in (1...5) {statusBar.frames.append(NSImage(imageLiteralResourceName: "gon_\(i)"))}
@@ -52,25 +59,34 @@ class StatusBarViewModel {
             self.animate()
         }
     }
-    
+
     func scheduleAnimation() {
-        currentAnimationWorkItem?.cancel()
-
-        let workItem = DispatchWorkItem { [weak self] in
-            self?.statusBar.statusItem.button?.image = self?.statusBar.frames[self?.statusBar.cnt ?? 0]
-            self?.statusBar.cnt = ((self?.statusBar.cnt)! + 1) % (self?.statusBar.frames.count ?? 1)
+        scheduleQueue.sync {
+            currentAnimationWorkItem?.cancel()
             
-            if self?.statusBar.isRunning ?? false {
-                self?.scheduleAnimation()
-            }
-        }
+            let currentVersion = statusBar.version
 
-        currentAnimationWorkItem = workItem
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + statusBar.interval, execute: workItem)
+            let workItem = DispatchWorkItem { [weak self] in
+                guard self?.statusBar.version == currentVersion else { return }
+                
+                self?.statusBar.statusItem.button?.image = self?.statusBar.frames[self?.statusBar.cnt ?? 0]
+                
+                if let cnt = self?.statusBar.cnt, let framesCount = self?.statusBar.frames.count {
+                    self?.statusBar.cnt = (cnt + 1) % framesCount
+                }
+                
+                if self?.statusBar.isRunning ?? false {
+                    self?.scheduleAnimation()
+                }
+            }
+            
+            currentAnimationWorkItem = workItem
+            DispatchQueue.main.asyncAfter(deadline: .now() + statusBar.interval, execute: workItem)
+        }
     }
-    
+
     func stopRunning() {
-        statusBar.isRunning = cpu.StopCPU()
+        statusBar.isRunning = cpu.stopCPU()
         currentAnimationWorkItem?.cancel()
         statusBar.cnt = 0
     }

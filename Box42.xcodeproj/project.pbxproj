@@ -68,11 +68,16 @@
 		DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
+		DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886002A9C71BE00FE21DD /* IconsViewController.swift */; };
+		DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886032A9C71CB00FE21DD /* IconsView.swift */; };
+		DE78860C2A9C770300FE21DD /* IconsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860B2A9C770300FE21DD /* IconsViewModel.swift */; };
+		DE7886102A9C773300FE21DD /* IconsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860F2A9C773300FE21DD /* IconsModel.swift */; };
+		DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886162A9CCB3B00FE21DD /* UserProfile.swift */; };
+		DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */; };
 		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
 		DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
-		DE874F572A591F2500FC3B77 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F562A591F2500FC3B77 /* Icon.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
@@ -155,12 +160,17 @@
 		DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotScriptsLogicController.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		DE7886002A9C71BE00FE21DD /* IconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewController.swift; sourceTree = "<group>"; };
+		DE7886032A9C71CB00FE21DD /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
+		DE78860B2A9C770300FE21DD /* IconsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewModel.swift; sourceTree = "<group>"; };
+		DE78860F2A9C773300FE21DD /* IconsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsModel.swift; sourceTree = "<group>"; };
+		DE7886162A9CCB3B00FE21DD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconChanged+WebView.swift"; sourceTree = "<group>"; };
 		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonViewItem.swift; sourceTree = "<group>"; };
 		DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonViewItem.xib; sourceTree = "<group>"; };
 		DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		DE874F562A591F2500FC3B77 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
+				DE7885FF2A9C717E00FE21DD /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
@@ -245,21 +256,13 @@
 		DE018C082A509BB500FF0AA3 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				DE018C0B2A509BC100FF0AA3 /* URL */,
+				DE7886152A9CCB2B00FE21DD /* Model */,
 				DE0A91662A8E6CA700D1D6F1 /* WebViewManager.swift */,
 				DE018BE92A509B2100FF0AA3 /* WebViewModel.swift */,
 				DE018BE62A509B1E00FF0AA3 /* WebViewController.swift */,
 				DE0A91772A8F014F00D1D6F1 /* WebView.swift */,
 			);
 			path = WebView;
-			sourceTree = "<group>";
-		};
-		DE018C0B2A509BC100FF0AA3 /* URL */ = {
-			isa = PBXGroup;
-			children = (
-				DE018BEC2A509B2600FF0AA3 /* URLModel.swift */,
-			);
-			path = URL;
 			sourceTree = "<group>";
 		};
 		DE018C0C2A509BDF00FF0AA3 /* Resources */ = {
@@ -299,7 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				DE0A919E2A8FA15300D1D6F1 /* View */,
-				DE0A91972A8F977F00D1D6F1 /* ToolbarViewController.swift */,
+				DE7885FD2A9C60C300FE21DD /* Controller */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -307,10 +310,9 @@
 		DE0A919E2A8FA15300D1D6F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE7886122A9C944900FE21DD /* DisplayURL */,
 				DE0A91A62A8FC66600D1D6F1 /* SideBarLeading.swift */,
 				DE0A91822A8F889000D1D6F1 /* GoHomePageViaToolbar().swift */,
-				DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */,
-				DE0A918F2A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift */,
 				DE0A918C2A8F88BC00D1D6F1 /* GoBackInToolbar.swift */,
 				DE0A91892A8F88A900D1D6F1 /* GoForwardInToolbar.swift */,
 				DE0A91852A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift */,
@@ -401,6 +403,65 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		DE7885FD2A9C60C300FE21DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A91972A8F977F00D1D6F1 /* ToolbarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DE7885FF2A9C717E00FE21DD /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		DE7886082A9C741700FE21DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE7886002A9C71BE00FE21DD /* IconsViewController.swift */,
+				DE7886032A9C71CB00FE21DD /* IconsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE78860A2A9C76F600FE21DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE78860B2A9C770300FE21DD /* IconsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE78860E2A9C771A00FE21DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE78860F2A9C773300FE21DD /* IconsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE7886122A9C944900FE21DD /* DisplayURL */ = {
+			isa = PBXGroup;
+			children = (
+				DE3FF3A22A97D2A6009C88EF /* DisplayURLTextfield.swift */,
+				DE0A918F2A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift */,
+			);
+			path = DisplayURL;
+			sourceTree = "<group>";
+		};
+		DE7886152A9CCB2B00FE21DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE7886162A9CCB3B00FE21DD /* UserProfile.swift */,
+				DE018BEC2A509B2600FF0AA3 /* URLModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DE7F9D482A9B7A4E00F8ACAE /* Vertical Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,7 +476,6 @@
 			children = (
 				DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */,
 				DE874F532A591F1400FC3B77 /* PreferencesView.swift */,
-				DE874F562A591F2500FC3B77 /* Icon.swift */,
 				DE2AD3282A824EEB00002D51 /* Accessibility.swift */,
 				DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */,
 			);
@@ -481,6 +541,9 @@
 		DEB862D22A8511D600278FCD /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				DE78860E2A9C771A00FE21DD /* Model */,
+				DE78860A2A9C76F600FE21DD /* ViewModel */,
+				DE7886082A9C741700FE21DD /* View */,
 				DEB862DB2A85347400278FCD /* Scripts.swift */,
 				DE0A917A2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift */,
 			);
@@ -635,9 +698,11 @@
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
 				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
+				DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
+				DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */,
 				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
 				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
@@ -646,6 +711,7 @@
 				DE6332E82A9BBEF800DCFAF6 /* NotifConst.swift in Sources */,
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
+				DE7886102A9C773300FE21DD /* IconsModel.swift in Sources */,
 				DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
@@ -657,7 +723,9 @@
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
 				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
+				DE78860C2A9C770300FE21DD /* IconsViewModel.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
+				DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
@@ -689,7 +757,7 @@
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* Divider.swift in Sources */,
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
-				DE874F572A591F2500FC3B77 /* Icon.swift in Sources */,
+				DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */,
 				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,

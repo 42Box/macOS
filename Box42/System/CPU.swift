@@ -58,7 +58,7 @@ class CPU {
         return true
     }
     
-    func StopCPU() -> Bool {
+    func stopCPU() -> Bool {
         self.cpuTimer?.invalidate()
         return false
     }
