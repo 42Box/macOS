@@ -21,4 +21,11 @@ enum QuickSlotUI {
     enum color {
 //        static let pinText = NSColor(hex: "#696969")
     }
+    
+    enum title {
+        static let clean = "Clean"
+        static let preferences = "Preferences"
+        static let scripts = "Scripts"
+        static let user = "User"
+    }
 }
