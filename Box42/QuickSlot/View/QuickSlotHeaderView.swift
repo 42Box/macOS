@@ -9,7 +9,6 @@ import AppKit
 import SnapKit
 
 class QuickSlotHeaderView: NSView {
-    
     private var callback: (() -> Void)?
     private var QuickSlotHeaderButton: NSButton!
     private var QuickSlotHeaderLabel: NSTextField!

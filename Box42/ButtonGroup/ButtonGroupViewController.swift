@@ -12,7 +12,7 @@ class ButtonGroupViewController: NSViewController {
 //        let ButtonViewGroup = BoxButtonViewGroup()
         let ButtonViewGroup = NSView()
         ButtonViewGroup.wantsLayer = true
-        ButtonViewGroup.layer?.backgroundColor = NSColor.black.cgColor
+        ButtonViewGroup.layer?.backgroundColor = NSColor.purple.cgColor
         self.view = ButtonViewGroup
     }
     
