@@ -16,7 +16,8 @@ class StatusBar {
 	var isRunning: Bool
 	var interval: Double
 	var alertCount: Int
-
+    var version: Int
+    
     init() {
         self.statusItem = NSStatusItem()
         self.frames = [NSImage]()
@@ -24,5 +25,6 @@ class StatusBar {
         self.isRunning = false
         self.interval = 1.0
         self.alertCount = 0
+        self.version = 0
     }
 }

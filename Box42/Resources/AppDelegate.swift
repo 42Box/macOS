@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //        storage.storageTimerEvent()
         _ = ScriptsLogicController.shared
+        _ = WebViewManager.shared
         
     }
     
