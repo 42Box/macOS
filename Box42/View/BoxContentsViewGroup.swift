@@ -21,6 +21,7 @@ class BoxContentsViewGroup: NSView {
         self.frame.size.height = BoxSizeManager.shared.size.height
         
         self.wantsLayer = true
+        self.layer?.cornerRadius = 20
         self.addSubview(webVC!.view)
 
         webVC?.view.translatesAutoresizingMaskIntoConstraints = false

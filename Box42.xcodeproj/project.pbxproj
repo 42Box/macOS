@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E72398D2A9CDC4500665455 /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E72398C2A9CDC4500665455 /* test1.swift */; };
+		7E72398F2A9CDC5000665455 /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E72398E2A9CDC5000665455 /* test2.swift */; };
 		DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */; };
 		DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */; };
 		DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */; };
@@ -93,6 +95,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E72398C2A9CDC4500665455 /* test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1.swift; sourceTree = "<group>"; };
+		7E72398E2A9CDC5000665455 /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
 		DE018BAF2A5099F900FF0AA3 /* Box42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE018BB72A5099F900FF0AA3 /* Box42.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Box42.xcdatamodel; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				DE0A916B2A8E7DC700D1D6F1 /* UI */,
 				DE4408202A9297EE0091937A /* View */,
 				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
+				7E72398C2A9CDC4500665455 /* test1.swift */,
+				7E72398E2A9CDC5000665455 /* test2.swift */,
 				DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */,
 				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
 			);
@@ -579,7 +585,7 @@
 				};
 			};
 			buildConfigurationList = DE018BAA2A5099F900FF0AA3 /* Build configuration list for PBXProject "Box42" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -628,6 +634,7 @@
 				DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
 				DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */,
+				7E72398D2A9CDC4500665455 /* test1.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
@@ -635,6 +642,7 @@
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
 				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
+				7E72398F2A9CDC5000665455 /* test2.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,

@@ -12,6 +12,8 @@ class BoxBaseSplitView: NSSplitView {
         super.init(frame: .zero)
         self.isVertical = true
         self.dividerStyle = .thick
+        super.wantsLayer = true
+        super.layer?.backgroundColor = NSColor.yellow.cgColor
     }
     
     required init?(coder: NSCoder) {
