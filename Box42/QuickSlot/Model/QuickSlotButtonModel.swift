@@ -12,8 +12,8 @@ struct QuickSlotButtonModel {
     let id: UUID
     var title: String
     
-    init(title: String = "Default") {
-        self.id = UUID()
+    init(id: UUID = UUID(), title: String = "Default") {
+        self.id = id
         self.title = title
     }
 }

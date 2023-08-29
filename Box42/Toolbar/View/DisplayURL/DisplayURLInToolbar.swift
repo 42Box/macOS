@@ -87,6 +87,7 @@ extension DisplayURLInToolbar: WKNavigationDelegate {
             if showURLString.count > 1 {
                 URLTextfield.stringValue = (showURLString[1] ?? "")
             }
+            print(originalString)
         }
     }
 }

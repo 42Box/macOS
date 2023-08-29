@@ -11,19 +11,15 @@ import SnapKit
 class BoxContentsViewGroup: NSView {
     var webVC: WebViewController?
     var preferencesVC = PreferencesViewController()
+    var scriptsVC = ScriptsViewController()
     
     init() {
+        super.init(frame: .zero)
         webVC = WebViewController(nibName: nil, bundle: nil)
-        
-        super.init(frame: NSRect(x: 0, y: 0, width: BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width, height: BoxSizeManager.shared.buttonGroupSize.height))
-        
-        self.frame.size.width = BoxSizeManager.shared.size.width - BoxSizeManager.shared.buttonGroupSize.width
-        self.frame.size.height = BoxSizeManager.shared.size.height
-        
         self.wantsLayer = true
+        self.layer?.cornerRadius = 20
+        self.layer?.masksToBounds = true
         self.addSubview(webVC!.view)
-
-        webVC?.view.translatesAutoresizingMaskIntoConstraints = false
         webVC?.view.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
@@ -32,12 +28,7 @@ class BoxContentsViewGroup: NSView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        // Drawing code here.
-    }
-    
+
     func removeAllSubviews() {
         for subview in self.subviews {
             subview.removeFromSuperview()
@@ -45,8 +36,19 @@ class BoxContentsViewGroup: NSView {
     }
     
     func showPreferences() {
+        self.removeAllSubviews()
         self.addSubview(preferencesVC.view)
-        preferencesVC.viewDidAppear()
+        preferencesVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func showScripts() {
+        self.removeAllSubviews()
+        self.addSubview(scriptsVC.view)
+        scriptsVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     func showWebviews(_ sender: NSButton) {

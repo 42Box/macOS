@@ -48,10 +48,6 @@ class PreferencesViewController: NSViewController {
         
         var stackBox: [NSView] = []
         
-        let icons = iconModel().icon
-        icons.forEach { (icon) in
-            stackBox.append(NSButton(title: "Change \(icon) Icon", target: self, action: #selector(changeIconButtonPressed)))
-        }
         
         let scripts = Scripts().info
         scripts.forEach { (script) in

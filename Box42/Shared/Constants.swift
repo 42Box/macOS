@@ -8,8 +8,8 @@
 enum Constants {
     enum url {
         static let initialName = "home"
-//        static let initialPage = "https://42box.kr"
-        static let initialPage = "https://profile.intra.42.fr/"
+        static let initialPage = "https://42box.kr"
+//        static let initialPage = "https://profile.intra.42.fr/"
     }
     
     enum UI {

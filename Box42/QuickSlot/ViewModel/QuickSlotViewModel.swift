@@ -9,21 +9,26 @@ import AppKit
 import Combine
 
 class QuickSlotViewModel {
+    static let shared = QuickSlotViewModel()
     @Published var buttons: [QuickSlotButtonModel] = []
     
-    init() {
-        let button1 = QuickSlotButtonModel(title: "clean")
-        let button2 = QuickSlotButtonModel(title: "icons")
-        let button3 = QuickSlotButtonModel(title: "scripts")
+    private init() {
+        let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean)
+        let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences)
+        let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)
+        let button4 = QuickSlotButtonModel(title: QuickSlotUI.title.user)
         
-        buttons = [button1, button2, button3]
-    }
-
-    func addButton(_ button: QuickSlotButtonModel) {
-        buttons.append(button)
+        buttons = [button1, button2, button3, button4]
     }
     
-    func removeButton(id: UUID) {
+    func addButton(_ button: QuickSlotButtonModel) {
+        if buttons.count > 7 { return }
+        if !buttons.contains(where: { $0.id == button.id }) {
+            buttons.append(button)
+        }
+    }
+    
+    func removeButton(_ id: UUID) {
         buttons.removeAll { $0.id == id }
     }
     

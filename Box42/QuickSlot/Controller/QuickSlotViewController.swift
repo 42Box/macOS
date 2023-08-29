@@ -15,7 +15,7 @@ class QuickSlotViewController: NSViewController {
         let quickSlotViewGroup = QuickSlotGroupView()
         quickSlotViewGroup.headerAction = headerAction
 
-        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
         
         self.view = quickSlotViewGroup
     }
@@ -26,7 +26,7 @@ class QuickSlotViewController: NSViewController {
 
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-            print("Button with title \(button.title) was tapped")
+            print("Button with title \(button.title) was tapped in QuickSlotView")
         }
     }
 }
