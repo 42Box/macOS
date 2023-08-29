@@ -12,7 +12,7 @@ class ScriptsLogicController {
     static let shared = ScriptsLogicController()
     
     private init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
     }
     
     @objc func handleButtonTapped(notification: NSNotification) {

@@ -105,6 +105,11 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
 
 extension QuickSlotButtonCollectionViewController {
     @objc func collectionButtonTapped(_ sender: NSButton) {
-        NotificationCenter.default.post(name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: sender)
+        NotificationCenter.default.post(name: .collectionButtonTapped, object: sender)
     }
+}
+
+// MARK: - Notification Name collectionButtonTapped
+extension Notification.Name {
+    static let collectionButtonTapped = Notification.Name("collectionButtonTapped")
 }
