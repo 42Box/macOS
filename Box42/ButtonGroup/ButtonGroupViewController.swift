@@ -9,7 +9,7 @@ import Cocoa
 
 class ButtonGroupViewController: NSViewController {
     override func loadView() {
-//        let ButtonViewGroup = BoxButtonViewGroup()
+//        let ButtonViewGroup = BoxButtonViewGroup(clickAction: clickAction)
         let ButtonViewGroup = NSView()
         ButtonViewGroup.wantsLayer = true
         ButtonViewGroup.layer?.backgroundColor = NSColor.black.cgColor
@@ -18,6 +18,10 @@ class ButtonGroupViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func clickAction(_ sender: NSButton?) {
+        print("click Action")
     }
     
     func preference() {
