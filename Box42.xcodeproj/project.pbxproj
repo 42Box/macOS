@@ -233,7 +233,6 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
-				DE7885FF2A9C717E00FE21DD /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
@@ -270,6 +269,7 @@
 				DE018BE92A509B2100FF0AA3 /* WebViewModel.swift */,
 				DE018BE62A509B1E00FF0AA3 /* WebViewController.swift */,
 				DE0A91772A8F014F00D1D6F1 /* WebView.swift */,
+				DE77BBB22A9DED25006CC98B /* WebViewFileManager.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -425,17 +425,18 @@
 		DE7885FD2A9C60C300FE21DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A91972A8F977F00D1D6F1 /* ToolbarViewController.swift */,
+				DE77BBB82A9DEE1B006CC98B /* ExcuteScripts.swift */,
+				DE77BBB92A9DEE1B006CC98B /* ScriptsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		DE7885FF2A9C717E00FE21DD /* Icon */ = {
+		DE7885FD2A9C60C300FE21DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */,
+				DE0A91972A8F977F00D1D6F1 /* ToolbarViewController.swift */,
 			);
-			path = Icon;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DE7886082A9C741700FE21DD /* View */ = {
@@ -749,7 +750,6 @@
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
-				DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */,
 				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
 				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
@@ -763,6 +763,7 @@
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
+				DE77BBB32A9DED25006CC98B /* WebViewFileManager.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
 				DE77BBA22A9DDC40006CC98B /* FileManager.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
@@ -788,6 +789,7 @@
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
 				DE78862D2A9D1ADE00FE21DD /* PreferencesCell.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
+				DE77BBBA2A9DEE1B006CC98B /* ExcuteScripts.swift in Sources */,
 				DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */,
 				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
