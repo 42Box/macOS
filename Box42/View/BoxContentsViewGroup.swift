@@ -11,6 +11,7 @@ import SnapKit
 class BoxContentsViewGroup: NSView {
     var webVC: WebViewController?
     var preferencesVC = PreferencesViewController()
+    var scriptsVC = ScriptsViewController()
     
     init() {
         super.init(frame: .zero)
@@ -38,6 +39,14 @@ class BoxContentsViewGroup: NSView {
         self.removeAllSubviews()
         self.addSubview(preferencesVC.view)
         preferencesVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func showScripts() {
+        self.removeAllSubviews()
+        self.addSubview(scriptsVC.view)
+        scriptsVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

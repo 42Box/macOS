@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct Scripts {
-    var info: [(name: String, description: String)] = [("cleanCache", "cleaning cache"),
-                                                       ("brewInGoinfre", "brew download in goinfre")]
+struct Scripts: Codable {
+    var info: [Script]
 }
 
-struct Script {
+struct Script: Codable {
     var id: UUID
     var name: String
     var description: String

@@ -1,27 +1,22 @@
 //
-//  WindowMinimizeButton.swift
+//  ScriptDeleteButton.swift
 //  Box42
 //
-//  Created by Chanhee Kim on 8/23/23.
+//  Created by Chanhee Kim on 8/30/23.
 //
 
 import AppKit
 
-class WindowMinimizeButton: NSButton {
+class ScriptDeleteButton: NSButton {
     
-    private var callback: (() -> Void)?
-    
-    init(completion: @escaping () -> Void) {
-        super.init(frame: NSRect(x: 0, y: 0, width: WindowButtonUI.size.diameter, height: WindowButtonUI.size.diameter))
+    init() {
+        super.init(frame: NSRect(x: 0, y: 0, width: 53, height: 40))
 
-        self.title = ""
+        self.title = "삭제"
         self.isBordered = false
         self.wantsLayer = true
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
-        self.layer?.backgroundColor = WindowButtonUI.color.minimize
-        self.target = self
-        self.action = #selector(minimizeAction)
-        self.callback = completion
+        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
+        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
 
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
@@ -31,16 +26,12 @@ class WindowMinimizeButton: NSButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func minimizeAction() {
-        callback?()
-    }
-    
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
 
         let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
         bgColorAnimation.fromValue = WindowButtonUI.color.opacityWhite
-        bgColorAnimation.toValue = WindowButtonUI.color.minimize
+        bgColorAnimation.toValue = WindowButtonUI.color.close
         bgColorAnimation.duration = WindowButtonUI.animation.duration
 
         let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
@@ -51,7 +42,7 @@ class WindowMinimizeButton: NSButton {
         self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
         self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
 
-        self.layer?.backgroundColor = WindowButtonUI.color.minimize
+        self.layer?.backgroundColor = WindowButtonUI.color.close
         self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
     }
 
@@ -59,7 +50,7 @@ class WindowMinimizeButton: NSButton {
         super.mouseExited(with: event)
 
         let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        bgColorAnimation.fromValue = WindowButtonUI.color.minimize
+        bgColorAnimation.fromValue = WindowButtonUI.color.close
         bgColorAnimation.toValue = WindowButtonUI.color.opacityWhite
         bgColorAnimation.duration = WindowButtonUI.animation.duration
         

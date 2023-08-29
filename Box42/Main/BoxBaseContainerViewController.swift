@@ -21,6 +21,7 @@ class BoxBaseContainerViewController: NSViewController {
     
     // MARK: - QuickSlot
     var preferenceVC: PreferencesViewController = PreferencesViewController()
+    var scriptsVC: ScriptsViewController = ScriptsViewController()
         
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
@@ -37,10 +38,11 @@ class BoxBaseContainerViewController: NSViewController {
     
     override func viewDidLoad() {
         self.view.wantsLayer = true
+        
 //        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
         self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -185,6 +187,11 @@ extension BoxBaseContainerViewController {
             if button.title == QuickSlotUI.title.preferences {
                 print("Button with title \(button.title) was tapped in BaseVC")
                 contentGroup.showPreferences()
+            }
+            
+            if button.title == QuickSlotUI.title.scripts {
+                print("Button with title \(button.title) was tapped in BaseVC")
+                contentGroup.showScripts()
             }
             
             if button.title == QuickSlotUI.title.user {

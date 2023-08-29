@@ -15,7 +15,7 @@ class QuickSlotViewController: NSViewController {
         let quickSlotViewGroup = QuickSlotGroupView()
         quickSlotViewGroup.headerAction = headerAction
 
-        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
         
         self.view = quickSlotViewGroup
     }
