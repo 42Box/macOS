@@ -8,7 +8,23 @@
 import Cocoa
 import SnapKit
 
-class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+let bookMarkList = [
+    //    ("home", "https://42box.kr/"),
+    ("23Coaltheme", "https://42box.github.io/front-end/"),
+    ("Box 42", "https://42box.github.io/front-end/#/box"),
+    ("Intra 42", "https://intra.42.fr"),
+    ("Jiphyeonjeon", "https://42library.kr"),
+    ("42STAT", "https://stat.42seoul.kr/home"),
+    ("24Hane", "https://24hoursarenotenough.42seoul.kr"),
+    ("80kCoding", "https://80000coding.oopy.io"),
+    ("where42", "https://www.where42.kr"),
+    ("cabi", "https://cabi.42seoul.io/"),
+    ("42gg", "https://42gg.kr/"),
+    ("textart", "https://textart.sh/"),
+]
+
+
+class BoxBaseContainerViewController: NSViewController {
     
     //    var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
@@ -17,7 +33,7 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
     //    var leftContainer: MovableContainerView = MovableContainerView()
-    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
+    //    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
     
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
@@ -40,41 +56,8 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
         return view
     }()
     
-    @objc func buttonClicked(_ sender: NSButton) {
-        if let url = URL(string: "https://www.naver.com") {
-            let request = URLRequest(url: url)
-            // webview와 연동
-        }
-    }
-    
-    func numberOfRows(in tableView:NSTableView) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView:NSTableView,
-                   viewFor tableColumn:NSTableColumn?,
-                   row:Int) -> NSView? {
-        let cell = NSTableCellView()
-        
-        let button = NSButton()
-        button.title = "Button \(row)"
-        button.action = #selector(buttonClicked(_:))
-        button.target = self
-        
-        cell.addSubview(button)
-        
-        button.snp.makeConstraints { make in
-            make.width.equalTo(268)
-            make.height.equalTo(44)
-            make.center.equalTo(cell)
-        }
-        
-        button.wantsLayer = true
-        button.layer?.backgroundColor = NSColor.purple.cgColor
-        button.layer?.cornerRadius = 12
-        
-        return cell
-    }
+    var buttonTitleArray = bookMarkList.map { $0.0 }
+    var urlArray = bookMarkList.map { $0.1 }
     
     override func loadView() {
         self.view = NSView()
@@ -111,13 +94,11 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
             make.left.equalTo(leftView)
             make.height.equalTo(44 + 14 + 24)
         }
-        
         bookMarkView.snp.makeConstraints { make in
             make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
             make.left.right.equalTo(leftView)
             make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
-        
         quickSlotGroupVC.view.snp.makeConstraints { make in
             make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
             make.right.equalTo(leftView).offset(-Constants.UI.groupAutolayout)
@@ -130,7 +111,6 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
         }
         
         splitView.delegate = self
-        
         
         let stackView = NSStackView()
         stackView.orientation = .horizontal
@@ -146,7 +126,7 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
         
         let buttonImage = NSImage(named: NSImage.Name("add"))!
         buttonImage.size = NSSize(width: 24, height: 24)
-        let button = NSButton(image: buttonImage, target: self, action: #selector(addCellButtonClicked(_:)))
+        let button = NSButton(image: buttonImage, target: self, action: #selector(addBookMarkButtonClicked(_:)))
         button.setButtonType(.momentaryChange)
         button.bezelStyle = .texturedRounded
         button.isBordered = false
@@ -162,99 +142,33 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
         stackView.addArrangedSubview(spacerView)
         stackView.addArrangedSubview(button)
         
-        // Create the table view
-        let tableView = NSTableView()
-        tableView.wantsLayer=true
-        tableView.layer?.backgroundColor=NSColor.purple.cgColor
-        // Configure the table view...
         
-        // Add views to the left view
+        let tableView = NSTableView()
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("column1"))
+        column.title = ""
+        column.width = leftView.frame.size.width
+        tableView.addTableColumn(column)
+        
         bookMarkView.addSubview(stackView)
         bookMarkView.addSubview(tableView)
-    
+        
         stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(18) // Place at the top
-            make.width.equalToSuperview()
+            make.top.equalToSuperview().offset(18)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(24)
         }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(0)
-            make.width.height.equalToSuperview()
+            make.leading.equalToSuperview().offset(-20)
         }
         
-        //        buttonGroup = BoxButtonViewGroupInit()
-        
-        
-        //        let stackView = NSStackView()
-        //        stackView.orientation = .horizontal
-        //        stackView.distribution = .fill
-        //        stackView.spacing = 8  // 간격 설정
-        //
-        //        // 이미지 추가
-        //        let imageView = NSImageView(image: NSImage(named: "bookmark")!)  // 적절한 이미지명 사용
-        //        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        //        stackView.addView(imageView, in: .leading)
-        //
-        //        // 라벨 추가
-        //        let label = NSTextField(labelWithString: "북마크")
-        //        label.font = NSFont.boldSystemFont(ofSize: 16)
-        //        label.textColor = NSColor.black
-        //        label.backgroundColor = NSColor(hex: "#E7E7E7")
-        //        label.isBezeled = false
-        //        label.drawsBackground = true
-        //        stackView.addView(label, in: .leading)
-        //
-        //        // +버튼 추가
-        //        let button = NSButton(title: "+", target: nil, action: nil)  // 적절한 타겟과 액션 설정
-        //        stackView.addView(button, in: .trailing)
-        //
-        //        bookMarkView.addSubview(stackView)
-        //        stackView.wantsLayer = true
-        //        stackView.layer?.backgroundColor=NSColor.blue.cgColor
-        //        stackView.snp.makeConstraints { (make) in
-        //            // 적절한 제약 조건 설정 - 예를 들어, 여기에서는 북마크뷰의 센터에 스택뷰를 위치시킴
-        //            make.top.equalTo(bookMarkView)
-        //            make.leading.equalTo(bookMarkView)
-        //            make.trailing.equalTo(bookMarkView)
-        //
-        //            make.height.equalTo(30)
-        //        }
-        //
-        //        let tableView = NSTableView()
-        //        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "column"))
-        //        column.width = 268
-        //
-        //        tableView.rowHeight = 44  // Set the height of each row.
-        //        tableView.addTableColumn(column)
-        //
-        //        tableView.dataSource = self
-        //        tableView.delegate = self
-        //
-        //
-        //
-        //        bookMarkView.addSubview(label)
-        //        bookMarkView.addSubview(tableView)
-        //
-        ////        label.snp.makeConstraints { make in
-        ////            make.top.equalTo(bookMarkView)
-        ////            make.leading.equalTo(bookMarkView)
-        ////            make.trailing.equalTo(bookMarkView)
-        ////
-        ////            make.height.equalTo(30)
-        ////        }
-        //
-        //        tableView.snp.makeConstraints { make in
-        //            make.top.equalTo(label.snp.bottom)
-        //            make.bottom.equalTo(bookMarkView)
-        //            make.leading.equalTo(bookMarkView)
-        //            make.trailing.equalTo(bookMarkView)
-        //
-        //        }
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
     }
     
-    @objc func addCellButtonClicked(_ sender: NSButton) {
-        // Handle adding a cell to the table view
+    @objc func addBookMarkButtonClicked(_ sender: NSButton) {
         print("addCellButtonClicked")
     }
     
@@ -272,30 +186,30 @@ class BoxBaseContainerViewController: NSViewController, NSTableViewDataSource, N
     //        return buttonGroup
     //    }
     //
-    //    func clickBtn(sender: Any?) {
-    //        if let button = sender as? NSButton {
-    //            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
-    //            if clickCount == 2 {
-    //                WebViewManager.shared.list[button.title]!.reload()
-    //                print("Dobule Click")
-    //            } else if clickCount > 2 {
-    //                if let currentURL = WebViewManager.shared.hostingWebView?.url {
-    //                    NSWorkspace.shared.open(currentURL)
-    //                }
-    //                print("Triple Click")
-    //            } else if clickCount < 2 {
-    //                contentGroup.removeAllSubviews()
-    //                contentGroup.showWebviews(button)
-    //            }
-    //        } else {
-    //            if let str = sender as? String {
-    //                if str == "box" {
-    //                    contentGroup.removeAllSubviews()
-    //                    print("box inside")
-    //                }
-    //            }
-    //        }
-    //    }
+    func clickBtn(sender: Any?) {
+        if let button = sender as? NSButton {
+            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
+            if clickCount == 2 {
+                WebViewManager.shared.list[button.title]!.reload()
+                print("Dobule Click")
+            } else if clickCount > 2 {
+                if let currentURL = WebViewManager.shared.hostingWebView?.url {
+                    NSWorkspace.shared.open(currentURL)
+                }
+                print("Triple Click")
+            } else if clickCount < 2 {
+                contentGroup.removeAllSubviews()
+                contentGroup.showWebviews(button)
+            }
+        } else {
+            if let str = sender as? String {
+                if str == "box" {
+                    contentGroup.removeAllSubviews()
+                    print("box inside")
+                }
+            }
+        }
+    }
     
     //    private func leftContainerInit() {
     //        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
@@ -397,6 +311,152 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
 
 extension BoxBaseContainerViewController: BoxFunctionViewControllerDelegate {
     func didTapBoxButton() {
-        //        clickBtn(sender: "box")
+        clickBtn(sender: "box")
+    }
+}
+class HoverColorButton: NSButton {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        // 버튼의 기본 상태 색상 설정
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor.blue.cgColor
+        self.layer?.cornerRadius = 5.0
+        
+        // NSTrackingArea 생성
+        let trackingArea = NSTrackingArea(rect: self.bounds,
+                                          options: [.mouseEnteredAndExited, .activeInActiveApp],
+                                          owner: self,
+                                          userInfo: nil)
+        self.addTrackingArea(trackingArea)
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        // 호버 상태일 때의 색상 설정
+        self.layer?.backgroundColor = NSColor.red.cgColor
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        // 기본 상태 색상으로 복원
+        self.layer?.backgroundColor = NSColor.blue.cgColor
+    }
+}
+
+
+
+extension BoxBaseContainerViewController: NSTableViewDelegate {
+    // Validate drop operation to allow rearranging of rows
+    func tableView(_ aTableView:NSTableView,
+                   validateDrop info:NSDraggingInfo,
+                   proposedRow row:Int,
+                   proposedDropOperation dropOperation:NSTableView.DropOperation) -> NSDragOperation {
+        
+        if dropOperation == .above {
+            return .move
+        } else {
+            return []
+        }
+    }
+    
+    // Handle actual drop operation to rearrange rows
+    func tableView(_ aTableView:NSTableView,
+                   acceptDrop info:NSDraggingInfo,
+                   row:Int,
+                   dropOperation:NSTableView.DropOperation) -> Bool {
+        
+        guard let item = info.draggingPasteboard.pasteboardItems?.first,
+              let theString = item.string(forType: .string),
+              let index = buttonTitleArray.firstIndex(of: theString)
+        else { return false }
+        
+        aTableView.beginUpdates()
+        
+        buttonTitleArray.remove(at:index)
+        
+        if(row < aTableView.numberOfRows){
+            buttonTitleArray.insert(theString, at:(row > index ? row-1 : row))
+        } else {
+            buttonTitleArray.append(theString)
+        }
+        
+        aTableView.endUpdates()
+        
+        return true
+    }
+}
+
+class ButtonTableCellView: NSTableCellView {
+    var button: NSButton!
+    var deleteButton: NSButton!
+    var rowIndex: Int!
+    
+}
+
+extension BoxBaseContainerViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return buttonTitleArray.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cellView = ButtonTableCellView()
+        cellView.rowIndex = row
+        
+        
+        let button = NSButton(title: buttonTitleArray[row], target: self, action: #selector(buttonClicked(_:)))
+        
+        button.tag = row
+        button.bezelStyle = .inline
+        cellView.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(2)
+            make.width.equalTo(200)
+            make.height.equalTo(44)
+        }
+        
+        let image = NSImage(named: NSImage.Name("bookmark-default"))
+        image?.size = NSSize(width: 21, height: 21)
+        button.image = image
+        button.imagePosition = .imageLeading
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: NSFont.systemFont(ofSize: 18, weight: .light),
+            .foregroundColor: NSColor.black
+        ]
+        let attributedTitle = NSAttributedString(string: button.title, attributes: attributes)
+        button.attributedTitle = attributedTitle
+        
+        let cell = tableView.view(atColumn: 0, row: row, makeIfNecessary: true)
+        if let cell = cell as? ButtonTableCellView {
+            cell.addSubview(button)
+        }
+        
+        tableView.rowHeight = 54
+        
+        return cellView
+    }
+    
+    @objc func buttonClicked(_ sender: NSButton) {
+        let tag = sender.tag
+        if tag < urlArray.count {
+            if let url = URL(string: urlArray[tag]) {
+                contentGroup.showWebviews(sender)
+            }
+        }
+    }
+    
+    // Provide the pasteboard writer for the row (for dragging operation)
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let pasteboardItem = NSPasteboardItem()
+        pasteboardItem.setString(buttonTitleArray[row], forType: .string)
+        
+        return pasteboardItem
     }
 }
