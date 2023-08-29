@@ -12,11 +12,12 @@ class QuickSlotViewModel {
     @Published var buttons: [QuickSlotButtonModel] = []
     
     init() {
-        let button1 = QuickSlotButtonModel(title: "clean")
-        let button2 = QuickSlotButtonModel(title: "icons")
-        let button3 = QuickSlotButtonModel(title: "scripts")
+        let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean)
+        let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences)
+        let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)
+        let button4 = QuickSlotButtonModel(title: QuickSlotUI.title.user)
         
-        buttons = [button1, button2, button3]
+        buttons = [button1, button2, button3, button4]
     }
 
     func addButton(_ button: QuickSlotButtonModel) {

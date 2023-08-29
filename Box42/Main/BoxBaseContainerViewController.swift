@@ -9,6 +9,7 @@ import Cocoa
 import SnapKit
 
 class BoxBaseContainerViewController: NSViewController {
+    // MARK: - LeftContainer
     var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
@@ -17,6 +18,10 @@ class BoxBaseContainerViewController: NSViewController {
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
     var leftContainer: MovableContainerView = MovableContainerView()
     var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
+    
+    // MARK: - QuickSlot
+    var preferenceVC: PreferencesViewController = PreferencesViewController()
+        
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
     override func loadView() {
@@ -34,6 +39,8 @@ class BoxBaseContainerViewController: NSViewController {
         self.view.wantsLayer = true
 //        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
         self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: NSNotification.Name(NotifConst.object.collectionButtonTapped), object: nil)
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -169,5 +176,26 @@ extension BoxBaseContainerViewController: NSSplitViewDelegate {
 extension BoxBaseContainerViewController: BoxFunctionViewControllerDelegate {
     func didTapBoxButton() {
         clickBtn(sender: "box")
+    }
+}
+
+extension BoxBaseContainerViewController {
+    @objc func handleButtonTapped(notification: NSNotification) {
+        if let button = notification.object as? NSButton {
+            if button.title == QuickSlotUI.title.preferences {
+                print("Button with title \(button.title) was tapped in BaseVC")
+                contentGroup.showPreferences()
+            }
+            
+            if button.title == QuickSlotUI.title.user {
+                print("Button with title \(button.title) was tapped in BaseVC")
+                contentGroup.removeAllSubviews()
+                print(WebViewManager.shared.hostingWebView!)
+                contentGroup.addSubview(WebViewManager.shared.hostingWebView!)
+                WebViewManager.shared.hostingWebView!.snp.makeConstraints { make in
+                    make.top.bottom.left.right.equalToSuperview()
+                }
+            }
+        }
     }
 }

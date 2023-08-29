@@ -17,11 +17,11 @@ class ScriptsLogicController {
     
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-            let buttonTitle = button.title // 메인 스레드에서 타이틀을 캡쳐
+            let buttonTitle = button.title
             print("Button with title \(buttonTitle) was tapped")
             
             DispatchQueue.global(qos: .background).async { [weak self] in
-                if buttonTitle == "clean" {
+                if buttonTitle == QuickSlotUI.title.clean {
                     self?.executeCleanScript()
                 }
             }
@@ -53,5 +53,4 @@ class ScriptsLogicController {
             }
         }
     }
-
 }
