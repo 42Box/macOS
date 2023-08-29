@@ -53,4 +53,9 @@ extension PreferencesViewController: NSTableViewDelegate, NSTableViewDataSource 
         cell.textField?.stringValue = "Row \(row), Column \(tableColumn?.identifier ?? NSUserInterfaceItemIdentifier(""))"
         return cell
     }
+
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 44.0 // 셀 높이를 44로 설정
+    }
 }
+
