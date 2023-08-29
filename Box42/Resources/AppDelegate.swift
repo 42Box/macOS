@@ -26,8 +26,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //        storage.storageTimerEvent()
         _ = UserManager.shared
         _ = ScriptsLogicController.shared
-        WebViewManager.shared.getCookie()
-        API.getUserProfile(WebViewManager.shared.getCookieWebKit)
+        
+        // MARK: - 유저데이터 동기화
+//        WebViewManager.shared.getCookie()
+//        API.getUserProfile(WebViewManager.shared.getCookieWebKit)
+        _ = QuickSlotViewModel.shared
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

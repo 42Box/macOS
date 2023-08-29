@@ -10,7 +10,7 @@ import Combine
 
 class QuickSlotButtonCollectionViewController: NSViewController {
     @IBOutlet weak var quickSlotButtonCollectionView: NSCollectionView!
-    var viewModel: QuickSlotViewModel = QuickSlotViewModel()
+    var viewModel = QuickSlotViewModel.shared
     var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
@@ -60,10 +60,10 @@ class QuickSlotButtonCollectionViewController: NSViewController {
         quickSlotButtonCollectionView.layer?.borderWidth = 0
         quickSlotButtonCollectionView.layer?.borderColor = NSColor.clear.cgColor
         quickSlotButtonCollectionView.backgroundColors = [NSColor.clear]
-
+        
         if let scrollView = quickSlotButtonCollectionView.enclosingScrollView {
-//            scrollView.hasVerticalScroller = false
-//            scrollView.hasHorizontalScroller = false
+            //            scrollView.hasVerticalScroller = false
+            //            scrollView.hasHorizontalScroller = false
             scrollView.backgroundColor = NSColor.clear
             scrollView.drawsBackground = false
         }
@@ -86,11 +86,10 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "QuickSlotButtonViewItem"), for: indexPath)
-
+        
         if let customItem = item as? QuickSlotButtonViewItem {
             let buttonModel = viewModel.buttons[indexPath.item]
             let btn = NSButton()
-//            btn.title = "\(indexPath)"
             btn.title = buttonModel.title
             btn.action = #selector(collectionButtonTapped)
             btn.target = self

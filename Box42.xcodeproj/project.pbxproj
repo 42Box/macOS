@@ -73,7 +73,7 @@
 		DE77BBE22A9E0F70006CC98B /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBE12A9E0F70006CC98B /* Scripts.swift */; };
 		DE77BBF02A9E38C6006CC98B /* GetUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBA92A9DE680006CC98B /* GetUserProfile.swift */; };
 		DE77BBF32A9E38DC006CC98B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBE92A9E2DDF006CC98B /* UserManager.swift */; };
-		DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886032A9C71CB00FE21DD /* IconsView.swift */; };
+		DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886032A9C71CB00FE21DD /* ScriptsTableView.swift */; };
 		DE78860C2A9C770300FE21DD /* ScriptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860B2A9C770300FE21DD /* ScriptsViewModel.swift */; };
 		DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886162A9CCB3B00FE21DD /* UserProfile.swift */; };
 		DE7886282A9D186700FE21DD /* ScriptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886272A9D186700FE21DD /* ScriptsViewController.swift */; };
@@ -84,6 +84,12 @@
 		DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F532A591F1400FC3B77 /* PreferencesView.swift */; };
 		DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F5E2A5935CC00FC3B77 /* String.swift */; };
 		DE9456F82A9E44FD00B0B768 /* IconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9456F72A9E44FD00B0B768 /* IconController.swift */; };
+		DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9456FF2A9E5B0900B0B768 /* ScriptCell.swift */; };
+		DE9457062A9E69C100B0B768 /* ScriptNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457052A9E69C100B0B768 /* ScriptNameLabel.swift */; };
+		DE9457092A9E69D100B0B768 /* ScriptDescriptionsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457082A9E69D100B0B768 /* ScriptDescriptionsLabel.swift */; };
+		DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94570B2A9E69EB00B0B768 /* ScriptExcuteButton.swift */; };
+		DE94570F2A9E69F200B0B768 /* ScriptDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94570E2A9E69F200B0B768 /* ScriptDeleteButton.swift */; };
+		DE9457162A9E6D3000B0B768 /* ScriptQuickSlotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457112A9E6A0000B0B768 /* ScriptQuickSlotButton.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
 		DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */; };
@@ -169,7 +175,7 @@
 		DE77BBD12A9E0AE8006CC98B /* WebViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewUI.swift; sourceTree = "<group>"; };
 		DE77BBE12A9E0F70006CC98B /* Scripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
 		DE77BBE92A9E2DDF006CC98B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		DE7886032A9C71CB00FE21DD /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
+		DE7886032A9C71CB00FE21DD /* ScriptsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableView.swift; sourceTree = "<group>"; };
 		DE78860B2A9C770300FE21DD /* ScriptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsViewModel.swift; sourceTree = "<group>"; };
 		DE7886162A9CCB3B00FE21DD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		DE7886272A9D186700FE21DD /* ScriptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +187,12 @@
 		DE874F532A591F1400FC3B77 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		DE874F5E2A5935CC00FC3B77 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DE9456F72A9E44FD00B0B768 /* IconController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconController.swift; sourceTree = "<group>"; };
+		DE9456FF2A9E5B0900B0B768 /* ScriptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptCell.swift; sourceTree = "<group>"; };
+		DE9457052A9E69C100B0B768 /* ScriptNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptNameLabel.swift; sourceTree = "<group>"; };
+		DE9457082A9E69D100B0B768 /* ScriptDescriptionsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDescriptionsLabel.swift; sourceTree = "<group>"; };
+		DE94570B2A9E69EB00B0B768 /* ScriptExcuteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExcuteButton.swift; sourceTree = "<group>"; };
+		DE94570E2A9E69F200B0B768 /* ScriptDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDeleteButton.swift; sourceTree = "<group>"; };
+		DE9457112A9E6A0000B0B768 /* ScriptQuickSlotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptQuickSlotButton.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
 		DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonModel.swift; sourceTree = "<group>"; };
@@ -237,6 +249,7 @@
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 				DE9DA8122A97F1E2001C0D3B /* ButtonGroup */,
 				DE1F1A202A8B50CA00A88DD8 /* Main */,
+				DE874F512A591EC600FC3B77 /* Preferences */,
 				DEB862D22A8511D600278FCD /* Scripts */,
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
 				DE018C062A509B9000FF0AA3 /* System */,
@@ -430,7 +443,8 @@
 		DE7886082A9C741700FE21DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE7886032A9C71CB00FE21DD /* IconsView.swift */,
+				DE9457142A9E6A3300B0B768 /* Table */,
+				DE9457122A9E6A2D00B0B768 /* Button */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -480,6 +494,7 @@
 		DE7886262A9D184900FE21DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A917A2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift */,
 				DE77BBA12A9DDC40006CC98B /* ScriptsFileManager.swift */,
 				DE77BBCC2A9E0568006CC98B /* ExcuteScripts.swift */,
 				DE7886272A9D186700FE21DD /* ScriptsViewController.swift */,
@@ -513,7 +528,8 @@
 				DE2AD3282A824EEB00002D51 /* Accessibility.swift */,
 				DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */,
 			);
-			path = Preferences;
+			name = Preferences;
+			path = QuickSlot/Preferences;
 			sourceTree = "<group>";
 		};
 		DE9456F62A9E44F100B0B768 /* Icon */ = {
@@ -533,10 +549,30 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		DE9457122A9E6A2D00B0B768 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				DE9457052A9E69C100B0B768 /* ScriptNameLabel.swift */,
+				DE9457082A9E69D100B0B768 /* ScriptDescriptionsLabel.swift */,
+				DE94570B2A9E69EB00B0B768 /* ScriptExcuteButton.swift */,
+				DE94570E2A9E69F200B0B768 /* ScriptDeleteButton.swift */,
+				DE9457112A9E6A0000B0B768 /* ScriptQuickSlotButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		DE9457142A9E6A3300B0B768 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				DE7886032A9C71CB00FE21DD /* ScriptsTableView.swift */,
+				DE9456FF2A9E5B0900B0B768 /* ScriptCell.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		DE98E8382A98D48700F8744A /* QuickSlot */ = {
 			isa = PBXGroup;
 			children = (
-				DE874F512A591EC600FC3B77 /* Preferences */,
 				DE98E84E2A98E04F00F8744A /* ViewModel */,
 				DE98E8492A98E02400F8744A /* Model */,
 				DE98E8412A98DDEB00F8744A /* View */,
@@ -597,7 +633,6 @@
 				DE78860A2A9C76F600FE21DD /* ViewModel */,
 				DE7886082A9C741700FE21DD /* View */,
 				DE7886262A9D184900FE21DD /* Controller */,
-				DE0A917A2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -750,7 +785,8 @@
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
 				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
-				DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */,
+				DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */,
+				DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
@@ -763,6 +799,7 @@
 				DEF749322A85657600D987C8 /* NSScreen.swift in Sources */,
 				DE018BF02A509B2F00FF0AA3 /* MenubarViewController.swift in Sources */,
 				DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */,
+				DE9457062A9E69C100B0B768 /* ScriptNameLabel.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
@@ -784,10 +821,12 @@
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
+				DE94570F2A9E69F200B0B768 /* ScriptDeleteButton.swift in Sources */,
 				DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */,
 				DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */,
 				DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */,
 				DE3FF3762A978AB8009C88EF /* WindowCloseButton.swift in Sources */,
+				DE9457092A9E69D100B0B768 /* ScriptDescriptionsLabel.swift in Sources */,
 				DE77BBD22A9E0AE8006CC98B /* WebViewUI.swift in Sources */,
 				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
@@ -795,6 +834,8 @@
 				DE78862D2A9D1ADE00FE21DD /* PreferencesCell.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
 				DE77BBF32A9E38DC006CC98B /* UserManager.swift in Sources */,
+				DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */,
+				DE9457162A9E6D3000B0B768 /* ScriptQuickSlotButton.swift in Sources */,
 				DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */,
 				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,

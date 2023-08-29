@@ -17,7 +17,7 @@ class WindowMinimizeButton: NSButton {
         self.title = ""
         self.isBordered = false
         self.wantsLayer = true
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
+        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
         self.layer?.backgroundColor = WindowButtonUI.color.minimize
         self.target = self
         self.action = #selector(minimizeAction)

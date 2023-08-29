@@ -9,9 +9,10 @@ import AppKit
 import Combine
 
 class QuickSlotViewModel {
+    static let shared = QuickSlotViewModel()
     @Published var buttons: [QuickSlotButtonModel] = []
     
-    init() {
+    private init() {
         let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean)
         let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences)
         let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)
@@ -19,12 +20,15 @@ class QuickSlotViewModel {
         
         buttons = [button1, button2, button3, button4]
     }
-
+    
     func addButton(_ button: QuickSlotButtonModel) {
-        buttons.append(button)
+        if buttons.count > 7 { return }
+        if !buttons.contains(where: { $0.id == button.id }) {
+            buttons.append(button)
+        }
     }
     
-    func removeButton(id: UUID) {
+    func removeButton(_ id: UUID) {
         buttons.removeAll { $0.id == id }
     }
     
