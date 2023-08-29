@@ -68,12 +68,14 @@
 		DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
+		DE77BBB32A9DED25006CC98B /* WebViewFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBB22A9DED25006CC98B /* WebViewFileManager.swift */; };
+		DE77BBBA2A9DEE1B006CC98B /* ExcuteScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBB82A9DEE1B006CC98B /* ExcuteScripts.swift */; };
+		DE77BBBB2A9DEE1B006CC98B /* ScriptsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBB92A9DEE1B006CC98B /* ScriptsController.swift */; };
 		DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886002A9C71BE00FE21DD /* IconsViewController.swift */; };
 		DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886032A9C71CB00FE21DD /* IconsView.swift */; };
 		DE78860C2A9C770300FE21DD /* IconsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860B2A9C770300FE21DD /* IconsViewModel.swift */; };
 		DE7886102A9C773300FE21DD /* IconsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860F2A9C773300FE21DD /* IconsModel.swift */; };
 		DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886162A9CCB3B00FE21DD /* UserProfile.swift */; };
-		DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */; };
 		DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */; };
 		DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */; };
 		DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */; };
@@ -160,12 +162,14 @@
 		DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotScriptsLogicController.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		DE77BBB22A9DED25006CC98B /* WebViewFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewFileManager.swift; sourceTree = "<group>"; };
+		DE77BBB82A9DEE1B006CC98B /* ExcuteScripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuteScripts.swift; sourceTree = "<group>"; };
+		DE77BBB92A9DEE1B006CC98B /* ScriptsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptsController.swift; sourceTree = "<group>"; };
 		DE7886002A9C71BE00FE21DD /* IconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewController.swift; sourceTree = "<group>"; };
 		DE7886032A9C71CB00FE21DD /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
 		DE78860B2A9C770300FE21DD /* IconsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewModel.swift; sourceTree = "<group>"; };
 		DE78860F2A9C773300FE21DD /* IconsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsModel.swift; sourceTree = "<group>"; };
 		DE7886162A9CCB3B00FE21DD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconChanged+WebView.swift"; sourceTree = "<group>"; };
 		DE7A25792A6D8CA20043225A /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonViewItem.swift; sourceTree = "<group>"; };
 		DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonViewItem.xib; sourceTree = "<group>"; };
@@ -223,7 +227,6 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
-				DE7885FF2A9C717E00FE21DD /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
@@ -261,6 +264,7 @@
 				DE018BE92A509B2100FF0AA3 /* WebViewModel.swift */,
 				DE018BE62A509B1E00FF0AA3 /* WebViewController.swift */,
 				DE0A91772A8F014F00D1D6F1 /* WebView.swift */,
+				DE77BBB22A9DED25006CC98B /* WebViewFileManager.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -403,20 +407,21 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		DE77BBB72A9DEE0B006CC98B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DE77BBB82A9DEE1B006CC98B /* ExcuteScripts.swift */,
+				DE77BBB92A9DEE1B006CC98B /* ScriptsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DE7885FD2A9C60C300FE21DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				DE0A91972A8F977F00D1D6F1 /* ToolbarViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		DE7885FF2A9C717E00FE21DD /* Icon */ = {
-			isa = PBXGroup;
-			children = (
-				DE78861B2A9CE7D700FE21DD /* IconChanged+WebView.swift */,
-			);
-			path = Icon;
 			sourceTree = "<group>";
 		};
 		DE7886082A9C741700FE21DD /* View */ = {
@@ -541,6 +546,7 @@
 		DEB862D22A8511D600278FCD /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				DE77BBB72A9DEE0B006CC98B /* Controller */,
 				DE78860E2A9C771A00FE21DD /* Model */,
 				DE78860A2A9C76F600FE21DD /* ViewModel */,
 				DE7886082A9C741700FE21DD /* View */,
@@ -702,7 +708,6 @@
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
 				DE1F1A1C2A8B50C500A88DD8 /* BoxBaseContainerViewController.swift in Sources */,
-				DE78861C2A9CE7D700FE21DD /* IconChanged+WebView.swift in Sources */,
 				DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */,
 				DE018BE72A509B1E00FF0AA3 /* WebViewController.swift in Sources */,
 				DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */,
@@ -716,7 +721,9 @@
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
+				DE77BBB32A9DED25006CC98B /* WebViewFileManager.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
+				DE77BBBB2A9DEE1B006CC98B /* ScriptsController.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
@@ -737,6 +744,7 @@
 				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
+				DE77BBBA2A9DEE1B006CC98B /* ExcuteScripts.swift in Sources */,
 				DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */,
 				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
