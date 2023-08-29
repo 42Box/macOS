@@ -62,10 +62,6 @@ class WebViewController: NSViewController {
 		super.viewDidLoad()
 	}
     
-	func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-		print(message.name)
-	}
-    
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if let url = navigationAction.request.url {
             webView.load(URLRequest(url: url))

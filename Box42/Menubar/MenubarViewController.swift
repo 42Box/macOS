@@ -13,7 +13,7 @@ class MenubarViewController: NSViewController {
     var statusBarVM = StatusBarViewModel()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var boxWindowController: BoxWindowController?
-  
+    
     func menubarViewControllerInit() {
         self.buttonInit()
     }
@@ -47,7 +47,9 @@ class MenubarViewController: NSViewController {
     }
     
     func buttonImageChange(_ img: String) {
+        self.menubarStopRunning()
         statusBarVM.changeStatusBarIcon(img)
+        self.menubarStartRunning()
     }
     
     func buttonActionInit() {
@@ -122,7 +124,7 @@ extension MenubarViewController: MenubarViewControllerDelegate {
                 }
                 window.level = .floating
             }
-                boxWindowController?.showWindow(sender)
+            boxWindowController?.showWindow(sender)
         }
     }
 }
