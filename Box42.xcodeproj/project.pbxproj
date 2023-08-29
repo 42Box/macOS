@@ -22,7 +22,6 @@
 		DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91622A8E6A5400D1D6F1 /* Constants.swift */; };
 		DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91662A8E6CA700D1D6F1 /* WebViewManager.swift */; };
 		DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A916C2A8E7DD700D1D6F1 /* HoverButton.swift */; };
-		DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91772A8F014F00D1D6F1 /* WebView.swift */; };
 		DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A917A2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift */; };
 		DE0A917F2A8F865400D1D6F1 /* BoxToolbarViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A917E2A8F865400D1D6F1 /* BoxToolbarViewGroup.swift */; };
 		DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91822A8F889000D1D6F1 /* GoHomePageViaToolbar().swift */; };
@@ -68,6 +67,10 @@
 		DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */; };
 		DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA502A82580400713683 /* MenubarViewModel.swift */; };
 		DE77BA562A82637900713683 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BA552A82637900713683 /* StateManager.swift */; };
+		DE77BBA22A9DDC40006CC98B /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBA12A9DDC40006CC98B /* FileManager.swift */; };
+		DE77BBA62A9DDF2B006CC98B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A91772A8F014F00D1D6F1 /* WebView.swift */; };
+		DE77BBAA2A9DE680006CC98B /* GetUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBA92A9DE680006CC98B /* GetUserProfile.swift */; };
+		DE77BBAF2A9DEBA6006CC98B /* ExcuteScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77BBAE2A9DEBA6006CC98B /* ExcuteScripts.swift */; };
 		DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886002A9C71BE00FE21DD /* IconsViewController.swift */; };
 		DE7886042A9C71CB00FE21DD /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7886032A9C71CB00FE21DD /* IconsView.swift */; };
 		DE78860C2A9C770300FE21DD /* IconsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78860B2A9C770300FE21DD /* IconsViewModel.swift */; };
@@ -162,6 +165,9 @@
 		DE6332F12A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotScriptsLogicController.swift; sourceTree = "<group>"; };
 		DE77BA502A82580400713683 /* MenubarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarViewModel.swift; sourceTree = "<group>"; };
 		DE77BA552A82637900713683 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		DE77BBA12A9DDC40006CC98B /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		DE77BBA92A9DE680006CC98B /* GetUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserProfile.swift; sourceTree = "<group>"; };
+		DE77BBAE2A9DEBA6006CC98B /* ExcuteScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcuteScripts.swift; sourceTree = "<group>"; };
 		DE7886002A9C71BE00FE21DD /* IconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewController.swift; sourceTree = "<group>"; };
 		DE7886032A9C71CB00FE21DD /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
 		DE78860B2A9C770300FE21DD /* IconsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsViewModel.swift; sourceTree = "<group>"; };
@@ -398,12 +404,22 @@
 		DE77BA542A82636500713683 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DE77BBA82A9DE674006CC98B /* API */,
+				DE77BBA12A9DDC40006CC98B /* FileManager.swift */,
 				DE1F1A282A8B50E200A88DD8 /* BoxSizeManager.swift */,
 				DE77BA552A82637900713683 /* StateManager.swift */,
 				DE0A91622A8E6A5400D1D6F1 /* Constants.swift */,
 				DE6332E72A9BBEF800DCFAF6 /* NotifConst.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DE77BBA82A9DE674006CC98B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DE77BBA92A9DE680006CC98B /* GetUserProfile.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		DE7885FD2A9C60C300FE21DD /* Controller */ = {
@@ -477,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				DE7886272A9D186700FE21DD /* ScriptsController.swift */,
+				DE77BBAE2A9DEBA6006CC98B /* ExcuteScripts.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -747,9 +764,11 @@
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
+				DE77BBA22A9DDC40006CC98B /* FileManager.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
+				DE77BBA62A9DDF2B006CC98B /* WebView.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
 				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
@@ -757,6 +776,7 @@
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
 				DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
+				DE77BBAF2A9DEBA6006CC98B /* ExcuteScripts.swift in Sources */,
 				DE018BF32A509B3300FF0AA3 /* MenubarModel.swift in Sources */,
 				DE7A257A2A6D8CA20043225A /* PreferencesViewController.swift in Sources */,
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
@@ -784,6 +804,7 @@
 				DEB862DC2A85347400278FCD /* Scripts.swift in Sources */,
 				DE1F1A1D2A8B50C500A88DD8 /* BoxContentsViewGroup.swift in Sources */,
 				DE24E6352A8FE02A00E29F5D /* MovableContainerView.swift in Sources */,
+				DE77BBAA2A9DE680006CC98B /* GetUserProfile.swift in Sources */,
 				DE1F1A362A8BDDDF00A88DD8 /* StorageConfig.swift in Sources */,
 				DE2AD3292A824EEB00002D51 /* Accessibility.swift in Sources */,
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
@@ -791,7 +812,6 @@
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
 				DE7886012A9C71BE00FE21DD /* IconsViewController.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
-				DE0A91782A8F014F00D1D6F1 /* WebView.swift in Sources */,
 				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
 				DE0A917F2A8F865400D1D6F1 /* BoxToolbarViewGroup.swift in Sources */,
