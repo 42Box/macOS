@@ -21,9 +21,9 @@ class WebView: WKWebView, WKScriptMessageHandler {
         configuration.userContentController = contentController
         super.init(frame: .zero, configuration: configuration)
         
-        contentController.add(self, name: "download")
-        contentController.add(self, name: "icon")
-        contentController.add(self, name: "userProfile")
+        contentController.add(self, name: WebViewUI.transfer.download)
+        contentController.add(self, name: WebViewUI.transfer.icon)
+        contentController.add(self, name: WebViewUI.transfer.userProfile)
         
         self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         self.configuration.preferences.javaScriptEnabled = true
@@ -37,28 +37,30 @@ class WebView: WKWebView, WKScriptMessageHandler {
     }
 }
 
+// MARK: - Front Client 통신
 extension WebView {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         // 스크립트 다운로드
-        if message.name == "download", let downloadURLString = message.body as? String {
-            WebViewFileManager.downloadFile(from: downloadURLString)
+        if message.name == WebViewUI.transfer.download, let downloadURLString = message.body as? String {
+            ScriptsFileManager.downloadFile(from: downloadURLString)
         }
         // 아이콘 정보 PUT:
-        if message.name == "icon", let imgIconString = message.body as? String {
+        if message.name == WebViewUI.transfer.icon, let imgIconString = message.body as? String {
             icon.buttonImageChange(imgIconString)
         }
         //  유저 정보 (Front)GET: https://api.42box.site/user-service/users/me
-        if message.name == "userProfile", let userProfileString = message.body as? String {
+        if message.name == WebViewUI.transfer.userProfile, let userProfileString = message.body as? String {
             let userProfileJson = userProfileString.data(using: .utf8)
+            
+            print(">>> FrontEnd Get", userProfileString)
             
             do {
                 let decoder = JSONDecoder()
                 let userProfile = try decoder.decode(UserProfile.self, from: userProfileJson!)
-                print(userProfile)
+                print(userProfile.icon)
                 
-                DispatchQueue.main.sync {
-                    self.icon.buttonImageChange(userProfile.icon)
-                }
+                UserManager.shared.updateUserProfile(newProfile: userProfile)
+
             } catch {
                 print("JSON decoding failed: \(error)")
             }

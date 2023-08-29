@@ -14,7 +14,13 @@ class WebViewManager: NSObject {
     
     var icon = MenubarViewController()
     
-    private var _getCookieWebKit: WKWebView?
+    var getCookieWebKit: WKWebView {
+        didSet {
+            getCookieWebKit.navigationDelegate = self
+            getCookieWebKit.isHidden = true
+            print(getCookie)
+        }
+    }
     
     var hostingname: String?
     var hostingWebView: WKWebView? {
@@ -27,20 +33,16 @@ class WebViewManager: NSObject {
     var list: WebViewMapping!
     
     private override init() {
-        super.init()
-        
         list = [:]
         
         let webConfiguration = WKWebViewConfiguration()
-        _getCookieWebKit = WKWebView(frame: .zero, configuration: webConfiguration)
-        _getCookieWebKit?.navigationDelegate = self
-        _getCookieWebKit?.isHidden = true
+        getCookieWebKit = WKWebView(frame: .zero, configuration: webConfiguration)
     }
     
     func getCookie() {
         if let url = URL(string: "https://api.42box.site") {
             let request = URLRequest(url: url)
-            _getCookieWebKit?.load(request)
+            getCookieWebKit.load(request)
         }
     }
 }

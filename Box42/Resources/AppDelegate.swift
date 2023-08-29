@@ -10,6 +10,7 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     var menubarController = MenubarViewController()
+    var iconController: IconController?
     lazy var storage = Storage()
     
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -18,13 +19,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         menubarController.menubarViewControllerStart()
+        iconController = IconController()
         //        alertAccessibility()
         //        hotkey()
         
         //        storage.storageTimerEvent()
+        _ = UserManager.shared
         _ = ScriptsLogicController.shared
-        _ = WebViewManager.shared
-        
+        WebViewManager.shared.getCookie()
+        API.getUserProfile(WebViewManager.shared.getCookieWebKit)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
