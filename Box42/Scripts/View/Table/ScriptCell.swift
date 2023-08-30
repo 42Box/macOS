@@ -100,9 +100,25 @@ class ScriptCell: NSTableCellView {
         }
     }
     
+    // script 내부 클릭시 1차 실행
+    // 있는거면 지우고 없는거면 추가
     @objc func quickSlotButtonclicked() {
-        if let id = script?.id {
-            viewModel?.quickSlotScript(id: id)
+        guard let id = script?.id else {
+            return
+        }
+
+        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.id == id }
+
+        if alreadyExists {
+            QuickSlotViewModel.shared.removeButton(id)
+            quickSlotButton.title = "퀵슬롯"
+        } else {
+            if QuickSlotViewModel.shared.buttons.count > 7 {
+                return
+            } else {
+                quickSlotButton.title = "저장됨"
+                viewModel?.quickSlotScript(id: id)
+            }
         }
     }
 }
