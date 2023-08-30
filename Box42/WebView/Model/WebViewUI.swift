@@ -12,5 +12,6 @@ enum WebViewUI {
         static let download = "download"
         static let icon = "icon"
         static let userProfile = "userProfile"
+        static let script = "script"
     }
 }
