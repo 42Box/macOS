@@ -17,30 +17,23 @@ class ScriptsLogicController {
     
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-            let buttonTitle = button.title
-            print("Button with title \(buttonTitle) was tapped")
-            
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                if buttonTitle == QuickSlotUI.title.clean {
-                    self?.executeCleanScript()
-                }
-            }
+            ExcuteScripts.executeShellScript(path: button.associatedString ?? "")
         }
     }
-
+    
     private func executeCleanScript() {
         if let scriptPath = Bundle.main.path(forResource: "cleanCache", ofType: "sh") {
             let task = Process()
             task.launchPath = "/bin/sh"
             task.arguments = [scriptPath]
-
+            
             let outputPipe = Pipe()
             task.standardOutput = outputPipe
             task.standardError = outputPipe
-                    
+            
             task.launch()
             task.waitUntilExit()
-
+            
             let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
             let output = String(data: outputData, encoding: .utf8) ?? ""
             

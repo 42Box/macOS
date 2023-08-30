@@ -28,6 +28,13 @@ class BoxFunctionViewController: NSViewController {
     }
     
     func pin() {
+        StateManager.shared.togglePin()
+        
+        if StateManager.shared.pin {
+            // image on
+        } else {
+            // image off
+        }
         print("pin")
     }
     

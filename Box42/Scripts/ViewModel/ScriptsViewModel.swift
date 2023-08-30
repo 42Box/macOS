@@ -13,14 +13,18 @@ class ScriptViewModel: NSObject {
     
     override init() {
         self.scripts = [
-            Script(name: "cleanCache", description: "Cleaning cache"),
-            Script(name: "brewInGoinfre", description: "Brew download in goinfre")
+            Script(name: "cleanCache",
+                   description: "Cleaning cache",
+                   path: Bundle.main.path(forResource: "cleanCache", ofType: "sh") ?? ""),
+            Script(name: "brewInGoinfre",
+                   description: "Brew download in goinfre",
+                   path: Bundle.main.path(forResource: "brewInGoinfre", ofType: "sh") ?? "")
         ]
     }
     
     // Create
-    func addScript(name: String, description: String) {
-        let newScript = Script(name: name, description: description)
+    func addScript(name: String, description: String, path: String) {
+        let newScript = Script(name: name, description: description, path: path)
         scripts.append(newScript)
     }
     
@@ -47,7 +51,7 @@ class ScriptViewModel: NSObject {
     
     func quickSlotScript(id: UUID) {
         if let index = scripts.firstIndex(where: { $0.id == id }) {
-            let button = QuickSlotButtonModel(id: id, title: scripts[index].name)
+            let button = QuickSlotButtonModel(id: id, title: scripts[index].name, path: scripts[index].path)
             QuickSlotViewModel.shared.addButton(button)
         }
     }
