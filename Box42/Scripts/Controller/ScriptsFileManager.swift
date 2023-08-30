@@ -16,7 +16,7 @@ class ScriptsFileManager {
         
         if let savedURL = savedURL, fileManager.fileExists(atPath: savedURL.path) {
             print("File already exists, executing...")
-            ExcuteScripts.executeShellScript(path: savedURL.path)
+            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: savedURL.path)
             return
         }
         
@@ -37,8 +37,7 @@ class ScriptsFileManager {
                 try fileManager.moveItem(at: location, to: savedURL)
                 
                 print("Saved URL: ", savedURL)
-                
-                ExcuteScripts.executeShellScript(path: savedURL.path)
+                SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: savedURL.path)
                 
             } catch {
                 print("File error: \(error)")

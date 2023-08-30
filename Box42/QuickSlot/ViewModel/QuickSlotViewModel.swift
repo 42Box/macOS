@@ -13,7 +13,8 @@ class QuickSlotViewModel {
     @Published var buttons: [QuickSlotButtonModel] = []
     
     private init() {
-        let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean)
+        let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean,
+                                           path: Bundle.main.path(forResource: "cleanCache", ofType: "sh"))
         let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences)
         let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)
         let button4 = QuickSlotButtonModel(title: QuickSlotUI.title.user)
@@ -21,8 +22,8 @@ class QuickSlotViewModel {
         buttons = [button1, button2, button3, button4]
     }
     
+    // 퀵슬롯 안에 해당 버튼이 없으면 추가
     func addButton(_ button: QuickSlotButtonModel) {
-        if buttons.count > 7 { return }
         if !buttons.contains(where: { $0.id == button.id }) {
             buttons.append(button)
         }

@@ -17,7 +17,7 @@ class ScriptsLogicController {
     
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-            ExcuteScripts.executeShellScript(path: button.associatedString ?? "")
+            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: button.associatedString ?? "")
         }
     }
     
