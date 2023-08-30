@@ -524,10 +524,8 @@
 		DE78862B2A9D1A9E00FE21DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE78862C2A9D1ADE00FE21DD /* PreferencesCell.swift */,
-				DE9457302A9FB01400B0B768 /* PreferencesTableView.swift */,
-				DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */,
-				DE94573C2A9FD33400B0B768 /* StorageView.swift */,
+				DE9457412A9FD69800B0B768 /* Table */,
+				DE94573F2A9FD68C00B0B768 /* Funtion */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,6 +586,24 @@
 				DE7886032A9C71CB00FE21DD /* ScriptsTableView.swift */,
 				DE9456FF2A9E5B0900B0B768 /* ScriptCell.swift */,
 				DE9457182A9EEEF000B0B768 /* ScriptCellManager.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		DE94573F2A9FD68C00B0B768 /* Funtion */ = {
+			isa = PBXGroup;
+			children = (
+				DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */,
+				DE94573C2A9FD33400B0B768 /* StorageView.swift */,
+			);
+			path = Funtion;
+			sourceTree = "<group>";
+		};
+		DE9457412A9FD69800B0B768 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				DE78862C2A9D1ADE00FE21DD /* PreferencesCell.swift */,
+				DE9457302A9FB01400B0B768 /* PreferencesTableView.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
