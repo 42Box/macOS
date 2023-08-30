@@ -8,9 +8,13 @@
 import Cocoa
 
 class BoxFunctionViewController: NSViewController {
+    
+    var pinButtonView: PinButtonView?
+    
     override func loadView() {
         let functionViewGroup = BoxFunctionViewGroup()
         
+        pinButtonView = functionViewGroup.pinButton
         functionViewGroup.preferenceAction = preference
         functionViewGroup.pinAction = pin
         functionViewGroup.quitAction = quit
@@ -28,6 +32,16 @@ class BoxFunctionViewController: NSViewController {
     }
     
     func pin() {
+        StateManager.shared.togglePin()
+        
+        let newImage: NSImage
+        if StateManager.shared.pin {
+            newImage = NSImage(imageLiteralResourceName: "pin-box-ver")
+        } else {
+            newImage = NSImage(imageLiteralResourceName: "pin-box")
+        }
+        
+        pinButtonView?.changePinImage(to: newImage)  // 이미지 변경
         print("pin")
     }
     
@@ -37,7 +51,7 @@ class BoxFunctionViewController: NSViewController {
     }
     
     weak var delegate: BoxFunctionViewControllerDelegate?
-
+    
     func box() {
         print("box")
         delegate?.didTapBoxButton()

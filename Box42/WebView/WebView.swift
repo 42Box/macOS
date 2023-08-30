@@ -24,6 +24,7 @@ class WebView: WKWebView, WKScriptMessageHandler {
         contentController.add(self, name: WebViewUI.transfer.download)
         contentController.add(self, name: WebViewUI.transfer.icon)
         contentController.add(self, name: WebViewUI.transfer.userProfile)
+        contentController.add(self, name: WebViewUI.transfer.script)
         
         self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         self.configuration.preferences.javaScriptEnabled = true
@@ -57,9 +58,23 @@ extension WebView {
             do {
                 let decoder = JSONDecoder()
                 let userProfile = try decoder.decode(UserProfile.self, from: userProfileJson!)
-                print(userProfile.icon)
                 
                 UserManager.shared.updateUserProfile(newProfile: userProfile)
+
+            } catch {
+                print("JSON decoding failed: \(error)")
+            }
+        }
+        
+        if message.name == WebViewUI.transfer.script, let scriptString = message.body as? String {
+            let scriptJson = scriptString.data(using: .utf8)
+            
+            do {
+                let decoder = JSONDecoder()
+                let downScript = try decoder.decode(Script.self, from: scriptJson!)
+                print(downScript)
+                
+                
 
             } catch {
                 print("JSON decoding failed: \(error)")

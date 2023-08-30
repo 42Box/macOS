@@ -1,5 +1,5 @@
 //
-//  ScriptCell.swift
+//  ScriptCellManager.swift
 //  Box42
 //
 //  Created by Chanhee Kim on 8/30/23.
@@ -8,7 +8,8 @@
 import AppKit
 import SnapKit
 
-class ScriptCell: NSTableCellView {
+// MARK: - 다음 버전에 추가 예정
+class ScriptCellManager: NSTableCellView {
     var nameLabel: NSTextField = NSTextField()
     var descriptionLabel: NSTextField = NSTextField()
     var excuteButton: ScriptExcuteButton = ScriptExcuteButton()
@@ -100,25 +101,9 @@ class ScriptCell: NSTableCellView {
         }
     }
     
-    // script 내부 클릭시 1차 실행
-    // 있는거면 지우고 없는거면 추가
     @objc func quickSlotButtonclicked() {
-        guard let id = script?.id else {
-            return
-        }
-
-        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.id == id }
-
-        if alreadyExists {
-            QuickSlotViewModel.shared.removeButton(id)
-            quickSlotButton.title = "퀵슬롯"
-        } else {
-            if QuickSlotViewModel.shared.buttons.count > 7 {
-                return
-            } else {
-                quickSlotButton.title = "저장됨"
-                viewModel?.quickSlotScript(id: id)
-            }
+        if let id = script?.id {
+            viewModel?.quickSlotScript(id: id)
         }
     }
 }

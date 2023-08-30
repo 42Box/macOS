@@ -22,6 +22,10 @@ extension BoxBaseContainerViewController {
             StorageConfig.shared.setPeriod(.period1s)
         }
         
+        if event.modifierFlags.contains(.command) && event.keyCode == 15 {
+            print("Cmd + R pressed, reloading...")
+            WebViewManager.shared.hostingWebView?.reload()
+        }
         
         if event.keyCode == 53 { // Escape 키의 keyCode는 53입니다.
             print("escape")

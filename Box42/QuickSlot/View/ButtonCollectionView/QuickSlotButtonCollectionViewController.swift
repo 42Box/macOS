@@ -97,6 +97,7 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
             btn.layer?.backgroundColor = NSColor.red.cgColor
             customItem.view.addSubview(btn)
             btn.frame = CGRect(x: 0, y: 0, width: QuickSlotUI.size.button, height: QuickSlotUI.size.button)
+            btn.associatedString = buttonModel.path
         }
         return item
     }

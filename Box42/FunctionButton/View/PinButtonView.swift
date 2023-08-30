@@ -49,6 +49,10 @@ class PinButtonView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func changePinImage(to image: NSImage) {
+        pinBoxButton.image = image
+    }
+    
     @objc func pin() {
         callback?()
     }
