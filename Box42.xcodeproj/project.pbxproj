@@ -97,6 +97,7 @@
 		DE9457312A9FB01400B0B768 /* PreferencesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457302A9FB01400B0B768 /* PreferencesTableView.swift */; };
 		DE9457342A9FB1D300B0B768 /* RequestAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */; };
 		DE9457372A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457362A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift */; };
+		DE94573D2A9FD33400B0B768 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94573C2A9FD33400B0B768 /* StorageView.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
 		DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */; };
@@ -207,6 +208,7 @@
 		DE9457302A9FB01400B0B768 /* PreferencesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableView.swift; sourceTree = "<group>"; };
 		DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAccessView.swift; sourceTree = "<group>"; };
 		DE9457362A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScopedResourceAccess.swift; sourceTree = "<group>"; };
+		DE94573C2A9FD33400B0B768 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
 		DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonModel.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				DE78862C2A9D1ADE00FE21DD /* PreferencesCell.swift */,
 				DE9457302A9FB01400B0B768 /* PreferencesTableView.swift */,
 				DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */,
+				DE94573C2A9FD33400B0B768 /* StorageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */,
 				DE3FF3762A978AB8009C88EF /* WindowCloseButton.swift in Sources */,
 				DE9457092A9E69D100B0B768 /* ScriptDescriptionsLabel.swift in Sources */,
+				DE94573D2A9FD33400B0B768 /* StorageView.swift in Sources */,
 				DE9457282A9F6E4400B0B768 /* GetUserMeScripts.swift in Sources */,
 				DE77BBD22A9E0AE8006CC98B /* WebViewUI.swift in Sources */,
 				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,

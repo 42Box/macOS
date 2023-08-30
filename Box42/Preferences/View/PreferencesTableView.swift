@@ -9,15 +9,18 @@ import AppKit
 import SnapKit
 import Combine
 
-enum PreferencesCellList: Int, CaseIterable {
-    case requestAccessView = 1
-    case cpu = 2
-    case my = 3
+enum PreferencesCellList: CaseIterable {
+    case requestAccessView
+    case storage
+    case cpu
+    case my
     
     var height: CGFloat {
         switch self {
         case .requestAccessView:
             return 100.0
+        case .storage:
+            return 300.0
         case .cpu:
             return 40.0
         case .my:
@@ -28,6 +31,7 @@ enum PreferencesCellList: Int, CaseIterable {
 
 class PreferencesTableView: NSTableView {
     let requestAccessView = RequestAccessView()
+    let storageView = StorageView()
     
     func setup() {
         self.delegate = self
@@ -37,6 +41,8 @@ class PreferencesTableView: NSTableView {
         column1.width = 100.0
         column1.title = "Preferences"
         self.addTableColumn(column1)
+        
+        self.selectionHighlightStyle = .none
     }
     
 }
@@ -48,6 +54,8 @@ extension PreferencesTableView: NSTableViewDelegate, NSTableViewDataSource {
             switch allCases[row] {
             case .requestAccessView:
                 return requestAccessView
+            case .storage:
+                return StorageView()
             case .cpu:
                 // Return the view for the CPU cell
                 return NSView() // Placeholder
