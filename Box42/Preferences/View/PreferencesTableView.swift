@@ -17,7 +17,7 @@ enum PreferencesCellList: Int, CaseIterable {
     var height: CGFloat {
         switch self {
         case .requestAccessView:
-            return 60.0
+            return 100.0
         case .cpu:
             return 40.0
         case .my:
