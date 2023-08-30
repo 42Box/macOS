@@ -90,6 +90,7 @@
 		DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94570B2A9E69EB00B0B768 /* ScriptExcuteButton.swift */; };
 		DE94570F2A9E69F200B0B768 /* ScriptDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94570E2A9E69F200B0B768 /* ScriptDeleteButton.swift */; };
 		DE9457162A9E6D3000B0B768 /* ScriptQuickSlotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457112A9E6A0000B0B768 /* ScriptQuickSlotButton.swift */; };
+		DE9457192A9EEEF000B0B768 /* ScriptCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457182A9EEEF000B0B768 /* ScriptCellManager.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
 		DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */; };
@@ -193,6 +194,7 @@
 		DE94570B2A9E69EB00B0B768 /* ScriptExcuteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExcuteButton.swift; sourceTree = "<group>"; };
 		DE94570E2A9E69F200B0B768 /* ScriptDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDeleteButton.swift; sourceTree = "<group>"; };
 		DE9457112A9E6A0000B0B768 /* ScriptQuickSlotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptQuickSlotButton.swift; sourceTree = "<group>"; };
+		DE9457182A9EEEF000B0B768 /* ScriptCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptCellManager.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
 		DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonModel.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 			children = (
 				DE7886032A9C71CB00FE21DD /* ScriptsTableView.swift */,
 				DE9456FF2A9E5B0900B0B768 /* ScriptCell.swift */,
+				DE9457182A9EEEF000B0B768 /* ScriptCellManager.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */,
 				DE3FF3742A978AB8009C88EF /* WindowMaximizeButton.swift in Sources */,
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
+				DE9457192A9EEEF000B0B768 /* ScriptCellManager.swift in Sources */,
 				DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */,
 				DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
