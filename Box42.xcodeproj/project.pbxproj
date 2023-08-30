@@ -532,8 +532,7 @@
 				DE2AD3282A824EEB00002D51 /* Accessibility.swift */,
 				DE874F4D2A591DEA00FC3B77 /* Hotkey.swift */,
 			);
-			name = Preferences;
-			path = QuickSlot/Preferences;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		DE9456F62A9E44F100B0B768 /* Icon */ = {
