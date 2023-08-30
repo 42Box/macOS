@@ -11,9 +11,11 @@ import Foundation
 struct QuickSlotButtonModel {
     let id: UUID
     var title: String
+    var path: String?
     
-    init(id: UUID = UUID(), title: String = "Default") {
+    init(id: UUID = UUID(), title: String = "Default", path: String? = nil) {
         self.id = id
         self.title = title
+        self.path = path
     }
 }

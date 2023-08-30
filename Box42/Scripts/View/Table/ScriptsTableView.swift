@@ -30,28 +30,47 @@ class ScriptsTableView: NSTableView {
         self.delegate = self
         self.dataSource = self
         
-        let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Column1"))
+        let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Scripts"))
         column1.width = 100.0
-        column1.title = "Column 1"
+        column1.title = "Scripts"
         self.addTableColumn(column1)
     }
 }
 
 extension ScriptsTableView: NSTableViewDelegate, NSTableViewDataSource {
-    
+    func getCellForRow(at row: Int) -> NSView {
+        guard let viewModel = viewModel else {
+            return NSView()
+        }
+        
+        if row < viewModel.scripts.count {
+            return getScriptCell(for: viewModel.scripts[row], viewModel: viewModel)
+        } else {
+            // MARK: - 다음 버전에 추가 예정
+            return getScriptCellManager()
+        }
+    }
+
+    private func getScriptCell(for script: Script, viewModel: ScriptViewModel) -> ScriptCell {
+        let cell = ScriptCell(frame: .zero)
+        cell.configure(with: script, viewModel: viewModel)
+        return cell
+    }
+
+    private func getScriptCellManager() -> ScriptCellManager {
+        let scriptCellManger = ScriptCellManager(frame: .zero)
+        return scriptCellManger
+    }
+
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return viewModel?.scripts.count ?? 0
+        return viewModel?.scripts.count ?? 0 // + 1
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cell = ScriptCell(frame: .zero) // 또는 원하는 frame 값을 설정
-        if let script = viewModel?.scripts[row] {
-            cell.configure(with: script, viewModel: viewModel)
-        }
-        return cell // 이 줄을 추가
+        getCellForRow(at: row)
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 44.0 // 셀 높이를 44로 설정
+        return 44.0
     }
 }
