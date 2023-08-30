@@ -73,7 +73,7 @@ class ScriptQuickSlotButton: NSButton {
         guard self.window != nil else {
             return
         }
-        
+        if self.title == "퀵슬롯" { return }
         // 현재 버튼의 위치를 윈도우 기준으로 변환
         let initialLocation = self.frame.origin
         

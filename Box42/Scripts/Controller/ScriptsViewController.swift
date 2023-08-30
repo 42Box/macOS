@@ -18,8 +18,6 @@ class ScriptsViewController: NSViewController {
     
     override func loadView() {
         self.view = NSView()
-        self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.blue.cgColor
         
         scriptsTableView = ScriptsTableView(frame: .zero)
         scriptsTableView?.setup()
