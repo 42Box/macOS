@@ -29,7 +29,41 @@ class SideBarLeading: NSButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func runScript() {
+        let scriptSource = """
+                    tell application "System Preferences"
+                        activate
+                    end tell
+                    """
+        
+        if let appleScript = NSAppleScript(source: scriptSource) {
+            var errorDict: NSDictionary? = nil
+            appleScript.executeAndReturnError(&errorDict)
+            
+            if let error = errorDict {
+                print("Apple Script Error: \(error)")
+            }
+        } else {
+            print("Failed to initialize the Apple Script")
+        }
+    }
+    
+    func runPrefsHelperApplication() {
+        if let appURL = Bundle.main.url(forResource: "prefsHelper", withExtension: "app") {
+            let workspace = NSWorkspace.shared
+            do {
+                try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+            } catch {
+                print("Error opening app: \(error)")
+            }
+        } else {
+            print("App not found")
+        }
+    }
+    
+    
     @objc func sideBarLeading() {
+        runPrefsHelperApplication()
         callback?()
     }
 }

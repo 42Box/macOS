@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This app needs access to control System Preferences.</string>
 	<key>NSDocumentsFolderUsageDescription</key>
 	<string>원활한 앱 구동을 위해 유저 디렉토리의 권한을 요청합니다.</string>
 	<key>NSAppTransportSecurity</key>

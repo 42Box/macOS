@@ -25,6 +25,19 @@ class ToolbarViewController: NSViewController {
         // Do view setup here.
     }
     
+//    func runPrefsHelperApplication() {
+//        let prefsHelperAppPath = "/Users/daskim/Downloads/prefsHelper.app" // prefsHelper.app의 경로
+//
+//        let appURL = URL(fileURLWithPath: prefsHelperAppPath)
+//
+//        let workspace = NSWorkspace.shared
+//        do {
+//            try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+//        } catch {
+//            print("Error opening app: \(error)")
+//        }
+//    }
+    
     func sidebar() {
         print("sidebar")
     }
