@@ -48,7 +48,9 @@ class ScriptViewModel: NSObject {
         if let index = scripts.firstIndex(where: { $0.id == id }) {
 //            ExecuteScripts.executeShellScript(path: scripts[index].name)
             // MARK: - 파일스크립트 매니저에서 권한을 얻은 실행으로 실행합니다.
-            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: scripts[index].path)
+            ScriptsFileManager.downloadFile(from: "https://42box.kr/" + scripts[index].path)
+
+//            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: scripts[index].path)
         }
     }
     

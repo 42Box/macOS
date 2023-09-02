@@ -14,7 +14,7 @@ struct Scripts: Codable {
 struct Script: Codable {
     var id: UUID?
     var name: String
-    var description: String
+    var description: String?
     var path: String
     var savedId: Int?
     var userUuid: String?

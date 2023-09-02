@@ -76,7 +76,7 @@ class ScriptCellManager: NSTableCellView {
         self.script = script
         self.viewModel = viewModel
         nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        descriptionLabel.stringValue = script.description ?? "description"
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)

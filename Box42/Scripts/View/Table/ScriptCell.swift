@@ -75,7 +75,7 @@ class ScriptCell: NSTableCellView {
         self.script = script
         self.viewModel = viewModel
         nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        descriptionLabel.stringValue = script.description ?? "description"
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
@@ -100,8 +100,6 @@ class ScriptCell: NSTableCellView {
         }
     }
     
-    // script 내부 클릭시 1차 실행
-    // 있는거면 지우고 없는거면 추가
     @objc func quickSlotButtonclicked() {
         guard let id = script?.id else {
             return
