@@ -26,9 +26,17 @@ class API {
                 return
             }
             
+            let jsonString = String(data: data, encoding: .utf8)
+            print("Received JSON string:\n\(jsonString ?? "")")
+            
             do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print("Received data:\n\(json)")
+                }
+                
                 let decodedData = try JSONDecoder().decode(type, from: data)
                 completion(.success(decodedData))
+                
             } catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -54,10 +62,9 @@ class API {
                 completion(.failure(NSError(domain: "InvalidStatusCode", code: httpResponse.statusCode, userInfo: nil)))
                 return
             }
-            
             completion(.success(data))
         }
         task.resume()
     }
-
+    
 }

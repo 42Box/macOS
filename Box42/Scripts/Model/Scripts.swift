@@ -12,17 +12,19 @@ struct Scripts: Codable {
 }
 
 struct Script: Codable {
-    var id: UUID
+    var id: UUID?
     var name: String
     var description: String
     var path: String
-    var savedId: Int
+    var savedId: Int?
+    var userUuid: String?
     
-    init(name: String, description: String, path: String, savedId: Int) {
-        self.id = UUID()
+    init(id: UUID = UUID(), name: String, description: String, path: String, savedId: Int, userUuid: String?) {
+        self.id = id
         self.name = name
         self.description = description
         self.path = path
         self.savedId = savedId
+        self.userUuid = userUuid
     }
 }

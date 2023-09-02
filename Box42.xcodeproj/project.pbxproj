@@ -99,6 +99,13 @@
 		DE9457342A9FB1D300B0B768 /* RequestAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */; };
 		DE9457372A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457362A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift */; };
 		DE94573D2A9FD33400B0B768 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94573C2A9FD33400B0B768 /* StorageView.swift */; };
+		DE9457442AA0A1B300B0B768 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457432AA0A1B300B0B768 /* MemoryView.swift */; };
+		DE9457482AA0A34500B0B768 /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457472AA0A34500B0B768 /* BatteryView.swift */; };
+		DE94574B2AA0A70500B0B768 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94574A2AA0A70500B0B768 /* NetworkView.swift */; };
+		DE94574E2AA0B56200B0B768 /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94574D2AA0B56200B0B768 /* CPUView.swift */; };
+		DE9457512AA0BE0F00B0B768 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457502AA0BE0F00B0B768 /* NotificationSettingView.swift */; };
+		DE9457542AA0BF5200B0B768 /* ShortcutSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457532AA0BF5200B0B768 /* ShortcutSettingView.swift */; };
+		DE9457572AA0C5C600B0B768 /* IconSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9457562AA0C5C600B0B768 /* IconSettingView.swift */; };
 		DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */; };
 		DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA782A9A6F6A001073DE /* QuickSlotHeaderView.swift */; };
 		DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97CA7B2A9A7199001073DE /* QuickSlotGroupView.swift */; };
@@ -113,6 +120,7 @@
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
 		DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */; };
+		DEF0761B2AA33671005700E5 /* DeleteUserMeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +219,13 @@
 		DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAccessView.swift; sourceTree = "<group>"; };
 		DE9457362A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScopedResourceAccess.swift; sourceTree = "<group>"; };
 		DE94573C2A9FD33400B0B768 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
+		DE9457432AA0A1B300B0B768 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
+		DE9457472AA0A34500B0B768 /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
+		DE94574A2AA0A70500B0B768 /* NetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
+		DE94574D2AA0B56200B0B768 /* CPUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUView.swift; sourceTree = "<group>"; };
+		DE9457502AA0BE0F00B0B768 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
+		DE9457532AA0BF5200B0B768 /* ShortcutSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingView.swift; sourceTree = "<group>"; };
+		DE9457562AA0C5C600B0B768 /* IconSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingView.swift; sourceTree = "<group>"; };
 		DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelConversion+CGFloat.swift"; sourceTree = "<group>"; };
 		DE97CA6E2A9A6EFC001073DE /* QuickSlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewModel.swift; sourceTree = "<group>"; };
 		DE97CA712A9A6F0D001073DE /* QuickSlotButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonModel.swift; sourceTree = "<group>"; };
@@ -225,6 +240,7 @@
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
 		DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
+		DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserMeScript.swift; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,6 +466,7 @@
 				DE77BBA92A9DE680006CC98B /* GetUserProfile.swift */,
 				DE9457272A9F6E4400B0B768 /* GetUserMeScripts.swift */,
 				DE94572B2A9F75D500B0B768 /* API.swift */,
+				DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -598,6 +615,13 @@
 			children = (
 				DE9457332A9FB1D300B0B768 /* RequestAccessView.swift */,
 				DE94573C2A9FD33400B0B768 /* StorageView.swift */,
+				DE9457432AA0A1B300B0B768 /* MemoryView.swift */,
+				DE9457472AA0A34500B0B768 /* BatteryView.swift */,
+				DE94574A2AA0A70500B0B768 /* NetworkView.swift */,
+				DE94574D2AA0B56200B0B768 /* CPUView.swift */,
+				DE9457502AA0BE0F00B0B768 /* NotificationSettingView.swift */,
+				DE9457532AA0BF5200B0B768 /* ShortcutSettingView.swift */,
+				DE9457562AA0C5C600B0B768 /* IconSettingView.swift */,
 			);
 			path = Funtion;
 			sourceTree = "<group>";
@@ -820,6 +844,7 @@
 				DE0A91A72A8FC66600D1D6F1 /* SideBarLeading.swift in Sources */,
 				DE0A917B2A8F0CA800D1D6F1 /* AppleScripts+ShowMessage.swift in Sources */,
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
+				DEF0761B2AA33671005700E5 /* DeleteUserMeScript.swift in Sources */,
 				DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
@@ -830,6 +855,7 @@
 				DE3FF3A32A97D2A6009C88EF /* DisplayURLTextfield.swift in Sources */,
 				DE9457192A9EEEF000B0B768 /* ScriptCellManager.swift in Sources */,
 				DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */,
+				DE9457442AA0A1B300B0B768 /* MemoryView.swift in Sources */,
 				DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */,
 				DE9457312A9FB01400B0B768 /* PreferencesTableView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
@@ -858,6 +884,7 @@
 				DE77BBA62A9DDF2B006CC98B /* WebView.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
 				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
+				DE9457512AA0BE0F00B0B768 /* NotificationSettingView.swift in Sources */,
 				DE9457342A9FB1D300B0B768 /* RequestAccessView.swift in Sources */,
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE78860C2A9C770300FE21DD /* ScriptsViewModel.swift in Sources */,
@@ -871,6 +898,7 @@
 				DE24E63B2A8FE93900E29F5D /* NSImage.swift in Sources */,
 				DE94570F2A9E69F200B0B768 /* ScriptDeleteButton.swift in Sources */,
 				DE97CA792A9A6F6A001073DE /* QuickSlotHeaderView.swift in Sources */,
+				DE9457482AA0A34500B0B768 /* BatteryView.swift in Sources */,
 				DE9457372A9FC0A800B0B768 /* SecurityScopedResourceAccess.swift in Sources */,
 				DE0A916D2A8E7DD700D1D6F1 /* HoverButton.swift in Sources */,
 				DE97CA862A9A7404001073DE /* QuickSlotViewModel.swift in Sources */,
@@ -880,9 +908,11 @@
 				DE9457282A9F6E4400B0B768 /* GetUserMeScripts.swift in Sources */,
 				DE77BBD22A9E0AE8006CC98B /* WebViewUI.swift in Sources */,
 				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,
+				DE9457542AA0BF5200B0B768 /* ShortcutSettingView.swift in Sources */,
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
 				DE77BBE22A9E0F70006CC98B /* Scripts.swift in Sources */,
 				DE78862D2A9D1ADE00FE21DD /* PreferencesCell.swift in Sources */,
+				DE9457572AA0C5C600B0B768 /* IconSettingView.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
 				DE77BBF32A9E38DC006CC98B /* UserManager.swift in Sources */,
 				DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */,
@@ -897,6 +927,7 @@
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
 				DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */,
 				DE0A918D2A8F88BC00D1D6F1 /* GoBackInToolbar.swift in Sources */,
+				DE94574E2AA0B56200B0B768 /* CPUView.swift in Sources */,
 				DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */,
 				DE3FF3672A978A37009C88EF /* HexValue+NSColor.swift in Sources */,
 				DE1F1A292A8B50E200A88DD8 /* BoxSizeManager.swift in Sources */,
@@ -907,6 +938,7 @@
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* Divider.swift in Sources */,
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
+				DE94574B2AA0A70500B0B768 /* NetworkView.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,

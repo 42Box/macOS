@@ -9,9 +9,10 @@ import Foundation
 
 enum WebViewUI {
     enum transfer {
-        static let download = "download"
+        static let downloadScript = "downloadScript"
+        static let executeScript = "executeScript"
+        static let deleteScript = "deleteScript"
         static let icon = "icon"
         static let userProfile = "userProfile"
-        static let script = "script"
     }
 }

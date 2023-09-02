@@ -21,7 +21,7 @@ class SecurityScopedResourceAccess {
 
     static func accessResourceExecuteShellScript(scriptPath: String) {
         queue.async(flags: .barrier) {
-            var url: URL? = nil // 이 부분을 추가하여 url 변수의 스코프를 확장합니다.
+            var url: URL? = nil
             do {
                 var staleBookmarkData = false
                 guard let bookmarkData = self.bookmarkData else {
@@ -40,7 +40,6 @@ class SecurityScopedResourceAccess {
                 
                 isAccessing = url?.startAccessingSecurityScopedResource() ?? false
                 
-                // Perform work here
                 if isAccessing {
                     ExecuteScripts.executeShellScript(path: scriptPath)
                 }
@@ -49,9 +48,7 @@ class SecurityScopedResourceAccess {
                 print("An error occurred: \(error)")
             }
             
-            // Cleanup
             if isAccessing {
-                // Make sure to match this with a call to startAccessingSecurityScopedResource()
                 url?.stopAccessingSecurityScopedResource()
             }
         }
