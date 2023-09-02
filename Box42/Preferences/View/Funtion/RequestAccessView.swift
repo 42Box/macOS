@@ -9,6 +9,13 @@ import AppKit
 import SnapKit
 
 class RequestAccessView: NSView {
+    private let requestAccessLabel: NSTextField = {
+        let label = NSTextField(labelWithString: "Request Access")
+        label.font = NSFont.systemFont(ofSize: 20)
+        label.isEditable = false
+        label.isSelectable = false
+        return label
+    }()
     var requestAccessTextField: NSTextField = NSTextField()
     var grantAccessButton: NSButton = NSButton()
     var revokeAccessButton: NSButton = NSButton()
@@ -21,6 +28,7 @@ class RequestAccessView: NSView {
         self.layer?.cornerRadius = 13
 
         // Add subviews
+        self.addSubview(requestAccessLabel)
         self.addSubview(requestAccessTextField)
         self.addSubview(grantAccessButton)
         self.addSubview(revokeAccessButton)
@@ -79,8 +87,14 @@ class RequestAccessView: NSView {
     }
     
      func textfieldConstraints() {
+        requestAccessLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(17)
+            make.trailing.equalToSuperview().offset(-17)
+        }
+        
          requestAccessTextField.snp.makeConstraints { make in
-             make.top.equalToSuperview().offset(10)
+            make.top.equalTo(requestAccessLabel.snp.bottom).offset(10)
              make.leading.equalToSuperview().offset(17)
              make.trailing.equalToSuperview().offset(-17)
          }
