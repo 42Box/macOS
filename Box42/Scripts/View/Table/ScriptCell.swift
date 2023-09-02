@@ -89,23 +89,23 @@ class ScriptCell: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.deleteScript(id: id)
         }
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.excuteScript(id: id)
         }
     }
     
     @objc func quickSlotButtonclicked() {
-        guard let id = script?.id else {
+        guard let id = script?.scriptUuid else {
             return
         }
 
-        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.id == id }
+        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.scriptUuid == id }
 
         if alreadyExists {
             QuickSlotViewModel.shared.removeButton(id)

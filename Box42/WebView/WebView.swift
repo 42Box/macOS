@@ -112,7 +112,7 @@ extension WebView {
                 
                 print(deleteScript)
                 
-                ScriptViewModel.shared.deleteScript(id: deleteScript.id!)
+                ScriptViewModel.shared.deleteScript(id: deleteScript.scriptUuid!)
             } catch {
                 print("JSON decoding failed: \(error)")
             }
