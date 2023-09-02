@@ -17,7 +17,14 @@ class ScriptsLogicController {
     
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: button.associatedString ?? "")
+//            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: button.associatedString ?? "")
+            if let associatedString = button.associatedString {
+                if let lastThreeCharacters = button.associatedString?.suffix(3) {
+                    if lastThreeCharacters == ".sh" {
+                        ScriptsFileManager.downloadFile(from: "https://42box.kr/" + associatedString)
+                    }
+                }
+            }
         }
     }
     
