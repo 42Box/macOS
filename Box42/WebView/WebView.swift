@@ -63,16 +63,17 @@ extension WebView {
                 print("JSON decoding failed: \(error)")
             }
         }
+        
         // 스크립트 다운로드
         if message.name == WebViewUI.transfer.downloadScript, let downloadScriptString = message.body as? String {
             let scriptJson = downloadScriptString.data(using: .utf8)
-            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            print("스크립트 다운로드", String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
             
             do {
                 let decoder = JSONDecoder()
                 let downloadString = try decoder.decode(Script.self, from: scriptJson!)
                 
-                ScriptViewModel.shared.addScript(id: UUID(), name: downloadString.name, description: downloadString.description, path: downloadString.path, savedId: Int(downloadString.savedId ?? 0), userUuid: downloadString.userUuid!)
+                ScriptViewModel.shared.addScript(id: UUID(), name: downloadString.name, description: downloadString.description ?? "description", path: downloadString.path, savedId: Int(downloadString.savedId ?? 0), userUuid: downloadString.userUuid!)
                 
                 print(downloadString)
 
@@ -84,7 +85,7 @@ extension WebView {
         // 스크립트 실행
         if message.name == WebViewUI.transfer.executeScript, let executeScriptString = message.body as? String {
             let scriptJson = executeScriptString.data(using: .utf8)
-            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            print("스크립트 실행", String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
             
             do {
                 let decoder = JSONDecoder()
@@ -102,7 +103,7 @@ extension WebView {
         // 스크립트 삭제
         if message.name == WebViewUI.transfer.deleteScript, let deleteScriptString = message.body as? String {
             let scriptJson = deleteScriptString.data(using: .utf8)
-            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            print("스크립트 삭제", String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
             
             do {
                 let decoder = JSONDecoder()
