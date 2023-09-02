@@ -7,31 +7,52 @@
 
 import AppKit
 import SnapKit
-import Combine
 
 enum PreferencesCellList: CaseIterable {
-    case requestAccessView
+    case notifiactionSetting
+    case shortcutSetting
+    case iconSetting
+    case requestAccess
     case storage
     case cpu
-    case my
+    case memory
+    case battery
+    case network
     
     var height: CGFloat {
         switch self {
-        case .requestAccessView:
-            return 100.0
+        case .notifiactionSetting:
+            return 120
+        case .shortcutSetting:
+            return 220
+        case .iconSetting:
+            return 150
+        case .requestAccess:
+            return 200
         case .storage:
-            return 300.0
+            return 210.0
         case .cpu:
-            return 40.0
-        case .my:
-            return 50.0
+            return 150
+        case .memory:
+            return 160
+        case .battery:
+            return 140
+        case .network:
+            return 130
         }
     }
 }
 
 class PreferencesTableView: NSTableView {
+    let notifiactionSettingView = NotificationSettingView()
+    let shortcutSettingView = ShortcutSettingView()
+    let iconSettingView = IconSettingView()
     let requestAccessView = RequestAccessView()
     let storageView = StorageView()
+    let cpuView = CPUView()
+    let memoryView = MemoryView()
+    let batteryView = BatteryView()
+    let networkView = NetworkView()
     
     func setup() {
         self.delegate = self
@@ -42,7 +63,7 @@ class PreferencesTableView: NSTableView {
         column1.title = "Preferences"
         self.addTableColumn(column1)
         
-        self.selectionHighlightStyle = .none
+//        self.selectionHighlightStyle = .none
     }
     
 }
@@ -52,16 +73,24 @@ extension PreferencesTableView: NSTableViewDelegate, NSTableViewDataSource {
         let allCases = PreferencesCellList.allCases
         if row >= 0 && row < allCases.count {
             switch allCases[row] {
-            case .requestAccessView:
+            case .notifiactionSetting:
+                return notifiactionSettingView
+            case .shortcutSetting:
+                return shortcutSettingView
+            case .iconSetting:
+                return iconSettingView
+            case .requestAccess:
                 return requestAccessView
             case .storage:
-                return StorageView()
+                return storageView
             case .cpu:
-                // Return the view for the CPU cell
-                return NSView() // Placeholder
-            case .my:
-                // Return the view for the "my" cell
-                return NSView() // Placeholder
+                return cpuView
+            case .memory:
+                return memoryView
+            case .battery:
+                return batteryView
+            case .network:
+                return networkView
             }
         }
         return NSView() // Default view if out of bounds or undefined
