@@ -90,16 +90,25 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "QuickSlotButtonViewItem"), for: indexPath)
         
         if let customItem = item as? QuickSlotButtonViewItem {
-            let buttonModel = viewModel.buttons[indexPath.item]
-            let btn = NSButton()
-            btn.title = buttonModel.title
-            btn.action = #selector(collectionButtonTapped)
-            btn.target = self
-            btn.wantsLayer = true
-            btn.layer?.backgroundColor = NSColor.red.cgColor
-            customItem.view.addSubview(btn)
-            btn.frame = CGRect(x: 0, y: 0, width: QuickSlotUI.size.button, height: QuickSlotUI.size.button)
-            btn.associatedString = buttonModel.path
+            if customItem.view.subviews.isEmpty {
+                let btn = QuickSlotItemButton(indexPath.item)
+                btn.action = #selector(collectionButtonTapped)
+                btn.target = self
+                
+                let label = QuickSlotItemLabel(indexPath.item)
+                
+                customItem.view.addSubview(btn)
+                customItem.view.addSubview(label)
+                
+                btn.snp.makeConstraints { make in
+                    make.left.top.right.equalToSuperview()
+                }
+                
+                label.snp.makeConstraints { make in
+                    make.top.equalTo(btn.snp.bottom)
+                    make.left.right.bottom.equalToSuperview()
+                }
+            }
         }
         return item
     }

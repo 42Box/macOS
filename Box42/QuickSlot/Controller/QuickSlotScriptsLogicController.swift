@@ -7,9 +7,8 @@
 
 import AppKit
 
-class ScriptsLogicController {
-    
-    static let shared = ScriptsLogicController()
+class QuickSlotScriptsLogicController {
+    static let shared = QuickSlotScriptsLogicController()
     
     private init() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
@@ -17,7 +16,6 @@ class ScriptsLogicController {
     
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
-//            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: button.associatedString ?? "")
             if let associatedString = button.associatedString {
                 if let lastThreeCharacters = button.associatedString?.suffix(3) {
                     if lastThreeCharacters == ".sh" {
@@ -28,28 +26,12 @@ class ScriptsLogicController {
         }
     }
     
-    private func executeCleanScript() {
-        if let scriptPath = Bundle.main.path(forResource: "cleanCache", ofType: "sh") {
-            let task = Process()
-            task.launchPath = "/bin/sh"
-            task.arguments = [scriptPath]
-            
-            let outputPipe = Pipe()
-            task.standardOutput = outputPipe
-            task.standardError = outputPipe
-            
-            task.launch()
-            task.waitUntilExit()
-            
-            let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-            let output = String(data: outputData, encoding: .utf8) ?? ""
-            
-            DispatchQueue.main.async {
-                print("Output: \(output)")
-            }
-        } else {
-            DispatchQueue.main.async {
-                print("Script not found")
+    func shortCutKeyUP(_ keyCode: Int) {
+        if QuickSlotViewModel.shared.buttons.count > keyCode {
+            if let lastThreeCharacters = QuickSlotViewModel.shared.buttons[keyCode].path?.suffix(3) {
+                if lastThreeCharacters == ".sh" {
+                    ScriptsFileManager.downloadFile(from: "https://42box.kr/" + QuickSlotViewModel.shared.buttons[keyCode].path!)
+                }
             }
         }
     }
