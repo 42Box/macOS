@@ -59,7 +59,7 @@
 		DE4408052A923EC00091937A /* QuitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408042A923EC00091937A /* QuitButtonView.swift */; };
 		DE4408082A9240300091937A /* BoxFunctionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408072A9240300091937A /* BoxFunctionButtonView.swift */; };
 		DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */; };
-		DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */; };
+		DE4408152A92750D0091937A /* keyDown+Appdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4408142A92750D0091937A /* keyDown+Appdelegate.swift */; };
 		DE44081D2A928F760091937A /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44081C2A928F760091937A /* Divider.swift */; };
 		DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */; };
 		DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */; };
@@ -121,6 +121,10 @@
 		DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB862E92A853F7F00278FCD /* BoxWindowController.swift */; };
 		DEE0FA962A9A554F00085A65 /* FunctionButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */; };
 		DEF0761B2AA33671005700E5 /* DeleteUserMeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */; };
+		DEF076262AA3B0C1005700E5 /* QuickSlotItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF076252AA3B0C1005700E5 /* QuickSlotItemButton.swift */; };
+		DEF0762A2AA3B955005700E5 /* PutUserMeQuickSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF076292AA3B955005700E5 /* PutUserMeQuickSlot.swift */; };
+		DEF0762D2AA3C34C005700E5 /* GetUserMeQuickSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0762C2AA3C34C005700E5 /* GetUserMeQuickSlot.swift */; };
+		DEF076302AA3CF8A005700E5 /* QuickSlotItemLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0762F2AA3CF8A005700E5 /* QuickSlotItemLabel.swift */; };
 		DEF749322A85657600D987C8 /* NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF749312A85657600D987C8 /* NSScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,7 +184,7 @@
 		DE4408042A923EC00091937A /* QuitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonView.swift; sourceTree = "<group>"; };
 		DE4408072A9240300091937A /* BoxFunctionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionButtonView.swift; sourceTree = "<group>"; };
 		DE44080B2A924B520091937A /* BoxFunctionViewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFunctionViewGroup.swift; sourceTree = "<group>"; };
-		DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "keyDown+BoxBaseContainerViewController.swift"; path = "Main/keyDown+BoxBaseContainerViewController.swift"; sourceTree = "<group>"; };
+		DE4408142A92750D0091937A /* keyDown+Appdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "keyDown+Appdelegate.swift"; sourceTree = "<group>"; };
 		DE44081C2A928F760091937A /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		DE62BE312A9B869900D97E06 /* QuickSlotButtonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotButtonCollectionViewController.swift; sourceTree = "<group>"; };
 		DE62BE582A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickSlotButtonCollectionViewController.xib; sourceTree = "<group>"; };
@@ -241,6 +245,10 @@
 		DEB862E92A853F7F00278FCD /* BoxWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWindowController.swift; sourceTree = "<group>"; };
 		DEE0FA952A9A554F00085A65 /* FunctionButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionButtonUI.swift; sourceTree = "<group>"; };
 		DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserMeScript.swift; sourceTree = "<group>"; };
+		DEF076252AA3B0C1005700E5 /* QuickSlotItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotItemButton.swift; sourceTree = "<group>"; };
+		DEF076292AA3B955005700E5 /* PutUserMeQuickSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserMeQuickSlot.swift; sourceTree = "<group>"; };
+		DEF0762C2AA3C34C005700E5 /* GetUserMeQuickSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserMeQuickSlot.swift; sourceTree = "<group>"; };
+		DEF0762F2AA3CF8A005700E5 /* QuickSlotItemLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotItemLabel.swift; sourceTree = "<group>"; };
 		DEF7492E2A85603700D987C8 /* nodeInstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = nodeInstall.sh; sourceTree = "<group>"; };
 		DEF749312A85657600D987C8 /* NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,7 +397,6 @@
 				DE0A916B2A8E7DC700D1D6F1 /* UI */,
 				DE4408202A9297EE0091937A /* View */,
 				DE1F1A192A8B50C500A88DD8 /* BoxBaseContainerViewController.swift */,
-				DE4408142A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift */,
 				DEB862E92A853F7F00278FCD /* BoxWindowController.swift */,
 			);
 			name = Main;
@@ -467,6 +474,8 @@
 				DE9457272A9F6E4400B0B768 /* GetUserMeScripts.swift */,
 				DE94572B2A9F75D500B0B768 /* API.swift */,
 				DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */,
+				DEF076292AA3B955005700E5 /* PutUserMeQuickSlot.swift */,
+				DEF0762C2AA3C34C005700E5 /* GetUserMeQuickSlot.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -555,6 +564,8 @@
 			children = (
 				DE7F9D432A9B7A4700F8ACAE /* QuickSlotButtonViewItem.swift */,
 				DE7F9D442A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib */,
+				DEF076252AA3B0C1005700E5 /* QuickSlotItemButton.swift */,
+				DEF0762F2AA3CF8A005700E5 /* QuickSlotItemLabel.swift */,
 			);
 			path = "Vertical Item";
 			sourceTree = "<group>";
@@ -753,6 +764,7 @@
 				DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */,
 				DE97CA682A9A6364001073DE /* PixelConversion+CGFloat.swift */,
 				DE94571B2A9EFB7800B0B768 /* Associated+NSButton.swift */,
+				DE4408142A92750D0091937A /* keyDown+Appdelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -846,6 +858,7 @@
 				DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */,
 				DEF0761B2AA33671005700E5 /* DeleteUserMeScript.swift in Sources */,
 				DE62BE672A9BA92E00D97E06 /* QuickSlotButtonViewItem.swift in Sources */,
+				DEF076302AA3CF8A005700E5 /* QuickSlotItemLabel.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
@@ -876,6 +889,7 @@
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
+				DEF0762A2AA3B955005700E5 /* PutUserMeQuickSlot.swift in Sources */,
 				DE018BE42A509B1700FF0AA3 /* CPU.swift in Sources */,
 				DE77BBA22A9DDC40006CC98B /* ScriptsFileManager.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
@@ -918,7 +932,7 @@
 				DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */,
 				DE9457162A9E6D3000B0B768 /* ScriptQuickSlotButton.swift in Sources */,
 				DE97CA7F2A9A73A9001073DE /* QuickSlotUI.swift in Sources */,
-				DE4408152A92750D0091937A /* keyDown+BoxBaseContainerViewController.swift in Sources */,
+				DE4408152A92750D0091937A /* keyDown+Appdelegate.swift in Sources */,
 				DE018BED2A509B2600FF0AA3 /* URLModel.swift in Sources */,
 				DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */,
 				DE7886282A9D186700FE21DD /* ScriptsViewController.swift in Sources */,
@@ -938,10 +952,12 @@
 				DE24E6382A8FE10400E29F5D /* BoxBaseSplitView.swift in Sources */,
 				DE44081D2A928F760091937A /* Divider.swift in Sources */,
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
+				DEF0762D2AA3C34C005700E5 /* GetUserMeQuickSlot.swift in Sources */,
 				DE94574B2AA0A70500B0B768 /* NetworkView.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
+				DEF076262AA3B0C1005700E5 /* QuickSlotItemButton.swift in Sources */,
 				DE0A917F2A8F865400D1D6F1 /* BoxToolbarViewGroup.swift in Sources */,
 				DE018BEA2A509B2100FF0AA3 /* WebViewModel.swift in Sources */,
 			);

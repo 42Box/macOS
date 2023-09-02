@@ -25,6 +25,10 @@ class BoxBaseContainerViewController: NSViewController {
         
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
+    
+    var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
+
+    
     override func loadView() {
         self.view = NSView()
         self.view.addSubview(splitView)

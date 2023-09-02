@@ -22,15 +22,15 @@ class ShortcutSettingView: NSView {
     // Create an array of labels and text fields for various shortcut settings
     let shortcutSettings: [(label: String, defaultKey: String)] = [
         ("앱 Show 단축키 설정", "Middle Mouse"),
-        ("Pin Box 단축키 설정", "P"),
-        ("퀵슬롯 1 설정", "Q"),
-        ("퀵슬롯 2 설정", "W"),
-        ("퀵슬롯 3 설정", "E"),
-        ("퀵슬롯 4 설정", "R"),
-        ("퀵슬롯 5 설정", "A"),
-        ("퀵슬롯 6 설정", "S"),
-        ("퀵슬롯 7 설정", "D"),
-        ("퀵슬롯 8 설정", "F")
+        ("Pin Box 단축키 설정", "^B"),
+        ("퀵슬롯 1 설정", "^Q"),
+        ("퀵슬롯 2 설정", "^W"),
+        ("퀵슬롯 3 설정", "^E"),
+        ("퀵슬롯 4 설정", "^R"),
+        ("퀵슬롯 5 설정", "^A"),
+        ("퀵슬롯 6 설정", "^S"),
+        ("퀵슬롯 7 설정", "^D"),
+        ("퀵슬롯 8 설정", "^F")
     ]
     
     lazy var stackView: NSStackView = {

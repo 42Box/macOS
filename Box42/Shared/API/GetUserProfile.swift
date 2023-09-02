@@ -21,8 +21,9 @@ extension API {
             fetchDataFromAPI(withURL: "https://api.42box.kr/user-service/users/me", forType: UserProfile.self) { (result: Result<UserProfile, Error>) in
                 switch result {
                 case .success(let userProfile):
-                    print(">> MacOS Get :", userProfile)
+                    print(">> User MacOS Get :", userProfile)
                     UserManager.shared.updateUserProfile(newProfile: userProfile)
+                    QuickSlotViewModel.shared.setUpQuickSlot()
                 case .failure(let error):
                     print("Error: \(error)")
                 }

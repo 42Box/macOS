@@ -75,7 +75,7 @@ class ScriptCell: NSTableCellView {
         self.script = script
         self.viewModel = viewModel
         nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        descriptionLabel.stringValue = script.description ?? "description"
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
@@ -89,25 +89,23 @@ class ScriptCell: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.deleteScript(id: id)
         }
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.excuteScript(id: id)
         }
     }
     
-    // script 내부 클릭시 1차 실행
-    // 있는거면 지우고 없는거면 추가
     @objc func quickSlotButtonclicked() {
-        guard let id = script?.id else {
+        guard let id = script?.scriptUuid else {
             return
         }
 
-        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.id == id }
+        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.scriptUuid == id }
 
         if alreadyExists {
             QuickSlotViewModel.shared.removeButton(id)

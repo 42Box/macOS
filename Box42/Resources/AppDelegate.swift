@@ -22,22 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         iconController = IconController()
         //        alertAccessibility()
         //        hotkey()
+        self.eventMonitoring()
         
 //        storage.storageTimerEvent()
         _ = UserManager.shared
-        _ = ScriptsLogicController.shared
+        _ = QuickSlotScriptsLogicController.shared
         
         // MARK: - 유저데이터 동기화
         WebViewManager.shared.getCookie()
         API.getUserProfile(WebViewManager.shared.getCookieWebKit)
-        _ = QuickSlotViewModel.shared
-        _ = ScriptViewModel.shared // 초기화와 동시에
+        _ = ScriptViewModel.shared
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
+
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }

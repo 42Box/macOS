@@ -76,7 +76,7 @@ class ScriptCellManager: NSTableCellView {
         self.script = script
         self.viewModel = viewModel
         nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        descriptionLabel.stringValue = script.description ?? "description"
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
@@ -90,19 +90,19 @@ class ScriptCellManager: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.deleteScript(id: id)
         }
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.excuteScript(id: id)
         }
     }
     
     @objc func quickSlotButtonclicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.quickSlotScript(id: id)
         }
     }

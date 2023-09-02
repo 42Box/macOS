@@ -46,7 +46,7 @@ extension UserProfile {
             statusMessage: "hello 42Box!",
             profileImageUrl: "https://42box.kr/user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
             profileImagePath: "user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
-            quickSlotList: [ QuickSlotButtonModel(id: UUID(uuidString: "550e8400-e29b-41d4-a716-446655440000")!, title: "cleanCache", path: Bundle.main.path(forResource: "cleanCache", ofType: "sh")),
+            quickSlotList: [ QuickSlotButtonModel(id: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3")!, title: "cleanCache", path: Bundle.main.path(forResource: "cleanCache", ofType: "sh")),
             ]
         )
     }

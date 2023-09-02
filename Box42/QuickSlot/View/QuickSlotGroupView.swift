@@ -33,7 +33,6 @@ class QuickSlotGroupView: NSView {
         self.addSubview(divider)
         self.addSubview(headerView)
         self.addSubview(buttonCollectionView.view)
-        
     }
 
     private func setupConstraints() {

@@ -17,7 +17,7 @@ class QuickSlotHeaderView: NSView {
     init(image: NSImage, completion: @escaping () -> Void) {
         super.init(frame: .zero)
         
-        QuickSlotHeaderButton = NSButton(image: image, target: self, action: #selector(pin))
+        QuickSlotHeaderButton = NSButton(image: image, target: self, action: #selector(btnAction))
         QuickSlotHeaderButton.isBordered = false
         QuickSlotHeaderButton.wantsLayer = true
         QuickSlotHeaderButton.layer?.backgroundColor = NSColor.clear.cgColor
@@ -49,7 +49,7 @@ class QuickSlotHeaderView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func pin() {
+    @objc func btnAction() {
         callback?()
     }
 }

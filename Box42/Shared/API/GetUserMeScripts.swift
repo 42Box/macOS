@@ -42,7 +42,7 @@ extension API {
             fetchDataFromAPI(withURL: "https://api.42box.kr/user-service/users/me/scripts", forType: [Script].self) { (result: Result<[Script], Error>) in
                 switch result {
                 case .success(let scripts):
-                    print(">> MacOS Get :", scripts)
+                    print(">> Initalize Script MacOS Get :", scripts)
                     DispatchQueue.main.async {
                         ScriptViewModel.shared.setupScripts(with: scripts)
                     }
