@@ -8,7 +8,7 @@
 import Foundation
 
 // Model
-struct QuickSlotButtonModel {
+struct QuickSlotButtonModel: Codable {
     let id: UUID
     var title: String
     var path: String?

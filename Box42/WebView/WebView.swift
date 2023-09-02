@@ -21,10 +21,11 @@ class WebView: WKWebView, WKScriptMessageHandler {
         configuration.userContentController = contentController
         super.init(frame: .zero, configuration: configuration)
         
-        contentController.add(self, name: WebViewUI.transfer.download)
+        contentController.add(self, name: WebViewUI.transfer.deleteScript)
+        contentController.add(self, name: WebViewUI.transfer.executeScript)
+        contentController.add(self, name: WebViewUI.transfer.downloadScript)
         contentController.add(self, name: WebViewUI.transfer.icon)
         contentController.add(self, name: WebViewUI.transfer.userProfile)
-        contentController.add(self, name: WebViewUI.transfer.script)
         
         self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         self.configuration.preferences.javaScriptEnabled = true
@@ -41,15 +42,12 @@ class WebView: WKWebView, WKScriptMessageHandler {
 // MARK: - Front Client 통신
 extension WebView {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        // 스크립트 다운로드
-        if message.name == WebViewUI.transfer.download, let downloadURLString = message.body as? String {
-            ScriptsFileManager.downloadFile(from: downloadURLString)
-        }
+        
         // 아이콘 정보 PUT:
         if message.name == WebViewUI.transfer.icon, let imgIconString = message.body as? String {
             icon.buttonImageChange(imgIconString)
         }
-        //  유저 정보 (Front)GET: https://api.42box.site/user-service/users/me
+        //  유저 정보 (Front)GET: https://api.42box.kr/user-service/users/me
         if message.name == WebViewUI.transfer.userProfile, let userProfileString = message.body as? String {
             let userProfileJson = userProfileString.data(using: .utf8)
             
@@ -65,17 +63,55 @@ extension WebView {
                 print("JSON decoding failed: \(error)")
             }
         }
-        
-        if message.name == WebViewUI.transfer.script, let scriptString = message.body as? String {
-            let scriptJson = scriptString.data(using: .utf8)
+        // 스크립트 다운로드
+        if message.name == WebViewUI.transfer.downloadScript, let downloadScriptString = message.body as? String {
+            let scriptJson = downloadScriptString.data(using: .utf8)
+            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
             
             do {
                 let decoder = JSONDecoder()
-                let downScript = try decoder.decode(Script.self, from: scriptJson!)
-                print(downScript)
+                let downloadString = try decoder.decode(Script.self, from: scriptJson!)
                 
+                ScriptViewModel.shared.addScript(id: UUID(), name: downloadString.name, description: downloadString.description, path: downloadString.path, savedId: Int(downloadString.savedId ?? 0), userUuid: downloadString.userUuid!)
                 
+                print(downloadString)
 
+            } catch {
+                print("JSON decoding failed: \(error)")
+            }
+        }
+        
+        // 스크립트 실행
+        if message.name == WebViewUI.transfer.executeScript, let executeScriptString = message.body as? String {
+            let scriptJson = executeScriptString.data(using: .utf8)
+            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            
+            do {
+                let decoder = JSONDecoder()
+                let executeScript = try decoder.decode(Script.self, from: scriptJson!)
+                print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+                
+                print(executeScript)
+                
+                ScriptsFileManager.downloadFile(from: "https://42box.kr/" + executeScript.path)
+            } catch {
+                print("JSON decoding failed: \(error)")
+            }
+        }
+        
+        // 스크립트 삭제
+        if message.name == WebViewUI.transfer.deleteScript, let deleteScriptString = message.body as? String {
+            let scriptJson = deleteScriptString.data(using: .utf8)
+            print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            
+            do {
+                let decoder = JSONDecoder()
+                let deleteScript = try decoder.decode(Script.self, from: scriptJson!)
+                print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+                
+                print(deleteScript)
+                
+                ScriptViewModel.shared.deleteScript(id: deleteScript.id!)
             } catch {
                 print("JSON decoding failed: \(error)")
             }

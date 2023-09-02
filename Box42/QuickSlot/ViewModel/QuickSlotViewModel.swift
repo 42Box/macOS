@@ -13,7 +13,8 @@ class QuickSlotViewModel {
     @Published var buttons: [QuickSlotButtonModel] = []
     
     private init() {
-        let button1 = QuickSlotButtonModel(title: QuickSlotUI.title.clean,
+        let button1 = QuickSlotButtonModel(id: UUID(uuidString: "550e8400-e29b-41d4-a716-446655440000")!,
+                                           title: QuickSlotUI.title.clean,
                                            path: Bundle.main.path(forResource: "cleanCache", ofType: "sh"))
         let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences)
         let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)

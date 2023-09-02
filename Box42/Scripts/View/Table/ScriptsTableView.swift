@@ -12,14 +12,17 @@ import Combine
 class ScriptsTableView: NSTableView {
     var viewModel: ScriptViewModel? {
         didSet {
+            print("ViewModel has been set.")
             setupBindings()
         }
     }
-    
+
     var cancellables: Set<AnyCancellable> = []
     
     private func setupBindings() {
-        viewModel?.$scripts.sink(receiveValue: { [weak self] _ in
+        print("Setting up bindings...") // 디버깅 로그
+        viewModel?.$scripts.sink(receiveValue: { [weak self] newScripts in
+            print("Received new scripts: \(newScripts)") // 디버깅 로그
             DispatchQueue.main.async {
                 self?.reloadData()
             }

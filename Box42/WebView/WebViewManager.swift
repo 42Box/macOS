@@ -40,7 +40,7 @@ class WebViewManager: NSObject {
     }
     
     func getCookie() {
-        if let url = URL(string: "https://api.42box.site") {
+        if let url = URL(string: "https://api.42box.kr") {
             let request = URLRequest(url: url)
             getCookieWebKit.load(request)
         }

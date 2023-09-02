@@ -5,6 +5,8 @@
 //  Created by Chanhee Kim on 8/28/23.
 //
 
+import AppKit
+
 struct UserProfile: Codable {
     let uuid: String
     let nickname: String
@@ -14,6 +16,7 @@ struct UserProfile: Codable {
     let statusMessage: String
     let profileImageUrl: String
     let profileImagePath: String
+    let quickSlotList: [QuickSlotButtonModel]
 }
 
 struct URLItem: Codable {
@@ -42,7 +45,9 @@ extension UserProfile {
                       URLItem(name: "42gg", url: "https://42gg.kr/")],
             statusMessage: "hello 42Box!",
             profileImageUrl: "https://42box.kr/user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
-            profileImagePath: "user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png"
+            profileImagePath: "user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
+            quickSlotList: [ QuickSlotButtonModel(id: UUID(uuidString: "550e8400-e29b-41d4-a716-446655440000")!, title: "cleanCache", path: Bundle.main.path(forResource: "cleanCache", ofType: "sh")),
+            ]
         )
     }
 }
