@@ -10,7 +10,7 @@ import Foundation
 
 class ScriptsViewController: NSViewController {
     var scriptsTableView: ScriptsTableView?
-    var viewModel: ScriptViewModel? = ScriptViewModel() {
+    var viewModel: ScriptViewModel? = ScriptViewModel.shared {
         didSet {
             scriptsTableView?.viewModel = viewModel
         }

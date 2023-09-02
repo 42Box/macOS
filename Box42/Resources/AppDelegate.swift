@@ -31,8 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         WebViewManager.shared.getCookie()
         API.getUserProfile(WebViewManager.shared.getCookieWebKit)
         _ = QuickSlotViewModel.shared
-        API.getUserMeScripts(WebViewManager.shared.getCookieWebKit)
-        _ = ScriptViewModel.shared
+        _ = ScriptViewModel.shared // 초기화와 동시에
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
