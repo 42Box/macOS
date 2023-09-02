@@ -67,4 +67,28 @@ class API {
         task.resume()
     }
     
+    // PUT
+    static func putDataFromAPI(withURL urlString: String, completion: @escaping (Result<Data?, Error>) -> Void) {
+        
+        let url = URL(string: urlString)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpShouldHandleCookies = true
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                completion(.failure(NSError(domain: "InvalidStatusCode", code: httpResponse.statusCode, userInfo: nil)))
+                return
+            }
+            completion(.success(data))
+        }
+        task.resume()
+    }
+    
+    
 }

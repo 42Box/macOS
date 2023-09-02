@@ -23,7 +23,7 @@ enum QuickSlotUI {
     }
     
     enum title {
-        static let clean = "Clean"
+        static let clean = "CleanCache"
         static let preferences = "Preferences"
         static let scripts = "Scripts"
         static let user = "User"

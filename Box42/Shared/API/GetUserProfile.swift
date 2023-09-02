@@ -23,6 +23,7 @@ extension API {
                 case .success(let userProfile):
                     print(">> User MacOS Get :", userProfile)
                     UserManager.shared.updateUserProfile(newProfile: userProfile)
+                    QuickSlotViewModel.shared.setUpQuickSlot()
                 case .failure(let error):
                     print("Error: \(error)")
                 }
