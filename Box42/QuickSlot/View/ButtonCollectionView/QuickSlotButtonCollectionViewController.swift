@@ -41,7 +41,9 @@ class QuickSlotButtonCollectionViewController: NSViewController {
     func initializeCombine() {
         viewModel.$buttons
             .sink { [weak self] _ in
-                self?.quickSlotButtonCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self?.quickSlotButtonCollectionView.reloadData()
+                }
             }
             .store(in: &cancellables)
     }

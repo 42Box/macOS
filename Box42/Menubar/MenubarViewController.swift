@@ -9,7 +9,7 @@ import Foundation
 import AppKit
 
 class MenubarViewController: NSViewController {
-    var popover = NSPopover()
+    var popover: NSPopover! = NSPopover()
     var statusBarVM = StatusBarViewModel()
     lazy var eventMonitor: EventMonitor = self.setupEventMonitor()
     var boxWindowController: BoxWindowController?
