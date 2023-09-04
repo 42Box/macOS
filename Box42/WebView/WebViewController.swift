@@ -10,6 +10,8 @@ import WebKit
 import Combine
 
 class WebViewController: NSViewController {
+    var viewModel = BookmarkViewModel.shared 
+
 	var URLVM = WebViewModel()
     var webView: WKWebView!
     

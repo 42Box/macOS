@@ -26,6 +26,7 @@ class WebView: WKWebView, WKScriptMessageHandler, WKUIDelegate, WKNavigationDele
         contentController.add(self, name: WebViewUI.transfer.downloadScript)
         contentController.add(self, name: WebViewUI.transfer.icon)
         contentController.add(self, name: WebViewUI.transfer.userProfile)
+        contentController.add(self, name: WebViewUI.transfer.saveURL)
         
         self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         self.configuration.preferences.javaScriptEnabled = true
@@ -170,7 +171,7 @@ extension WebView {
                 let decoder = JSONDecoder()
                 let saveURL = try decoder.decode(URLItem.self, from: scriptJson!)
                 
-                BookmarkViewModel.shared.addBookmark(item: URLItem(name: saveURL.name, url: saveURL.name))
+                BookmarkViewModel.shared.addBookmarkByFront(item: URLItem(name: saveURL.name, url: saveURL.url))
                 
                 print(saveURL)
 
@@ -178,5 +179,7 @@ extension WebView {
                 print("JSON decoding failed: \(error)")
             }
         }
+        
+        
     }
 }

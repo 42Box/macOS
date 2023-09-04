@@ -24,6 +24,7 @@ extension API {
                     print(">> User MacOS Get :", userProfile)
                     UserManager.shared.updateUserProfile(newProfile: userProfile)
                     QuickSlotViewModel.shared.setUpQuickSlot()
+                    BookmarkViewModel.shared.replaceBookMarkList(with: userProfile.urlList)
                 case .failure(let error):
                     print("Error: \(error)")
                 }

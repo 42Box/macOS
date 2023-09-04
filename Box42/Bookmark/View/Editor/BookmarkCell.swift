@@ -1,18 +1,18 @@
 //
-//  ScriptCellManager.swift
+//  BookmarkCell.swift
 //  Box42
 //
-//  Created by Chanhee Kim on 8/30/23.
+//  Created by Chanhee Kim on 9/5/23.
 //
 
 import AppKit
 import SnapKit
 
-class ScriptCellManager: NSTableCellView {
+class BookmarkCell: NSTableCellView {
     var nameLabel: NSTextField = NSTextField()
     var descriptionLabel: NSTextField = NSTextField()
-    var deleteButton: ScriptDeleteButton = ScriptDeleteButton()
-    var quickSlotButton: ScriptQuickSlotButton = ScriptQuickSlotButton()
+    var deleteButton: BookmarkDeleteButton = BookmarkDeleteButton()
+    var quickSlotButton: BookmarkUpdateButton = BookmarkUpdateButton()
     
     var viewModel: BookmarkViewModel?
     var urlitem: URLItem?
@@ -77,35 +77,20 @@ class ScriptCellManager: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-//        if let id = script?.scriptUuid {
-//            viewModel?.deleteScript(id: id)
-//        }
-    }
-    
-    @objc func excuteButtonClicked() {
-//        if let path = script?.path {
-//            viewModel?.excuteScript(path: path)
-//        }
+        if let deleteItem = urlitem {
+            BookmarkViewModel.shared.deleteBookmark(item: deleteItem)
+        }
     }
     
     @objc func quickSlotButtonclicked() {
-//        guard let path = script?.path else {
-//            return
-//        }
-//
-//        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.path == path }
-//
-//        if alreadyExists {
-//            QuickSlotViewModel.shared.removeButton(path)
-//            quickSlotButton.title = "퀵슬롯"
-//        } else {
-//            if QuickSlotViewModel.shared.buttons.count > 7 {
-//                return
-//            } else {
-//                quickSlotButton.title = "저장됨"
-////                viewModel?.quickSlotScript(id: id)
-//                viewModel?.quickSlotScript(path: path)
-//            }
-//        }
+        if let tableView = self.superview as? NSTableView {
+            let rowIndex = tableView.row(for: self)
+            print("현재 셀의 index: \(rowIndex)")
+            
+            if let updateItem = urlitem {
+                print(rowIndex, updateItem)
+//                BookmarkViewModel.shared.updateBookmark(rowIndex, item: updateItem)
+            }
+        }
     }
 }

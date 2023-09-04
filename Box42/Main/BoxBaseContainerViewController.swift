@@ -11,7 +11,7 @@ import Combine
 
 class BoxBaseContainerViewController: NSViewController {
     // MARK: - LeftContainer
-//    var splitView: BoxBaseSplitView = BoxBaseSplitView()
+    var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
     var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
@@ -30,22 +30,10 @@ class BoxBaseContainerViewController: NSViewController {
     var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
 
     // MARK: - table View
-    var viewModel: BookmarkViewModel? {
-        didSet {
-            print("ViewModel has been set.")
-            setupBindings()
-        }
-    }
+    var viewModel: BookmarkViewModel? = BookmarkViewModel.shared
     
     var cancellables: Set<AnyCancellable> = []
 
-    private let splitView: NSSplitView = {
-        let splitView = NSSplitView()
-        splitView.isVertical = true
-        splitView.dividerStyle = .thick
-        return splitView
-    }()
-    
     private let bookMarkView: NSView = {
         let view = NSView()
         return view
@@ -69,15 +57,6 @@ class BoxBaseContainerViewController: NSViewController {
                 self?.tableView.reloadData()
             }
         }).store(in: &cancellables)
-    }
-    
-    
-    var buttonTitleArray: [String] {
-        return BookmarkViewModel.shared.bookMarkList.map { $0.name }
-    }
-
-    var urlArray: [String] {
-        return BookmarkViewModel.shared.bookMarkList.map { $0.url }
     }
 
     var selectedRow: Int?
@@ -121,6 +100,7 @@ class BoxBaseContainerViewController: NSViewController {
         bookMarkView.snp.makeConstraints { make in
             make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
             make.leading.trailing.equalToSuperview()
+            make.width.equalToSuperview()
             make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
         quickSlotGroupVC.view.snp.makeConstraints { make in
@@ -182,9 +162,7 @@ class BoxBaseContainerViewController: NSViewController {
         
         tableView.addTableColumn(column)
         
-        
         let scrollView = NSScrollView()
-        scrollView.hasVerticalScroller = true
         scrollView.documentView = tableView
         
         bookMarkView.addSubview(stackView)
@@ -205,6 +183,7 @@ class BoxBaseContainerViewController: NSViewController {
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(0)
             make.leading.trailing.equalToSuperview().offset(0)
+            make.width.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         
@@ -214,25 +193,29 @@ class BoxBaseContainerViewController: NSViewController {
     }
     
     @objc func addBookMarkButtonClicked(_ sender: NSButton) {
-        splitView.removeArrangedSubview(contentGroup)
-        contentGroup.removeFromSuperview()
+        contentGroup.removeAllSubviews()
+
+        let bookmarkTableView = BookmarkEditorTableView()
+        bookmarkTableView.setup()
+        bookmarkTableView.setupBindings()
         
-        let newView = BookmarkEditorView(bookMarkList: BookmarkViewModel.shared.bookMarkList)
-        newView.wantsLayer = true
-        newView.layer?.backgroundColor = NSColor.black.cgColor
-        newView.layer?.cornerRadius = 20
-        newView.frame.size = contentGroup.frame.size
+        let scrollView = NSScrollView()
+        contentGroup.addSubview(scrollView)
+        scrollView.documentView = bookmarkTableView
         
-        contentGroup.addSubview(newView)
-        newView.snp.makeConstraints { make in
+        scrollView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
-        }
+        })
         
-        splitView.addArrangedSubview(contentGroup)
+        bookmarkTableView.snp.makeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
     }
     
     override func viewDidLoad() {
 //        self.view.wantsLayer = true
+        super.viewDidLoad()
+        setupBindings()
 //
 ////        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
 //        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
@@ -353,25 +336,6 @@ extension BoxBaseContainerViewController: NSTableViewDelegate {
         pasteboardItem.setString(String(row), forType: .string)
         return pasteboardItem
     }
-    
-    func sendUpdatedDataToServer() {
-        let urlList = zip(buttonTitleArray, urlArray).map { ["name": $0.0, "url": $0.1] }
-        let jsonData = try? JSONSerialization.data(withJSONObject: ["urlList": urlList])
-        
-        var request = URLRequest(url: URL(string:"https://api.42box.kr/user-service/users/me/url-list")!)
-        request.httpMethod = "POST"
-        request.httpBody = jsonData
-        
-        URLSession.shared.dataTask(with:request) { (data, response, error) in
-            if error != nil{
-                print(error!.localizedDescription)
-            }
-            else{
-                print("Data posted successfully")
-            }
-        }.resume()
-    }
-    
 }
 
 class ButtonTableCellView: NSTableCellView {
@@ -402,6 +366,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         button.bezelStyle = .inline
         button.isBordered = false
         button.title = ""
+        button.associatedString = BookmarkViewModel.shared.bookMarkList[row].name
         button.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         button.target = self
         button.action = #selector(buttonClicked(_:))
@@ -409,7 +374,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         
         let label = NSTextField(frame: NSRect(x: 26 + 21 + 8, y: 25 / 2, width: button.bounds.width, height: button.bounds.height))
         
-        label.stringValue = buttonTitleArray[row]
+        label.stringValue = BookmarkViewModel.shared.bookMarkList[row].name
         label.backgroundColor = .clear
         label.isBordered = false
         label.isEditable = false
@@ -445,8 +410,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
             make.top.equalToSuperview().offset(2)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            //            make.width.equalTo(268)
-            make.width.lessThanOrEqualTo(268)
+            make.width.equalToSuperview()
             make.height.equalTo(44)
         }
         
@@ -472,11 +436,10 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         selectedButton = sender
         sender.layer?.backgroundColor = NSColor.white.cgColor
         
-        if sender.tag < urlArray.count {
-            if let url = URL(string:urlArray[sender.tag]) {
+        if sender.tag < BookmarkViewModel.shared.bookMarkList.count {
+            if let url = URL(string: BookmarkViewModel.shared.bookMarkList[sender.tag].url) {
                 print(url)
-                 contentGroup.webView.load(URLRequest(url: url))
-//				clickBtn(sender: sender)
+				clickBtn(sender: sender)
             }
         }
     }
@@ -485,7 +448,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         if let button = sender as? NSButton {
             guard let clickCount = NSApp.currentEvent?.clickCount else { return }
             if clickCount == 2 {
-                WebViewManager.shared.list[button.title]!.reload()
+                WebViewManager.shared.list[button.title]?.reload()
                 print("Dobule Click")
             } else if clickCount > 2 {
                 if let currentURL = WebViewManager.shared.hostingWebView?.url {
@@ -493,8 +456,8 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
                 }
                 print("Triple Click")
             } else if clickCount < 2 {
-//                contentGroup.removeAllSubviews()
-//                contentGroup.showWebviews(button) // sender.tag
+                contentGroup.removeAllSubviews()
+                contentGroup.showWebviews(button) // sender.tag
             }
         } else {
             if let str = sender as? String {
@@ -523,118 +486,18 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         let item = BookmarkViewModel.shared.bookMarkList[from]
         BookmarkViewModel.shared.bookMarkList.remove(at: from)
         BookmarkViewModel.shared.bookMarkList.insert(item, at: to)
-        tableView.reloadData()
         
         for (_, subview) in tableView.subviews.enumerated() {
             guard let cellView = subview as? CustomTableCellView else {
                 continue
             }
             
-            cellView.button.title = buttonTitleArray[cellView.rowIndex]
+            cellView.button.title = BookmarkViewModel.shared.bookMarkList[cellView.rowIndex].url
         }
         
         return true
     }
 }
-
-class DraggableButton: NSButton, NSDraggingSource {
-    weak var delegate: BoxBaseContainerViewController?
-    var mouseDownEvent: NSEvent?
-    
-    func draggingSession(_ session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation {
-        return .move
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        print("mouseUp")
-        if let down = self.mouseDownEvent {
-            if event.locationInWindow == down.locationInWindow {
-                self.target?.perform(self.action, with: self)
-            }
-            
-            super.mouseUp(with:event)
-            self.mouseDownEvent = nil
-        }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        print("mouseDown")
-        self.mouseDownEvent = event
-        if event.clickCount > 1 {
-            self.target?.perform(self.action, with: self)
-        }
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        guard let down = self.mouseDownEvent else { return }
-        
-        let distance = hypot(
-            down.locationInWindow.x - event.locationInWindow.x,
-            down.locationInWindow.y - event.locationInWindow.y)
-        
-        if distance > 3 { // Adjust this as needed
-            let pasteboardItem = NSPasteboardItem()
-            pasteboardItem.setString("\(self.tag)", forType: .string)
-            
-            let draggingItem = NSDraggingItem(pasteboardWriter: pasteboardItem)
-            
-            // Create a snapshot of the button
-            let snapshot = self.snapshot()
-            
-            // Set the dragging frame and contents
-            draggingItem.setDraggingFrame(self.bounds, contents:snapshot)
-            
-            beginDraggingSession(with: [draggingItem], event:self.mouseDownEvent!, source:self)
-            
-            self.mouseDownEvent = nil
-        }
-    }
-    
-    func snapshot() -> NSImage? {
-        guard let bitmapRep = bitmapImageRepForCachingDisplay(in: bounds) else { return nil }
-        cacheDisplay(in: bounds, to: bitmapRep)
-        let image = NSImage(size: bounds.size)
-        image.addRepresentation(bitmapRep)
-        return image
-    }
-    
-    override func viewDidMoveToWindow() {
-        super.viewDidMoveToWindow()
-        
-        let trackingArea = NSTrackingArea(
-            rect: bounds,
-            options: [.mouseEnteredAndExited, .activeAlways],
-            owner: self,
-            userInfo: nil
-        )
-        
-        addTrackingArea(trackingArea)
-    }
-    
-    override func mouseEntered(with event: NSEvent) {
-        super.mouseEntered(with: event)
-        
-        if self != delegate?.selectedButton {
-            wantsLayer = true
-            layer?.frame.size = CGSize(width: 268.0, height: 44.0)
-            layer?.cornerRadius = 12
-            layer?.backgroundColor = NSColor(red: 0.848, green: 0.848, blue: 0.848, alpha: 1).cgColor
-        }
-    }
-    
-    override func mouseExited(with event: NSEvent) {
-        super.mouseExited(with: event)
-        
-        if self != delegate?.selectedButton {
-            wantsLayer = true
-            layer?.frame.size = CGSize(width: 268.0, height: 44.0)
-            layer?.cornerRadius = 12
-            layer?.backgroundColor = NSColor.clear.cgColor
-        }
-    }
-}
-
-
 
 //extension BoxBaseContainerViewController: BoxFunctionViewControllerDelegate {
 //    func didTapBoxButton() {

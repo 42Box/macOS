@@ -12,8 +12,6 @@ typealias WebViewMapping = [String : WKWebView]
 class WebViewManager: NSObject {
     static let shared = WebViewManager()
     
-    var icon = MenubarViewController()
-    
     var getCookieWebKit: WKWebView {
         didSet {
             getCookieWebKit.navigationDelegate = self
@@ -43,6 +41,15 @@ class WebViewManager: NSObject {
         if let url = URL(string: "https://api.42box.kr") {
             let request = URLRequest(url: url)
             getCookieWebKit.load(request)
+        }
+    }
+    
+    func storageSetCookie() {
+        getCookieWebKit.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
+            let cookieStorage = HTTPCookieStorage.shared
+            for cookie in cookies {
+                cookieStorage.setCookie(cookie)
+            }
         }
     }
 }

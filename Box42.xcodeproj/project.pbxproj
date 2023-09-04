@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64D699FA2AA5F5F500EEF7BC /* BookmarkCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */; };
-		64D699FC2AA5F63600EEF7BC /* BookmarkManagerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */; };
 		64D699FE2AA5F69900EEF7BC /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */; };
 		64D69A012AA5F97B00EEF7BC /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */; };
-		7E9B46922AA5C564009EB900 /* BookmarkEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B46912AA5C564009EB900 /* BookmarkEditorView.swift */; };
+		7E9B46922AA5C564009EB900 /* BookmarkEditorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B46912AA5C564009EB900 /* BookmarkEditorTableView.swift */; };
 		DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */; };
 		DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */; };
 		DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */; };
@@ -119,6 +117,15 @@
 		DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */; };
 		DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */; };
 		DE98E8552A98EA7900F8744A /* WindowButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */; };
+		DE9B57562AA62723007B796C /* BookmarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B57552AA62723007B796C /* BookmarkTableView.swift */; };
+		DE9B575A2AA629E4007B796C /* DraggableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B57592AA629E4007B796C /* DraggableButton.swift */; };
+		DE9B575E2AA62A54007B796C /* ButtonTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B575D2AA62A54007B796C /* ButtonTableCellView.swift */; };
+		DE9B57672AA65B87007B796C /* PutUserMeUrlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B57662AA65B87007B796C /* PutUserMeUrlList.swift */; };
+		DE9B576C2AA6647F007B796C /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B576B2AA6647F007B796C /* BookmarkCell.swift */; };
+		DE9B576F2AA664D1007B796C /* BookmarkCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B576E2AA664D1007B796C /* BookmarkCellManager.swift */; };
+		DE9B57782AA66DCD007B796C /* BookmarkUpdateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B57772AA66DCD007B796C /* BookmarkUpdateButton.swift */; };
+		DE9B577C2AA66DEA007B796C /* BookmarkDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B577B2AA66DEA007B796C /* BookmarkDeleteButton.swift */; };
+		DE9B577F2AA66DF9007B796C /* BookmarkCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B577E2AA66DF9007B796C /* BookmarkCreateButton.swift */; };
 		DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
@@ -139,10 +146,8 @@
 
 /* Begin PBXFileReference section */
 		64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
-		64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellManager.swift; sourceTree = "<group>"; };
-		64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManagerTableView.swift; sourceTree = "<group>"; };
 		64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
-		7E9B46912AA5C564009EB900 /* BookmarkEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkEditorView.swift; sourceTree = "<group>"; };
+		7E9B46912AA5C564009EB900 /* BookmarkEditorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkEditorTableView.swift; sourceTree = "<group>"; };
 		DE018BAF2A5099F900FF0AA3 /* Box42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE018BB72A5099F900FF0AA3 /* Box42.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Box42.xcdatamodel; sourceTree = "<group>"; };
@@ -252,6 +257,15 @@
 		DE98E83A2A98DB6000F8744A /* RotateImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RotateImage+NSImage.swift"; sourceTree = "<group>"; };
 		DE98E8422A98DDFD00F8744A /* QuickSlotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSlotViewController.swift; sourceTree = "<group>"; };
 		DE98E8542A98EA7900F8744A /* WindowButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonUI.swift; sourceTree = "<group>"; };
+		DE9B57552AA62723007B796C /* BookmarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableView.swift; sourceTree = "<group>"; };
+		DE9B57592AA629E4007B796C /* DraggableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableButton.swift; sourceTree = "<group>"; };
+		DE9B575D2AA62A54007B796C /* ButtonTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellView.swift; sourceTree = "<group>"; };
+		DE9B57662AA65B87007B796C /* PutUserMeUrlList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserMeUrlList.swift; sourceTree = "<group>"; };
+		DE9B576B2AA6647F007B796C /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		DE9B576E2AA664D1007B796C /* BookmarkCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellManager.swift; sourceTree = "<group>"; };
+		DE9B57772AA66DCD007B796C /* BookmarkUpdateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkUpdateButton.swift; sourceTree = "<group>"; };
+		DE9B577B2AA66DEA007B796C /* BookmarkDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDeleteButton.swift; sourceTree = "<group>"; };
+		DE9B577E2AA66DF9007B796C /* BookmarkCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCreateButton.swift; sourceTree = "<group>"; };
 		DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGroupViewController.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
@@ -288,8 +302,7 @@
 			children = (
 				64D699FF2AA5F69D00EEF7BC /* Model */,
 				64D69A002AA5F6A100EEF7BC /* ViewModel */,
-				64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */,
-				64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */,
+				DE9B57542AA62704007B796C /* View */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -330,13 +343,13 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
-				64D699F62AA5F5AA00EEF7BC /* Bookmark */,
 				DE9456F62A9E44F100B0B768 /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
 				DE018C0E2A509C0C00FF0AA3 /* Menubar */,
 				DE9DA8122A97F1E2001C0D3B /* ButtonGroup */,
 				DE1F1A202A8B50CA00A88DD8 /* Main */,
+				64D699F62AA5F5AA00EEF7BC /* Bookmark */,
 				DE874F512A591EC600FC3B77 /* Preferences */,
 				DEB862D22A8511D600278FCD /* Scripts */,
 				DE018C0C2A509BDF00FF0AA3 /* Resources */,
@@ -483,7 +496,6 @@
 		DE4408202A9297EE0091937A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7E9B46912AA5C564009EB900 /* BookmarkEditorView.swift */,
 				DE1F1A1A2A8B50C500A88DD8 /* BoxContentsViewGroup.swift */,
 				DE24E6372A8FE10300E29F5D /* BoxBaseSplitView.swift */,
 			);
@@ -522,6 +534,7 @@
 				DEF0761A2AA33671005700E5 /* DeleteUserMeScript.swift */,
 				DEF076292AA3B955005700E5 /* PutUserMeQuickSlot.swift */,
 				DEF0762C2AA3C34C005700E5 /* GetUserMeQuickSlot.swift */,
+				DE9B57662AA65B87007B796C /* PutUserMeUrlList.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -740,6 +753,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DE9B57542AA62704007B796C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE9B57732AA666D3007B796C /* Button */,
+				DE9B57742AA666DD007B796C /* Editor */,
+				DE9B57552AA62723007B796C /* BookmarkTableView.swift */,
+				DE9B57592AA629E4007B796C /* DraggableButton.swift */,
+				DE9B575D2AA62A54007B796C /* ButtonTableCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE9B57732AA666D3007B796C /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				DE9B57772AA66DCD007B796C /* BookmarkUpdateButton.swift */,
+				DE9B577B2AA66DEA007B796C /* BookmarkDeleteButton.swift */,
+				DE9B577E2AA66DF9007B796C /* BookmarkCreateButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		DE9B57742AA666DD007B796C /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				7E9B46912AA5C564009EB900 /* BookmarkEditorTableView.swift */,
+				DE9B576B2AA6647F007B796C /* BookmarkCell.swift */,
+				DE9B576E2AA664D1007B796C /* BookmarkCellManager.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
 		DE9DA8122A97F1E2001C0D3B /* ButtonGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +964,7 @@
 				DEF076302AA3CF8A005700E5 /* QuickSlotItemLabel.swift in Sources */,
 				DE874F542A591F1400FC3B77 /* PreferencesView.swift in Sources */,
 				DE98E83B2A98DB6000F8744A /* RotateImage+NSImage.swift in Sources */,
+				DE9B575E2AA62A54007B796C /* ButtonTableCellView.swift in Sources */,
 				DE0A91982A8F977F00D1D6F1 /* ToolbarViewController.swift in Sources */,
 				DEF076432AA48AF0005700E5 /* QuickSlotCellDeleteButton.swift in Sources */,
 				DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */,
@@ -929,7 +975,6 @@
 				DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */,
 				DE9457442AA0A1B300B0B768 /* MemoryView.swift in Sources */,
 				DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */,
-				64D699FC2AA5F63600EEF7BC /* BookmarkManagerTableView.swift in Sources */,
 				DE9457312A9FB01400B0B768 /* PreferencesTableView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
@@ -949,6 +994,7 @@
 				DE6332E42A9BB8F800DCFAF6 /* QuickSlotButtonCollectionViewController.swift in Sources */,
 				DE9457062A9E69C100B0B768 /* ScriptNameLabel.swift in Sources */,
 				DE77BA512A82580400713683 /* MenubarViewModel.swift in Sources */,
+				DE9B577F2AA66DF9007B796C /* BookmarkCreateButton.swift in Sources */,
 				DE44080C2A924B520091937A /* BoxFunctionViewGroup.swift in Sources */,
 				DE97CA7C2A9A7199001073DE /* QuickSlotGroupView.swift in Sources */,
 				DEF0762A2AA3B955005700E5 /* PutUserMeQuickSlot.swift in Sources */,
@@ -956,6 +1002,8 @@
 				DE77BBA22A9DDC40006CC98B /* ScriptsFileManager.swift in Sources */,
 				DE874F5F2A5935CC00FC3B77 /* String.swift in Sources */,
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
+				DE9B577C2AA66DEA007B796C /* BookmarkDeleteButton.swift in Sources */,
+				DE9B575A2AA629E4007B796C /* DraggableButton.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE77BBA62A9DDF2B006CC98B /* WebView.swift in Sources */,
 				64D69A012AA5F97B00EEF7BC /* BookmarkViewModel.swift in Sources */,
@@ -966,8 +1014,9 @@
 				DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */,
 				DE78860C2A9C770300FE21DD /* ScriptsViewModel.swift in Sources */,
 				DE0A91632A8E6A5400D1D6F1 /* Constants.swift in Sources */,
-				7E9B46922AA5C564009EB900 /* BookmarkEditorView.swift in Sources */,
+				7E9B46922AA5C564009EB900 /* BookmarkEditorTableView.swift in Sources */,
 				DE7886172A9CCB3B00FE21DD /* UserProfile.swift in Sources */,
+				DE9B57782AA66DCD007B796C /* BookmarkUpdateButton.swift in Sources */,
 				DE0A91902A8F88CA00D1D6F1 /* DisplayURLInToolbar.swift in Sources */,
 				DE77BBCD2A9E0568006CC98B /* ExecuteScripts.swift in Sources */,
 				DE9456F82A9E44FD00B0B768 /* IconController.swift in Sources */,
@@ -988,11 +1037,12 @@
 				DE3FF3772A978AB8009C88EF /* WindowMinimizeButton.swift in Sources */,
 				DE9457542AA0BF5200B0B768 /* ShortcutSettingView.swift in Sources */,
 				DE4408022A923EB60091937A /* PinButtonView.swift in Sources */,
+				DE9B57672AA65B87007B796C /* PutUserMeUrlList.swift in Sources */,
 				DE77BBE22A9E0F70006CC98B /* Scripts.swift in Sources */,
 				DE78862D2A9D1ADE00FE21DD /* PreferencesCell.swift in Sources */,
+				DE9B576C2AA6647F007B796C /* BookmarkCell.swift in Sources */,
 				DE9457572AA0C5C600B0B768 /* IconSettingView.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
-				64D699FA2AA5F5F500EEF7BC /* BookmarkCellManager.swift in Sources */,
 				DE77BBF32A9E38DC006CC98B /* UserManager.swift in Sources */,
 				DEF076402AA4845E005700E5 /* QuickSlotCellManager.swift in Sources */,
 				DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */,
@@ -1003,6 +1053,7 @@
 				DE97CA692A9A6364001073DE /* PixelConversion+CGFloat.swift in Sources */,
 				DE7886282A9D186700FE21DD /* ScriptsViewController.swift in Sources */,
 				DEF0763D2AA48125005700E5 /* QuickSlotCell.swift in Sources */,
+				DE9B57562AA62723007B796C /* BookmarkTableView.swift in Sources */,
 				DE4408052A923EC00091937A /* QuitButtonView.swift in Sources */,
 				DE0A918A2A8F88A900D1D6F1 /* GoForwardInToolbar.swift in Sources */,
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
@@ -1022,6 +1073,7 @@
 				DE98E8432A98DDFD00F8744A /* QuickSlotViewController.swift in Sources */,
 				DEF0762D2AA3C34C005700E5 /* GetUserMeQuickSlot.swift in Sources */,
 				DE94574B2AA0A70500B0B768 /* NetworkView.swift in Sources */,
+				DE9B576F2AA664D1007B796C /* BookmarkCellManager.swift in Sources */,
 				DE1F1A2E2A8BCC9800A88DD8 /* Storage.swift in Sources */,
 				DE3FF36B2A978A57009C88EF /* WindowButtonViewController.swift in Sources */,
 				DE1F1A312A8BD68F00A88DD8 /* Double.swift in Sources */,
