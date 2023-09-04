@@ -7,7 +7,7 @@
 
 import WebKit
 
-class WebView: WKWebView, WKScriptMessageHandler {
+class WebView: WKWebView, WKScriptMessageHandler, WKUIDelegate, WKNavigationDelegate {
     var icon = MenubarViewController()
     
     init() {
@@ -32,10 +32,48 @@ class WebView: WKWebView, WKScriptMessageHandler {
         self.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         
         self.becomeFirstResponder()
+        
+        self.navigationDelegate = self
+        self.uiDelegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension WebView {
+    // front openpanel
+    func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseFiles = true
+        openPanel.allowsMultipleSelection = parameters.allowsMultipleSelection
+        openPanel.level = .popUpMenu
+
+        openPanel.begin { (result) in
+            if result == .OK {
+                completionHandler(openPanel.urls)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    // front new tap navigation
+    func webView(_ webView: WKWebView,
+                 createWebViewWith configuration: WKWebViewConfiguration,
+                 for navigationAction: WKNavigationAction,
+                 windowFeatures: WKWindowFeatures) -> WKWebView? {
+        
+        if navigationAction.targetFrame == nil {
+            if let url = navigationAction.request.url {
+                if navigationAction.navigationType == .linkActivated {
+                    webView.load(URLRequest(url: url))
+                    return nil
+                }
+            }
+        }
+        return nil
     }
 }
 
@@ -73,7 +111,12 @@ extension WebView {
                 let decoder = JSONDecoder()
                 let downloadString = try decoder.decode(Script.self, from: scriptJson!)
                 
-                ScriptViewModel.shared.addScript(id: UUID(), name: downloadString.name, description: downloadString.description ?? "description", path: downloadString.path, savedId: Int(downloadString.savedId ?? 0), userUuid: downloadString.userUuid!)
+                ScriptViewModel.shared.addScript(scriptUuid: downloadString.scriptUuid,
+                                                 name: downloadString.name,
+                                                 description: downloadString.description,
+                                                 path: downloadString.path,
+                                                 savedId: downloadString.savedId,
+                                                 userUuid: downloadString.userUuid)
                 
                 print(downloadString)
 
@@ -92,9 +135,9 @@ extension WebView {
                 let executeScript = try decoder.decode(Script.self, from: scriptJson!)
                 print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
                 
-                print(executeScript)
-                
-                ScriptsFileManager.downloadFile(from: "https://42box.kr/" + executeScript.path)
+                DispatchQueue.global().async {
+                    ScriptsFileManager.downloadFile(from: "https://42box.kr/" + executeScript.path)
+                }
             } catch {
                 print("JSON decoding failed: \(error)")
             }
@@ -110,9 +153,9 @@ extension WebView {
                 let deleteScript = try decoder.decode(Script.self, from: scriptJson!)
                 print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
                 
-                print(deleteScript)
-                
-                ScriptViewModel.shared.deleteScript(id: deleteScript.scriptUuid!)
+                DispatchQueue.global().async {
+                    ScriptViewModel.shared.deleteScript(id: deleteScript.scriptUuid)
+                }
             } catch {
                 print("JSON decoding failed: \(error)")
             }

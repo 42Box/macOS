@@ -13,14 +13,20 @@ class QuickSlotViewModel {
     @Published var buttons: [QuickSlotButtonModel] = []
     
     private init() {
-        let button1 = QuickSlotButtonModel(id: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3")!,
+        let button1 = QuickSlotButtonModel(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3")!,
                                            title: QuickSlotUI.title.clean,
                                            path: Bundle.main.path(forResource: "cleanCache", ofType: "sh"),
                                            type: "sh"
         )
-        let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences, type: "pref")
-        let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts)
-        let button4 = QuickSlotButtonModel(title: QuickSlotUI.title.user, type: "pref")
+        let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences,
+                                           path: "preferences",
+                                           type: "default-pref")
+        let button3 = QuickSlotButtonModel(title: QuickSlotUI.title.scripts,
+                                           path: "scripts",
+                                           type: "default-sh")
+        let button4 = QuickSlotButtonModel(title: QuickSlotUI.title.user,
+                                           path: "user",
+                                           type: "default-pref")
         
         buttons = [button1, button2, button3, button4]
     }
@@ -45,10 +51,39 @@ class QuickSlotViewModel {
     }
     
     func removeButton(_ id: UUID) {
-        buttons.removeAll { $0.scriptUuid == id }
-        updateMeQuickSlot()
+        if let index = buttons.firstIndex(where: { $0.scriptUuid == id }) {
+            let buttonToRemove = buttons[index]
+            if let type = buttonToRemove.type, !type.hasPrefix("default") {
+                buttons.remove(at: index)
+                updateMeQuickSlot()
+            }
+        }
     }
     
+    func removeButton(_ path: String) {
+        print("1. Attempting to remove button with path: \(path)")
+        print("2. Current buttons: \(buttons)")
+        if let index = buttons.firstIndex(where: { $0.path == path }) {
+            print("3. Found button at index: \(index)")
+            let buttonToRemove = buttons[index]
+            print("4. Button to remove: \(buttonToRemove)")
+            if let type = buttonToRemove.type {
+                print("5. Button type: \(type)")
+                if !type.hasPrefix("default") {
+                    print("6. Removing button...")
+                    buttons.remove(at: index)
+                    updateMeQuickSlot()
+                } else {
+                    print("Button type starts with 'default'. Skipping removal.")
+                }
+            } else {
+                print("Button type is nil. Skipping removal.")
+            }
+        } else {
+            print("Button not found.")
+        }
+    }
+
     func updateButton(id: UUID, newTitle: String) {
         if let index = buttons.firstIndex(where: { $0.scriptUuid == id }) {
             buttons[index].title = newTitle
@@ -67,3 +102,4 @@ class QuickSlotViewModel {
         }
     }
 }
+

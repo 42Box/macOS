@@ -88,8 +88,13 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "QuickSlotButtonViewItem"), for: indexPath)
-        
+        print("current item index>", indexPath.item)
         if let customItem = item as? QuickSlotButtonViewItem {
+            
+            for subview in customItem.view.subviews {
+                subview.removeFromSuperview()
+            }
+            
             if customItem.view.subviews.isEmpty {
                 let btn = QuickSlotItemButton(indexPath.item)
                 btn.action = #selector(collectionButtonTapped)
@@ -123,4 +128,5 @@ extension QuickSlotButtonCollectionViewController {
 // MARK: - Notification Name collectionButtonTapped
 extension Notification.Name {
     static let collectionButtonTapped = Notification.Name("collectionButtonTapped")
+    static let collectionHeaderTapped = Notification.Name("collectionHeaderTapped")
 }

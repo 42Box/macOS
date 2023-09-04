@@ -22,6 +22,10 @@ class QuickSlotItemButton: NSButton {
             self.image = NSImage(imageLiteralResourceName: "document-text")
         } else if buttonModel.type == "pref" {
             self.image = NSImage(imageLiteralResourceName: "setting")
+        } else if buttonModel.type == "default-sh" {
+            self.image = NSImage(imageLiteralResourceName: "document-text")
+        } else if buttonModel.type == "default-pref" {
+            self.image = NSImage(imageLiteralResourceName: "setting")
         }
         self.isBordered = false
         self.wantsLayer = true

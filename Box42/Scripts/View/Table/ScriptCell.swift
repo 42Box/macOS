@@ -95,27 +95,28 @@ class ScriptCell: NSTableCellView {
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.scriptUuid {
-            viewModel?.excuteScript(id: id)
+        if let path = script?.path {
+            viewModel?.excuteScript(path: path)
         }
     }
     
     @objc func quickSlotButtonclicked() {
-        guard let id = script?.scriptUuid else {
+        guard let path = script?.path else {
             return
         }
 
-        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.scriptUuid == id }
+        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.path == path }
 
         if alreadyExists {
-            QuickSlotViewModel.shared.removeButton(id)
+            QuickSlotViewModel.shared.removeButton(path)
             quickSlotButton.title = "퀵슬롯"
         } else {
             if QuickSlotViewModel.shared.buttons.count > 7 {
                 return
             } else {
                 quickSlotButton.title = "저장됨"
-                viewModel?.quickSlotScript(id: id)
+//                viewModel?.quickSlotScript(id: id)
+                viewModel?.quickSlotScript(path: path)
             }
         }
     }
