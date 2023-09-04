@@ -96,8 +96,11 @@ class ScriptCellManager: NSTableCellView {
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.scriptUuid {
-            viewModel?.excuteScript(id: id)
+        //        if let id = script?.scriptUuid {
+        //            viewModel?.excuteScript(id: id)
+        //        }
+        if let path = script?.path {
+            viewModel?.excuteScript(path: path)
         }
     }
     

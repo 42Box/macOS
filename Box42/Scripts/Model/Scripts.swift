@@ -19,8 +19,8 @@ struct Script: Codable {
     var savedId: Int?
     var userUuid: String?
     
-    init(id: UUID?, name: String, description: String?, path: String, savedId: Int?, userUuid: String?) {
-        self.scriptUuid = id
+    init(scriptUuid: UUID?, name: String, description: String?, path: String, savedId: Int?, userUuid: String?) {
+        self.scriptUuid = scriptUuid
         self.name = name
         self.description = description
         self.path = path

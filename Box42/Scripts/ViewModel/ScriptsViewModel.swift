@@ -15,7 +15,7 @@ class ScriptViewModel: NSObject {
     
     private override init() {
         self.scripts = [
-            Script(id: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3"),
+            Script(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3"),
                    name: "CleanCache",
                    description: "Cleaning cache",
                    path: Bundle.main.path(forResource: "cleanCache", ofType: "sh") ?? "", savedId: -1 , userUuid: nil),
@@ -39,19 +39,24 @@ class ScriptViewModel: NSObject {
     }
     
     // Create
-    func addScript(id: UUID = UUID(), name: String, description: String, path: String, savedId: Int, userUuid: String) {
-        let newScript = Script(id: UUID(), name: name, description: description, path: path, savedId: savedId, userUuid: userUuid)
+    func addScript(scriptUuid: UUID?, name: String, description: String?, path: String, savedId: Int?, userUuid: String?) {
+        let newScript = Script(scriptUuid: scriptUuid, name: name, description: description, path: path, savedId: savedId, userUuid: userUuid)
         scripts.append(newScript)
     }
     
+    //    // Read
+    //    func excuteScript(id: UUID) {
+    //        if let index = scripts.firstIndex(where: { $0.scriptUuid == id }) {
+    //            // MARK: - 파일스크립트 매니저에서 권한을 얻은 실행으로 실행합니다.
+    //            ScriptsFileManager.downloadFile(from: "https://42box.kr/" + scripts[index].path)
+    //        }
+    //    }
+    
     // Read
-    func excuteScript(id: UUID) {
-        if let index = scripts.firstIndex(where: { $0.scriptUuid == id }) {
-            //            ExecuteScripts.executeShellScript(path: scripts[index].name)
+    func excuteScript(path: String) {
+        if scripts.firstIndex(where: { $0.path == path }) != nil {
             // MARK: - 파일스크립트 매니저에서 권한을 얻은 실행으로 실행합니다.
-            ScriptsFileManager.downloadFile(from: "https://42box.kr/" + scripts[index].path)
-            
-            //            SecurityScopedResourceAccess.accessResourceExecuteShellScript(scriptPath: scripts[index].path)
+            ScriptsFileManager.downloadFile(from: "https://42box.kr/" + path)
         }
     }
     
@@ -64,13 +69,31 @@ class ScriptViewModel: NSObject {
     }
     
     // Delete
-    func deleteScript(id: UUID) {
+    func deleteScript(id: UUID?) {
         if let script = scripts.first(where: { $0.scriptUuid == id }) {
             API.deleteUserMeScripts(WebViewManager.shared.getCookieWebKit, savedId: script.savedId!) { result in
                 switch result {
                 case .success(_):
                     self.scripts.removeAll(where: { $0.scriptUuid == id })
-                    QuickSlotViewModel.shared.removeButton(id)
+                    if let scriptUuid = id {
+                        QuickSlotViewModel.shared.removeButton(scriptUuid)
+                    }
+                    
+                case .failure(let error):
+                    print("Failed to delete script: \(error)")
+                }
+            }
+        }
+    }
+    
+    // Delete
+    func deleteScript(path: String) {
+        if let script = scripts.first(where: { $0.path == path }) {
+            API.deleteUserMeScripts(WebViewManager.shared.getCookieWebKit, savedId: script.savedId!) { result in
+                switch result {
+                case .success(_):
+                    self.scripts.removeAll(where: { $0.path == path })
+                    QuickSlotViewModel.shared.removeButton(path)
                     
                 case .failure(let error):
                     print("Failed to delete script: \(error)")
@@ -92,7 +115,15 @@ class ScriptViewModel: NSObject {
     // 스크립트안에서 해당하는 스크립트를 찾아서 quickslotVM에 추가
     func quickSlotScript(id: UUID) {
         if let index = scripts.firstIndex(where: { $0.scriptUuid == id }) {
-            let button = QuickSlotButtonModel(id: id, title: scripts[index].name, path: scripts[index].path)
+            let button = QuickSlotButtonModel(scriptUuid: id, title: scripts[index].name, path: scripts[index].path)
+            QuickSlotViewModel.shared.addButton(button)
+        }
+    }
+    
+    // 스크립트안에서 해당하는 스크립트를 찾아서 quickslotVM에 추가
+    func quickSlotScript(path: String) {
+        if let index = scripts.firstIndex(where: { $0.path == path }) {
+            let button = QuickSlotButtonModel(scriptUuid: scripts[index].scriptUuid, title: scripts[index].name, path: scripts[index].path)
             QuickSlotViewModel.shared.addButton(button)
         }
     }
