@@ -160,5 +160,23 @@ extension WebView {
                 print("JSON decoding failed: \(error)")
             }
         }
+        
+        // URL 저장
+        if message.name == WebViewUI.transfer.saveURL, let saveURL = message.body as? String {
+            let scriptJson = saveURL.data(using: .utf8)
+            print("saveURL : ", String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
+            
+            do {
+                let decoder = JSONDecoder()
+                let saveURL = try decoder.decode(URLItem.self, from: scriptJson!)
+                
+                BookmarkViewModel.shared.addBookmark(item: URLItem(name: saveURL.name, url: saveURL.name))
+                
+                print(saveURL)
+
+            } catch {
+                print("JSON decoding failed: \(error)")
+            }
+        }
     }
 }

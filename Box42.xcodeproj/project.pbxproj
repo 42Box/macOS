@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64D699FA2AA5F5F500EEF7BC /* BookmarkCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */; };
+		64D699FC2AA5F63600EEF7BC /* BookmarkManagerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */; };
+		64D699FE2AA5F69900EEF7BC /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */; };
+		64D69A012AA5F97B00EEF7BC /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */; };
 		7E9B46922AA5C564009EB900 /* BookmarkEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B46912AA5C564009EB900 /* BookmarkEditorView.swift */; };
 		DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */; };
 		DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */; };
@@ -134,6 +138,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
+		64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellManager.swift; sourceTree = "<group>"; };
+		64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManagerTableView.swift; sourceTree = "<group>"; };
+		64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
 		7E9B46912AA5C564009EB900 /* BookmarkEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkEditorView.swift; sourceTree = "<group>"; };
 		DE018BAF2A5099F900FF0AA3 /* Box42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -275,6 +283,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64D699F62AA5F5AA00EEF7BC /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				64D699FF2AA5F69D00EEF7BC /* Model */,
+				64D69A002AA5F6A100EEF7BC /* ViewModel */,
+				64D699F92AA5F5F500EEF7BC /* BookmarkCellManager.swift */,
+				64D699FB2AA5F63600EEF7BC /* BookmarkManagerTableView.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		64D699FF2AA5F69D00EEF7BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		64D69A002AA5F6A100EEF7BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DE018BA62A5099F900FF0AA3 = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +330,7 @@
 		DE018BB12A5099F900FF0AA3 /* Box42 */ = {
 			isa = PBXGroup;
 			children = (
+				64D699F62AA5F5AA00EEF7BC /* Bookmark */,
 				DE9456F62A9E44F100B0B768 /* Icon */,
 				DE77BA542A82636500713683 /* Shared */,
 				DEF749302A85655E00D987C8 /* Extensions */,
@@ -893,6 +929,7 @@
 				DE9457002A9E5B0900B0B768 /* ScriptCell.swift in Sources */,
 				DE9457442AA0A1B300B0B768 /* MemoryView.swift in Sources */,
 				DE7886042A9C71CB00FE21DD /* ScriptsTableView.swift in Sources */,
+				64D699FC2AA5F63600EEF7BC /* BookmarkManagerTableView.swift in Sources */,
 				DE9457312A9FB01400B0B768 /* PreferencesTableView.swift in Sources */,
 				DE97CA872A9A7407001073DE /* QuickSlotButtonModel.swift in Sources */,
 				DE77BA562A82637900713683 /* StateManager.swift in Sources */,
@@ -921,6 +958,7 @@
 				DE0A91862A8F889F00D1D6F1 /* RefreshPageViaToolbar.swift in Sources */,
 				DE874F4E2A591DEA00FC3B77 /* Hotkey.swift in Sources */,
 				DE77BBA62A9DDF2B006CC98B /* WebView.swift in Sources */,
+				64D69A012AA5F97B00EEF7BC /* BookmarkViewModel.swift in Sources */,
 				DE0A91832A8F889000D1D6F1 /* GoHomePageViaToolbar().swift in Sources */,
 				DE6332F22A9BCA2C00DCFAF6 /* QuickSlotScriptsLogicController.swift in Sources */,
 				DE9457512AA0BE0F00B0B768 /* NotificationSettingView.swift in Sources */,
@@ -954,6 +992,7 @@
 				DE78862D2A9D1ADE00FE21DD /* PreferencesCell.swift in Sources */,
 				DE9457572AA0C5C600B0B768 /* IconSettingView.swift in Sources */,
 				DE0A91672A8E6CA700D1D6F1 /* WebViewManager.swift in Sources */,
+				64D699FA2AA5F5F500EEF7BC /* BookmarkCellManager.swift in Sources */,
 				DE77BBF32A9E38DC006CC98B /* UserManager.swift in Sources */,
 				DEF076402AA4845E005700E5 /* QuickSlotCellManager.swift in Sources */,
 				DE94570C2A9E69EB00B0B768 /* ScriptExcuteButton.swift in Sources */,
@@ -968,6 +1007,7 @@
 				DE0A918A2A8F88A900D1D6F1 /* GoForwardInToolbar.swift in Sources */,
 				DE1F1A1E2A8B50C500A88DD8 /* BoxButtonViewGroup.swift in Sources */,
 				DEB862EB2A853F7F00278FCD /* BoxWindowController.swift in Sources */,
+				64D699FE2AA5F69900EEF7BC /* BookmarkModel.swift in Sources */,
 				DE0A918D2A8F88BC00D1D6F1 /* GoBackInToolbar.swift in Sources */,
 				DE94574E2AA0B56200B0B768 /* CPUView.swift in Sources */,
 				DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */,

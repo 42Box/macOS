@@ -11,11 +11,11 @@ class BookmarkRowView: NSView {
     let nameField = NSTextField()
     let urlField = NSTextField()
     
-    init(bookmark: (String, String)) {
+    init(bookmark: URLItem) {
         super.init(frame: .zero)
         
-        nameField.stringValue = bookmark.0
-        urlField.stringValue = bookmark.1
+        nameField.stringValue = bookmark.name
+        urlField.stringValue = bookmark.url
         
         addSubview(nameField)
         addSubview(urlField)
@@ -39,27 +39,27 @@ class BookmarkRowView: NSView {
 
 class BookmarkEditorView : NSView {
     
-    var bookMarkList : [(String,String)]
+    var bookMarkList : [URLItem]
     var changeButton=NSButton(title:"Change",target:nil,action:nil)
     var closeButton=NSButton(title:"Close",target:nil,action:nil)
     
-    init(bookMarkList : [(String,String)]){
+    init(bookMarkList : [URLItem]){
         
         self.bookMarkList=bookMarkList
         
         super.init(frame:.zero)
         
-        for (index, bookmark) in bookMarkList.enumerated(){
-            let row=BookmarkRowView(bookmark: bookmark)
+        for (name, url) in bookMarkList.enumerated(){
+            let row=BookmarkRowView(bookmark: url)
             self.addSubview(row)
             
             row.snp.makeConstraints { make in
-                if index == 0 {
+                if name == 0 {
                     // First row should be at the top of the editor.
                     make.top.equalToSuperview()
                 } else {
                     // Other rows should be below the previous one.
-                    make.top.equalTo(self.subviews[index - 1].snp.bottom)
+                    make.top.equalTo(self.subviews[name - 1].snp.bottom)
                 }
                 
                 // All rows have the same height and span the entire width of the editor.

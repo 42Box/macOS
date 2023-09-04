@@ -19,11 +19,6 @@ struct UserProfile: Codable {
     let quickSlotList: [QuickSlotButtonModel]
 }
 
-struct URLItem: Codable {
-    let name: String
-    let url: String
-}
-
 extension UserProfile {
     static func defaultProfile() -> UserProfile {
         return UserProfile(

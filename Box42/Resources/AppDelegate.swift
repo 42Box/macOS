@@ -32,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         WebViewManager.shared.getCookie()
         API.getUserProfile(WebViewManager.shared.getCookieWebKit)
         _ = ScriptViewModel.shared
+        _ = BookmarkViewModel.shared
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

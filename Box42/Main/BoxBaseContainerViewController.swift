@@ -7,21 +7,7 @@
 
 import Cocoa
 import SnapKit
-
-let bookMarkList = [
-    ("home", "https://42box.kr/"),
-    ("23Coaltheme", "https://42box.github.io/front-end/"),
-    ("Box 42", "https://42box.github.io/front-end/#/box"),
-    ("Intra 42", "https://intra.42.fr"),
-    ("Jiphyeonjeon", "https://42library.kr"),
-    ("42STAT", "https://stat.42seoul.kr/home"),
-    ("24Hane", "https://24hoursarenotenough.42seoul.kr"),
-    ("80kCoding", "https://80000coding.oopy.io"),
-    ("where42", "https://www.where42.kr"),
-    ("cabi", "https://cabi.42seoul.io/"),
-    ("42gg", "https://42gg.kr/"),
-    ("textart", "https://textart.sh/"),
-]
+import Combine
 
 class BoxBaseContainerViewController: NSViewController {
     // MARK: - LeftContainer
@@ -31,7 +17,7 @@ class BoxBaseContainerViewController: NSViewController {
     var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
-//    var leftContainer: MovableContainerView = MovableContainerView()
+    var leftView: MovableContainerView = MovableContainerView()
 //    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
     
     // MARK: - QuickSlot
@@ -43,18 +29,21 @@ class BoxBaseContainerViewController: NSViewController {
     var quickSlotManagerVC: QuickSlotManagerViewController = QuickSlotManagerViewController()
     var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
 
+    // MARK: - table View
+    var viewModel: BookmarkViewModel? {
+        didSet {
+            print("ViewModel has been set.")
+            setupBindings()
+        }
+    }
+    
+    var cancellables: Set<AnyCancellable> = []
+
     private let splitView: NSSplitView = {
         let splitView = NSSplitView()
         splitView.isVertical = true
         splitView.dividerStyle = .thick
         return splitView
-    }()
-    
-    private let leftView: NSView = {
-        let view = NSView()
-        view.frame.size.width = 302 - 12
-        view.frame.size.height = 1200
-        return view
     }()
     
     private let bookMarkView: NSView = {
@@ -68,9 +57,29 @@ class BoxBaseContainerViewController: NSViewController {
         tableView.headerView = nil
         return tableView
     }()
+
     
-    var buttonTitleArray = bookMarkList.map { $0.0 }
-    var urlArray = bookMarkList.map { $0.1 }
+    // MARK: - table View End
+    
+    private func setupBindings() {
+        print("Setting up bindings...") // 디버깅 로그
+        viewModel?.$bookMarkList.sink(receiveValue: { [weak self] newScripts in
+            print("Received new scripts: \(newScripts)") // 디버깅 로그
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }).store(in: &cancellables)
+    }
+    
+    
+    var buttonTitleArray: [String] {
+        return BookmarkViewModel.shared.bookMarkList.map { $0.name }
+    }
+
+    var urlArray: [String] {
+        return BookmarkViewModel.shared.bookMarkList.map { $0.url }
+    }
+
     var selectedRow: Int?
     var selectedButton: DraggableButton?
     
@@ -208,7 +217,7 @@ class BoxBaseContainerViewController: NSViewController {
         splitView.removeArrangedSubview(contentGroup)
         contentGroup.removeFromSuperview()
         
-        let newView = BookmarkEditorView(bookMarkList: bookMarkList)
+        let newView = BookmarkEditorView(bookMarkList: BookmarkViewModel.shared.bookMarkList)
         newView.wantsLayer = true
         newView.layer?.backgroundColor = NSColor.black.cgColor
         newView.layer?.cornerRadius = 20
@@ -240,31 +249,6 @@ class BoxBaseContainerViewController: NSViewController {
 //        }
 //
 //        return buttonGroup
-//    }
-    
-//    func clickBtn(sender: Any?) {
-//        if let button = sender as? NSButton {
-//            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
-//            if clickCount == 2 {
-//                WebViewManager.shared.list[button.title]!.reload()
-//                print("Dobule Click")
-//            } else if clickCount > 2 {
-//                if let currentURL = WebViewManager.shared.hostingWebView?.url {
-//                    NSWorkspace.shared.open(currentURL)
-//                }
-//                print("Triple Click")
-//            } else if clickCount < 2 {
-//                contentGroup.removeAllSubviews()
-//                contentGroup.showWebviews(button)
-//            }
-//        } else {
-//            if let str = sender as? String {
-//                if str == "box" {
-//                    contentGroup.removeAllSubviews()
-//                    print("box inside")
-//                }
-//            }
-//        }
 //    }
 //
 //    private func leftContainerInit() {
@@ -406,7 +390,7 @@ class ButtonTableCellView: NSTableCellView {
 
 extension BoxBaseContainerViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return buttonTitleArray.count
+        return BookmarkViewModel.shared.bookMarkList.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -491,7 +475,33 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         if sender.tag < urlArray.count {
             if let url = URL(string:urlArray[sender.tag]) {
                 print(url)
-                contentGroup.webView.load(URLRequest(url: url))
+                 contentGroup.webView.load(URLRequest(url: url))
+//				clickBtn(sender: sender)
+            }
+        }
+    }
+    
+    func clickBtn(sender: Any?) {
+        if let button = sender as? NSButton {
+            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
+            if clickCount == 2 {
+                WebViewManager.shared.list[button.title]!.reload()
+                print("Dobule Click")
+            } else if clickCount > 2 {
+                if let currentURL = WebViewManager.shared.hostingWebView?.url {
+                    NSWorkspace.shared.open(currentURL)
+                }
+                print("Triple Click")
+            } else if clickCount < 2 {
+//                contentGroup.removeAllSubviews()
+//                contentGroup.showWebviews(button) // sender.tag
+            }
+        } else {
+            if let str = sender as? String {
+                if str == "box" {
+                    contentGroup.removeAllSubviews()
+                    print("box inside")
+                }
             }
         }
     }
@@ -510,9 +520,9 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         }
         
         let to = (from < row) ? row - 1 : row
-        let item = buttonTitleArray[from]
-        buttonTitleArray.remove(at: from)
-        buttonTitleArray.insert(item, at: to)
+        let item = BookmarkViewModel.shared.bookMarkList[from]
+        BookmarkViewModel.shared.bookMarkList.remove(at: from)
+        BookmarkViewModel.shared.bookMarkList.insert(item, at: to)
         tableView.reloadData()
         
         for (_, subview) in tableView.subviews.enumerated() {

@@ -40,6 +40,7 @@ class ToolbarViewController: NSViewController {
     
     func sidebar() {
         print("sidebar")
+        BookmarkViewModel.shared.addBookmark(item: URLItem(name: "chan", url: "https://www.naver.com"))
     }
     
     func goBack() {
