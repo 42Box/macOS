@@ -21,7 +21,7 @@ class QuickSlotViewController: NSViewController {
     }
     
     func headerAction() {
-        print("quick slot header")
+        NotificationCenter.default.post(name: .collectionHeaderTapped, object: nil)
     }
 
     @objc func handleButtonTapped(notification: NSNotification) {

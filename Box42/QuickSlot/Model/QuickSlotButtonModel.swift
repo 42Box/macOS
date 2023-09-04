@@ -18,8 +18,8 @@ struct QuickSlotButtonModel: Codable {
     var path: String?
     var type: String?
     
-    init(id: UUID = UUID(), title: String = "Default", path: String? = "none", type: String = "sh") {
-        self.scriptUuid = id
+    init(scriptUuid: UUID? = UUID(), title: String = "Default", path: String? = "none", type: String = "sh") {
+        self.scriptUuid = scriptUuid ?? UUID()
         self.title = title
         self.path = path
         self.type = type

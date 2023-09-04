@@ -25,7 +25,7 @@ class BoxBaseContainerViewController: NSViewController {
         
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
-    
+    var quickSlotManagerVC: QuickSlotManagerViewController = QuickSlotManagerViewController()
     var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
 
     
@@ -47,6 +47,8 @@ class BoxBaseContainerViewController: NSViewController {
         self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(headerTappedQuickSlotManagerHandle), name: .collectionHeaderTapped, object: nil)
     }
     
     func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -207,6 +209,18 @@ extension BoxBaseContainerViewController {
                     make.top.bottom.left.right.equalToSuperview()
                 }
             }
+        }
+    }
+}
+
+extension BoxBaseContainerViewController {
+    @objc func headerTappedQuickSlotManagerHandle(notification: NSNotification) {
+        print("QuickSlotManager")
+        contentGroup.removeAllSubviews()
+        print(quickSlotManagerVC)
+        contentGroup.addSubview(quickSlotManagerVC.view)
+        quickSlotManagerVC.view.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
         }
     }
 }
