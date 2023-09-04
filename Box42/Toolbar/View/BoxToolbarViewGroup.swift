@@ -22,10 +22,13 @@ class BoxToolbarViewGroup: NSView {
     var goToHome: (() -> Void)?
     var sidebar: (() -> Void)?
     
+    var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
     override init(frame: NSRect) {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        
+        toolbarGroupVC.toolbarViewGroup = self
     }
 
     required init?(coder: NSCoder) {

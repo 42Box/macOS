@@ -33,9 +33,12 @@ class ScriptsTableView: NSTableView {
         self.delegate = self
         self.dataSource = self
         
+        self.headerView = nil
+        self.selectionHighlightStyle = .none
+        
+        self.backgroundColor = .white
+        
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Scripts"))
-        column1.width = 100.0
-        column1.title = "Scripts"
         self.addTableColumn(column1)
     }
 }

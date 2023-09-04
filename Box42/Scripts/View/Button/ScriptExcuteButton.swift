@@ -13,10 +13,16 @@ class ScriptExcuteButton: NSButton {
         super.init(frame: NSRect(x: 0, y: 0, width: 70, height: 40))
 
         self.title = "실행하기"
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: NSFont.systemFont(ofSize: 13, weight: .medium),
+            .foregroundColor: NSColor.white
+        ]
+        let attributedTitle = NSAttributedString(string: title, attributes: attributes)
+        self.attributedTitle = attributedTitle
         self.isBordered = false
         self.wantsLayer = true
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
-        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
+        self.layer?.cornerRadius = 15
+        self.layer?.backgroundColor = NSColor(hex: "#008000").cgColor
 
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
@@ -29,40 +35,12 @@ class ScriptExcuteButton: NSButton {
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
 
-        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        bgColorAnimation.fromValue = WindowButtonUI.color.opacityWhite
-        bgColorAnimation.toValue = WindowButtonUI.color.maximize
-        bgColorAnimation.duration = WindowButtonUI.animation.duration
-
-        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
-        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius
-        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius / 2
-        cornerAnimation.duration = WindowButtonUI.animation.duration
-
-        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
-        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
-
-        self.layer?.backgroundColor = WindowButtonUI.color.maximize
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
+        self.layer?.backgroundColor = NSColor(hex: "#008000").withAlphaComponent(0.5).cgColor
     }
 
     override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
 
-        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        bgColorAnimation.fromValue = WindowButtonUI.color.maximize
-        bgColorAnimation.toValue = WindowButtonUI.color.opacityWhite
-        bgColorAnimation.duration = WindowButtonUI.animation.duration
-        
-        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
-        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius / 2
-        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius
-        cornerAnimation.duration = WindowButtonUI.animation.duration
-
-        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
-        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
-
-        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
+        self.layer?.backgroundColor = NSColor(hex: "#008000").cgColor
     }
 }

@@ -63,7 +63,7 @@ class SideBarLeading: NSButton {
     
     
     @objc func sideBarLeading() {
-        runPrefsHelperApplication()
+//        runPrefsHelperApplication()
         callback?()
     }
 }

@@ -32,10 +32,11 @@ class QuickSlotTableView: NSTableView {
     func setup() {
         self.delegate = self
         self.dataSource = self
+    
+        self.headerView = nil
+        self.selectionHighlightStyle = .none
         
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("QuickSlots"))
-        column1.width = 100.0
-        column1.title = "QuickSlot"
         self.addTableColumn(column1)
     }
 }
@@ -69,10 +70,20 @@ extension QuickSlotTableView: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        getCellForRow(at: row)
+//        getCellForRow(at: row)
+        let cellView = getCellForRow(at: row)
+
+                // Remove the top border line for the first row (index 0)
+                if row == 0 {
+                    let topBorder = CALayer()
+                    topBorder.backgroundColor = NSColor.clear.cgColor
+                    cellView.layer?.addSublayer(topBorder)
+                }
+
+                return cellView
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 200
+        return 120
     }
 }

@@ -10,7 +10,7 @@ import SnapKit
 
 class QuickSlotGroupView: NSView {
     
-    lazy var divider: NSBox = Divider(completion: { [weak self] in self?.dividerAction?() })
+//    lazy var divider: NSBox = Divider(completion: { [weak self] in self?.dividerAction?() })
     lazy var headerView: QuickSlotHeaderView = QuickSlotHeaderView(image: NSImage(imageLiteralResourceName: "Star"), completion: { [weak self] in self?.headerAction?() })
     lazy var buttonCollectionView: QuickSlotButtonCollectionViewController = QuickSlotButtonCollectionViewController()
     
@@ -30,16 +30,16 @@ class QuickSlotGroupView: NSView {
     }
     
     private func setupViews() {
-        self.addSubview(divider)
+//        self.addSubview(divider)
         self.addSubview(headerView)
         self.addSubview(buttonCollectionView.view)
     }
 
     private func setupConstraints() {
-        divider.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-        }
+//        divider.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+//            make.left.right.equalToSuperview()
+//        }
         
         headerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
