@@ -48,6 +48,9 @@ class ShortcutSettingView: NSView {
             label.isSelectable = false
             let textField = NSTextField()
             textField.placeholderString = defaultKey
+            textField.snp.makeConstraints { make in
+                make.width.equalTo(50)
+            }
             
             if index == 0 || index == 1 {
                 let innerStackView = NSStackView(views: [label, textField])
@@ -101,6 +104,4 @@ class ShortcutSettingView: NSView {
             make.trailing.equalToSuperview().offset(-22)
         }
     }
-    
-    // Further actions like saving the shortcuts, adding validations can be implemented
 }

@@ -61,17 +61,23 @@ class RequestAccessView: NSView {
     
     func buttonInit() {
         grantAccessButton.title = "권한 부여"
+        grantAccessButton.bezelStyle = .inline
+        grantAccessButton.wantsLayer = true
+        grantAccessButton.layer?.cornerRadius = 15
         grantAccessButton.target = self
         grantAccessButton.action = #selector(requestFolderAccess(_:))
         
         revokeAccessButton.title = "권한 취소"
+        revokeAccessButton.bezelStyle = .inline
+        revokeAccessButton.wantsLayer = true
+        revokeAccessButton.layer?.cornerRadius = 15
         revokeAccessButton.target = self
         revokeAccessButton.action = #selector(revokeFolderAccess(_:))
     }
     
     func directoryNameTextFieldInit() {
+        directoryNameTextField.font = NSFont.systemFont(ofSize: 12, weight: .light)
         directoryNameTextField.stringValue = "선택된 디렉터리: 없음"
-        directoryNameTextField.font = NSFont.systemFont(ofSize: 15)
         directoryNameTextField.isEditable = false
         directoryNameTextField.isBordered = false
         directoryNameTextField.backgroundColor = NSColor.clear
@@ -80,9 +86,8 @@ class RequestAccessView: NSView {
     
     func directoryNameTextFieldConstraints() {
         directoryNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(revokeAccessButton.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(17)
-            make.trailing.equalToSuperview().offset(-17)
+            make.top.equalTo(revokeAccessButton.snp.centerY)
+            make.leading.equalToSuperview().offset(30)
         }
     }
     
@@ -140,9 +145,8 @@ class RequestAccessView: NSView {
             if let result = result {
                 print("Selected folder is \(result.path)")
 
+//                directoryNameTextField.font = NSFont.systemFont(ofSize: 12, weight: .light)
                 directoryNameTextField.stringValue = "선택된 디렉터리: \(result.path)"
-                directoryNameTextField.font = NSFont.systemFont(ofSize: 14, weight: .bold)
-                
 
                 do {
                     let bookmarkData = try result.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)

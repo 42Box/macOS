@@ -13,25 +13,25 @@ class CPUView: NSView {
     // UI Elements
     private let usageLabel: NSTextField = {
         let label = NSTextField(labelWithString: "Usage: ")
-        label.font = NSFont.systemFont(ofSize: 16)
+        label.font = NSFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 
     private let systemLabel: NSTextField = {
         let label = NSTextField(labelWithString: "System: ")
-        label.font = NSFont.systemFont(ofSize: 16)
+        label.font = NSFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 
     private let userLabel: NSTextField = {
         let label = NSTextField(labelWithString: "User: ")
-        label.font = NSFont.systemFont(ofSize: 16)
+        label.font = NSFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 
     private let idleLabel: NSTextField = {
         let label = NSTextField(labelWithString: "Idle: ")
-        label.font = NSFont.systemFont(ofSize: 16)
+        label.font = NSFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 

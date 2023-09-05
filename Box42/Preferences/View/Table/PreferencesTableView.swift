@@ -61,7 +61,10 @@ class PreferencesTableView: NSTableView {
         self.headerView = nil
         self.selectionHighlightStyle = .none
         
-//        self.backgroundColor = .white
+        self.backgroundColor = .white
+        if #available(macOS 10.14, *) {
+            self.appearance = NSAppearance(named: .aqua)
+        }
         
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Preferences"))
         self.addTableColumn(column1)
