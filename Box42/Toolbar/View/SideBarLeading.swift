@@ -48,18 +48,30 @@ class SideBarLeading: NSButton {
         }
     }
     
-    func runPrefsHelperApplication() {
-        if let appURL = Bundle.main.url(forResource: "prefsHelper", withExtension: "app") {
-            let workspace = NSWorkspace.shared
-            do {
-                try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
-            } catch {
-                print("Error opening app: \(error)")
+        func runPrefsHelperApplication() {
+            if let appURL = Bundle.main.url(forResource: "prefsHelper", withExtension: "app") {
+                let workspace = NSWorkspace.shared
+                do {
+                    try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+                } catch {
+                    print("Error opening app: \(error)")
+                }
+            } else {
+                print("App not found")
             }
-        } else {
-            print("App not found")
         }
-    }
+//    func runPrefsHelperApplication() {
+//        let prefsHelperAppPath = "/Users/solda/Downloads/prefsHelper.app" // prefsHelper.app의 경로
+//
+//        let appURL = URL(fileURLWithPath: prefsHelperAppPath)
+//
+//        let workspace = NSWorkspace.shared
+//        do {
+//            try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+//        } catch {
+//            print("Error opening app: \(error)")
+//        }
+//    }
     
     
     @objc func sideBarLeading() {

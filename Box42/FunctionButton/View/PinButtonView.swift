@@ -16,7 +16,7 @@ class PinButtonView: NSView {
         return button
     }()
     
-    init(image: NSImage, completion: @escaping () -> Void) {
+    init(title: String, image: NSImage, completion: @escaping () -> Void) {
         super.init(frame: .zero)
         
         pinBoxButton.image = image
@@ -31,7 +31,7 @@ class PinButtonView: NSView {
         pinBoxButton.layer?.backgroundColor = NSColor.clear.cgColor
         
         pinBoxButton.bezelStyle = .inline
-        let pinBoxTitle = "Pin Box"
+        let pinBoxTitle = title
 
         let attributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14.0, weight: .semibold), // 원하는 폰트 및 무게로 설정

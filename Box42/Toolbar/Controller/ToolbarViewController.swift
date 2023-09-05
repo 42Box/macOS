@@ -26,6 +26,7 @@ class ToolbarViewController: NSViewController {
         
         toolbarViewGroup = BoxToolbarViewGroup()
         toolbarViewGroup?.sidebar = sidebar
+        
     }
     
     //    func runPrefsHelperApplication() {
@@ -41,12 +42,22 @@ class ToolbarViewController: NSViewController {
     //        }
     //    }
     
-    
     lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "toggle-on"), completion: { [weak self] in self?.sidebar() })
+    lazy var pinButton: PinButtonView = PinButtonView(title: "", image: NSImage(imageLiteralResourceName: "pin-box"), completion: { StateManager.shared.togglePin()
+        
+        let newImage: NSImage
+        if StateManager.shared.pin {
+            newImage = NSImage(imageLiteralResourceName: "pin-box-ver")
+        } else {
+            newImage = NSImage(imageLiteralResourceName: "pin-box")
+        }
+        
+        self.pinButton.changePinImage(to: newImage)
+    })
     
     func sidebar() {
-//         print("sidebar")
-//         BookmarkViewModel.shared.addBookmark(item: URLItem(name: "chan", url: "https://42box.kr/"))
+        //         print("sidebar")
+        //         BookmarkViewModel.shared.addBookmark(item: URLItem(name: "chan", url: "https://42box.kr/"))
         toolbarViewGroup = BoxToolbarViewGroup()
         if let baseContainerVC = baseContainerVC {
             baseContainerVC.leftView.isHidden.toggle()
@@ -56,7 +67,7 @@ class ToolbarViewController: NSViewController {
                     make.top.bottom.trailing.equalToSuperview().inset(12)
                     make.leading.equalToSuperview().offset(24 + 24)
                 }
-    
+                
                 baseContainerVC.view.addSubview(sidebarLeading)
                 sidebarLeading.snp.makeConstraints { make in
                     make.top.equalToSuperview().inset(63)
@@ -64,12 +75,21 @@ class ToolbarViewController: NSViewController {
                     make.width.equalTo(24)
                     make.height.equalTo(24)
                 }
+                
+                baseContainerVC.view.addSubview(pinButton)
+                pinButton.snp.makeConstraints { make in
+                    make.leading.equalToSuperview().inset(10)
+                    make.left.bottom.equalTo(baseContainerVC.leftView)
+                    make.width.equalTo(FunctionButtonUI.size.pinWidth)
+                    make.height.equalTo(FunctionButtonUI.size.pinHeight)
+                }
             } else {
                 baseContainerVC.contentGroup.snp.remakeConstraints { make in
                     make.top.bottom.trailing.equalToSuperview().inset(12)
                     make.leading.equalTo(baseContainerVC.leftView.snp.trailing)
                 }
                 sidebarLeading.removeFromSuperview()
+                pinButton.removeFromSuperview()
             }
             
             // 제약 조건을 다시 설정
