@@ -10,6 +10,8 @@ import AppKit
 class MovableContainerView: NSView {
     init() {
         super.init(frame: .zero)
+		self.frame.size.width = 302 - 12
+		self.frame.size.height = 1200
     }
     
     required init?(coder: NSCoder) {

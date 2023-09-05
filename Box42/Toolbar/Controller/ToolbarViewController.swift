@@ -45,6 +45,8 @@ class ToolbarViewController: NSViewController {
     lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "toggle-on"), completion: { [weak self] in self?.sidebar() })
     
     func sidebar() {
+//         print("sidebar")
+//         BookmarkViewModel.shared.addBookmark(item: URLItem(name: "chan", url: "https://42box.kr/"))
         toolbarViewGroup = BoxToolbarViewGroup()
         if let baseContainerVC = baseContainerVC {
             baseContainerVC.leftView.isHidden.toggle()

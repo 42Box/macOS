@@ -9,9 +9,9 @@ import AppKit
 import SnapKit
 
 class QuickSlotGroupView: NSView {
-    
-//    lazy var divider: NSBox = Divider(completion: { [weak self] in self?.dividerAction?() })
-    lazy var headerView: QuickSlotHeaderView = QuickSlotHeaderView(image: NSImage(imageLiteralResourceName: "Star"), completion: { [weak self] in self?.headerAction?() })
+
+    lazy var divider: NSBox = Divider(completion: { [weak self] in self?.dividerAction?() })
+    lazy var headerView: QuickSlotHeaderView = QuickSlotHeaderView(image: NSImage(imageLiteralResourceName: "star"), completion: { [weak self] in self?.headerAction?() })
     lazy var buttonCollectionView: QuickSlotButtonCollectionViewController = QuickSlotButtonCollectionViewController()
     
     var dividerAction: (() -> Void)?

@@ -32,12 +32,6 @@ class ScriptsTableView: NSTableView {
     func setup() {
         self.delegate = self
         self.dataSource = self
-        
-        self.headerView = nil
-        self.selectionHighlightStyle = .none
-        
-        self.backgroundColor = .white
-        
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Scripts"))
         self.addTableColumn(column1)
     }

@@ -1,19 +1,20 @@
 //
-//  PutUserMeQuickSlot.swift
+//  PutUserMeUrlList.swift
 //  Box42
 //
-//  Created by Chanhee Kim on 9/3/23.
+//  Created by Chanhee Kim on 9/5/23.
 //
 
 import WebKit
 
 extension API {
-    // MARK: - Scripts PUT: https://api.42box.kr/user-service/users/me/quick-slot
+    // MARK: - Scripts PUT: https://api.42box.kr/user-service/users/me/url-list
     // TODO: refactoring 필수
-    static func putUserMeQuickSlot(quickSlots: QuickSlotModels, completion: @escaping (Result<Void, Error>) -> Void) {
+    static func putUserMeUrlList(urlList: URLList, completion: @escaping (Result<Void, Error>) -> Void) {
+        
         WebViewManager.shared.storageSetCookie()
         
-        let url = "https://api.42box.kr/user-service/users/me/quick-slot"
+        let url = "https://api.42box.kr/user-service/users/me/url-list"
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "PUT"
@@ -21,9 +22,9 @@ extension API {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // Scripts 객체를 JSON 데이터로 인코딩
-        print(quickSlots)
+        print(urlList)
         do {
-            let jsonData = try JSONEncoder().encode(quickSlots)
+            let jsonData = try JSONEncoder().encode(urlList)
             request.httpBody = jsonData
             print(request.httpBody!)
         } catch {
@@ -47,4 +48,3 @@ extension API {
         task.resume()
     }
 }
-
