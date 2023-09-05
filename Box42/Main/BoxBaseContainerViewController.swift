@@ -523,6 +523,16 @@ extension BoxBaseContainerViewController {
             }
             
             if button.title == QuickSlotUI.title.user {
+                if let url = URL(string: "x-apple.systempreferences:com.apple.preference.keyboard") {
+                    NSWorkspace.shared.open(url)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.general") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }
+                }
+                
                 print("Button with title \(button.title) was tapped in BaseVC")
                 contentGroup.removeAllSubviews()
                 print(WebViewManager.shared.hostingWebView!)
@@ -530,6 +540,7 @@ extension BoxBaseContainerViewController {
                 WebViewManager.shared.hostingWebView!.snp.makeConstraints { make in
                     make.top.bottom.left.right.equalToSuperview()
                 }
+                // run script
             }
         }
     }
