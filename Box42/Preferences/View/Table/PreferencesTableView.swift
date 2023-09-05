@@ -58,14 +58,17 @@ class PreferencesTableView: NSTableView {
         self.delegate = self
         self.dataSource = self
         
-        let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Preferences"))
-        column1.width = 100.0
-        column1.title = "Preferences"
-        self.addTableColumn(column1)
+        self.headerView = nil
+        self.selectionHighlightStyle = .none
         
-//        self.selectionHighlightStyle = .none
+        self.backgroundColor = .white
+        if #available(macOS 10.14, *) {
+            self.appearance = NSAppearance(named: .aqua)
+        }
+        
+        let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Preferences"))
+        self.addTableColumn(column1)
     }
-    
 }
 
 extension PreferencesTableView: NSTableViewDelegate, NSTableViewDataSource {

@@ -25,32 +25,32 @@ let bookMarkList = [
 
 class BoxBaseContainerViewController: NSViewController {
     // MARK: - LeftContainer
-//    var splitView: BoxBaseSplitView = BoxBaseSplitView()
+    //    var splitView: BoxBaseSplitView = BoxBaseSplitView()
     var contentGroup: BoxContentsViewGroup = BoxContentsViewGroup()
     var toolbarGroupVC: ToolbarViewController = ToolbarViewController()
     var quickSlotGroupVC: QuickSlotViewController = QuickSlotViewController()
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
-//    var leftContainer: MovableContainerView = MovableContainerView()
-//    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
+    //    var leftContainer: MovableContainerView = MovableContainerView()
+    //    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
     
     // MARK: - QuickSlot
     var preferenceVC: PreferencesViewController = PreferencesViewController()
     var scriptsVC: ScriptsViewController = ScriptsViewController()
-        
+    
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
     var quickSlotManagerVC: QuickSlotManagerViewController = QuickSlotManagerViewController()
     var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
-
-    private let splitView: NSSplitView = {
-        let splitView = NSSplitView()
-        splitView.isVertical = true
-        splitView.dividerStyle = .thick
-        return splitView
-    }()
     
-    private let leftView: NSView = {
+    //    private let splitView: NSSplitView = {
+    //        let splitView = NSSplitView()
+    //        splitView.isVertical = true
+    //        splitView.dividerStyle = .thick
+    //        return splitView
+    //    }()
+    
+    public let leftView: NSView = {
         let view = NSView()
         view.frame.size.width = 302 - 12
         view.frame.size.height = 1200
@@ -75,6 +75,8 @@ class BoxBaseContainerViewController: NSViewController {
     var selectedButton: DraggableButton?
     
     override func loadView() {
+        toolbarGroupVC.baseContainerVC = self
+        
         self.view = NSView()
         self.view.wantsLayer=true
         self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
@@ -83,17 +85,37 @@ class BoxBaseContainerViewController: NSViewController {
             make.height.equalTo(BoxSizeManager.shared.size.height)
         }
         
-        splitView.addArrangedSubview(leftView)
-        splitView.addArrangedSubview(contentGroup)
-        self.view.addSubview(splitView)
+        //        splitView.adjustSubviews()
+        //        splitView.setNeedsDisplay(splitView.bounds)
+        //        splitView.addArrangedSubview(leftView)
+        //        splitView.addArrangedSubview(contentGroup)
+        //        self.view.addSubview(splitView)
+        //
+        //        splitView.snp.makeConstraints { make in
+        //            make.edges.equalToSuperview().inset(10)
+        //        }
+        self.view.addSubview(leftView)
+        self.view.addSubview(contentGroup)
         
-        splitView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
+        leftView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalTo(contentGroup.snp.leading).offset(-18)
+            make.width.equalTo((268 + 16 + 18))
         }
         
+        contentGroup.snp.makeConstraints { make in
+            make.top.bottom.trailing.equalToSuperview().inset(12)
+            make.leading.equalTo(leftView.snp.trailing)
+        }
+        
+        let borderView = NSView()
+        borderView.wantsLayer = true
+        borderView.layer?.backgroundColor = NSColor(red: 0.773, green: 0.773, blue: 0.773, alpha: 1).cgColor
         leftView.addSubview(windowViewGroupVC.view)
         leftView.addSubview(bookMarkView)
         leftView.addSubview(toolbarGroupVC.view)
+        leftView.addSubview(borderView)
         leftView.addSubview(quickSlotGroupVC.view)
         leftView.addSubview(functionGroupVC.view)
         
@@ -114,9 +136,15 @@ class BoxBaseContainerViewController: NSViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
+        borderView.snp.makeConstraints { make in
+            make.top.equalTo(bookMarkView.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
         quickSlotGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(borderView.snp.bottom).offset(0)
             make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
-            make.right.equalTo(leftView).offset(-Constants.UI.groupAutolayout)
+            make.right.equalTo(leftView).offset(0)
             make.left.equalTo(leftView)
             make.height.equalTo(178)
         }
@@ -125,19 +153,17 @@ class BoxBaseContainerViewController: NSViewController {
             make.left.bottom.equalTo(leftView)
         }
         
-        splitView.delegate = self
-        
-        let stackView = NSStackView()
-        stackView.orientation = .horizontal
-        stackView.spacing = 6
-        stackView.alignment = .centerY
+        let superView = NSView()
         
         let imageView = NSImageView()
         imageView.image = NSImage(named: NSImage.Name("bookmark"))
+        imageView.image?.size = NSSize(width: 18, height: 18)
+        superView.addSubview(imageView)
         
         let label = NSTextField(labelWithString: "북마크")
         label.textColor = NSColor.black
         label.font = NSFont.boldSystemFont(ofSize: 16)
+        superView.addSubview(label)
         
         let buttonImage = NSImage(named: NSImage.Name("add"))!
         buttonImage.size = NSSize(width: 24, height: 24)
@@ -146,16 +172,23 @@ class BoxBaseContainerViewController: NSViewController {
         button.bezelStyle = .texturedRounded
         button.isBordered = false
         button.wantsLayer = true
-        button.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
-        let spacerView = NSView()
-        spacerView.snp.makeConstraints { make in
-            make.width.equalTo(173)
+        button.layer?.backgroundColor = NSColor(hex:"#E7E7E7").cgColor
+        superView.addSubview(button)
+        
+        imageView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
         
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(spacerView)
-        stackView.addArrangedSubview(button)
+        label.snp.makeConstraints { make in
+            make.left.equalTo(imageView.snp.right).offset(8)
+            make.centerY.equalToSuperview()
+        }
+        
+        button.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
         
         tableView.wantsLayer = true
         tableView.backgroundColor = NSColor(hex: "#E7E7E7")
@@ -178,11 +211,11 @@ class BoxBaseContainerViewController: NSViewController {
         scrollView.hasVerticalScroller = true
         scrollView.documentView = tableView
         
-        bookMarkView.addSubview(stackView)
+        bookMarkView.addSubview(superView)
         bookMarkView.addSubview(scrollView)
         //        bookMarkView.addSubview(tableView)
         
-        stackView.snp.makeConstraints { make in
+        superView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(18)
             make.leading.trailing.equalToSuperview().offset(0)
             make.height.equalTo(24)
@@ -194,7 +227,7 @@ class BoxBaseContainerViewController: NSViewController {
         //        }
         
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(0)
+            make.top.equalTo(superView.snp.bottom).offset(0)
             make.leading.trailing.equalToSuperview().offset(0)
             make.bottom.equalToSuperview()
         }
@@ -205,162 +238,141 @@ class BoxBaseContainerViewController: NSViewController {
     }
     
     @objc func addBookMarkButtonClicked(_ sender: NSButton) {
-        splitView.removeArrangedSubview(contentGroup)
-        contentGroup.removeFromSuperview()
-        
-        let newView = BookmarkEditorView(bookMarkList: bookMarkList)
-        newView.wantsLayer = true
-        newView.layer?.backgroundColor = NSColor.black.cgColor
-        newView.layer?.cornerRadius = 20
-        newView.frame.size = contentGroup.frame.size
-        
-        contentGroup.addSubview(newView)
-        newView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        splitView.addArrangedSubview(contentGroup)
+        //        splitView.removeArrangedSubview(contentGroup)
+        //        contentGroup.removeFromSuperview()
+        //
+        //        let newView = BookmarkEditorView(bookMarkList: bookMarkList)
+        //        newView.wantsLayer = true
+        //        newView.layer?.backgroundColor = NSColor.black.cgColor
+        //        newView.layer?.cornerRadius = 20
+        //        newView.frame.size = contentGroup.frame.size
+        //
+        //        contentGroup.addSubview(newView)
+        //        newView.snp.makeConstraints { make in
+        //            make.edges.equalToSuperview()
+        //        }
+        //
+        //        splitView.addArrangedSubview(contentGroup)
     }
     
     override func viewDidLoad() {
-//        self.view.wantsLayer = true
-//
-////        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
-//        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
+        //        self.view.wantsLayer = true
+        //
+        ////        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
+        //        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(headerTappedQuickSlotManagerHandle), name: .collectionHeaderTapped, object: nil)
     }
     
-//    func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
-//
-//        let buttonGroup = BoxButtonViewGroup { sender in
-//            self.clickBtn(sender: sender)
-//        }
-//
-//        return buttonGroup
-//    }
+    //    func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
+    //
+    //        let buttonGroup = BoxButtonViewGroup { sender in
+    //            self.clickBtn(sender: sender)
+    //        }
+    //
+    //        return buttonGroup
+    //    }
     
-//    func clickBtn(sender: Any?) {
-//        if let button = sender as? NSButton {
-//            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
-//            if clickCount == 2 {
-//                WebViewManager.shared.list[button.title]!.reload()
-//                print("Dobule Click")
-//            } else if clickCount > 2 {
-//                if let currentURL = WebViewManager.shared.hostingWebView?.url {
-//                    NSWorkspace.shared.open(currentURL)
-//                }
-//                print("Triple Click")
-//            } else if clickCount < 2 {
-//                contentGroup.removeAllSubviews()
-//                contentGroup.showWebviews(button)
-//            }
-//        } else {
-//            if let str = sender as? String {
-//                if str == "box" {
-//                    contentGroup.removeAllSubviews()
-//                    print("box inside")
-//                }
-//            }
-//        }
-//    }
-//
-//    private func leftContainerInit() {
-//        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
-//        leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
-//        leftContainer.addSubview(windowViewGroupVC.view)
-//        leftContainer.addSubview(buttonGroupVC.view)
-//        leftContainer.addSubview(toolbarGroupVC.view)
-//        leftContainer.addSubview(quickSlotGroupVC.view)
-//        leftContainer.addSubview(functionGroupVC.view)
-//
-//        leftContainerAutolayout()
-//    }
-//
-//    private func leftContainerAutolayout() {
-//        windowViewGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(leftContainer)
-//            make.left.equalTo(leftContainer).offset(3)
-//            make.width.equalTo(77)
-//            make.height.equalTo(21)
-//        }
-//
-//        toolbarGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
-//            make.right.equalTo(leftContainer)
-//            make.left.equalTo(leftContainer)
-//            make.height.equalTo(44 + 14 + 24)
-//        }
-//
-//        buttonGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
-//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//            make.left.equalTo(leftContainer)
-//            make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
-//        }
-//
-//       quickSlotGroupVC.view.snp.makeConstraints { make in
-//           make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
-//           make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//           make.left.equalTo(leftContainer)
-//           make.height.equalTo(178)
-//       }
-//
-//        functionGroupVC.view.snp.makeConstraints { make in
-//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//            make.left.bottom.equalTo(leftContainer)
-//        }
-//    }
-//
-//    func viewInit() {
-//        self.boxViewSizeInit()
-//
-//        splitView.addArrangedSubview(leftContainer)
-//        splitView.addArrangedSubview(contentGroup)
-//        self.view.addSubview(splitView)
-//
-//        splitView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(Constants.UI.groupAutolayout)
-//            make.left.equalToSuperview().offset(Constants.UI.groupAutolayout)
-//            make.right.equalToSuperview().offset(-Constants.UI.groupAutolayout)
-//            make.bottom.equalToSuperview().offset(-Constants.UI.groupAutolayout)
-//        }
-//    }
-//
-//    func boxViewSizeInit() {
-//        self.view.frame.size.width = BoxSizeManager.shared.size.width
-//        self.view.frame.size.height = BoxSizeManager.shared.size.height
-//    }
+    //    func clickBtn(sender: Any?) {
+    //        if let button = sender as? NSButton {
+    //            guard let clickCount = NSApp.currentEvent?.clickCount else { return }
+    //            if clickCount == 2 {
+    //                WebViewManager.shared.list[button.title]!.reload()
+    //                print("Dobule Click")
+    //            } else if clickCount > 2 {
+    //                if let currentURL = WebViewManager.shared.hostingWebView?.url {
+    //                    NSWorkspace.shared.open(currentURL)
+    //                }
+    //                print("Triple Click")
+    //            } else if clickCount < 2 {
+    //                contentGroup.removeAllSubviews()
+    //                contentGroup.showWebviews(button)
+    //            }
+    //        } else {
+    //            if let str = sender as? String {
+    //                if str == "box" {
+    //                    contentGroup.removeAllSubviews()
+    //                    print("box inside")
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    private func leftContainerInit() {
+    //        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
+    //        leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
+    //        leftContainer.addSubview(windowViewGroupVC.view)
+    //        leftContainer.addSubview(buttonGroupVC.view)
+    //        leftContainer.addSubview(toolbarGroupVC.view)
+    //        leftContainer.addSubview(quickSlotGroupVC.view)
+    //        leftContainer.addSubview(functionGroupVC.view)
+    //
+    //        leftContainerAutolayout()
+    //    }
+    //
+    //    private func leftContainerAutolayout() {
+    //        windowViewGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(leftContainer)
+    //            make.left.equalTo(leftContainer).offset(3)
+    //            make.width.equalTo(77)
+    //            make.height.equalTo(21)
+    //        }
+    //
+    //        toolbarGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
+    //            make.right.equalTo(leftContainer)
+    //            make.left.equalTo(leftContainer)
+    //            make.height.equalTo(44 + 14 + 24)
+    //        }
+    //
+    //        buttonGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
+    //            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //            make.left.equalTo(leftContainer)
+    //            make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
+    //        }
+    //
+    //       quickSlotGroupVC.view.snp.makeConstraints { make in
+    //           make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
+    //           make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //           make.left.equalTo(leftContainer)
+    //           make.height.equalTo(178)
+    //       }
+    //
+    //        functionGroupVC.view.snp.makeConstraints { make in
+    //            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //            make.left.bottom.equalTo(leftContainer)
+    //        }
+    //    }
+    //
+    //    func viewInit() {
+    //        self.boxViewSizeInit()
+    //
+    //        splitView.addArrangedSubview(leftContainer)
+    //        splitView.addArrangedSubview(contentGroup)
+    //        self.view.addSubview(splitView)
+    //
+    //        splitView.snp.makeConstraints { make in
+    //            make.top.equalToSuperview().offset(Constants.UI.groupAutolayout)
+    //            make.left.equalToSuperview().offset(Constants.UI.groupAutolayout)
+    //            make.right.equalToSuperview().offset(-Constants.UI.groupAutolayout)
+    //            make.bottom.equalToSuperview().offset(-Constants.UI.groupAutolayout)
+    //        }
+    //    }
+    //
+    //    func boxViewSizeInit() {
+    //        self.view.frame.size.width = BoxSizeManager.shared.size.width
+    //        self.view.frame.size.height = BoxSizeManager.shared.size.height
+    //    }
 }
 
 extension BoxBaseContainerViewController: NSSplitViewDelegate {
-    func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        
-        if dividerIndex == 0 {
-            return CGFloat(132).pointsToPixels()
-        }
-        return proposedMinimumPosition
+    func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool {
+        return false
     }
     
-    func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        if dividerIndex == 0 {
-            return CGFloat(302).pointsToPixels()
-        }
-        return proposedMaximumPosition
-    }
-    
-    func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize) {
-        let dividerThickness = splitView.dividerThickness
-        let newWidth = splitView.frame.width - dividerThickness
-        
-        let leftWidth = leftView.frame.width
-        let contentWidth = newWidth - leftWidth
-        
-        leftView.frame = NSRect(x: 0, y: 0, width: leftWidth, height: splitView.bounds.height)
-        contentGroup.frame = NSRect(x: leftWidth + dividerThickness, y: 0, width: contentWidth, height: splitView.bounds.height)
-    }
 }
 
 extension BoxBaseContainerViewController: NSTableViewDelegate {
@@ -397,9 +409,6 @@ class ButtonTableCellView: NSTableCellView {
     
     override func viewWillDraw() {
         super.viewWillDraw()
-        self.frame.size.width = 268.0
-        self.frame = NSRect(x: self.frame.origin.x - 3, y: self.frame.origin.y,
-                            width: self.frame.size.width, height: self.frame.size.height)
     }
 }
 
@@ -413,7 +422,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         let cellView = ButtonTableCellView()
         cellView.rowIndex = row
         
-        let button = DraggableButton(frame: NSRect(x: 0, y: 0, width: 300, height: 44))
+        let button = DraggableButton(frame: NSRect(x: 0, y: 0, width: 268, height: 44))
         button.tag = row
         button.bezelStyle = .inline
         button.isBordered = false
@@ -424,7 +433,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         button.delegate = self
         
         let label = NSTextField(frame: NSRect(x: 26 + 21 + 8, y: 25 / 2, width: button.bounds.width, height: button.bounds.height))
-        
         label.stringValue = buttonTitleArray[row]
         label.backgroundColor = .clear
         label.isBordered = false
@@ -440,7 +448,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         label.attributedStringValue=attributedStringTitle
         button.addSubview(label)
         
-        
         //        let image = NSImage(named: NSImage.Name("bookmark-default"))
         //        image?.size = NSSize(width: 21, height: 21)
         //        button.image = image
@@ -453,16 +460,14 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         imageView.imageAlignment = .alignCenter
         button.addSubview(imageView)
         
-        
-        
         cellView.addSubview(button)
         
         button.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(2)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            //            make.width.equalTo(268)
-            make.width.lessThanOrEqualTo(268)
+            make.width.equalTo(268)
+            //            make.width.lessThanOrEqualTo(268)
             make.height.equalTo(44)
         }
         
@@ -484,7 +489,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
     @objc func buttonClicked(_ sender: DraggableButton) {
         selectedButton?.layer?.backgroundColor = NSColor.clear.cgColor
         
-        // Update the reference to the currently selected button and change its background color.
         selectedButton = sender
         sender.layer?.backgroundColor = NSColor.white.cgColor
         
@@ -519,7 +523,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
             guard let cellView = subview as? CustomTableCellView else {
                 continue
             }
-            
             cellView.button.title = buttonTitleArray[cellView.rowIndex]
         }
         
@@ -541,7 +544,6 @@ class DraggableButton: NSButton, NSDraggingSource {
             if event.locationInWindow == down.locationInWindow {
                 self.target?.perform(self.action, with: self)
             }
-            
             super.mouseUp(with:event)
             self.mouseDownEvent = nil
         }
