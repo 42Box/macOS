@@ -9,7 +9,7 @@ import Foundation
 
 class UserManager {
     static let shared = UserManager()
-    private var userProfile: UserProfile? {
+    var userProfile: UserProfile? {
         didSet {
             NotificationCenter.default.post(name: .didUpdateUserProfile, object: nil)
         }

@@ -42,24 +42,28 @@ class StorageView: NSView {
     
     func initTextFields() {
         // Initialize textfields
-        currentStorageTextField.stringValue = "Current Storage: ?? GB"
-        remainingStorageTextField.stringValue = "Remaining Storage: ?? GB"
-        totalStorageTextField.stringValue = "Total Storage: ?? GB"
+        let labels = [currentStorageTextField, remainingStorageTextField, totalStorageTextField, thresholdTextField, intervalTextField]
+        for label in labels {
+            label.font = NSFont.systemFont(ofSize: 14, weight: .semibold)
+            label.isEditable = false
+            label.isBordered = false
+            label.backgroundColor = NSColor.clear
+        }
+        currentStorageTextField.stringValue = "Current Storage      : ?? GB"
+        remainingStorageTextField.stringValue = "Remaining Storage : ?? GB"
+        totalStorageTextField.stringValue = "Total Storage            : ?? GB"
         thresholdTextField.placeholderString = "Enter threshold (%)"
         intervalTextField.placeholderString = "Enter interval (seconds)"
-        
-        [currentStorageTextField, remainingStorageTextField, totalStorageTextField, thresholdTextField, intervalTextField].forEach { textField in
-            textField.isEditable = false
-            textField.isBordered = false
-            textField.backgroundColor = NSColor.clear
-        }
-        
+
         intervalTextField.isEditable = true
         thresholdTextField.isEditable = true
     }
     
     func initButton() {
         executeScriptButton.title = "Run Script"
+        executeScriptButton.bezelStyle = .inline
+        executeScriptButton.wantsLayer = true
+        executeScriptButton.layer?.cornerRadius = 15
         executeScriptButton.target = self
         executeScriptButton.action = #selector(runScript(_:))
     }
@@ -95,8 +99,10 @@ class StorageView: NSView {
         }
         
         executeScriptButton.snp.makeConstraints { make in
-            make.top.equalTo(intervalTextField.snp.bottom).offset(20)
+            make.top.equalTo(intervalTextField.snp.bottom).offset(0) // 여기에 20을 추가합니다.
             make.leading.equalToSuperview().offset(20)
+            make.width.equalTo(70)
+            make.height.equalTo(30)
         }
     }
     

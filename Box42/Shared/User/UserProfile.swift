@@ -19,11 +19,6 @@ struct UserProfile: Codable {
     let quickSlotList: [QuickSlotButtonModel]
 }
 
-struct URLItem: Codable {
-    let name: String
-    let url: String
-}
-
 extension UserProfile {
     static func defaultProfile() -> UserProfile {
         return UserProfile(
@@ -31,22 +26,11 @@ extension UserProfile {
             nickname: "fox",
             theme: 0,
             icon: "fox",
-            urlList: [URLItem(name: "home", url: "https://42box.kr/"),
-                      URLItem(name: "23Coaltheme", url: "https://42box.github.io/front-end/"),
-                      URLItem(name: "loopback", url: "http://127.0.0.1:3000/"),
-                      URLItem(name: "Box 42", url: "https://42box.github.io/front-end/#/box"),
-                      URLItem(name: "Intra 42", url: "https://intra.42.fr"),
-                      URLItem(name: "Jiphyeonjeon", url: "https://42library.kr"),
-                      URLItem(name: "42STAT", url: "https://stat.42seoul.kr/home"),
-                      URLItem(name: "24Hane", url: "https://24hoursarenotenough.42seoul.kr"),
-                      URLItem(name: "80kCoding", url: "https://80000coding.oopy.io"),
-                      URLItem(name: "where42", url: "https://www.where42.kr"),
-                      URLItem(name: "cabi", url: "https://cabi.42seoul.io/"),
-                      URLItem(name: "42gg", url: "https://42gg.kr/")],
+            urlList: BookmarkViewModel.shared.bookMarkList,
             statusMessage: "hello 42Box!",
             profileImageUrl: "https://42box.kr/user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
             profileImagePath: "user_profile_image/a52671f9-fca9-43ad-b0c0-1c5360831cf2.png",
-            quickSlotList: [ QuickSlotButtonModel(id: UUID(uuidString: "550e8400-e29b-41d4-a716-446655440000")!, title: "cleanCache", path: Bundle.main.path(forResource: "cleanCache", ofType: "sh")),
+            quickSlotList: [ QuickSlotButtonModel(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3")!, title: "cleanCache", path: Bundle.main.path(forResource: "cleanCache", ofType: "sh")),
             ]
         )
     }

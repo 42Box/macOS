@@ -10,7 +10,7 @@ import SnapKit
 
 class BoxFunctionViewGroup: NSView {
     lazy var preferenceButton: PreferenceButtonView = PreferenceButtonView(image: NSImage(imageLiteralResourceName: "plus"), completion: { self.preferenceAction?() })
-    lazy var pinButton: PinButtonView = PinButtonView(image: NSImage(imageLiteralResourceName: "pin-box"), completion: { self.pinAction?() })
+    lazy var pinButton: PinButtonView = PinButtonView(title: "Pin Box", image: NSImage(imageLiteralResourceName: "pin-box"), completion: { self.pinAction?() })
     lazy var quitButton: QuitButtonView = QuitButtonView(image: NSImage(imageLiteralResourceName: "figure.snowboarding"), completion: { self.quitAction?() })
     lazy var boxButton: BoxFunctionButtonView = BoxFunctionButtonView(image: NSImage(imageLiteralResourceName: "shippingbox"), completion: { self.boxAction?() })
     

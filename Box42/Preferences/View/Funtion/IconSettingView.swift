@@ -38,7 +38,7 @@ class CustomSwitch: NSButton {
 class IconSettingView: NSView {
     private let iconSettingLabel: NSTextField = {
         let label = NSTextField(labelWithString: "아이콘 설정")
-        label.font = NSFont.systemFont(ofSize: 20)
+        label.font = NSFont.systemFont(ofSize: 20, weight: .semibold)
         label.isEditable = false
         label.isSelectable = false
         return label
@@ -46,6 +46,7 @@ class IconSettingView: NSView {
     
     private let flipLabel: NSTextField = {
         let label = NSTextField(labelWithString: "아이콘 좌우반전")
+        label.font = NSFont.systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
@@ -85,14 +86,14 @@ class IconSettingView: NSView {
         self.addSubview(speedUpSwitch)
         
         iconSettingLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
         }
         
         flipLabel.snp.makeConstraints { (make) in
             make.top.equalTo(iconSettingLabel.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(22)
         }
         
         flipSwitch.snp.makeConstraints { (make) in

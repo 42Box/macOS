@@ -88,21 +88,52 @@ extension QuickSlotButtonCollectionViewController: NSCollectionViewDelegate, NSC
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "QuickSlotButtonViewItem"), for: indexPath)
-        
+        print("current item index>", indexPath.item)
         if let customItem = item as? QuickSlotButtonViewItem {
-            let buttonModel = viewModel.buttons[indexPath.item]
-            let btn = NSButton()
-            btn.title = buttonModel.title
-            btn.action = #selector(collectionButtonTapped)
-            btn.target = self
-            btn.wantsLayer = true
-            btn.layer?.backgroundColor = NSColor.red.cgColor
-            customItem.view.addSubview(btn)
-            btn.frame = CGRect(x: 0, y: 0, width: QuickSlotUI.size.button, height: QuickSlotUI.size.button)
-            btn.associatedString = buttonModel.path
+            
+            for subview in customItem.view.subviews {
+                subview.removeFromSuperview()
+            }
+            
+            if customItem.view.subviews.isEmpty {
+                let btn = QuickSlotItemButton(indexPath.item)
+                btn.action = #selector(collectionButtonTapped)
+                btn.target = self
+                
+                let label = QuickSlotItemLabel(indexPath.item)
+                
+                customItem.view.addSubview(btn)
+                customItem.view.addSubview(label)
+                
+                btn.snp.makeConstraints { make in
+                    make.left.top.right.equalToSuperview()
+//                    make.width.equalTo(58)
+                    make.height.equalTo(58)
+                }
+                
+                label.snp.makeConstraints { make in
+                    make.top.equalTo(btn.snp.bottom)
+                    make.left.right.bottom.equalToSuperview()
+                }
+            }
         }
         return item
     }
+//    func collectionView(_ collectionView: NSCollectionView, mouseEnteredAt indexPath: IndexPath) {
+//           // 호버 효과를 적용하려는 코드
+//           if let item = collectionView.item(at: indexPath) as? QuickSlotButtonViewItem,
+//              let button = item.view.subviews.first as? QuickSlotItemButton {
+//               button.mouseEntered(with: NSEvent()) // 호버 효과 메서드 호출
+//           }
+//       }
+//
+//       func collectionView(_ collectionView: NSCollectionView, mouseExitedAt indexPath: IndexPath) {
+//           // 호버 효과를 해제하려는 코드
+//           if let item = collectionView.item(at: indexPath) as? QuickSlotButtonViewItem,
+//              let button = item.view.subviews.first as? QuickSlotItemButton {
+//               button.mouseExited(with: NSEvent()) // 호버 효과 해제 메서드 호출
+//           }
+//       }
 }
 
 extension QuickSlotButtonCollectionViewController {
@@ -114,4 +145,5 @@ extension QuickSlotButtonCollectionViewController {
 // MARK: - Notification Name collectionButtonTapped
 extension Notification.Name {
     static let collectionButtonTapped = Notification.Name("collectionButtonTapped")
+    static let collectionHeaderTapped = Notification.Name("collectionHeaderTapped")
 }

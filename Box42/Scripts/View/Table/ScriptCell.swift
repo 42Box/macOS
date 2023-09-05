@@ -28,6 +28,17 @@ class ScriptCell: NSTableCellView {
     }
     
     private func setupUI() {
+        let labels = [nameLabel, descriptionLabel]
+        for label in labels {
+            label.wantsLayer = true
+            label.layer?.cornerRadius = 15
+            label.layer?.borderColor = NSColor(red: 0.781, green: 0.781, blue: 0.781, alpha: 1).cgColor
+            label.layer?.borderWidth = 1
+            
+            label.font = NSFont.systemFont(ofSize: 16, weight: .medium)
+            label.textColor = NSColor.black
+        }
+        
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         addSubview(quickSlotButton)
@@ -38,13 +49,24 @@ class ScriptCell: NSTableCellView {
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.width.lessThanOrEqualTo(200).priority(.high) // 최대 너비와 우선순위 설정
+            make.height.equalTo(30)
         }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(nameLabel.snp.right).offset(8)
+            make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
+            make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
+            make.height.equalTo(30)
+        }
+        
         
         deleteButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-16)
             make.width.equalTo(53)
             make.height.equalTo(40)
+            
         }
         
         excuteButton.snp.makeConstraints { make in
@@ -60,13 +82,6 @@ class ScriptCell: NSTableCellView {
             make.width.equalTo(53)
             make.height.equalTo(40)
         }
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalTo(nameLabel.snp.right).offset(8)
-            make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
-            make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
-        }
     }
     
     
@@ -75,7 +90,7 @@ class ScriptCell: NSTableCellView {
         self.script = script
         self.viewModel = viewModel
         nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        descriptionLabel.stringValue = script.description ?? "description"
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
@@ -89,35 +104,34 @@ class ScriptCell: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-        if let id = script?.id {
+        if let id = script?.scriptUuid {
             viewModel?.deleteScript(id: id)
         }
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.id {
-            viewModel?.excuteScript(id: id)
+        if let path = script?.path {
+            viewModel?.excuteScript(path: path)
         }
     }
     
-    // script 내부 클릭시 1차 실행
-    // 있는거면 지우고 없는거면 추가
     @objc func quickSlotButtonclicked() {
-        guard let id = script?.id else {
+        guard let path = script?.path else {
             return
         }
 
-        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.id == id }
+        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.path == path }
 
         if alreadyExists {
-            QuickSlotViewModel.shared.removeButton(id)
+            QuickSlotViewModel.shared.removeButton(path)
             quickSlotButton.title = "퀵슬롯"
         } else {
             if QuickSlotViewModel.shared.buttons.count > 7 {
                 return
             } else {
                 quickSlotButton.title = "저장됨"
-                viewModel?.quickSlotScript(id: id)
+//                viewModel?.quickSlotScript(id: id)
+                viewModel?.quickSlotScript(path: path)
             }
         }
     }

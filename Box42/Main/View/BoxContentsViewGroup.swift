@@ -8,17 +8,22 @@
 import WebKit
 import SnapKit
 
-class BoxContentsViewGroup: NSView {
+class BoxContentsViewGroup: NSView, WKUIDelegate {
     var webVC: WebViewController?
     var preferencesVC = PreferencesViewController()
     var scriptsVC = ScriptsViewController()
     
+//    var webView: WKWebView!
+//    static let shared = BoxContentsViewGroup()
+    
     init() {
         super.init(frame: .zero)
         webVC = WebViewController(nibName: nil, bundle: nil)
+        
         self.wantsLayer = true
         self.layer?.cornerRadius = 20
         self.layer?.masksToBounds = true
+        
         self.addSubview(webVC!.view)
         webVC?.view.snp.makeConstraints { make in
             make.edges.equalTo(self)
@@ -28,7 +33,7 @@ class BoxContentsViewGroup: NSView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func removeAllSubviews() {
         for subview in self.subviews {
             subview.removeFromSuperview()
@@ -52,11 +57,11 @@ class BoxContentsViewGroup: NSView {
     }
     
     func showWebviews(_ sender: NSButton) {
-        guard let currentWebview = WebViewManager.shared.list[sender.title] else {
-            print("No WebView found for title: \(sender.title)")
+        guard let currentWebview = WebViewManager.shared.list[sender.associatedString ?? "42Box"] else {
+            print("No WebView found for title: \(sender.associatedString)")
             return
         }
-
+        
         WebViewManager.shared.hostingname = sender.title
         WebViewManager.shared.hostingWebView = currentWebview
         

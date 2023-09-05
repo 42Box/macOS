@@ -10,6 +10,8 @@ import WebKit
 import Combine
 
 class WebViewController: NSViewController {
+    var viewModel = BookmarkViewModel.shared 
+
 	var URLVM = WebViewModel()
     var webView: WKWebView!
     
@@ -61,11 +63,4 @@ class WebViewController: NSViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
-    
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if let url = navigationAction.request.url {
-            webView.load(URLRequest(url: url))
-        }
-        return nil
-    }
 }

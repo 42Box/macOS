@@ -8,16 +8,14 @@
 import AppKit
 import SnapKit
 
-// MARK: - 다음 버전에 추가 예정
 class ScriptCellManager: NSTableCellView {
     var nameLabel: NSTextField = NSTextField()
     var descriptionLabel: NSTextField = NSTextField()
-    var excuteButton: ScriptExcuteButton = ScriptExcuteButton()
     var deleteButton: ScriptDeleteButton = ScriptDeleteButton()
     var quickSlotButton: ScriptQuickSlotButton = ScriptQuickSlotButton()
     
-    var viewModel: ScriptViewModel?
-    var script: Script?
+    var viewModel: BookmarkViewModel?
+    var urlitem: URLItem?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -32,13 +30,12 @@ class ScriptCellManager: NSTableCellView {
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         addSubview(quickSlotButton)
-        addSubview(excuteButton)
         addSubview(deleteButton)
         
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16)
-            make.width.lessThanOrEqualTo(200).priority(.high) // 최대 너비와 우선순위 설정
+            make.width.lessThanOrEqualTo(200).priority(.high)
         }
         
         deleteButton.snp.makeConstraints { make in
@@ -48,16 +45,9 @@ class ScriptCellManager: NSTableCellView {
             make.height.equalTo(40)
         }
         
-        excuteButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalTo(deleteButton.snp.left).offset(-8)
-            make.width.equalTo(70)
-            make.height.equalTo(40)
-        }
-        
         quickSlotButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(excuteButton.snp.left).offset(-8)
+            make.right.equalTo(deleteButton.snp.left).offset(-8)
             make.width.equalTo(53)
             make.height.equalTo(40)
         }
@@ -72,17 +62,14 @@ class ScriptCellManager: NSTableCellView {
     
     
     
-    func configure(with script: Script, viewModel: ScriptViewModel?) {
-        self.script = script
+    func configure(with urlitem: URLItem, viewModel: BookmarkViewModel?) {
+        self.urlitem = urlitem
         self.viewModel = viewModel
-        nameLabel.stringValue = script.name
-        descriptionLabel.stringValue = script.description
+        nameLabel.stringValue = urlitem.name
+        descriptionLabel.stringValue = urlitem.url
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
-        
-        excuteButton.target = self
-        excuteButton.action = #selector(excuteButtonClicked)
         
         quickSlotButton.target = self
         quickSlotButton.action = #selector(quickSlotButtonclicked)
@@ -90,20 +77,35 @@ class ScriptCellManager: NSTableCellView {
     }
     
     @objc func deleteButtonClicked() {
-        if let id = script?.id {
-            viewModel?.deleteScript(id: id)
-        }
+//        if let id = script?.scriptUuid {
+//            viewModel?.deleteScript(id: id)
+//        }
     }
     
     @objc func excuteButtonClicked() {
-        if let id = script?.id {
-            viewModel?.excuteScript(id: id)
-        }
+//        if let path = script?.path {
+//            viewModel?.excuteScript(path: path)
+//        }
     }
     
     @objc func quickSlotButtonclicked() {
-        if let id = script?.id {
-            viewModel?.quickSlotScript(id: id)
-        }
+//        guard let path = script?.path else {
+//            return
+//        }
+//
+//        let alreadyExists = QuickSlotViewModel.shared.buttons.contains { $0.path == path }
+//
+//        if alreadyExists {
+//            QuickSlotViewModel.shared.removeButton(path)
+//            quickSlotButton.title = "퀵슬롯"
+//        } else {
+//            if QuickSlotViewModel.shared.buttons.count > 7 {
+//                return
+//            } else {
+//                quickSlotButton.title = "저장됨"
+////                viewModel?.quickSlotScript(id: id)
+//                viewModel?.quickSlotScript(path: path)
+//            }
+//        }
     }
 }

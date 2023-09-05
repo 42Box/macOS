@@ -7,15 +7,21 @@
 
 import Foundation
 
+struct QuickSlotModels: Codable {
+    let quickSlotList : [QuickSlotButtonModel]
+}
+
 // Model
 struct QuickSlotButtonModel: Codable {
-    let id: UUID
+    let scriptUuid: UUID
     var title: String
     var path: String?
+    var type: String?
     
-    init(id: UUID = UUID(), title: String = "Default", path: String? = nil) {
-        self.id = id
+    init(scriptUuid: UUID? = UUID(), title: String = "Default", path: String? = "none", type: String = "sh") {
+        self.scriptUuid = scriptUuid ?? UUID()
         self.title = title
         self.path = path
+        self.type = type
     }
 }
