@@ -13,7 +13,7 @@ class NotificationSettingView: NSView {
     // Create a label for the title
     let titleLabel: NSTextField = {
         let label = NSTextField(labelWithString: "Box 알림 설정")
-        label.font = NSFont.systemFont(ofSize: 20)
+        label.font = NSFont.systemFont(ofSize: 20, weight: .semibold)
         label.isEditable = false
         label.isSelectable = false
         return label
@@ -22,6 +22,9 @@ class NotificationSettingView: NSView {
     // Create a switch button
     let toggleButton: NSButton = {
         let toggle = NSButton(checkboxWithTitle: "알림 활성화", target: nil, action: #selector(toggleChanged))
+        let titleFont = NSFont.systemFont(ofSize: 14, weight: .medium)
+        toggle.attributedTitle = NSAttributedString(string: toggle.title, attributes: [.font: titleFont])
+        
         return toggle
     }()
     
@@ -40,14 +43,14 @@ class NotificationSettingView: NSView {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self).offset(20)
-            make.centerX.equalTo(self)
+            make.leading.equalToSuperview().offset(12)
         }
         
         // Add toggleButton to the view
         addSubview(toggleButton)
         toggleButton.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.centerX.equalTo(self)
+            make.leading.equalToSuperview().offset(22)
         }
         
         toggleButton.target = self

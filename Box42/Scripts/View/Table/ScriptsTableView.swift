@@ -32,10 +32,7 @@ class ScriptsTableView: NSTableView {
     func setup() {
         self.delegate = self
         self.dataSource = self
-         
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("Scripts"))
-        column1.width = 100.0
-        column1.title = "Scripts"
         self.addTableColumn(column1)
     }
 }

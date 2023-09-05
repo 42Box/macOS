@@ -28,6 +28,17 @@ class ScriptCell: NSTableCellView {
     }
     
     private func setupUI() {
+        let labels = [nameLabel, descriptionLabel]
+        for label in labels {
+            label.wantsLayer = true
+            label.layer?.cornerRadius = 15
+            label.layer?.borderColor = NSColor(red: 0.781, green: 0.781, blue: 0.781, alpha: 1).cgColor
+            label.layer?.borderWidth = 1
+            
+            label.font = NSFont.systemFont(ofSize: 16, weight: .medium)
+            label.textColor = NSColor.black
+        }
+        
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         addSubview(quickSlotButton)
@@ -38,13 +49,24 @@ class ScriptCell: NSTableCellView {
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.width.lessThanOrEqualTo(200).priority(.high) // 최대 너비와 우선순위 설정
+            make.height.equalTo(30)
         }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(nameLabel.snp.right).offset(8)
+            make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
+            make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
+            make.height.equalTo(30)
+        }
+        
         
         deleteButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-16)
             make.width.equalTo(53)
             make.height.equalTo(40)
+            
         }
         
         excuteButton.snp.makeConstraints { make in
@@ -59,13 +81,6 @@ class ScriptCell: NSTableCellView {
             make.right.equalTo(excuteButton.snp.left).offset(-8)
             make.width.equalTo(53)
             make.height.equalTo(40)
-        }
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalTo(nameLabel.snp.right).offset(8)
-            make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
-            make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
         }
     }
     

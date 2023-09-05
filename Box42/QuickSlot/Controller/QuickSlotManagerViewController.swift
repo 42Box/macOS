@@ -21,6 +21,7 @@ class QuickSlotManagerViewController: NSViewController {
         quickSlotManagerTableView = QuickSlotTableView(frame: .zero)
         quickSlotManagerTableView?.setup()
         quickSlotManagerTableView?.viewModel = viewModel
+        quickSlotManagerTableView?.backgroundColor = .white
         
         let scrollView = NSScrollView()
         scrollView.documentView = quickSlotManagerTableView

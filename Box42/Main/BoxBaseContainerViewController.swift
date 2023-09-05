@@ -23,7 +23,7 @@ class BoxBaseContainerViewController: NSViewController {
     // MARK: - QuickSlot
     var preferenceVC: PreferencesViewController = PreferencesViewController()
     var scriptsVC: ScriptsViewController = ScriptsViewController()
-        
+    
     weak var menubarVCDelegate: MenubarViewControllerDelegate? // extension
     
     var quickSlotManagerVC: QuickSlotManagerViewController = QuickSlotManagerViewController()
@@ -63,6 +63,8 @@ class BoxBaseContainerViewController: NSViewController {
     var selectedButton: DraggableButton?
     
     override func loadView() {
+        toolbarGroupVC.baseContainerVC = self
+        
         self.view = NSView()
         self.view.wantsLayer=true
         self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
@@ -71,17 +73,37 @@ class BoxBaseContainerViewController: NSViewController {
             make.height.equalTo(BoxSizeManager.shared.size.height)
         }
         
-        splitView.addArrangedSubview(leftView)
-        splitView.addArrangedSubview(contentGroup)
-        self.view.addSubview(splitView)
+        //        splitView.adjustSubviews()
+        //        splitView.setNeedsDisplay(splitView.bounds)
+        //        splitView.addArrangedSubview(leftView)
+        //        splitView.addArrangedSubview(contentGroup)
+        //        self.view.addSubview(splitView)
+        //
+        //        splitView.snp.makeConstraints { make in
+        //            make.edges.equalToSuperview().inset(10)
+        //        }
+        self.view.addSubview(leftView)
+        self.view.addSubview(contentGroup)
         
-        splitView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
+        leftView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalTo(contentGroup.snp.leading).offset(-18)
+            make.width.equalTo((268 + 16 + 18))
         }
         
+        contentGroup.snp.makeConstraints { make in
+            make.top.bottom.trailing.equalToSuperview().inset(12)
+            make.leading.equalTo(leftView.snp.trailing)
+        }
+        
+        let borderView = NSView()
+        borderView.wantsLayer = true
+        borderView.layer?.backgroundColor = NSColor(red: 0.773, green: 0.773, blue: 0.773, alpha: 1).cgColor
         leftView.addSubview(windowViewGroupVC.view)
         leftView.addSubview(bookMarkView)
         leftView.addSubview(toolbarGroupVC.view)
+        leftView.addSubview(borderView)
         leftView.addSubview(quickSlotGroupVC.view)
         leftView.addSubview(functionGroupVC.view)
         
@@ -103,9 +125,15 @@ class BoxBaseContainerViewController: NSViewController {
             make.width.equalToSuperview()
             make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
         }
+        borderView.snp.makeConstraints { make in
+            make.top.equalTo(bookMarkView.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
         quickSlotGroupVC.view.snp.makeConstraints { make in
+            make.top.equalTo(borderView.snp.bottom).offset(0)
             make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
-            make.right.equalTo(leftView).offset(-Constants.UI.groupAutolayout)
+            make.right.equalTo(leftView).offset(0)
             make.left.equalTo(leftView)
             make.height.equalTo(178)
         }
@@ -114,19 +142,17 @@ class BoxBaseContainerViewController: NSViewController {
             make.left.bottom.equalTo(leftView)
         }
         
-        splitView.delegate = self
-        
-        let stackView = NSStackView()
-        stackView.orientation = .horizontal
-        stackView.spacing = 6
-        stackView.alignment = .centerY
+        let superView = NSView()
         
         let imageView = NSImageView()
         imageView.image = NSImage(named: NSImage.Name("bookmark"))
+        imageView.image?.size = NSSize(width: 18, height: 18)
+        superView.addSubview(imageView)
         
         let label = NSTextField(labelWithString: "북마크")
         label.textColor = NSColor.black
         label.font = NSFont.boldSystemFont(ofSize: 16)
+        superView.addSubview(label)
         
         let buttonImage = NSImage(named: NSImage.Name("add"))!
         buttonImage.size = NSSize(width: 24, height: 24)
@@ -135,16 +161,23 @@ class BoxBaseContainerViewController: NSViewController {
         button.bezelStyle = .texturedRounded
         button.isBordered = false
         button.wantsLayer = true
-        button.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
-        let spacerView = NSView()
-        spacerView.snp.makeConstraints { make in
-            make.width.equalTo(173)
+        button.layer?.backgroundColor = NSColor(hex:"#E7E7E7").cgColor
+        superView.addSubview(button)
+        
+        imageView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
         
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(spacerView)
-        stackView.addArrangedSubview(button)
+        label.snp.makeConstraints { make in
+            make.left.equalTo(imageView.snp.right).offset(8)
+            make.centerY.equalToSuperview()
+        }
+        
+        button.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
         
         tableView.wantsLayer = true
         tableView.backgroundColor = NSColor(hex: "#E7E7E7")
@@ -165,11 +198,11 @@ class BoxBaseContainerViewController: NSViewController {
         let scrollView = NSScrollView()
         scrollView.documentView = tableView
         
-        bookMarkView.addSubview(stackView)
+        bookMarkView.addSubview(superView)
         bookMarkView.addSubview(scrollView)
         //        bookMarkView.addSubview(tableView)
         
-        stackView.snp.makeConstraints { make in
+        superView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(18)
             make.leading.trailing.equalToSuperview().offset(0)
             make.height.equalTo(24)
@@ -181,7 +214,7 @@ class BoxBaseContainerViewController: NSViewController {
         //        }
         
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(0)
+            make.top.equalTo(superView.snp.bottom).offset(0)
             make.leading.trailing.equalToSuperview().offset(0)
             make.width.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -303,31 +336,10 @@ class BoxBaseContainerViewController: NSViewController {
 }
 
 extension BoxBaseContainerViewController: NSSplitViewDelegate {
-    func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        
-        if dividerIndex == 0 {
-            return CGFloat(132).pointsToPixels()
-        }
-        return proposedMinimumPosition
+    func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool {
+        return false
     }
     
-    func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        if dividerIndex == 0 {
-            return CGFloat(302).pointsToPixels()
-        }
-        return proposedMaximumPosition
-    }
-    
-    func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize) {
-        let dividerThickness = splitView.dividerThickness
-        let newWidth = splitView.frame.width - dividerThickness
-        
-        let leftWidth = leftView.frame.width
-        let contentWidth = newWidth - leftWidth
-        
-        leftView.frame = NSRect(x: 0, y: 0, width: leftWidth, height: splitView.bounds.height)
-        contentGroup.frame = NSRect(x: leftWidth + dividerThickness, y: 0, width: contentWidth, height: splitView.bounds.height)
-    }
 }
 
 extension BoxBaseContainerViewController: NSTableViewDelegate {
@@ -345,9 +357,6 @@ class ButtonTableCellView: NSTableCellView {
     
     override func viewWillDraw() {
         super.viewWillDraw()
-        self.frame.size.width = 268.0
-        self.frame = NSRect(x: self.frame.origin.x - 3, y: self.frame.origin.y,
-                            width: self.frame.size.width, height: self.frame.size.height)
     }
 }
 
@@ -361,7 +370,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         let cellView = ButtonTableCellView()
         cellView.rowIndex = row
         
-        let button = DraggableButton(frame: NSRect(x: 0, y: 0, width: 300, height: 44))
+        let button = DraggableButton(frame: NSRect(x: 0, y: 0, width: 268, height: 44))
         button.tag = row
         button.bezelStyle = .inline
         button.isBordered = false
@@ -389,7 +398,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         label.attributedStringValue=attributedStringTitle
         button.addSubview(label)
         
-        
         //        let image = NSImage(named: NSImage.Name("bookmark-default"))
         //        image?.size = NSSize(width: 21, height: 21)
         //        button.image = image
@@ -401,8 +409,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         imageView.imageScaling = .scaleProportionallyUpOrDown
         imageView.imageAlignment = .alignCenter
         button.addSubview(imageView)
-        
-        
         
         cellView.addSubview(button)
         
@@ -432,7 +438,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
     @objc func buttonClicked(_ sender: DraggableButton) {
         selectedButton?.layer?.backgroundColor = NSColor.clear.cgColor
         
-        // Update the reference to the currently selected button and change its background color.
         selectedButton = sender
         sender.layer?.backgroundColor = NSColor.white.cgColor
         
@@ -491,7 +496,6 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
             guard let cellView = subview as? CustomTableCellView else {
                 continue
             }
-            
             cellView.button.title = BookmarkViewModel.shared.bookMarkList[cellView.rowIndex].url
         }
         
