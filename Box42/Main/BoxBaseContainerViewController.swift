@@ -532,15 +532,6 @@ extension BoxBaseContainerViewController {
                         }
                     }
                 }
-                
-                print("Button with title \(button.title) was tapped in BaseVC")
-                contentGroup.removeAllSubviews()
-                print(WebViewManager.shared.hostingWebView!)
-                contentGroup.addSubview(WebViewManager.shared.hostingWebView!)
-                WebViewManager.shared.hostingWebView!.snp.makeConstraints { make in
-                    make.top.bottom.left.right.equalToSuperview()
-                }
-                // run script
             }
         }
     }
