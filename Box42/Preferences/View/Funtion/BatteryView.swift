@@ -35,7 +35,7 @@ class BatteryView: NSView {
         // SnapKit 레이아웃 설정
         currentStateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(10)
+            make.left.equalToSuperview().offset(22)
         }
         
         powerSourceLabel.snp.makeConstraints { make in

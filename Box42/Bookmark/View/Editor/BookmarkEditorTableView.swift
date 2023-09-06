@@ -17,9 +17,11 @@ class BookmarkEditorTableView: NSTableView {
         self.delegate = self
         self.dataSource = self
         
+        self.headerView = nil
+        self.backgroundColor = .white
+        self.selectionHighlightStyle = .none
+        
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("BookmarkEditorTableView"))
-        column1.width = 100.0
-        column1.title = "BookmarkEditorTableView"
         self.addTableColumn(column1)
         
         self.wantsLayer = true

@@ -39,7 +39,7 @@ class MemoryView: NSView {
         // SnapKit 레이아웃 설정
         physicalMemoryLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(10)
+            make.left.equalToSuperview().offset(22)
         }
         
         usedMemoryLabel.snp.makeConstraints { make in

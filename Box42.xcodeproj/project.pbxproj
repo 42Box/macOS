@@ -10,6 +10,7 @@
 		64D699FE2AA5F69900EEF7BC /* BookmarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */; };
 		64D69A012AA5F97B00EEF7BC /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */; };
 		7E9B46922AA5C564009EB900 /* BookmarkEditorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B46912AA5C564009EB900 /* BookmarkEditorTableView.swift */; };
+		D67E67992AA83531005A61CF /* prefsHelper.app in Resources */ = {isa = PBXBuildFile; fileRef = D67E67982AA83531005A61CF /* prefsHelper.app */; };
 		DE018BB32A5099F900FF0AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */; };
 		DE018BB82A5099F900FF0AA3 /* Box42.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE018BB62A5099F900FF0AA3 /* Box42.xcdatamodeld */; };
 		DE018BDD2A509AEB00FF0AA3 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE018BDC2A509AEB00FF0AA3 /* EventMonitor.swift */; };
@@ -149,6 +150,7 @@
 		64D699F72AA5F5C100EEF7BC /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
 		64D699FD2AA5F69900EEF7BC /* BookmarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkModel.swift; sourceTree = "<group>"; };
 		7E9B46912AA5C564009EB900 /* BookmarkEditorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkEditorTableView.swift; sourceTree = "<group>"; };
+		D67E67982AA83531005A61CF /* prefsHelper.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = prefsHelper.app; path = ../../Downloads/prefsHelper.app; sourceTree = "<group>"; };
 		DE018BAF2A5099F900FF0AA3 /* Box42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE018BB22A5099F900FF0AA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE018BB72A5099F900FF0AA3 /* Box42.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Box42.xcdatamodel; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		DE018BA62A5099F900FF0AA3 = {
 			isa = PBXGroup;
 			children = (
+				D67E67982AA83531005A61CF /* prefsHelper.app */,
 				DE018BB12A5099F900FF0AA3 /* Box42 */,
 				DE018BB02A5099F900FF0AA3 /* Products */,
 				DE17AF722A834A1600325BF4 /* Frameworks */,
@@ -948,6 +951,7 @@
 				DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */,
 				DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */,
 				DE9B57872AA88730007B796C /* CleanCache_cluster.sh in Resources */,
+				D67E67992AA83531005A61CF /* prefsHelper.app in Resources */,
 				DE018BE02A509B0600FF0AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
