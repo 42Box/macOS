@@ -27,6 +27,16 @@ class BookmarkCell: NSTableCellView {
     }
     
     private func setupUI() {
+        let labels = [nameLabel, descriptionLabel]
+        for label in labels {
+            label.wantsLayer = true
+            label.layer?.cornerRadius = 15
+            label.layer?.borderColor = NSColor(red: 0.781, green: 0.781, blue: 0.781, alpha: 1).cgColor
+            label.layer?.borderWidth = 1
+            
+            label.font = NSFont.systemFont(ofSize: 16, weight: .medium)
+            label.textColor = NSColor.black
+        }
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         addSubview(quickSlotButton)
@@ -36,6 +46,7 @@ class BookmarkCell: NSTableCellView {
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.width.lessThanOrEqualTo(200).priority(.high)
+            make.height.equalTo(30)
         }
         
         deleteButton.snp.makeConstraints { make in
@@ -57,6 +68,7 @@ class BookmarkCell: NSTableCellView {
             make.left.equalTo(nameLabel.snp.right).offset(8)
             make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
             make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
+            make.height.equalTo(30)
         }
     }
     
@@ -73,7 +85,7 @@ class BookmarkCell: NSTableCellView {
         
         quickSlotButton.target = self
         quickSlotButton.action = #selector(quickSlotButtonclicked)
-        
+//        NSColor(hex: "#E7E7E7").cgColor
     }
     
     @objc func deleteButtonClicked() {
