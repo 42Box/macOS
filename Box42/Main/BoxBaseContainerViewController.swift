@@ -50,7 +50,7 @@ class BoxBaseContainerViewController: NSViewController {
     // MARK: - table View End
     
     private func setupBindings() {
-        print("Setting up bindings...") // 디버깅 로그
+        print("URL TableView Setting up bindings...")
         viewModel?.$bookMarkList.sink(receiveValue: { [weak self] newScripts in
             print("Received new scripts: \(newScripts)") // 디버깅 로그
             DispatchQueue.main.async {

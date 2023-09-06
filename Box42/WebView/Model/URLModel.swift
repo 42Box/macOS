@@ -26,17 +26,15 @@ struct URLModels {
     
     // Network logic api call 날려서 받아올 것.
     let URLstring: [nameUrl] = [
-        ("home", "https://42box.kr/"),
+        ("42Box", "https://42box.kr/"),
         ("23Coaltheme", "https://42box.github.io/front-end/"),
-        ("Box 42", "https://42box.github.io/front-end/#/box"),
         ("Intra 42", "https://intra.42.fr"),
         ("Jiphyeonjeon", "https://42library.kr"),
         ("42STAT", "https://stat.42seoul.kr/home"),
         ("24Hane", "https://24hoursarenotenough.42seoul.kr"),
         ("80kCoding", "https://80000coding.oopy.io"),
-        ("where42", "https://www.where42.kr"),
-        ("cabi", "https://cabi.42seoul.io/"),
-        ("42gg", "https://42gg.kr/"),
-        ("textart", "https://textart.sh/"),
+        ("Where42", "https://www.where42.kr"),
+        ("Cabi", "https://cabi.42seoul.io/"),
+        ("42GG", "https://42gg.kr/"),
     ]
 }
