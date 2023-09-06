@@ -15,7 +15,7 @@ class QuickSlotViewModel {
     private init() {
         let button1 = QuickSlotButtonModel(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3f"),
                                            title: QuickSlotUI.title.clean,
-                                           path: Bundle.main.path(forResource: "cleanCache", ofType: "sh"),
+                                           path: Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh"),
                                            type: "sh"
         )
         let button2 = QuickSlotButtonModel(title: QuickSlotUI.title.preferences,

@@ -24,7 +24,9 @@ class WebViewManager: NSObject {
     var hostingWebView: WKWebView? {
         didSet {
             hostingWebView?.navigationDelegate = self
-            print("didSet")
+
+            DisplayURLInToolbar.shared.updateURL()
+            print("hosting View didSet")
         }
     }
     

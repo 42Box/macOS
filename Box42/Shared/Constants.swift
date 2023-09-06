@@ -7,7 +7,7 @@
 
 enum Constants {
     enum url {
-        static let initialName = "home"
+        static let initialName = "42Box"
         static let initialPage = "https://42box.kr"
 //        static let initialPage = "https://profile.intra.42.fr/"
     }

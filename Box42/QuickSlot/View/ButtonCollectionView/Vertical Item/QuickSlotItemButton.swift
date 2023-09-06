@@ -18,6 +18,8 @@ class QuickSlotItemButton: NSButton {
         self.title = buttonModel.title
         if buttonModel.title == "CleanCache" {
             self.image = NSImage(imageLiteralResourceName: "trash")
+        } else if buttonModel.title == "Preferences" {
+            self.image = NSImage(imageLiteralResourceName: "box-icon-64")
         } else if buttonModel.type == "sh" {
             self.image = NSImage(imageLiteralResourceName: "document-text")
         } else if buttonModel.type == "pref" {
@@ -42,7 +44,9 @@ class QuickSlotItemButton: NSButton {
         )
         self.addTrackingArea(trackingArea)
         
+        // MARK: - 퀵슬롯 button에 associatedString 부여
         self.associatedString = buttonModel.path
+        print(self.associatedString)
     }
     
     required init?(coder: NSCoder) {

@@ -17,9 +17,11 @@ class BookmarkEditorTableView: NSTableView {
         self.delegate = self
         self.dataSource = self
         
+        self.headerView = nil
+        self.backgroundColor = .white
+        self.selectionHighlightStyle = .none
+        
         let column1 = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("BookmarkEditorTableView"))
-        column1.width = 100.0
-        column1.title = "BookmarkEditorTableView"
         self.addTableColumn(column1)
         
         self.wantsLayer = true
@@ -30,7 +32,9 @@ class BookmarkEditorTableView: NSTableView {
     func setupBindings() {
         viewModel?.$bookMarkList
             .sink { [weak self] _ in
-                self?.reloadData()
+                DispatchQueue.main.async {
+                    self?.reloadData()
+                }
             }
             .store(in: &cancellables)
     }
@@ -43,21 +47,22 @@ extension BookmarkEditorTableView: NSTableViewDelegate, NSTableViewDataSource {
         }
         
         if row < viewModel.bookMarkList.count {
-            return getBookmarkCell(for: viewModel.bookMarkList[row], viewModel: viewModel)
+            return getBookmarkCell(index: row, for: viewModel.bookMarkList[row], viewModel: viewModel)
         } else {
             // MARK: - 다음 버전에 추가 예정
             return getBookmarkCellManager()
         }
     }
     
-    private func getBookmarkCell(for urlitem: URLItem, viewModel: BookmarkViewModel) -> BookmarkCell {
+    private func getBookmarkCell(index: Int, for urlitem: URLItem, viewModel: BookmarkViewModel) -> BookmarkCell {
         let cell = BookmarkCell(frame: .zero)
-        cell.configure(with: urlitem, viewModel: viewModel)
+        cell.configure(index: index, urlitem: urlitem, viewModel: viewModel)
         return cell
     }
     
     private func getBookmarkCellManager() -> BookmarkCellManager {
         let scriptCellManger = BookmarkCellManager(frame: .zero)
+        scriptCellManger.configure()
         return scriptCellManger
     }
     

@@ -5,10 +5,12 @@
 //  Created by Chanhee Kim on 8/16/23.
 //
 
-import Foundation
+import Cocoa
 import Combine
 
 class Storage {
+    static let shared = Storage()
+    
     var storageTimer: Timer? = nil
     var usage: (value: Double, description:String) = (0.0, "")
     var count = 0
@@ -17,11 +19,11 @@ class Storage {
 
     private var subscriptions = Set<AnyCancellable>()
     
-    private var availableUsage: Double?
-    private var usedUsage: Double?
-    private var totalUsage: Double?
+    var availableUsage: Double?
+    var usedUsage: Double?
+    var totalUsage: Double?
         
-    init(config: StorageConfig = StorageConfig.shared) {
+    private init(config: StorageConfig = StorageConfig.shared) {
         self.config = config
         
         config.$threshold.sink { [weak self] newThreshold in
@@ -31,6 +33,8 @@ class Storage {
         config.$period.sink { [weak self] newPeriod in
             self?.storageTimerEvent()
         }.store(in: &subscriptions)
+        
+        _ = checkStorage()
     }
     
     func checkStorage() -> Bool {
@@ -107,7 +111,7 @@ class Storage {
 
     
     func cleanSh() {
-        if let scriptPath = Bundle.main.path(forResource: "cleanCache", ofType: "sh") {
+        if let scriptPath = Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh") {
             let task = Process()
             task.launchPath = "/bin/sh"
             task.arguments = [scriptPath]
@@ -120,6 +124,40 @@ class Storage {
             print("Script not found")
         }
     }
+    
+    func runScriptAndDisplayOutput() {
+        // 새로운 윈도우 생성
+        let newWindow = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 300), styleMask: [.titled, .closable], backing: .buffered, defer: false)
+        newWindow.title = "Script Output"
+        
+        let outputTextField = NSTextField(frame: NSRect(x: 20, y: 20, width: 460, height: 260))
+        outputTextField.isEditable = false
+        outputTextField.isBordered = true
+        newWindow.contentView?.addSubview(outputTextField)
+        
+        newWindow.makeKeyAndOrderFront(nil)
+        
+        // 스크립트 실행 및 결과 출력
+        if let scriptPath = Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh") {
+            let task = Process()
+            task.launchPath = "/bin/sh"
+            task.arguments = [scriptPath]
+            
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            task.launch()
+            
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            if let output = String(data: data, encoding: .utf8) {
+                outputTextField.stringValue = output
+            }
+            
+            task.waitUntilExit()
+        } else {
+            print("Script not found")
+        }
+    }
+
     
     func change() {
         config.setThreshold(.percentage30)
