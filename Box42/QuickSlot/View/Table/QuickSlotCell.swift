@@ -89,6 +89,8 @@ class QuickSlotCell: NSTableCellView {
 
         if qsItem.title == "CleanCache" {
             imageButton.image = NSImage(imageLiteralResourceName: "trash")
+        } else if qsItem.title == "Preferences" {
+            imageButton.image = NSImage(imageLiteralResourceName: "box-icon-128")
         } else if qsItem.type == "sh" {
             imageButton.image = NSImage(imageLiteralResourceName: "document-text")
         } else if qsItem.type == "pref" {
@@ -99,7 +101,6 @@ class QuickSlotCell: NSTableCellView {
             imageButton.image = NSImage(imageLiteralResourceName: "setting")
         }
         imageButton.isBordered = false
-        
         
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)

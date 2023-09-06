@@ -68,19 +68,6 @@ MAGENTA="\033[35m"
 CYAN="\033[36m"
 RESET="\033[0m"
 
-# Currently Size
-Size=$(df -h /USER/$USER | grep /USER/$USER | awk '{print($2)}' | tr 'i' 'B')
-
-# Currently used capacity
-Used=$(df -h /USER/$USER | grep /USER/$USER | awk '{print($3)}' | tr 'i' 'B')
-
-# Currently available capacity
-Avail=$(df -h /USER/$USER | grep /USER/$USER | awk '{print($4)}' | tr 'i' 'B')
-if [ "$Avail" == "0BB" ];
-then
-	Avail="0B"
-fi
-
 echo "$CYAN Currently used capacity $Used/$Size $RESET\n"
 
 echo "$MAGENTA Clearing 🧹 cache ... $DELINE $RESET $CURSUP "
@@ -136,16 +123,6 @@ rm -rf /USER/$USER/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Fil
 
 # Delete desktop
 rm -rf /USER/$USER/Desktop/Relocated Items &>/dev/null
-
-# Calculate usage after cleaning
-Used=$(df -h /USER/$USER | grep /USER/$USER | awk '{print($3)}' | tr 'i' 'B')
-
-# Calculate usage after cleaning
-Avail2=$(df -h /USER/$USER | grep /USER/$USER | awk '{print($4)}' | tr 'i' 'B')
-if [ "$Avail2" == "0BB" ];
-then
-	Avail2="0B"
-fi
 
 # Output the result
 echo "\n$MAGENTA ✨ Complete Clearing cache ✨ $RESET \n"

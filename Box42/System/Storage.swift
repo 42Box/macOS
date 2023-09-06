@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class Storage {
+    static let shared = Storage()
+    
     var storageTimer: Timer? = nil
     var usage: (value: Double, description:String) = (0.0, "")
     var count = 0
@@ -17,11 +19,11 @@ class Storage {
 
     private var subscriptions = Set<AnyCancellable>()
     
-    private var availableUsage: Double?
-    private var usedUsage: Double?
-    private var totalUsage: Double?
+    var availableUsage: Double?
+    var usedUsage: Double?
+    var totalUsage: Double?
         
-    init(config: StorageConfig = StorageConfig.shared) {
+    private init(config: StorageConfig = StorageConfig.shared) {
         self.config = config
         
         config.$threshold.sink { [weak self] newThreshold in
@@ -31,6 +33,8 @@ class Storage {
         config.$period.sink { [weak self] newPeriod in
             self?.storageTimerEvent()
         }.store(in: &subscriptions)
+        
+        checkStorage()
     }
     
     func checkStorage() -> Bool {

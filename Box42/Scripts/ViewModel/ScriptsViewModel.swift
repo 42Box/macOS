@@ -88,18 +88,19 @@ class ScriptViewModel: NSObject {
     
     // Delete
     func deleteScript(path: String) {
-        if let script = scripts.first(where: { $0.path == path }) {
-            API.deleteUserMeScripts(WebViewManager.shared.getCookieWebKit, savedId: script.savedId!) { result in
-                switch result {
-                case .success(_):
-                    self.scripts.removeAll(where: { $0.path == path })
-                    QuickSlotViewModel.shared.removeButton(path)
-                    
-                case .failure(let error):
-                    print("Failed to delete script: \(error)")
-                }
-            }
-        }
+        self.scripts.removeAll(where: { $0.path == path })
+//        if let script = scripts.first(where: { $0.path == path }) {
+//            API.deleteUserMeScripts(WebViewManager.shared.getCookieWebKit, savedId: script.savedId!) { result in
+//                switch result {
+//                case .success(_):
+//                    self.scripts.removeAll(where: { $0.path == path })
+//                    QuickSlotViewModel.shared.removeButton(path)
+//
+//                case .failure(let error):
+//                    print("Failed to delete script: \(error)")
+//                }
+//            }
+//        }
     }
     
     // 새로운 스크립트 배열로 교체하는 메소드

@@ -1,1 +1,1 @@
-defaults -currentHost import ~/.mysettings.plist
+defaults -currentHost import /USER/$USER/.mysettings.plist
