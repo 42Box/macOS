@@ -242,7 +242,6 @@ class BoxBaseContainerViewController: NSViewController {
         
         bookmarkTableView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
-            make.top.equalToSuperview().offset(100)
         })
     }
     
@@ -518,14 +517,10 @@ extension BoxBaseContainerViewController {
             if button.title == QuickSlotUI.title.preferences {
                 print("Button with title \(button.title) was tapped in BaseVC")
                 contentGroup.showPreferences()
-            }
-            
-            if button.title == QuickSlotUI.title.scripts {
+            } else if button.title == QuickSlotUI.title.scripts {
                 print("Button with title \(button.title) was tapped in BaseVC")
                 contentGroup.showScripts()
-            }
-            
-            if button.title == QuickSlotUI.title.user {
+            } else if button.title == QuickSlotUI.title.user {
                 //                        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.keyboard") {
                 //                            NSWorkspace.shared.open(url)
                 //

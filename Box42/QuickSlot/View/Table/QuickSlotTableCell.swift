@@ -1,5 +1,5 @@
 //
-//  QuickSlotCell.swift
+//  QuickSlotTableCell.swift
 //  Box42
 //
 //  Created by Chanhee Kim on 9/3/23.
@@ -8,7 +8,7 @@
 import AppKit
 import SnapKit
 
-class QuickSlotCell: NSTableCellView {
+class QuickSlotTableCell: NSTableCellView {
     var imageButton: NSButton = NSButton()
     var titleLabel: NSTextField = NSTextField()
     var pathLabel: NSTextField = NSTextField()

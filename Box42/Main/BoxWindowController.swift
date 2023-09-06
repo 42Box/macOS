@@ -23,6 +23,7 @@ class BoxWindowController: NSWindowController, NSWindowDelegate {
         windowInstance.standardWindowButton(.closeButton)?.isHidden = true
         windowInstance.standardWindowButton(.miniaturizeButton)?.isHidden = true
         windowInstance.standardWindowButton(.zoomButton)?.isHidden = true
+        windowInstance.level = .floating
 
         let boxViewController = BoxBaseContainerViewController(nibName: nil, bundle: nil)
         windowInstance.contentViewController = boxViewController

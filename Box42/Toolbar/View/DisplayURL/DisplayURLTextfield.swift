@@ -9,7 +9,13 @@ import AppKit
 
 class DisplayURLTextfield: NSTextField {
     var onTextFieldRestore: (() -> Void)?
-
+    
+    override var stringValue: String {
+        didSet {
+            print("TextField Value changed to: \(stringValue)")
+        }
+    }
+    
     override func mouseDown(with event: NSEvent) {
         onTextFieldRestore?()
         super.mouseDown(with: event)

@@ -20,6 +20,7 @@ class BookmarkCreateButton: NSButton {
 
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
+
     }
     
     required init?(coder: NSCoder) {
