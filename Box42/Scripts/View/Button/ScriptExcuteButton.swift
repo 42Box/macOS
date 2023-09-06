@@ -22,7 +22,7 @@ class ScriptExcuteButton: NSButton {
         self.isBordered = false
         self.wantsLayer = true
         self.layer?.cornerRadius = 15
-        self.layer?.backgroundColor = NSColor(hex: "#008000").cgColor
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").cgColor
 
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
@@ -35,12 +35,12 @@ class ScriptExcuteButton: NSButton {
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
 
-        self.layer?.backgroundColor = NSColor(hex: "#008000").withAlphaComponent(0.5).cgColor
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").withAlphaComponent(0.5).cgColor
     }
 
     override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
 
-        self.layer?.backgroundColor = NSColor(hex: "#008000").cgColor
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").cgColor
     }
 }

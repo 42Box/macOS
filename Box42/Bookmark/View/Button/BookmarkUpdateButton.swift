@@ -16,7 +16,7 @@ class BookmarkUpdateButton: NSButton {
         self.isBordered = false
         self.wantsLayer = true
         self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
-        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").cgColor
 
         let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
@@ -28,42 +28,44 @@ class BookmarkUpdateButton: NSButton {
     
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
-
-        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        bgColorAnimation.fromValue = WindowButtonUI.color.opacityWhite
-        bgColorAnimation.toValue = WindowButtonUI.color.minimize
-        bgColorAnimation.duration = WindowButtonUI.animation.duration
-
-        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
-        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius
-        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius / 2
-        cornerAnimation.duration = WindowButtonUI.animation.duration
-
-        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
-        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
-
-        self.layer?.backgroundColor = WindowButtonUI.color.minimize
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").withAlphaComponent(0.5).cgColor
+        
+//        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
+//        bgColorAnimation.fromValue = WindowButtonUI.color.opacityWhite
+//        bgColorAnimation.toValue = WindowButtonUI.color.minimize
+//        bgColorAnimation.duration = WindowButtonUI.animation.duration
+//
+//        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
+//        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius
+//        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius / 2
+//        cornerAnimation.duration = WindowButtonUI.animation.duration
+//
+//        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
+//        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
+//
+//        self.layer?.backgroundColor = WindowButtonUI.color.minimize
+//        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius / 2
     }
 
     override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
+        self.layer?.backgroundColor = NSColor(hex: "#76DF7A").cgColor
 
-        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        bgColorAnimation.fromValue = WindowButtonUI.color.minimize
-        bgColorAnimation.toValue = WindowButtonUI.color.opacityWhite
-        bgColorAnimation.duration = WindowButtonUI.animation.duration
-        
-        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
-        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius / 2
-        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius
-        cornerAnimation.duration = WindowButtonUI.animation.duration
-
-        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
-        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
-
-        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
-        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
+//        let bgColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
+//        bgColorAnimation.fromValue = WindowButtonUI.color.minimize
+//        bgColorAnimation.toValue = WindowButtonUI.color.opacityWhite
+//        bgColorAnimation.duration = WindowButtonUI.animation.duration
+//
+//        let cornerAnimation = CABasicAnimation(keyPath: "cornerRadius")
+//        cornerAnimation.fromValue = WindowButtonUI.size.cornerRadius / 2
+//        cornerAnimation.toValue = WindowButtonUI.size.cornerRadius
+//        cornerAnimation.duration = WindowButtonUI.animation.duration
+//
+//        self.layer?.add(bgColorAnimation, forKey: "backgroundColorAnimation")
+//        self.layer?.add(cornerAnimation, forKey: "cornerRadiusAnimation")
+//
+//        self.layer?.backgroundColor = WindowButtonUI.color.opacityWhite
+//        self.layer?.cornerRadius = WindowButtonUI.size.cornerRadius
     }
     
     override func mouseDown(with event: NSEvent) {

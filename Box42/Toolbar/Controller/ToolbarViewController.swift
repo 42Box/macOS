@@ -78,8 +78,8 @@ class ToolbarViewController: NSViewController {
                 
                 baseContainerVC.view.addSubview(pinButton)
                 pinButton.snp.makeConstraints { make in
-                    make.leading.equalToSuperview().inset(10)
-                    make.left.bottom.equalTo(baseContainerVC.leftView)
+                    make.leading.equalToSuperview().offset(-20)
+                    make.bottom.equalTo(baseContainerVC.leftView)
                     make.width.equalTo(FunctionButtonUI.size.pinWidth)
                     make.height.equalTo(FunctionButtonUI.size.pinHeight)
                 }

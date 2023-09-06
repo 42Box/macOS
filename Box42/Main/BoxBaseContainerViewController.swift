@@ -18,7 +18,7 @@ class BoxBaseContainerViewController: NSViewController {
     var functionGroupVC: BoxFunctionViewController = BoxFunctionViewController()
     let windowViewGroupVC: WindowButtonViewController = WindowButtonViewController()
     var leftView: MovableContainerView = MovableContainerView()
-//    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
+    //    var buttonGroupVC: ButtonGroupViewController = ButtonGroupViewController()
     
     // MARK: - QuickSlot
     var preferenceVC: PreferencesViewController = PreferencesViewController()
@@ -28,12 +28,12 @@ class BoxBaseContainerViewController: NSViewController {
     
     var quickSlotManagerVC: QuickSlotManagerViewController = QuickSlotManagerViewController()
     var quickSlotButtonCollectionVC: QuickSlotButtonCollectionViewController =  QuickSlotButtonCollectionViewController()
-
+    
     // MARK: - table View
     var viewModel: BookmarkViewModel? = BookmarkViewModel.shared
     
     var cancellables: Set<AnyCancellable> = []
-
+    
     private let bookMarkView: NSView = {
         let view = NSView()
         return view
@@ -45,7 +45,7 @@ class BoxBaseContainerViewController: NSViewController {
         tableView.headerView = nil
         return tableView
     }()
-
+    
     
     // MARK: - table View End
     
@@ -58,7 +58,7 @@ class BoxBaseContainerViewController: NSViewController {
             }
         }).store(in: &cancellables)
     }
-
+    
     var selectedRow: Int?
     var selectedButton: DraggableButton?
     
@@ -227,7 +227,7 @@ class BoxBaseContainerViewController: NSViewController {
     
     @objc func addBookMarkButtonClicked(_ sender: NSButton) {
         contentGroup.removeAllSubviews()
-
+        
         let bookmarkTableView = BookmarkEditorTableView()
         bookmarkTableView.setup()
         bookmarkTableView.setupBindings()
@@ -242,97 +242,100 @@ class BoxBaseContainerViewController: NSViewController {
         
         bookmarkTableView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
         })
     }
     
     override func viewDidLoad() {
-//        self.view.wantsLayer = true
+        //        self.view.wantsLayer = true
         super.viewDidLoad()
         setupBindings()
-//
-////        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
-//        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
+        //
+        ////        self.view.layer?.backgroundColor = NSColor(hex: "#FF9548").cgColor
+        //        self.view.layer?.backgroundColor = NSColor(hex: "#E7E7E7").cgColor
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(headerTappedQuickSlotManagerHandle), name: .collectionHeaderTapped, object: nil)
+        
+        NSUserNotificationCenter.default.delegate = self
     }
     
-//    func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
-//
-//        let buttonGroup = BoxButtonViewGroup { sender in
-//            self.clickBtn(sender: sender)
-//        }
-//
-//        return buttonGroup
-//    }
-//
-//    private func leftContainerInit() {
-//        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
-//        leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
-//        leftContainer.addSubview(windowViewGroupVC.view)
-//        leftContainer.addSubview(buttonGroupVC.view)
-//        leftContainer.addSubview(toolbarGroupVC.view)
-//        leftContainer.addSubview(quickSlotGroupVC.view)
-//        leftContainer.addSubview(functionGroupVC.view)
-//
-//        leftContainerAutolayout()
-//    }
-//
-//    private func leftContainerAutolayout() {
-//        windowViewGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(leftContainer)
-//            make.left.equalTo(leftContainer).offset(3)
-//            make.width.equalTo(77)
-//            make.height.equalTo(21)
-//        }
-//
-//        toolbarGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
-//            make.right.equalTo(leftContainer)
-//            make.left.equalTo(leftContainer)
-//            make.height.equalTo(44 + 14 + 24)
-//        }
-//
-//        buttonGroupVC.view.snp.makeConstraints { make in
-//            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
-//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//            make.left.equalTo(leftContainer)
-//            make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
-//        }
-//
-//       quickSlotGroupVC.view.snp.makeConstraints { make in
-//           make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
-//           make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//           make.left.equalTo(leftContainer)
-//           make.height.equalTo(178)
-//       }
-//
-//        functionGroupVC.view.snp.makeConstraints { make in
-//            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
-//            make.left.bottom.equalTo(leftContainer)
-//        }
-//    }
-//
-//    func viewInit() {
-//        self.boxViewSizeInit()
-//
-//        splitView.addArrangedSubview(leftContainer)
-//        splitView.addArrangedSubview(contentGroup)
-//        self.view.addSubview(splitView)
-//
-//        splitView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(Constants.UI.groupAutolayout)
-//            make.left.equalToSuperview().offset(Constants.UI.groupAutolayout)
-//            make.right.equalToSuperview().offset(-Constants.UI.groupAutolayout)
-//            make.bottom.equalToSuperview().offset(-Constants.UI.groupAutolayout)
-//        }
-//    }
-//
-//    func boxViewSizeInit() {
-//        self.view.frame.size.width = BoxSizeManager.shared.size.width
-//        self.view.frame.size.height = BoxSizeManager.shared.size.height
-//    }
+    //    func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
+    //
+    //        let buttonGroup = BoxButtonViewGroup { sender in
+    //            self.clickBtn(sender: sender)
+    //        }
+    //
+    //        return buttonGroup
+    //    }
+    //
+    //    private func leftContainerInit() {
+    //        leftContainer.frame.size.width = BoxSizeManager.shared.windowButtonGroupSize.width
+    //        leftContainer.frame.size.height = BoxSizeManager.shared.windowButtonGroupSize.height
+    //        leftContainer.addSubview(windowViewGroupVC.view)
+    //        leftContainer.addSubview(buttonGroupVC.view)
+    //        leftContainer.addSubview(toolbarGroupVC.view)
+    //        leftContainer.addSubview(quickSlotGroupVC.view)
+    //        leftContainer.addSubview(functionGroupVC.view)
+    //
+    //        leftContainerAutolayout()
+    //    }
+    //
+    //    private func leftContainerAutolayout() {
+    //        windowViewGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(leftContainer)
+    //            make.left.equalTo(leftContainer).offset(3)
+    //            make.width.equalTo(77)
+    //            make.height.equalTo(21)
+    //        }
+    //
+    //        toolbarGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(windowViewGroupVC.view.snp.bottom).offset(31)
+    //            make.right.equalTo(leftContainer)
+    //            make.left.equalTo(leftContainer)
+    //            make.height.equalTo(44 + 14 + 24)
+    //        }
+    //
+    //        buttonGroupVC.view.snp.makeConstraints { make in
+    //            make.top.equalTo(toolbarGroupVC.view.snp.bottom).offset(Constants.UI.groupAutolayout)
+    //            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //            make.left.equalTo(leftContainer)
+    //            make.bottom.equalTo(quickSlotGroupVC.view.snp.top).offset(-Constants.UI.groupAutolayout)
+    //        }
+    //
+    //       quickSlotGroupVC.view.snp.makeConstraints { make in
+    //           make.bottom.equalTo(functionGroupVC.view.snp.top).offset(-27)
+    //           make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //           make.left.equalTo(leftContainer)
+    //           make.height.equalTo(178)
+    //       }
+    //
+    //        functionGroupVC.view.snp.makeConstraints { make in
+    //            make.right.equalTo(leftContainer).offset(-Constants.UI.groupAutolayout)
+    //            make.left.bottom.equalTo(leftContainer)
+    //        }
+    //    }
+    //
+    //    func viewInit() {
+    //        self.boxViewSizeInit()
+    //
+    //        splitView.addArrangedSubview(leftContainer)
+    //        splitView.addArrangedSubview(contentGroup)
+    //        self.view.addSubview(splitView)
+    //
+    //        splitView.snp.makeConstraints { make in
+    //            make.top.equalToSuperview().offset(Constants.UI.groupAutolayout)
+    //            make.left.equalToSuperview().offset(Constants.UI.groupAutolayout)
+    //            make.right.equalToSuperview().offset(-Constants.UI.groupAutolayout)
+    //            make.bottom.equalToSuperview().offset(-Constants.UI.groupAutolayout)
+    //        }
+    //    }
+    //
+    //    func boxViewSizeInit() {
+    //        self.view.frame.size.width = BoxSizeManager.shared.size.width
+    //        self.view.frame.size.height = BoxSizeManager.shared.size.height
+    //    }
 }
 
 extension BoxBaseContainerViewController: NSSplitViewDelegate {
@@ -389,10 +392,10 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         label.isEditable = false
         
         let attributes : [NSAttributedString.Key : Any] =
-        [
-            NSAttributedString.Key.font : NSFont.systemFont(ofSize:18.0, weight: .light),
-            NSAttributedString.Key.foregroundColor : NSColor.black,
-        ]
+            [
+                NSAttributedString.Key.font : NSFont.systemFont(ofSize:18.0, weight: .light),
+                NSAttributedString.Key.foregroundColor : NSColor.black,
+            ]
         let attributedStringTitle = NSAttributedString(string: label.stringValue , attributes:
                                                         attributes)
         label.attributedStringValue=attributedStringTitle
@@ -414,7 +417,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         
         button.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(2)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(12)
             make.trailing.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(44)
@@ -444,7 +447,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         if sender.tag < BookmarkViewModel.shared.bookMarkList.count {
             if let url = URL(string: BookmarkViewModel.shared.bookMarkList[sender.tag].url) {
                 print(url)
-				clickBtn(sender: sender)
+                clickBtn(sender: sender)
             }
         }
     }
@@ -523,14 +526,31 @@ extension BoxBaseContainerViewController {
             }
             
             if button.title == QuickSlotUI.title.user {
-                if let url = URL(string: "x-apple.systempreferences:com.apple.preference.keyboard") {
-                    NSWorkspace.shared.open(url)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.general") {
-                            NSWorkspace.shared.open(url)
+                //                        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.keyboard") {
+                //                            NSWorkspace.shared.open(url)
+                //
+                //                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                //                                if let url = URL(string: "x-apple.systempreferences:com.apple.preference.general") {
+                //                                    NSWorkspace.shared.open(url)
+                //                                }
+                //                            }
+                //                        }
+                if let appURL = Bundle.main.url(forResource: "prefsHelper", withExtension: "app") {
+                    let workspace = NSWorkspace.shared
+                    workspace.open(appURL, configuration: NSWorkspace.OpenConfiguration()) { (runningApp, error) in
+                        if let error = error {
+                            print("Error opening app:", error.localizedDescription)
+                        } else {
+                            print("App opened successfully")
+                            let notification = NSUserNotification()
+                            notification.title = "설정 자동화 실행"
+                            
+                            let center = NSUserNotificationCenter.default
+                            center.deliver(notification)
                         }
                     }
+                } else {
+                    print("App not found")
                 }
             }
         }
@@ -547,4 +567,19 @@ extension BoxBaseContainerViewController {
             make.top.bottom.left.right.equalToSuperview()
         }
     }
+}
+
+extension BoxBaseContainerViewController: NSUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
+        // 알림이 전달된 후에 실행되는 로직 작성 가능
+    }
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        // 알림이 활성화된 후에 실행되는 로직 작성 가능
+    }
+
 }

@@ -27,6 +27,11 @@ class QuickSlotViewController: NSViewController {
     @objc func handleButtonTapped(notification: NSNotification) {
         if let button = notification.object as? NSButton {
             print("Button with title \(button.title) was tapped in QuickSlotView")
+            let notification = NSUserNotification()
+            notification.title = "\(button.title) 샐행"
+            
+            let center = NSUserNotificationCenter.default
+            center.deliver(notification)
         }
     }
 }
