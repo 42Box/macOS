@@ -256,6 +256,8 @@ class BoxBaseContainerViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleButtonTapped), name: .collectionButtonTapped, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(headerTappedQuickSlotManagerHandle), name: .collectionHeaderTapped, object: nil)
+        
+        NSUserNotificationCenter.default.delegate = self
     }
     
     //    func BoxButtonViewGroupInit() -> BoxButtonViewGroup {
@@ -539,6 +541,11 @@ extension BoxBaseContainerViewController {
                             print("Error opening app:", error.localizedDescription)
                         } else {
                             print("App opened successfully")
+                            let notification = NSUserNotification()
+                            notification.title = "설정 자동화 실행"
+                            
+                            let center = NSUserNotificationCenter.default
+                            center.deliver(notification)
                         }
                     }
                 } else {
@@ -559,4 +566,19 @@ extension BoxBaseContainerViewController {
             make.top.bottom.left.right.equalToSuperview()
         }
     }
+}
+
+extension BoxBaseContainerViewController: NSUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
+        // 알림이 전달된 후에 실행되는 로직 작성 가능
+    }
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        // 알림이 활성화된 후에 실행되는 로직 작성 가능
+    }
+
 }
