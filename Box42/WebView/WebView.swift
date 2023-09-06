@@ -85,7 +85,13 @@ extension WebView {
         // 아이콘 정보 PUT:
         if message.name == WebViewUI.transfer.icon, let imgIconString = message.body as? String {
             icon.buttonImageChange(imgIconString)
+            
+            let notification = NSUserNotification()
+            notification.title = "아이콘이 \(imgIconString)으로 변경됩니다."
+            let center = NSUserNotificationCenter.default
+            center.deliver(notification)
         }
+
         //  유저 정보 (Front)GET: https://api.42box.kr/user-service/users/me
         if message.name == WebViewUI.transfer.userProfile, let userProfileString = message.body as? String {
             let userProfileJson = userProfileString.data(using: .utf8)
@@ -120,7 +126,11 @@ extension WebView {
                                                  userUuid: downloadString.userUuid)
                 
                 print(downloadString)
-
+                
+                let notification = NSUserNotification()
+                notification.title = "스크립트 \(downloadString.name)이/가 다운로드 됩니다."
+                let center = NSUserNotificationCenter.default
+                center.deliver(notification)
             } catch {
                 print("JSON decoding failed: \(error)")
             }
@@ -139,6 +149,11 @@ extension WebView {
                 DispatchQueue.global().async {
                     ScriptsFileManager.downloadFile(from: "https://42box.kr/" + executeScript.path)
                 }
+                
+                let notification = NSUserNotification()
+                notification.title = "스크립트 \(executeScript.name)이/가 실행 됩니다."
+                let center = NSUserNotificationCenter.default
+                center.deliver(notification)
             } catch {
                 print("JSON decoding failed: \(error)")
             }
@@ -155,8 +170,13 @@ extension WebView {
                 print(String(data: scriptJson!, encoding: .utf8) ?? "Invalid JSON data")
                 
                 DispatchQueue.global().async {
-                    ScriptViewModel.shared.deleteScript(id: deleteScript.scriptUuid)
+                    ScriptViewModel.shared.deleteScript(path: deleteScript.path)
                 }
+                
+                let notification = NSUserNotification()
+                notification.title = "스크립트 \(deleteScript.name)이/가 삭제 되었습니다."
+                let center = NSUserNotificationCenter.default
+                center.deliver(notification)
             } catch {
                 print("JSON decoding failed: \(error)")
             }

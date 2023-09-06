@@ -13,8 +13,8 @@ class StorageView: NSView {
     var currentStorageTextField: NSTextField = NSTextField()
     var remainingStorageTextField: NSTextField = NSTextField()
     var totalStorageTextField: NSTextField = NSTextField()
-    var thresholdTextField: NSTextField = NSTextField()
-    var intervalTextField: NSTextField = NSTextField()
+//    var thresholdTextField: NSTextField = NSTextField()
+//    var intervalTextField: NSTextField = NSTextField()
     var executeScriptButton: NSButton = NSButton()
     
     override init(frame frameRect: NSRect) {
@@ -24,8 +24,8 @@ class StorageView: NSView {
         addSubview(currentStorageTextField)
         addSubview(remainingStorageTextField)
         addSubview(totalStorageTextField)
-        addSubview(thresholdTextField)
-        addSubview(intervalTextField)
+//        addSubview(thresholdTextField)
+//        addSubview(intervalTextField)
         addSubview(executeScriptButton)
         
         // Initialize UI elements
@@ -42,21 +42,32 @@ class StorageView: NSView {
     
     func initTextFields() {
         // Initialize textfields
-        let labels = [currentStorageTextField, remainingStorageTextField, totalStorageTextField, thresholdTextField, intervalTextField]
+        let labels = [currentStorageTextField, remainingStorageTextField, totalStorageTextField] ///, thresholdTextField, intervalTextField]
         for label in labels {
             label.font = NSFont.systemFont(ofSize: 14, weight: .semibold)
             label.isEditable = false
             label.isBordered = false
             label.backgroundColor = NSColor.clear
         }
-        currentStorageTextField.stringValue = "Current Storage      : ?? GB"
-        remainingStorageTextField.stringValue = "Remaining Storage : ?? GB"
-        totalStorageTextField.stringValue = "Total Storage            : ?? GB"
-        thresholdTextField.placeholderString = "Enter threshold (%)"
-        intervalTextField.placeholderString = "Enter interval (seconds)"
+        
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .decimal
+        
+        let usedStorage = formatter.string(from: NSNumber(value: Storage.shared.usedUsage ?? 0)) ?? "0"
+        let remainingStorage = formatter.string(from: NSNumber(value: Storage.shared.availableUsage ?? 0)) ?? "0"
+        let totalStorage = formatter.string(from: NSNumber(value: Storage.shared.totalUsage ?? 0)) ?? "0"
+        
+        currentStorageTextField.stringValue = "Current Storage      :  \(usedStorage) GB"
+        remainingStorageTextField.stringValue = "Remaining Storage : \(remainingStorage) GB"
+        totalStorageTextField.stringValue = "Total Storage            : \(totalStorage) GB"
 
-        intervalTextField.isEditable = true
-        thresholdTextField.isEditable = true
+//        thresholdTextField.placeholderString = "Enter threshold (%)"
+//        intervalTextField.placeholderString = "Enter interval (seconds)"
+//
+//        intervalTextField.isEditable = true
+//        thresholdTextField.isEditable = true
     }
     
     func initButton() {
@@ -84,22 +95,22 @@ class StorageView: NSView {
             make.leading.equalToSuperview().offset(20)
         }
         
-        thresholdTextField.snp.makeConstraints { make in
-            make.top.equalTo(totalStorageTextField.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
-        
-        intervalTextField.snp.makeConstraints { make in
-            make.top.equalTo(thresholdTextField.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
+//        thresholdTextField.snp.makeConstraints { make in
+//            make.top.equalTo(totalStorageTextField.snp.bottom).offset(10)
+//            make.leading.equalToSuperview().offset(20)
+//            make.height.equalTo(30)
+//            make.width.equalTo(100)
+//        }
+//
+//        intervalTextField.snp.makeConstraints { make in
+//            make.top.equalTo(thresholdTextField.snp.bottom).offset(10)
+//            make.leading.equalToSuperview().offset(20)
+//            make.height.equalTo(30)
+//            make.width.equalTo(100)
+//        }
         
         executeScriptButton.snp.makeConstraints { make in
-            make.top.equalTo(intervalTextField.snp.bottom).offset(0) // 여기에 20을 추가합니다.
+            make.top.equalTo(totalStorageTextField.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.width.equalTo(70)
             make.height.equalTo(30)
@@ -107,7 +118,7 @@ class StorageView: NSView {
     }
     
     @objc func runScript(_ sender: NSButton) {
-        // Logic to run script
+        Storage.shared.storageTimerEvent()
     }
     
     // Update storage information

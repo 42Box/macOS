@@ -11,7 +11,6 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     var menubarController = MenubarViewController()
     var iconController: IconController?
-    lazy var storage = Storage()
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         menubarController.menubarViewControllerInit()
@@ -24,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //        hotkey()
         self.eventMonitoring()
         
-//        storage.storageTimerEvent()
+        Storage.shared.storageTimerEvent()
         _ = UserManager.shared
         _ = QuickSlotScriptsLogicController.shared
         

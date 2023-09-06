@@ -11,13 +11,13 @@ import SnapKit
 enum PreferencesCellList: CaseIterable {
     case notifiactionSetting
     case shortcutSetting
-    case iconSetting
+//    case iconSetting
     case requestAccess
     case storage
-    case cpu
-    case memory
-    case battery
-    case network
+//    case cpu
+//    case memory
+//    case battery
+//    case network
     
     var height: CGFloat {
         switch self {
@@ -25,20 +25,21 @@ enum PreferencesCellList: CaseIterable {
             return 120
         case .shortcutSetting:
             return 220
-        case .iconSetting:
-            return 150
         case .requestAccess:
             return 200
         case .storage:
             return 210.0
-        case .cpu:
-            return 150
-        case .memory:
-            return 160
-        case .battery:
-            return 140
-        case .network:
-            return 130
+
+//        case .iconSetting:
+//            return 150
+//        case .cpu:
+//            return 150
+//        case .memory:
+//            return 160
+//        case .battery:
+//            return 140
+//        case .network:
+//            return 130
         }
     }
 }
@@ -80,20 +81,20 @@ extension PreferencesTableView: NSTableViewDelegate, NSTableViewDataSource {
                 return notifiactionSettingView
             case .shortcutSetting:
                 return shortcutSettingView
-            case .iconSetting:
-                return iconSettingView
             case .requestAccess:
                 return requestAccessView
             case .storage:
                 return storageView
-            case .cpu:
-                return cpuView
-            case .memory:
-                return memoryView
-            case .battery:
-                return batteryView
-            case .network:
-                return networkView
+//            case .iconSetting:
+//                return iconSettingView
+//            case .cpu:
+//                return cpuView
+//            case .memory:
+//                return memoryView
+//            case .battery:
+//                return batteryView
+//            case .network:
+//                return networkView
             }
         }
         return NSView() // Default view if out of bounds or undefined

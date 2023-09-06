@@ -127,6 +127,7 @@
 		DE9B57782AA66DCD007B796C /* BookmarkUpdateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B57772AA66DCD007B796C /* BookmarkUpdateButton.swift */; };
 		DE9B577C2AA66DEA007B796C /* BookmarkDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B577B2AA66DEA007B796C /* BookmarkDeleteButton.swift */; };
 		DE9B577F2AA66DF9007B796C /* BookmarkCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B577E2AA66DF9007B796C /* BookmarkCreateButton.swift */; };
+		DE9B57872AA88730007B796C /* CleanCache_cluster.sh in Resources */ = {isa = PBXBuildFile; fileRef = DE9B57862AA88730007B796C /* CleanCache_cluster.sh */; };
 		DE9DA8142A97F20E001C0D3B /* ButtonGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */; };
 		DEB862D42A85124500278FCD /* cleanCache.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D32A85124500278FCD /* cleanCache.sh */; };
 		DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */ = {isa = PBXBuildFile; fileRef = DEB862D82A852C4500278FCD /* brewInGoinfre.sh */; };
@@ -268,6 +269,7 @@
 		DE9B57772AA66DCD007B796C /* BookmarkUpdateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkUpdateButton.swift; sourceTree = "<group>"; };
 		DE9B577B2AA66DEA007B796C /* BookmarkDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDeleteButton.swift; sourceTree = "<group>"; };
 		DE9B577E2AA66DF9007B796C /* BookmarkCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCreateButton.swift; sourceTree = "<group>"; };
+		DE9B57862AA88730007B796C /* CleanCache_cluster.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CleanCache_cluster.sh; sourceTree = "<group>"; };
 		DE9DA8132A97F20E001C0D3B /* ButtonGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGroupViewController.swift; sourceTree = "<group>"; };
 		DEB862D32A85124500278FCD /* cleanCache.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanCache.sh; sourceTree = "<group>"; };
 		DEB862D82A852C4500278FCD /* brewInGoinfre.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = brewInGoinfre.sh; sourceTree = "<group>"; };
@@ -811,6 +813,7 @@
 		DEB862DE2A85348600278FCD /* sh */ = {
 			isa = PBXGroup;
 			children = (
+				DE9B57862AA88730007B796C /* CleanCache_cluster.sh */,
 				DE1F1A122A8B506600A88DD8 /* exportMacOSInfo.sh */,
 				DE1F1A112A8B506600A88DD8 /* importMacOSInfo.sh */,
 				DE1F1A132A8B506600A88DD8 /* keyMapping.sh */,
@@ -947,6 +950,7 @@
 				DE7F9D462A9B7A4700F8ACAE /* QuickSlotButtonViewItem.xib in Resources */,
 				DEB862D92A852C4500278FCD /* brewInGoinfre.sh in Resources */,
 				DE62BE5A2A9BA31700D97E06 /* QuickSlotButtonCollectionViewController.xib in Resources */,
+				DE9B57872AA88730007B796C /* CleanCache_cluster.sh in Resources */,
 				D67E67992AA83531005A61CF /* prefsHelper.app in Resources */,
 				DE018BE02A509B0600FF0AA3 /* Assets.xcassets in Resources */,
 			);

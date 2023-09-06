@@ -1,1 +1,1 @@
-defaults export -g ~/.mysettings.plist
+defaults export -g /USER/$USER/.mysettings.plist
