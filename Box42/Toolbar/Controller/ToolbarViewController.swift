@@ -8,6 +8,9 @@
 import Cocoa
 
 class ToolbarViewController: NSViewController {
+    var baseContainerVC: BoxBaseContainerViewController?
+    var toolbarViewGroup: BoxToolbarViewGroup?
+    
     override func loadView() {
         let toolbarViewGroup = BoxToolbarViewGroup()
         
@@ -19,28 +22,13 @@ class ToolbarViewController: NSViewController {
         
         self.view = toolbarViewGroup
     }
-    var baseContainerVC: BoxBaseContainerViewController?
-    var toolbarViewGroup: BoxToolbarViewGroup?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         toolbarViewGroup = BoxToolbarViewGroup()
         toolbarViewGroup?.sidebar = sidebar
-        
     }
-    
-    //    func runPrefsHelperApplication() {
-    //        let prefsHelperAppPath = "/Users/daskim/Downloads/prefsHelper.app" // prefsHelper.app의 경로
-    //
-    //        let appURL = URL(fileURLWithPath: prefsHelperAppPath)
-    //
-    //        let workspace = NSWorkspace.shared
-    //        do {
-    //            try workspace.open([appURL], withAppBundleIdentifier: nil, options: [], additionalEventParamDescriptor: nil, launchIdentifiers: nil)
-    //        } catch {
-    //            print("Error opening app: \(error)")
-    //        }
-    //    }
     
     lazy var sidebarLeading: SideBarLeading = SideBarLeading(image: NSImage(imageLiteralResourceName: "toggle-on"), completion: { [weak self] in self?.sidebar() })
     lazy var pinButton: PinButtonView = PinButtonView(title: "", image: NSImage(imageLiteralResourceName: "pin-box"), completion: { StateManager.shared.togglePin()
@@ -56,9 +44,6 @@ class ToolbarViewController: NSViewController {
     })
     
     func sidebar() {
-        //         print("sidebar")
-        //         BookmarkViewModel.shared.addBookmark(item: URLItem(name: "chan", url: "https://42box.kr/"))
-        toolbarViewGroup = BoxToolbarViewGroup()
         if let baseContainerVC = baseContainerVC {
             baseContainerVC.leftView.isHidden.toggle()
             
@@ -91,8 +76,6 @@ class ToolbarViewController: NSViewController {
                 sidebarLeading.removeFromSuperview()
                 pinButton.removeFromSuperview()
             }
-            
-            // 제약 조건을 다시 설정
             baseContainerVC.view.layoutSubtreeIfNeeded()
         }
     }

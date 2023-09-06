@@ -15,10 +15,10 @@ class ScriptViewModel: NSObject {
     
     private override init() {
         self.scripts = [
-            Script(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3"),
-                   name: "CleanCache",
-                   description: "Cleaning cache",
-                   path: Bundle.main.path(forResource: "cleanCache", ofType: "sh") ?? "", savedId: -1 , userUuid: nil),
+            Script(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3")!,
+                   name: "CleanCache_cluster",
+                   description: "Cleaning cache in cluster",
+                   path: Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh") ?? "", savedId: -1 , userUuid: nil),
             //            Script(name: "brewInGoinfre",
             //                   description: "Brew download in goinfre",
             //                   path: Bundle.main.path(forResource: "brewInGoinfre", ofType: "sh") ?? "", savedId: -1, userUuid: nil),
@@ -35,11 +35,11 @@ class ScriptViewModel: NSObject {
             //                   description: "node Install",
             //                   path: Bundle.main.path(forResource: "nodeInstall", ofType: "sh") ?? "", savedId: -1, userUuid: nil)
         ]
-        API.initializeUserMeScripts(WebViewManager.shared.getCookieWebKit)
+        API.initializeUserMeScripts()
     }
     
     // Create
-    func addScript(scriptUuid: UUID?, name: String, description: String?, path: String, savedId: Int?, userUuid: String?) {
+    func addScript(scriptUuid: UUID, name: String, description: String?, path: String, savedId: Int?, userUuid: String?) {
         let newScript = Script(scriptUuid: scriptUuid, name: name, description: description, path: path, savedId: savedId, userUuid: userUuid)
         scripts.append(newScript)
     }

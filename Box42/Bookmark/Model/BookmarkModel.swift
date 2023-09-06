@@ -10,7 +10,7 @@ struct URLList: Codable {
 }
 
 struct URLItem: Codable {
-    let name: String
+    var name: String
     let url: String
 }
 

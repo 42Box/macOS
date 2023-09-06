@@ -63,17 +63,18 @@ class BookmarkCellManager: NSTableCellView {
         }
     }
     
-    func configure(with urlitem: URLItem, viewModel: BookmarkViewModel?) {
-        self.urlitem = urlitem
-        self.viewModel = viewModel
-        nameLabel.stringValue = urlitem.name
-        descriptionLabel.stringValue = urlitem.url
-        
+    func configure() {
         excuteButton.target = self
-        excuteButton.action = #selector(excuteButtonClicked)
+        excuteButton.action = #selector(addButtonClicked)
     }
     
-    @objc func excuteButtonClicked() {
+    @objc func addButtonClicked() {
+        if nameLabel.stringValue.contains(",") || nameLabel.stringValue.contains(";") ||
+            descriptionLabel.stringValue.contains(",") || descriptionLabel.stringValue.contains(";") {
+            print("no")
+            return
+        }
+        
         BookmarkViewModel.shared.addBookmark(item: URLItem(name: nameLabel.stringValue, url: descriptionLabel.stringValue))
     }
 }

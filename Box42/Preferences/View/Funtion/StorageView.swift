@@ -118,7 +118,12 @@ class StorageView: NSView {
     }
     
     @objc func runScript(_ sender: NSButton) {
-        Storage.shared.storageTimerEvent()
+//        Storage.shared.storageTimerEvent()
+        
+        let notification = NSUserNotification()
+        notification.title = "자동화 스크립트를 실행합니다."
+        let center = NSUserNotificationCenter.default
+        center.deliver(notification)
     }
     
     // Update storage information

@@ -54,8 +54,8 @@ extension QuickSlotTableView: NSTableViewDelegate, NSTableViewDataSource {
         }
     }
 
-    private func getQuickSlotCell(for quickSlotItem: QuickSlotButtonModel, viewModel: QuickSlotViewModel) -> QuickSlotCell {
-        let cell = QuickSlotCell(frame: .zero)
+    private func getQuickSlotCell(for quickSlotItem: QuickSlotButtonModel, viewModel: QuickSlotViewModel) -> QuickSlotTableCell {
+        let cell = QuickSlotTableCell(frame: .zero)
         cell.configure(with: quickSlotItem, viewModel: viewModel)
         return cell
     }

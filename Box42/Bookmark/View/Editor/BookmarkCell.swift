@@ -12,10 +12,11 @@ class BookmarkCell: NSTableCellView {
     var nameLabel: NSTextField = NSTextField()
     var descriptionLabel: NSTextField = NSTextField()
     var deleteButton: BookmarkDeleteButton = BookmarkDeleteButton()
-    var quickSlotButton: BookmarkUpdateButton = BookmarkUpdateButton()
+    var upadteButton: BookmarkUpdateButton = BookmarkUpdateButton()
     
     var viewModel: BookmarkViewModel?
     var urlitem: URLItem?
+    var urlIndex: Int?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -39,7 +40,7 @@ class BookmarkCell: NSTableCellView {
         }
         addSubview(nameLabel)
         addSubview(descriptionLabel)
-        addSubview(quickSlotButton)
+        addSubview(upadteButton)
         addSubview(deleteButton)
         
         nameLabel.snp.makeConstraints { make in
@@ -56,7 +57,7 @@ class BookmarkCell: NSTableCellView {
             make.height.equalTo(40)
         }
         
-        quickSlotButton.snp.makeConstraints { make in
+        upadteButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalTo(deleteButton.snp.left).offset(-8)
             make.width.equalTo(53)
@@ -66,15 +67,14 @@ class BookmarkCell: NSTableCellView {
         descriptionLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(nameLabel.snp.right).offset(8)
-            make.right.lessThanOrEqualTo(quickSlotButton.snp.left).offset(-8)
+            make.right.lessThanOrEqualTo(upadteButton.snp.left).offset(-8)
             make.width.greaterThanOrEqualTo(100).priority(.low) // 최소 너비와 낮은 우선순위 설정
             make.height.equalTo(30)
         }
     }
     
-    
-    
-    func configure(with urlitem: URLItem, viewModel: BookmarkViewModel?) {
+    func configure(index: Int, urlitem: URLItem, viewModel: BookmarkViewModel?) {
+        self.urlIndex = index
         self.urlitem = urlitem
         self.viewModel = viewModel
         nameLabel.stringValue = urlitem.name
@@ -83,9 +83,8 @@ class BookmarkCell: NSTableCellView {
         deleteButton.target = self
         deleteButton.action = #selector(deleteButtonClicked)
         
-        quickSlotButton.target = self
-        quickSlotButton.action = #selector(quickSlotButtonclicked)
-//        NSColor(hex: "#E7E7E7").cgColor
+        upadteButton.target = self
+        upadteButton.action = #selector(upadteButtonclicked)
     }
     
     @objc func deleteButtonClicked() {
@@ -94,15 +93,9 @@ class BookmarkCell: NSTableCellView {
         }
     }
     
-    @objc func quickSlotButtonclicked() {
-        if let tableView = self.superview as? NSTableView {
-            let rowIndex = tableView.row(for: self)
-            print("현재 셀의 index: \(rowIndex)")
-            
-            if let updateItem = urlitem {
-                print(rowIndex, updateItem)
-//                BookmarkViewModel.shared.updateBookmark(rowIndex, item: updateItem)
-            }
-        }
+    @objc func upadteButtonclicked() {
+        let updateItem = URLItem(name: nameLabel.stringValue, url: descriptionLabel.stringValue)
+        BookmarkViewModel.shared.updateBookmark(index: urlIndex ?? -1, item: updateItem)
     }
+
 }

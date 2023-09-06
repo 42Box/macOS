@@ -10,11 +10,13 @@ import WebKit
 import SnapKit
 
 class DisplayURLInToolbar: NSView {
+    static let shared = DisplayURLInToolbar()
+    
     var URLTextfield: DisplayURLTextfield = DisplayURLTextfield()
     var originalString: String = ""
     
-    override init(frame frameRect: NSRect) {
-        super.init(frame: .zero)
+    private override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor(hex: "#7FFFFFFF").cgColor
         self.layer?.cornerRadius = 13
@@ -81,18 +83,22 @@ extension DisplayURLInToolbar: NSTextFieldDelegate {
 
 extension DisplayURLInToolbar: WKNavigationDelegate {
     func updateURL() {
-        if let url = WebViewManager.shared.hostingWebView?.url {
-            originalString = url.absoluteString
-            let showURLString: [String?] = originalString.split(separator: "/").map{String($0)}
-            if showURLString.count > 1 {
-                URLTextfield.stringValue = (showURLString[1] ?? "")
+        DispatchQueue.main.async {
+            if let url = WebViewManager.shared.hostingWebView?.url {
+                self.originalString = url.absoluteString
+                let showURLString: [String?] = self.originalString.split(separator: "/").map{String($0)}
+                if showURLString.count > 1 {
+                    self.URLTextfield.stringValue = (showURLString[1] ?? "")
+                }
+                self.URLTextfield.needsDisplay = true
+                self.URLTextfield.display()
             }
-            print(originalString)
+            
+            print(self.URLTextfield.stringValue)
+            print(self.originalString)
         }
     }
-}
-
-extension DisplayURLInToolbar {
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("Navigation finished")
         updateURL()

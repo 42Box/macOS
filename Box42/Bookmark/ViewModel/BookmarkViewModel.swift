@@ -26,7 +26,7 @@ class BookmarkViewModel: NSObject {
                              URLItem(name: "Cabi", url: "https://cabi.42seoul.io/"),
               ]}
     
-    // Create
+    // Create by frontend
     func addBookmarkByFront(item: URLItem) {
         bookMarkList.append(item)
         loadWebView(item.name, item.url)
@@ -37,23 +37,18 @@ class BookmarkViewModel: NSObject {
         bookMarkList.append(item)
         loadWebView(item.name, item.url)
         
-        let body = URLList(urlList: bookMarkList)
-        API.putUserMeUrlList(urlList: body) { result in
-            switch result {
-            case .success(_):
-                print("Successfully updated the scripts.") // 혹은 사용자에게 보여줄 알림 추가
-            case .failure(let error):
-                print("Failed to update scripts: \(error.localizedDescription)") // 혹은 사용자에게 보여줄 알림 추가
-            }
-        }
+        requestPutBookmark()
     }
     
     func updateBookmark(index: Int, item: URLItem) {
+        if index == -1 { return }
         WebViewManager.shared.list[item.name]?.navigationDelegate = nil
         WebViewManager.shared.list[item.name]?.stopLoading()
         WebViewManager.shared.list[item.name] = nil
         bookMarkList[index] = item
         loadWebView(item.name, item.url)
+        
+        requestPutBookmark()
     }
     
     // Delete
@@ -62,6 +57,8 @@ class BookmarkViewModel: NSObject {
         WebViewManager.shared.list[item.name]?.stopLoading()
         WebViewManager.shared.list[item.name] = nil
         self.bookMarkList.removeAll(where: { $0 == item })
+        
+        requestPutBookmark()
     }
     
     // 새로운 북마크 배열로 교체하는 메소드
@@ -97,6 +94,18 @@ class BookmarkViewModel: NSObject {
                 DispatchQueue.main.async {
                     wkWebView.load(request)
                 }
+            }
+        }
+    }
+    
+    func requestPutBookmark() {
+        let body = URLList(urlList: bookMarkList)
+        API.putUserMeUrlList(urlList: body) { result in
+            switch result {
+            case .success(_):
+                print("Successfully updated the scripts.") // 혹은 사용자에게 보여줄 알림 추가
+            case .failure(let error):
+                print("Failed to update scripts: \(error.localizedDescription)") // 혹은 사용자에게 보여줄 알림 추가
             }
         }
     }

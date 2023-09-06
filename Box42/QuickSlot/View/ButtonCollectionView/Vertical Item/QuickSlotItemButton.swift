@@ -44,7 +44,9 @@ class QuickSlotItemButton: NSButton {
         )
         self.addTrackingArea(trackingArea)
         
+        // MARK: - 퀵슬롯 button에 associatedString 부여
         self.associatedString = buttonModel.path
+        print(self.associatedString)
     }
     
     required init?(coder: NSCoder) {
