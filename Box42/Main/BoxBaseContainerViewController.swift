@@ -242,6 +242,7 @@ class BoxBaseContainerViewController: NSViewController {
         
         bookmarkTableView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
         })
     }
     
@@ -416,7 +417,7 @@ extension BoxBaseContainerViewController: NSTableViewDataSource {
         
         button.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(2)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(12)
             make.trailing.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(44)
