@@ -19,8 +19,8 @@ class Storage {
 
     private var subscriptions = Set<AnyCancellable>()
     
-    var availableUsage: Double?
-    var usedUsage: Double?
+    @Published var availableUsage: Double?
+    @Published var usedUsage: Double?
     var totalUsage: Double?
         
     private init(config: StorageConfig = StorageConfig.shared) {
@@ -63,7 +63,7 @@ class Storage {
             return
         }
         
-        storageTimer = Timer.scheduledTimer(withTimeInterval: config.period.rawValue, repeats: true, block: { [weak self] _ in
+        storageTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             
             if self.checkStorage() {
@@ -72,9 +72,17 @@ class Storage {
             }
             
             if let usedUsage = self.usedUsage, let totalUsage = self.totalUsage, totalUsage != 0 {
-                let usagePercentage = (totalUsage - usedUsage) / totalUsage
-                if usagePercentage < self.config.threshold.rawValue {
-                    self.cleanSh()
+                let remain = (totalUsage - usedUsage)
+//                let usagePercentage = (totalUsage - usedUsage) / totalUsage
+//                if usagePercentage < self.config.threshold.rawValue {
+                if remain < 0.3 {
+                    self.autoCleanSh()
+                    
+                    let notification = NSUserNotification()
+                    notification.title = "자동 클린 캐시가 실행 되었습니다."
+                    let center = NSUserNotificationCenter.default
+                    center.deliver(notification)
+                    
                     self.count += 1
                     if self.count > 1 {
 //                        showMessageWithAppleScript("캐시 문제가 아닙니다. ncdu ~ 를 확인해주세요.", "재시작") { button in
@@ -93,6 +101,11 @@ class Storage {
 //                                }
 //                            }
 //                        }
+                        let notification = NSUserNotification()
+                        notification.title = "캐시 문제가 아닙니다. \n 용량을 확인해주세요."
+                        let center = NSUserNotificationCenter.default
+                        center.deliver(notification)
+                        
                         StateManager.shared.setOffAutoStorage()
                         self.storageTimer?.invalidate()
                     } else {
@@ -101,6 +114,7 @@ class Storage {
                 } else {
                     self.count = 0
                 }
+                
             } else {
                 print("Failed to get storage usage details")
             }
@@ -110,7 +124,7 @@ class Storage {
     }
 
     
-    func cleanSh() {
+    func autoCleanSh() {
         if let scriptPath = Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh") {
             let task = Process()
             task.launchPath = "/bin/sh"

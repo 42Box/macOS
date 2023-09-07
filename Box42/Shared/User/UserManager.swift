@@ -9,11 +9,13 @@ import Foundation
 
 class UserManager {
     static let shared = UserManager()
+    
     var userProfile: UserProfile? {
         didSet {
             NotificationCenter.default.post(name: .didUpdateUserProfile, object: nil)
         }
     }
+    
     private let fileBookmarkKey = "myFileAppSandBox"
     
     private init() {}
@@ -32,6 +34,8 @@ class UserManager {
     func updateUserProfile(newProfile: UserProfile?) {
         if let new = newProfile {
             self.userProfile = new
+            BookmarkViewModel.shared.bookMarkList = newProfile?.urlList ?? UserProfile.defaultProfile().urlList
+            QuickSlotViewModel.shared.buttons = newProfile?.quickSlotList ?? UserProfile.defaultProfile().quickSlotList
         } else {
             self.userProfile = UserProfile.defaultProfile()
         }

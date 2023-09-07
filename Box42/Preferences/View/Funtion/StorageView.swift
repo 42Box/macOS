@@ -7,6 +7,7 @@
 
 import AppKit
 import SnapKit
+import Combine
 
 class StorageView: NSView {
     
@@ -16,7 +17,8 @@ class StorageView: NSView {
 //    var thresholdTextField: NSTextField = NSTextField()
 //    var intervalTextField: NSTextField = NSTextField()
     var executeScriptButton: NSButton = NSButton()
-    
+    private var subscriptions = Set<AnyCancellable>()
+
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
@@ -34,6 +36,8 @@ class StorageView: NSView {
         
         // Set constraints
         setConstraints()
+        bindStorageValues()
+
     }
     
     required init?(coder: NSCoder) {
@@ -118,8 +122,8 @@ class StorageView: NSView {
     }
     
     @objc func runScript(_ sender: NSButton) {
-//        Storage.shared.storageTimerEvent()
-        
+        StateManager.shared.autoStorage = true
+        Storage.shared.storageTimerEvent()
         let notification = NSUserNotification()
         notification.title = "자동화 스크립트를 실행합니다."
         let center = NSUserNotificationCenter.default
@@ -132,4 +136,27 @@ class StorageView: NSView {
         remainingStorageTextField.stringValue = "Remaining Storage: \(remaining) GB"
         totalStorageTextField.stringValue = "Total Storage: \(total) GB"
     }
+    
+    private func bindStorageValues() {
+            let formatter = NumberFormatter()
+            formatter.minimumFractionDigits = 2
+            formatter.maximumFractionDigits = 2
+            formatter.numberStyle = .decimal
+            
+            Storage.shared.$usedUsage
+                .map { formatter.string(from: NSNumber(value: $0 ?? 0)) ?? "0" }
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] value in
+                    self?.currentStorageTextField.stringValue = "Current Storage      :  \(value) GB"
+                }
+                .store(in: &subscriptions)
+            
+            Storage.shared.$availableUsage
+                .map { formatter.string(from: NSNumber(value: $0 ?? 0)) ?? "0" }
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] value in
+                    self?.remainingStorageTextField.stringValue = "Remaining Storage : \(value) GB"
+                }
+                .store(in: &subscriptions)
+        }
 }
