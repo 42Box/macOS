@@ -13,7 +13,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var iconController: IconController?
     
     func applicationWillFinishLaunching(_ notification: Notification) {
-        Storage.shared.storageTimerEvent()
         menubarController.menubarViewControllerInit()
     }
     
@@ -32,6 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         API.getUserProfile(WebViewManager.shared.getCookieWebKit)
         _ = ScriptViewModel.shared
         _ = BookmarkViewModel.shared
+        
+        Storage.shared.storageTimerEvent()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

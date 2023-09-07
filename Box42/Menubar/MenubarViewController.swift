@@ -117,7 +117,7 @@ extension MenubarViewController: MenubarViewControllerDelegate {
                let window = boxWindowController?.window {
                 if StateManager.shared.showFirstWindow == false {
                     let buttonFrame = button.window?.convertToScreen(button.frame) ?? NSZeroRect
-                    let desiredPosition = NSPoint(x: buttonFrame.origin.x - (BoxSizeManager.shared.size.width / 2) - 10, y: buttonFrame.origin.y - window.frame.height)
+                    let desiredPosition = NSPoint(x: buttonFrame.origin.x - (BoxSizeManager.shared.size.width / 2) - 120, y: buttonFrame.origin.y - window.frame.height)
                     
                     window.setFrameOrigin(desiredPosition)
                     StateManager.shared.toggleShowFirstWindow()

@@ -34,4 +34,22 @@ extension UserProfile {
             ]
         )
     }
+    
+    static func defaultQuickSlot() -> [QuickSlotButtonModel] {
+        return [
+            QuickSlotButtonModel(scriptUuid: UUID(uuidString: "37a56076-e72c-4efe-ba7f-de0effe7f4c3f"),
+                                 title: QuickSlotUI.title.clean,
+                                 path: Bundle.main.path(forResource: "CleanCache_cluster", ofType: "sh"),
+                                 type: "sh"
+            )
+            , QuickSlotButtonModel(title: QuickSlotUI.title.preferences,
+                                   path: "default-preferences",
+                                   type: "default-pref")
+            , QuickSlotButtonModel(title: QuickSlotUI.title.scripts,
+                                   path: "default-scripts",
+                                   type: "default-sh")
+            , QuickSlotButtonModel(title: QuickSlotUI.title.user,
+                                   path: "default-user",
+                                   type: "default-pref")]
+    }
 }
