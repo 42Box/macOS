@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var iconController: IconController?
     
     func applicationWillFinishLaunching(_ notification: Notification) {
+        Storage.shared.storageTimerEvent()
         menubarController.menubarViewControllerInit()
     }
     
